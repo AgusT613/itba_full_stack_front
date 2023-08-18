@@ -4,12 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesion</title>
+    <link rel="stylesheet" href="./inicioSesion.css">
 </head>
 <body>
-    <main>
-        <form action="#">
-            
-        </form>
-    </main>
+    <div class="pantallaInicioSesion">
+        <!-- Titulo de la pantalla de usuario -->
+        <header class="cabecera">
+            <h1 class="cabecera__titulo">Inicio de Sesion</h1>
+        </header>
+        <!-- Inicio de sesion -->
+        <main class="contenedor">
+            <form action="pagina_principal/pagina_principal.html" method="post" class="contenedor__formulario">
+                <!-- Importante tener el atributo "name" para recibir en el javascript los datos correctos -->
+                <label for="nombreUsuario" class="contenedor__campoNombre">Nombre de Usuario</label>
+                <input type="text" name="nombreUsuario" class="contenedor__campoNombre" placeholder="mariano14">
+                <label for="contraseña" class="contenedor__campoContraseña">Contraseña</label>
+                <input type="password" name="contraseña" class="contenedor__campoContraseña" placeholder="123456789">
+                <input type="submit" class="contenedor__botonEnviar">
+            </form>
+            <!-- Muestra mensaje de error si no se inicio sesion correctamente -->
+            <section class="contenedor__mensaje"></section>
+        </main>
+    </div>
+    <!-- Funcionalidad del boton de enviar en javascript -->
+    <script src="main.js"></script>
 </body>
 </html>
