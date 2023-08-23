@@ -1,5 +1,5 @@
 :root{
-    --main_bg_color: #1e1e20;
+    --main_bg_color: #29292d;
 }
 
 *, *::after, *::before {
@@ -23,16 +23,126 @@ body{
 }
 
 .cabecera{
-    align-self: center;
-    justify-self: center;
-    padding: 1em;
-    border: 3px solid red;
+    background: rgba(0, 0, 0, .4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contenedor{
-    height: 85%;
-    width: 350px;
+    width: 25em;
     align-self: center;
     justify-self: center;
-    border: 3px solid orange;
+}
+
+.contenedor__formulario{
+    background: rgba(0, 0, 0, .25);
+    height: 28em;
+    padding: 2em;
+    border-radius: 1em;
+    display: grid;
+    grid: repeat(3, 1fr);
+    gap: 2em;
+}
+
+.contenedor__datos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: .5em;
+}
+
+.contenedor__descripcionCampo{
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, .8);
+}
+
+.contenedor__inputCampo{
+    border: none;
+    background: none;
+    color: #ddd;
+    border-bottom: 2px solid #255C99;
+    font-size: 1.25em;
+    padding: .5em;
+}
+
+.contenedor__inputCampo:focus{
+    outline: none;
+    transition: .2s ease all;
+    border-bottom-left-radius: .5em;
+    border-left: 1px solid purple;
+    border-bottom: 1px solid purple;
+}
+
+.contenedor__botonEnviar{
+    align-self: center;
+    padding: .5em 0;
+    background: none;
+    border: none;
+    border-radius: .5em;
+    cursor: pointer;
+    color: #ddd;
+    font-size: 1.5em;
+    outline: 1px solid rgb(93, 127, 93);
+}
+
+.contenedor__botonEnviar:hover{
+    transition: .1s ease all;
+    outline: 4px solid rgb(93, 127, 93);
+    color: #fff;
+}
+
+.contenedor__mensaje{
+    color: #d34949;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 500px){
+    .contenedor{
+        background: rgba(0, 0, 0, .25);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .3s ease;
+    }
+
+    .contenedor__formulario{
+        background: none;
+        border-radius: 0;
+        height: 80%;
+    }
+}
+/* Media queries para el ancho de la pantalla */
+@media (max-width: 360px){
+    .pantallaInicioSesion{
+        font-size: .9em;
+    }
+}
+
+@media (max-width: 280px){
+    .pantallaInicioSesion{
+        font-size: .8em;
+    }
+}
+/* Media queries para la altura de la pantalla */
+@media (min-height: 1024px){
+    .pantallaInicioSesion{
+        font-size: 1.7em;
+    }
+}
+
+@media (min-height: 1200px){
+    .pantallaInicioSesion{
+        font-size: 2em;
+    }
+}
+
+@media (min-height: 1440px){
+    .pantallaInicioSesion{
+        font-size: 2.3em;
+    }
 }

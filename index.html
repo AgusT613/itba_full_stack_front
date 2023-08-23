@@ -10,20 +10,24 @@
     <div class="pantallaInicioSesion">
         <!-- Titulo de la pantalla de usuario -->
         <header class="cabecera">
-            <h1 class="cabecera__titulo">Inicio de Sesion</h1>
+            <h1 class="cabecera__titulo">ITBA Homebanking</h1>
         </header>
         <!-- Inicio de sesion -->
         <main class="contenedor">
             <form action="pagina_principal/pagina_principal.html" method="post" class="contenedor__formulario">
                 <!-- Importante tener el atributo "name" para recibir en el javascript los datos correctos -->
-                <label for="nombreUsuario" class="contenedor__campoNombre">Nombre de Usuario</label>
-                <input type="text" name="nombreUsuario" class="contenedor__campoNombre" placeholder="mariano14">
-                <label for="contraseña" class="contenedor__campoContraseña">Contraseña</label>
-                <input type="password" name="contraseña" class="contenedor__campoContraseña" placeholder="123456789">
-                <input type="submit" class="contenedor__botonEnviar">
+                <div class="contenedor__datos">
+                    <label for="nombreUsuario" class="contenedor__descripcionCampo">Nombre de usuario</label>
+                    <input type="text" name="nombreUsuario" class="contenedor__inputCampo" placeholder="mariano14">
+                </div>
+                <div class="contenedor__datos">
+                    <label for="contraseña" class="contenedor__descripcionCampo">Contraseña</label>
+                    <input type="password" name="contraseña" class="contenedor__inputCampo" placeholder="123456789">
+                </div>
+                <input type="submit" class="contenedor__botonEnviar" value="Iniciar Sesión">
+                <!-- Muestra mensaje de error si no se inicio sesion correctamente -->
+                <p class="contenedor__mensaje"></p>
             </form>
-            <!-- Muestra mensaje de error si no se inicio sesion correctamente -->
-            <section class="contenedor__mensaje"></section>
         </main>
     </div>
     <!-- Funcionalidad del boton de enviar en javascript -->
