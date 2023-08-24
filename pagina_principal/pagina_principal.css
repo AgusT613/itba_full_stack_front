@@ -180,6 +180,9 @@ a{
     min-height: calc(100vh - 3em - 6em);
     background: rgba(0, 0, 0, .3);
     padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* Caja Pie de Pagina */
 .mas__informacion{
@@ -213,7 +216,7 @@ a{
     letter-spacing: 1px;
 }
 .p__de__bienvenida{
-    padding: 55px;
+    padding: 0 .5em;
     font-size: 1.22em;
 }
 .p__de__bienvenida1, 
