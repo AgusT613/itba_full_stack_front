@@ -1,7 +1,3 @@
-:root{
-    --main_bg_color: #29292d;
-}
-
 *, *::after, *::before {
     margin: 0;
     padding: 0;
@@ -12,7 +8,8 @@ body{
 }
 
 .pantallaInicioSesion{
-    background: var(--main_bg_color);
+    background: rgb(169,19,223);
+    background: linear-gradient(45deg, rgba(169,19,223,0.8267682072829132) 0%, rgba(151,50,228,0.8883928571428571) 14%, rgba(122,91,235,0.9220063025210083) 30%, rgba(135,86,240,0.9164040616246498) 45%, rgba(59,122,245,0.8911939775910365) 60%, rgba(122,86,240,0.908000700280112) 75%, rgba(87,138,237,0.8855917366946778) 90%, rgba(180,19,223,0.8687850140056023) 100%);
     color: rgba(255, 255, 245, .86);
     height: 100vh;
     width: 100vw;
@@ -36,7 +33,7 @@ body{
 }
 
 .contenedor__formulario{
-    background: rgba(0, 0, 0, .25);
+    background: rgba(0, 0, 0, .6);
     height: 28em;
     padding: 2em;
     border-radius: 1em;
@@ -54,7 +51,6 @@ body{
 
 .contenedor__descripcionCampo{
     font-size: 1.5em;
-    color: rgba(255, 255, 255, .8);
 }
 
 .contenedor__inputCampo{
@@ -101,7 +97,7 @@ body{
 
 @media (max-width: 500px){
     .contenedor{
-        background: rgba(0, 0, 0, .25);
+        background: rgba(0, 0, 0, .6);
         height: 100%;
         width: 100%;
         display: flex;
