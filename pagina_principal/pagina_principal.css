@@ -176,3 +176,12 @@ a{
     font-weight: 100;
     letter-spacing: 1px;
 }
+.p__de__bienvenida{
+    padding: 55px;
+    font-size: 1.22em;
+}
+.p__de__bienvenida1, 
+.p__de__bienvenida2,
+.p__de__bienvenida3{
+    padding: 20px;
+}
