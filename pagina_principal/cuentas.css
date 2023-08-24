@@ -79,8 +79,9 @@ a{
 }
 /* Caja Header */
 .cabecera__titulo > h2{
-    text-align: center;
-    padding: .25em;
+    text-align: start;
+    padding: .25em 1em;
+    opacity: .7;
 }
 /* Caja Contenido Principal - Cards */
 .contenido__principal{

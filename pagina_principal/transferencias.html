@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="./transferencias.css">
 </head>
 <body>
-    <div class="pantallaTransferencias">
+    <div class="contenedor__pagina__principal">
+        <!-- Menu Lateral -->
         <aside class="menu__lateral">
-            <nav class="menu">
-                <ul>
+            <nav class="menu__navegacion">
+                <ul class="menu__link__paginas">
                     <li>
                         <a href="pagina_principal.html">Inicio</a>
                     </li>
@@ -26,17 +27,29 @@
                 </ul>
             </nav>
         </aside>
-        <header class="cabecera">
-            <h1 class="cabecera__titulo">ITBANK Homebanking</h1>
+        <!-- Cabecera con Titulos -->
+        <header class="cabecera__titulo">
+            <h2>ITBANK</h2>
         </header>
-        <main class="">
+        <!-- Contenido Principal -->
+        <main class="contenido__principal">
             <section class="transferencias">
                 <h2>Realizar transferencias</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non libero ipsam magnam ut voluptas accusantium quis harum laboriosam neque et ipsum, sapiente quos ullam modi voluptatibus porro, illo hic esse, commodi quibusdam ea eius repudiandae obcaecati architecto! Fugit quia, repellat alias vel voluptates eius optio odio ullam dolore? Nihil, quod.</p>
+                <form action="#" class="contenedor__formulario">
+                    <div class="contenedor__datos">
+                        <label for="receptor" class="contenedor__descripcionCampo">Receptor</label>
+                        <input type="receptor" name="receptor" class="contenedor__inputCampo" placeholder="Cuenta, contacto, correo">
+                    </div>
+                    <div class="contenedor__datos">
+                        <label for="monto" class="contenedor__descripcionCampo">Monto</label>
+                        <input type="text" name="monto" class="contenedor__inputCampo" placeholder="$$$">
+                    </div>
+                    <input type="submit" class="contenedor__botonEnviar" value="Enviar Dinero">
+                </form>
             </section>
             <section class="transferencias">
                 <h2>Historial de transferencias</h2>
-                <form action="" class="contenedor__formulario">
+                <form action="#" class="contenedor__formulario">
                     <div class="contenedor__datos">
                         <label for="date" class="contenedor__descripcionCampo">Desde</label>
                         <input type="date" name="fechaInicio" class="contenedor__inputCampo">
@@ -56,7 +69,8 @@
                 </form>
             </section>
         </main>
-        <footer class="pie__de__pagina">
+        <!-- Seccion Pie de Pagina -->
+        <footer class="mas__informacion">
             <section>
                 <h4>Legales</h4>
                 <ul>
@@ -69,7 +83,7 @@
                 </ul>
             </section>
             <section>
-                <h4>Informacion de contacto</h4>
+                <h4>Contacto</h4>
                 <ul>
                     <li>
                         <a href="" target="_blank">WhatsApp</a>
@@ -83,7 +97,7 @@
                 </ul>
             </section>
             <section>
-                <h4>Horario de atencion</h4>
+                <h4>Horarios</h4>
                 <p>Lunes a Viernes de 8hs a 18 hs</p>
             </section>
         </footer>
