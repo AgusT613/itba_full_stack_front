@@ -7,10 +7,11 @@
     <link href="cuentas.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <section class="contenedor__pagina__principal">
-        <aside class="menu__lateral">
-            <nav class="menu">
-                <ul>
+    <div class="contenedor__pagina__principal">
+         <!-- Menu Lateral -->
+         <aside class="menu__lateral">
+            <nav class="menu__navegacion">
+                <ul class="menu__link__paginas">
                     <li>
                         <a href="pagina_principal.html">Inicio</a>
                     </li>
@@ -26,36 +27,35 @@
                 </ul>
             </nav>
         </aside>
-        <header>
-            <h1></h1>
+        <!-- Cabecera con Titulos -->
+        <header class="cabecera__titulo">
+            <h2>Bienvenido a ITBANK</h2>
         </header>
-        <main>
-            <section>
-                <div class="caja">
-                    <div class="card">
-                        <h3> Cuenta: 251688 en pesos</h3>
-                            <div class="container">
-                                <h4> CA-C. Ahorro comun PFis</h4>
-                                <h2><b>Saldo: $ 48.890.58 </b></h2>
-                                <button class="boton"> Ver resumen Cta.</button> 
-                                <button class="boton"> Ver CBU</button>
-                                <button class="boton"> Solicitar baja</button>
-                            </div> 
-                    </div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="card">
-                        <h3> Cuenta: 251758 en pesos</h3>
-                            <div class="container">
-                                <h4> CA-C. Ahorro comun PFis</h4>
-                                <h2><b>Saldo: $ 208.990.58 </b></h2>
-                                <button class="boton"> Ver resumen Cta.</button> <br>
-                                <button class="boton"> Ver CBU</button>
-                                <button class="boton"> Solicitar baja</button>
-                            </div>
-                    </div>
+        <main class="contenido__principal">
+            <section class="caja">
+                <div class="card">
+                    <h3> Cuenta: 251688 en pesos</h3>
+                        <div class="container">
+                            <h4> CA-C. Ahorro comun PFis</h4>
+                            <h2><b>Saldo: $ 48.890.58 </b></h2>
+                            <button class="boton"> Ver resumen Cta.</button> 
+                            <button class="boton"> Ver CBU</button>
+                            <button class="boton"> Solicitar baja</button>
+                        </div> 
+                </div>
+                <div class="card">
+                    <h3> Cuenta: 251758 en pesos</h3>
+                        <div class="container">
+                            <h4> CA-C. Ahorro comun PFis</h4>
+                            <h2><b>Saldo: $ 208.990.58 </b></h2>
+                            <button class="boton"> Ver resumen Cta.</button> <br>
+                            <button class="boton"> Ver CBU</button>
+                            <button class="boton"> Solicitar baja</button>
+                        </div>
                 </div>
             </section>
         </main>
-        <footer class="pie__de__pagina">
+        <footer class="mas__informacion">
             <section>
                 <h4>Legales</h4>
                 <ul>
@@ -68,7 +68,7 @@
                 </ul>
             </section>
             <section>
-                <h4>Informacion de contacto</h4>
+                <h4>Contacto</h4>
                 <ul>
                     <li>
                         <a href="" target="_blank">WhatsApp</a>
@@ -82,10 +82,10 @@
                 </ul>
             </section>
             <section>
-                <h4>Horario de atencion</h4>
+                <h4>Horarios</h4>
                 <p>Lunes a Viernes de 8hs a 18 hs</p>
             </section>
         </footer>
-    </section>
+    </div>
 </body>
 </html>
