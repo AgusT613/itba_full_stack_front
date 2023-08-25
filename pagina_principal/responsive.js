@@ -1,8 +1,9 @@
+// Contenedors principales
 const menuLateral = document.querySelector('.menu__lateral')
 const menuHamgurguesa = document.querySelector('.menu__hamburguesa')
-
+// Saber en que momentos el menu esta visible o no
 let estadoDelMenu = false
-
+// Funcion para el responsive del menu hamburguesa
 const desplegarMenuLateral = (estado)=>{
     estadoDelMenu = estado
     if (estado) {

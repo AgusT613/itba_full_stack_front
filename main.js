@@ -15,9 +15,10 @@ const validaciones = {
 }
 
 const crearMensaje = (contenedorPadre, mensaje)=>{
-    // Si el contenedor del mensaje tiene un elemento hijo no muestra el mensaje otra vez
-    if (contenedorPadre.hasChildNodes() && contenedorPadre.textContent === mensaje) return
-    contenedorPadre.textContent = mensaje
+    // Se evita mostrar mas de un mensaje en la validacion de los datos
+    if (!contenedorPadre.hasChildNodes() || contenedorPadre.textContent !== mensaje) {
+        contenedorPadre.textContent = mensaje
+    }
 }
 
 const loguearUsuario = (evento)=>{
