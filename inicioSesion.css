@@ -7,6 +7,10 @@ body{
     overflow: hidden;
 }
 
+#logoindex {
+    width: 20%;   
+}
+
 .pantallaInicioSesion{
     background: rgb(169,19,223);
     background: linear-gradient(45deg, rgba(169,19,223,0.8267682072829132) 0%, rgba(151,50,228,0.8883928571428571) 14%, rgba(122,91,235,0.9220063025210083) 30%, rgba(135,86,240,0.9164040616246498) 45%, rgba(59,122,245,0.8911939775910365) 60%, rgba(122,86,240,0.908000700280112) 75%, rgba(87,138,237,0.8855917366946778) 90%, rgba(180,19,223,0.8687850140056023) 100%);
@@ -95,6 +99,12 @@ body{
     justify-content: center;
 }
 
+@media (max-width: 1000px){
+    #logoindex {
+        width: 32%;   
+    }
+}
+
 @media (max-width: 500px){
     .contenedor{
         background: rgba(0, 0, 0, .6);
@@ -111,11 +121,22 @@ body{
         border-radius: 0;
         height: 80%;
     }
+
+    #logoindex {
+        width: 45%;   
+    }
 }
 /* Media queries para el ancho de la pantalla */
 @media (max-width: 360px){
     .pantallaInicioSesion{
         font-size: .9em;
+    }
+
+    #logoindex {
+        width: 40%;   
+    }
+    .cabecera__titulo{
+        font-size: 1.5em;
     }
 }
 

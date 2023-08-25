@@ -92,6 +92,10 @@ a{
     justify-content: space-between;
 }
 
+#logo {
+    width: 100%;   
+}
+
 .menu__icono,
 .menu__cerrar__sesion{
     margin: 1em 0;
@@ -158,6 +162,7 @@ a{
     display: flex;
     flex-direction: column;
     gap: 1em;
+    
 }
 
 .tablaPagos{
