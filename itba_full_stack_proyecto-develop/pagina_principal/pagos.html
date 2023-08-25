@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITBANK - Pagos</title>
+    <link rel="shortcut icon" href="../images/icono.PNG" type="image/x-icon">
+    <link href="./pagos.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+    <section class="contenedor__pagina__principal">
+        <!-- Menu Lateral -->
+        <span class="menu__hamburguesa"></span>
+        <aside class="menu__lateral">
+            <figure class="menu__icono">
+                <a href="pagina_principal.html">
+                    <img id="logo" src="../images/logo.PNG" alt="Una estructura de cuatro pilares con un simbolo de peso en el centro haciendo referencia a una entidad bancaria">
+                </a>
+            </figure>
+            <nav class="menu__navegacion">
+                <ul class="menu__link__paginas">
+                    <li>
+                        <a href="pagina_principal.html#principal">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="cuentas.html">Cuentas</a>
+                    </li>
+                    <li>
+                        <a href="transferencias.html">Transferencias</a>
+                    </li>
+                    <li>
+                        <a href="pagos.html">Pagos</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="menu__cerrar__sesion">
+                <a href="../index.html">Cerrar Sesión</a>
+            </div>
+        </aside>
+        <!-- Cabecera con Titulos -->
+        <header class="cabecera__titulo">
+            <h2>ITBANK PAGOS</h2>
+        </header>
+        <!-- Contenido Principal -->
+        <main class="contenido__principal">
+            <section class="tabla">
+                <h2> Historial de pagos</h2>
+                <table class="tablaPagos">
+                    <tr>
+                        <th>Pago</th>
+                        <th>Día</th>
+                        <th>Monto</th>
+                    </tr>
+                    <tr>
+                        <td>Supermercado</td>
+                        <td>23/08/23</td>
+                        <td>-$5.200,00 </td>
+                    </tr>
+                    <tr>
+                        <td>Gas</td>
+                        <td>23/08/23</td>
+                        <td>-$10.000,00</td>
+                    </tr>
+                    <tr>
+                        <td>Pago con QR</td>
+                        <td>18/08/23</td>
+                        <td>-$25.364,25</td>
+                    </tr>
+                    <tr>    
+                        <td>Librería</td>
+                        <td>15/08/23</td>
+                        <td>-$8.541,38</td>
+                    </tr>
+                    <tr>
+                        <td>Pago con QR</td>
+                        <td>13/08/23</td>
+                        <td>-$27.364,25</td>
+                    </tr>
+                    <tr>
+                        <td>Google</td>
+                        <td>10/08/23</td>
+                        <td>-$7.364,25</td>
+                    </tr>
+                </table>
+                <button class="ver__mas__historial">Ver más</button>
+            </section>
+        </main>
+         <!-- Seccion Pie de Pagina -->
+         <footer class="mas__informacion">
+            <section>
+                <h4>Legales</h4>
+                <ul>
+                    <li>
+                        <a href="" target="_blank">Políticas de privacidad</a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">Términos y condiciones</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h4>Contacto</h4>
+                <ul>
+                    <li>
+                        <a href="" target="_blank">WhatsApp</a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">Instagram</a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">Twitter</a>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h4>Horarios</h4>
+                <p>Lunes a Viernes de 8hs a 18 hs</p>
+            </section>
+        </footer>
+    </section>
+
+    <script src="responsive.js"></script>
+</body>
+</html>

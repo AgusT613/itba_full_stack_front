@@ -1,0 +1,21 @@
+@media (max-width: 600px){
+    .menu__lateral{
+        display: none;
+    }
+
+    .menu__hamburguesa{
+        top: 1em;
+    }
+
+    .cabecera__titulo,
+    .contenido__principal,
+    .mas__informacion{
+        grid-column: 1 / 5;
+    }
+
+    .tabla{
+        width: 100%;
+    }
+    
+   
+}
