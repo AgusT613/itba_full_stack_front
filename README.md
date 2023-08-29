@@ -18,4 +18,8 @@
 
 #### 🧷 Boceto de la Maqueta:
 
-![Boceto de homebanking dibujado con excalidraw](./images/resumen_maqueta_sprint_1.png)
+![Boceto de homebanking dibujado con excalidraw](./src/images/resumen_maqueta_sprint_1.png)
+
+## ⛳ Sprint 2 - Migración a React
+
+![React - Pantalla de inicio de sesion y pagina principal](./src/images/proyecto_react_sprint2_mapa.png)

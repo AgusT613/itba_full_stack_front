@@ -1,0 +1,34 @@
+/* 
+    Contenido Primera Pantalla - Imagen del Banco
+*/
+.contenedorImagen{
+    background-color: rgba(0, 0, 0, .5);
+    background-image: url(../../images/home1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.contenedorImagen::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, .3);
+}
+
+.tituloBienvenida{
+    text-align: end;
+    width: 100%;
+    padding: .5em .25em;
+    backdrop-filter: blur(4px);
+    color: #111;
+    text-shadow: 0 0 10px #fff;
+    font-size: 3em;
+}
