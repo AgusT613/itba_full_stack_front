@@ -4,8 +4,7 @@
 
     Mas adelante se verá la forma de mostrar una pantalla u otra dependiendo de si el usuario está registrado/logueado o no.
 
-    Se llamó "PaginaPrincipal.jsx" al componente que contiene:
-    - El portal de bienvenida (con su imagen de fondo)
+    Se llamó "Homebanking.jsx" al componente que contiene:
     - La cabecera
     - El menu lateral
     - El contenido principal

@@ -1,8 +1,191 @@
-.contenidoPrincipal{
+/*
+    Se usa grid para distribuir las 4 secciones.
+    - Cabecera
+    - Menu Lateral
+    - Contenido Principal
+    - Pie de pagina
+*/
+.contenedor__pagina__principal{
+    display: grid;
+    grid: 3em 1fr 6em / 9em 7fr
+}
+.cabecera__titulo,
+.contenido__principal,
+.mas__informacion{
+    grid-column: 2 / 5;
+}
+/*
+    Responsive Menu Hamburguesa 
+*/
+.menu__hamburguesa{
+    transition: .3s ease;
+    background: url(../images/icons8-menú-ios-16-filled-32.png) no-repeat center center rgba(0, 0, 0, .25);
+    z-index: 10;
+    content: '';
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed;
+    right: 1em;
+    top: -5em;
+    width: 3em;
+    height: 3em;
+}
+
+.menu__hamburguesa__lateral__visible{
+    transition: .3s ease;
+    background: url(../images/icons8-x-32.png) no-repeat center center rgba(0, 0, 0, .25);
+    left: 10em;
+}
+/*
+    Seccion Menu Lateral
+*/
+.menu__lateral{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 9em;
+    background: #5a28ab7a;
+    grid-row: 1 / 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu__lateral__visible{
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 9em;
+    background: #5a388f7a;
+    grid-row: 1 / 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo {
+    width: 100%;   
+}
+
+.menu__icono,
+.menu__cerrar__sesion{
+    margin: 1em 0;
+}
+
+.menu__icono{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu__navegacion{
+    padding: 0 1em;
+    height: 60%;
+    width: 100%;
+}
+
+.menu__cerrar__sesion{
+    background: rgba(0, 0, 0, .7);
+    padding: .5em;
+    border-radius: 1em;
+}
+
+.menu__cerrar__sesion:hover{
+    transition: .3s ease;
+    background: rgba(0, 0, 0, .9);
+}
+
+.menu__link__paginas{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.menu__link__paginas li a{
+    text-indent: .5em;
+}
+
+.menu__link__paginas li a:hover{
+    transition: .3s ease all;
+    border-radius: 1em;
+    background-color: #946dce;
+    padding: .2em 0;
+}
+/*
+    Seccion Cabecera
+*/
+.cabecera__titulo > h2{
+    text-align: start;
+    padding: .25em 1em;
+    opacity: .7;
+}
+/*
+    Seccion Contenido Principal
+*/
+.contenido__principal{
     min-height: calc(100vh - 3em - 6em);
     background: rgba(0, 0, 0, .3);
     padding: 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+/*
+    Seccion Pie de Pagina
+*/
+.mas__informacion{
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.mas__informacion > section{
+    display: grid;
+    grid: 1fr 2fr / 1fr;
+}
+
+.mas__informacion h4{
+    text-transform: uppercase;
+    opacity: .6;
+    font-weight: 300;
+    align-self: center;
+}
+
+.mas__informacion ul{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.mas__informacion ul li a,
+.mas__informacion p {
+    font-size: .75em;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px){
+    .menu__lateral{
+        display: none;
+    }
+
+    .menu__hamburguesa{
+        top: 1em;
+    }
+
+    .cabecera__titulo,
+    .contenido__principal,
+    .mas__informacion{
+        grid-column: 1 / 5;
+    }
+
+    .tabla{
+        width: 100%;
+    }
 }
