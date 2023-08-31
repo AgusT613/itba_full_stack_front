@@ -1,0 +1,65 @@
+.transferencias{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+}
+
+.contenedorFormulario{
+    background: rgba(0, 0, 0, .25);
+    height: auto;
+    width: 20em;
+    padding: 2em;
+    border-radius: .5em;
+    display: grid;
+    gap: 1em;
+}
+
+.contenedorDatos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: .5em;
+}
+
+.contenedorDescripcionCampo{
+    font-size: 1.25em;
+    color: rgba(255, 255, 255, .8);
+}
+
+.contenedorInputCampo{
+    border: none;
+    background: none;
+    color: #ddd;
+    border-bottom: 2px solid #255C99;
+    font-size: 1em;
+    padding: .5em;
+}
+
+.contenedorInputCampo:focus{
+    outline: none;
+    transition: .2s ease all;
+    border-bottom-left-radius: .5em;
+    border-left: 1px solid purple;
+    border-bottom: 1px solid purple;
+}
+
+.contenedorBotonEnviar{
+    align-self: center;
+    padding: .5em 0;
+    background: none;
+    border: none;
+    border-radius: .5em;
+    cursor: pointer;
+    color: #ddd;
+    font-size: 1em;
+    outline: 1px solid rgb(93, 127, 93);
+}
+
+.contenedorBotonEnviar:hover{
+    transition: .1s ease all;
+    outline: 4px solid rgb(93, 127, 93);
+    color: #fff;
+}
