@@ -21,7 +21,7 @@
     rgba(9, 147, 219, 1) 43%,
     rgba(103, 255, 174, 1) 100%
   );
-  min-height: 100em;
+  min-height: 48em;
   min-width: max-content;
   max-width: -webkit-fill-available;
 
