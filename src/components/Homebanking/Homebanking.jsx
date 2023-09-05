@@ -1,10 +1,11 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, NavLink } from 'react-router-dom'
 import { useContext } from 'react'
 import { UsuarioContexto } from '../../context/usuarioContexto'
 import { Inicio } from '../Inicio/Inicio'
 import { Cuentas } from '../Cuentas/Cuentas'
 import { Transferencias } from '../Transferencias/Transferencias'
 import { Pagos } from '../Pagos/Pagos'
+import { Conversor } from '../Conversor/Conversor'
 import styles from './Homebanking.module.css'
 
 export const Homebanking = () => {
@@ -22,11 +23,14 @@ export const Homebanking = () => {
           <Route path='/cuentas' element={<Cuentas />} />
           <Route path='/transferencias' element={<Transferencias />} />
           <Route path='/pagos' element={<Pagos />} />
+          <Route path='/conversor' element={<Conversor />} />
         </Routes>
       </main>
       {/* ------------------------ */}
       <aside className={styles.menu__lateral}>
         <h2>Menu Lateral</h2>
+        <NavLink to='/cuentas'>Cuentas</NavLink>
+        <NavLink to='/conversor'>Conversor</NavLink>
         <span
           onClick={() => { setUsuario(false) }}
           style={{ cursor: 'pointer' }}
