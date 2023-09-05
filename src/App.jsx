@@ -2,11 +2,12 @@ import { useContext } from 'react'
 import { UsuarioContexto } from './context/usuarioContexto'
 import { Bienvenida } from './components/Bienvenida/Bienvenida'
 import { Homebanking } from './components/Homebanking/Homebanking'
-import { Usuarios } from './components/InicioSesion/Usuarios.jsx'
+import Usuarios from './components/InicioSesion/Usuarios'
 import './App.css'
 
 const App = () => {
-  const { usuario } = useContext(UsuarioContexto)
+  const { usuario,setUsuario } = useContext(UsuarioContexto)
+
   return (
     <>
       {usuario
@@ -16,7 +17,7 @@ const App = () => {
             <Homebanking />
           </>
           )
-        : <Usuarios />}
+        : <div className="usuario"  ><Usuarios usuario={usuario} setUsuario={setUsuario}/></div>}
     </>
   )
 }

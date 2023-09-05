@@ -2,7 +2,7 @@
 import Registrar from "./usuarios/registrar";
 import React, { useState, useEffect } from "react";
 import IniciarSesion from "./usuarios/iniciarSesion";
-import Header from "./Header";
+import Header from "./components/Header";
 import Enlace from './Enlace'
 //funcion general
 export default function Usuarios({ setUsuario }) {

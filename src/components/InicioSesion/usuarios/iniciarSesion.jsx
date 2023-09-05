@@ -1,6 +1,6 @@
 //Importo
 import React, { useState } from "react";
-import estilos from "../usuario.css";
+import estilos from "../Usuarios.css";
 
 //Función principal con las variables pertinentes
 export default function IniciarSesion({ setUsuario }) {

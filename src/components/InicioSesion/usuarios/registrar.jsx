@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import estilos from "../usuario.css";
+import estilos from "../Usuarios.css";
 //Función principal con los props pertinentes
 export default function ElFormulario({ setUsuario }) {
   //obtener el valor del input nombre(en registro solamente) y guardandolo con useState

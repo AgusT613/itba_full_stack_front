@@ -327,3 +327,9 @@
     height: fit-content;
   }
 }
+
+@media (min-height: 430px) {
+  .usuario {
+    height: -webkit-fill-available;
+  }
+}
