@@ -20,7 +20,7 @@
     rgba(9, 147, 219, 1) 43%,
     rgba(103, 255, 174, 1) 100%
   );
-  
+
   height: -webkit-fill-available;
   width: -webkit-fill-available;
   align-content: center;
@@ -102,7 +102,6 @@
   margin-top: 0.5em;
   justify-content: center;
   width: -webkit-fill-available;
-  
 }
 .divNombre {
   margin-bottom: 1.2em;
@@ -110,7 +109,6 @@
 }
 
 .nombre {
-
   border-radius: 5px;
   border: none;
   padding: 2em;
@@ -180,13 +178,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: -webkit-fill-available; 
+  width: -webkit-fill-available;
 }
 
 .cabecera__contenedor__logoIndex {
   /* display: flex;
   align-items: center;*/
-  justify-content: center; 
+  justify-content: center;
 }
 
 #logoIndex {
@@ -198,38 +196,39 @@
 .cabecera__titulo {
   /* font-size: 3em;
   padding: 0 0.75em; */
+  font-family: "Lobster", cursive;
+  font-family: "Roboto Slab", serif;
   font-size: 3em;
 }
 ::-webkit-scrollbar {
   display: none;
 }
-@media (max-width:590px) {
+@media (max-width: 590px) {
   .cabecera__titulo {
-    
     font-size: 1.5em;
   }
 }
-@media(max-width:490px){
-  .textoInicio{
+@media (max-width: 490px) {
+  .textoInicio {
     font-size: 10vw;
   }
-  .textoRegistro{
+  .textoRegistro {
     font-size: 10vw;
   }
-  .formulario{
-    padding:1vw 15vw 1vw 15vw;
+  .formulario {
+    padding: 1vw 15vw 1vw 15vw;
   }
-  .formulario2{
-    padding:1vw 15vw 1vw 15vw;
+  .formulario2 {
+    padding: 1vw 15vw 1vw 15vw;
   }
 }
-@media (max-width:430px) {
+@media (max-width: 430px) {
   .formulario {
     display: block;
     top: 200px;
     position: absolte;
     padding: 3em 5.2em 3em 5.2em;
-  
+
     width: -webkit-fill-available;
     border: solid rgba(0, 0, 0, 0.101);
     border-radius: 30px;
@@ -237,7 +236,7 @@
   }
   #logoIndex {
     height: 5em;
-    width: 10em; 
+    width: 10em;
   }
   .cabecera__titulo {
     /* font-size: 3em;
@@ -250,85 +249,81 @@
     justify-content: center;
     width: -webkit-fill-available;
   }
-  
+
   .nombre {
-    width:15em;
-    margin:0;
+    width: 15em;
+    margin: 0;
   }
-  .email{
-    width:15em;
+  .email {
+    width: 15em;
   }
-  .contraseña{
-    width:15em;
+  .contraseña {
+    width: 15em;
   }
-  
-  
-  .divTextoRegistro{
-   
+
+  .divTextoRegistro {
     width: -webkit-fill-available;
     height: fit-content;
-    
   }
-  .textoRegistro{
+  .textoRegistro {
     font-size: 10vw;
-    
   }
-  .formulario{
+  .formulario {
     width: -webkit-fill-available;
     padding: 1vw;
   }
-  .textoInicio{
+  .textoInicio {
     font-size: 10vw;
   }
-  .formulario2{
+  .formulario2 {
     width: -webkit-fill-available;
     padding: 1vw;
   }
-  .email2{
-    width:15em;
+  .email2 {
+    width: 15em;
   }
-  .contraseña2{
-    width:15em;
+  .contraseña2 {
+    width: 15em;
   }
 }
-@media (max-height:650px) {
-  .formulario{
-    padding-bottom:0;
+@media (max-height: 650px) {
+  .formulario {
+    padding-bottom: 0;
     padding-top: 0;
   }
-  .formulario2{
-    padding-bottom:0;
+  .formulario2 {
+    padding-bottom: 0;
     padding-top: 0;
   }
-  .usuario{
+  .usuario {
     height: -webkit-fill-available;
   }
-  .enlace{
-    margin-top:0;
+  .enlace {
+    margin-top: 0;
   }
-  .nombre{
-    height: 1em;
-  }  
-  .email{
+  .nombre {
     height: 1em;
   }
-  .contraseña{
-    height: 1em;
-  }  
-  .email2{
+  .email {
     height: 1em;
   }
-  .contraseña2{
+  .contraseña {
+    height: 1em;
+  }
+  .email2 {
+    height: 1em;
+  }
+  .contraseña2 {
     height: 1em;
   }
 }
-@media(max-height:500px){
-  .usuario{
+@media (max-height: 500px) {
+  .usuario {
     height: -webkit-fill-available;
   }
 }
-@media(max-height:430px){
-  .usuario{
+@media (max-height: 430px) {
+  .usuario {
     height: fit-content;
   }
 }

@@ -1,0 +1,677 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.textoRegistro {
+  font-size: 3em;
+  color: rgba(245, 242, 242, 0.694);
+}
+.textoInicio {
+  font-size: 3em;
+  color: rgba(245, 242, 242, 0.694);
+}
+.usuario {
+  position: absolute;
+  display: block;
+  background: rgb(178, 154, 255);
+  background: linear-gradient(
+    39deg,
+    rgba(178, 154, 255, 1) 0%,
+    rgba(9, 147, 219, 1) 43%,
+    rgba(103, 255, 174, 1) 100%
+  );
+
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+  align-content: center;
+}
+.enlace {
+  text-decoration: none;
+  color: rgba(245, 242, 242, 0.694);
+}
+.divEnlace {
+  text-align: center;
+  font-size: 2em;
+}
+.contenedor2 {
+  padding: 10px;
+  display: flex;
+  margin-top: 0.5em;
+  justify-content: center;
+  width: -webkit-fill-available;
+}
+/* Formulario de iniciar sesión */
+/* Div Email */
+.formulario2 {
+  padding: 3em 5.2em 3em 5.2em;
+  width: fit-content;
+  height: fit-content;
+  border: solid rgba(0, 0, 0, 0.101);
+  border-radius: 30px;
+  background-color: rgba(254, 65, 182, 0.105);
+}
+.divTextoInicio {
+  margin-bottom: 1.7em;
+  text-align: center;
+  color: rgb(190, 188, 188);
+}
+.divEmail2 {
+  text-align: center;
+  margin-bottom: 1.2em;
+  position: relative;
+}
+
+.email2 {
+  border-radius: 5px;
+  border: none;
+  padding: 2em;
+  background-color: rgba(235, 234, 235, 0.285);
+}
+/* Div contraseña */
+.divContraseña2 {
+  text-align: center;
+  position: relative;
+  margin-bottom: 1.2em;
+}
+
+.contraseña2 {
+  border-radius: 5px;
+  border: none;
+  padding: 2em;
+  background-color: rgba(235, 234, 235, 0.285);
+}
+/* Botón send de iniciar sesión */
+.divBoton2 {
+  text-align: center;
+}
+.boton2 {
+  text-align: center;
+  border: none;
+  background-color: rgba(235, 234, 235, 0.285);
+  height: 1.3em;
+  font-size: 1.25em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* registro */
+.contenedor {
+  padding: 10px;
+  display: flex;
+  margin-top: 0.5em;
+  justify-content: center;
+  width: -webkit-fill-available;
+}
+.divNombre {
+  margin-bottom: 1.2em;
+  text-align: center;
+}
+
+.nombre {
+  border-radius: 5px;
+  border: none;
+  padding: 2em;
+  background-color: rgba(235, 234, 235, 0.285);
+}
+
+/* Div Email */
+.formulario {
+  display: block;
+  top: 200px;
+  position: absolte;
+  padding: 3em 5.2em 3em 5.2em;
+  height: -webkit-fill-available;
+  width: fit-content;
+  border: solid rgba(0, 0, 0, 0.101);
+  border-radius: 30px;
+  background-color: rgba(254, 65, 182, 0.105);
+}
+.divTextoRegistro {
+  margin-bottom: 1.7em;
+  text-align: center;
+  color: rgb(190, 188, 188);
+}
+.divEmail {
+  text-align: center;
+  margin-bottom: 1.2em;
+  position: relative;
+}
+
+.email {
+  border-radius: 5px;
+  border: none;
+  padding: 2em;
+  background-color: rgba(235, 234, 235, 0.285);
+}
+/* Div contraseña */
+.divContraseña {
+  text-align: center;
+  position: relative;
+  margin-bottom: 1.2em;
+}
+
+.contraseña {
+  border-radius: 5px;
+  border: none;
+  padding: 2em;
+  background-color: rgba(235, 234, 235, 0.285);
+}
+/* Botón send de iniciar sesión */
+.divBoton {
+  text-align: center;
+}
+.boton {
+  text-align: center;
+  border: none;
+  background-color: rgba(235, 234, 235, 0.285);
+  border-radius: 5px;
+  cursor: pointer;
+  height: 1.3em;
+  font-size: 1.25em;
+}
+/* Cabecera */
+.cabecera {
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: -webkit-fill-available;
+}
+
+.cabecera__contenedor__logoIndex {
+  /* display: flex;
+  align-items: center;*/
+  justify-content: center;
+}
+.cabecera__contenedor__logoIndex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#logoIndex {
+  height: 5em;
+  /* 
+  width: auto; */
+}
+.cabecera__titulo {
+  font-size: 3em;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+@media (max-width: 590px) {
+  .cabecera__titulo {
+    font-size: 1.5em;
+  }
+}
+@media (max-width: 490px) {
+  .textoInicio {
+    font-size: 10vw;
+  }
+}
+
+@media (max-width: 470px) {
+  .usuario {
+    position: relative;
+    background: rgb(178, 154, 255);
+    background: linear-gradient(
+      39deg,
+      rgba(178, 154, 255, 1) 0%,
+      rgba(9, 147, 219, 1) 43%,
+      rgba(103, 255, 174, 1) 100%
+    );
+    min-height: 100em;
+    min-width: max-content;
+    max-width: -webkit-fill-available;
+    align-content: center;
+    line-height: 100px;
+  }
+  .enlace {
+    text-decoration: none;
+    color: rgba(208, 206, 206, 0.694);
+  }
+  .divEnlace {
+    text-align: center;
+    font-size: 2em;
+  }
+  .contenedor2 {
+    padding: 10px;
+    display: flex;
+    margin-top: 0.5em;
+    justify-content: center;
+  }
+  /* Formulario de iniciar sesión */
+  /* Div Email */
+  .formulario2 {
+    padding: 3em 5.2em 3em 5.2em;
+    width: max-content;
+    border: solid rgba(0, 0, 0, 0.101);
+    border-radius: 30px;
+    background-color: rgba(254, 65, 182, 0.105);
+  }
+  .divTextoInicio {
+    margin-bottom: 1.7em;
+    text-align: center;
+    color: rgb(190, 188, 188);
+  }
+  .divEmail2 {
+    text-align: center;
+    margin-bottom: 1.2em;
+    position: relative;
+  }
+  .labelEmail2 {
+    color: rgba(0, 0, 0, 0.787);
+    position: absolute;
+  }
+  .email2 {
+    border-radius: 5px;
+    border: none;
+    padding: 2em;
+    background-color: rgba(235, 234, 235, 0.285);
+  }
+  /* Div contraseña */
+  .divContraseña2 {
+    text-align: center;
+    position: relative;
+    margin-bottom: 1.2em;
+  }
+  .labelContraeña2 {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.787);
+  }
+  .contraseña2 {
+    border-radius: 5px;
+    border: none;
+    padding: 2em;
+    background-color: rgba(235, 234, 235, 0.285);
+  }
+  /* Botón send de iniciar sesión */
+  .divBoton2 {
+    text-align: center;
+  }
+  .boton2 {
+    text-align: center;
+    border: none;
+    background-color: rgba(235, 234, 235, 0.285);
+    width: 4em;
+    height: 1.3em;
+    font-size: 2em;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  /* registro */
+
+  .contenedor {
+    padding: 10px;
+    display: flex;
+    margin-top: 0.5em;
+    justify-content: center;
+  }
+  .divNombre {
+    margin-bottom: 1.2em;
+  }
+  .labelNombre {
+    color: rgba(0, 0, 0, 0.787);
+    position: absolute;
+  }
+  .nombre {
+    border-radius: 5px;
+    border: none;
+    padding: 2em;
+    background-color: rgba(235, 234, 235, 0.285);
+  }
+  /* Formulario de iniciar sesión */
+  /* Div Email */
+  .formulario {
+    display: block;
+    padding: 3em 5.2em 3em 5.2em;
+    width: max-content;
+    border: solid rgba(0, 0, 0, 0.101);
+    border-radius: 30px;
+    background-color: rgba(254, 65, 182, 0.105);
+  }
+  .divTextoRegistro {
+    margin-bottom: 1.7em;
+    text-align: center;
+    color: rgb(190, 188, 188);
+  }
+
+  .divEmail {
+    text-align: center;
+    margin-bottom: 1.2em;
+    position: relative;
+  }
+  .labelEmail {
+    color: rgba(0, 0, 0, 0.787);
+    position: absolute;
+  }
+  .email {
+    border-radius: 5px;
+    border: none;
+    padding: 2em;
+    background-color: rgba(235, 234, 235, 0.285);
+  }
+  /* Div contraseña */
+  .divContraseña {
+    text-align: center;
+    position: relative;
+    margin-bottom: 1.2em;
+  }
+  .labelContraseña {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.787);
+  }
+  .contraseña {
+    border-radius: 5px;
+    border: none;
+    padding: 2em;
+    background-color: rgba(235, 234, 235, 0.285);
+  }
+  /* Botón send de iniciar sesión */
+  .divBoton {
+    text-align: center;
+  }
+  .boton {
+    text-align: center;
+    border: none;
+    background-color: rgba(235, 234, 235, 0.285);
+    border-radius: 5px;
+    cursor: pointer;
+    width: 4em;
+    height: 1.3em;
+    font-size: 2em;
+  }
+  /* Cabecera */
+  .cabecera {
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: -webkit-fill-available;
+  }
+
+  .cabecera__contenedor__logoIndex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #logoIndex {
+    height: 5em;
+    width: auto;
+  }
+
+  .cabecera__titulo {
+    font-size: 3em;
+    padding: 0 0.75em;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 300px) {
+  input:focus {
+    display: flex;
+    font-size: 1em;
+    padding: 0em;
+    margin: 0;
+  }
+  .usuario {
+    position: relative;
+    background: rgb(178, 154, 255);
+    background: linear-gradient(
+      39deg,
+      rgba(178, 154, 255, 1) 0%,
+      rgba(9, 147, 219, 1) 43%,
+      rgba(103, 255, 174, 1) 100%
+    );
+    min-height: 100em;
+    min-width: max-content;
+    max-width: -webkit-fill-available;
+    align-content: center;
+    line-height: 150px;
+  }
+  .enlace {
+    text-decoration: none;
+    color: rgba(208, 206, 206, 0.694);
+    font-size: 2em;
+  }
+  .divEnlace {
+    text-align: center;
+    font-size: 2em;
+  }
+  .contenedor2 {
+    padding: 10px;
+    display: flex;
+    margin-top: 0.5em;
+    justify-content: center;
+  }
+  /* Formulario de iniciar sesión */
+  /* Div Email */
+  .formulario2 {
+    padding: 3em 5.2em 3em 5.2em;
+    width: -webkit-fill-available;
+    border: solid rgba(0, 0, 0, 0.101);
+    border-radius: 30px;
+    background-color: rgba(254, 65, 182, 0.105);
+  }
+  .divTextoInicio {
+    margin-bottom: 1.7em;
+    text-align: center;
+    color: rgb(190, 188, 188);
+  }
+  .divEmail2 {
+    text-align: center;
+    margin-bottom: 1.2em;
+    position: relative;
+  }
+  .labelEmail2 {
+    color: rgba(0, 0, 0, 0.787);
+    position: absolute;
+  }
+  .email2 {
+    border-radius: 5px;
+    border: none;
+    padding: 2em;
+    width: 30em;
+    height: 10em;
+    background-color: rgba(235, 234, 235, 0.285);
+  }
+  /* Div contraseña */
+  .divContraseña2 {
+    text-align: center;
+    position: relative;
+    margin-bottom: 1.2em;
+  }
+  .labelContraeña2 {
+    position: absolute;
+    color: rgba(0, 0, 0, 0.787);
+  }
+  .contraseña2 {
+    border-radius: 5px;
+    border: none;
+    padding: 2em;
+    background-color: rgba(235, 234, 235, 0.285);
+    width: 30em;
+    height: 10em;
+  }
+  /* Botón send de iniciar sesión */
+  .divBoton2 {
+    text-align: center;
+  }
+  .boton2 {
+    text-align: center;
+    border: none;
+    background-color: rgba(235, 234, 235, 0.285);
+    width: 10em;
+    height: 3em;
+    font-size: 2em;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  /* registro */
+  .contenedor {
+    padding: 10px;
+    display: flex;
+    margin-top: 0.5em;
+    justify-content: center;
+  }
+  .divNombre {
+    margin-bottom: 1.2em;
+  }
+  .labelNombre {
+    color: rgba(0, 0, 0, 0.787);
+    position: absolute;
+  }
+  .nombre {
+    border-radius: 5px;
+    border: none;
+    width: 30em;
+    height: 10em;
+    padding: 2em;
+    background-color: rgba(235, 234, 235, 0.285);
+  }
+  /* Formulario de iniciar sesión */
+  /* Div Email */
+  .formulario {
+    display: block;
+    padding: 3em 5.2em 3em 5.2em;
+    width: max-content;
+    border: solid rgba(0, 0, 0, 0.101);
+    border-radius: 30px;
+    background-color: rgba(254, 65, 182, 0.105);
+  }
+  .divTextoRegistro {
+    margin-bottom: 1.7em;
+    text-align: center;
+    color: rgb(190, 188, 188);
+  }
+  .textoRegistro {
+    font-size: 10vw;
+  }
+  .formulario {
+    padding: 1vw 15vw 1vw 15vw;
+  }
+  .formulario2 {
+    padding: 1vw 15vw 1vw 15vw;
+  }
+}
+@media (max-width: 430px) {
+  .formulario {
+    display: block;
+    top: 200px;
+    position: absolte;
+    padding: 3em 5.2em 3em 5.2em;
+
+    width: -webkit-fill-available;
+    border: solid rgba(0, 0, 0, 0.101);
+    border-radius: 30px;
+    background-color: rgba(254, 65, 182, 0.105);
+  }
+  #logoIndex {
+    height: 5em;
+    width: 10em;
+  }
+  .cabecera__titulo {
+    /* font-size: 3em;
+    padding: 0 0.75em; */
+    font-size: 5vw;
+  }
+  .contenedor {
+    display: flex;
+    margin-top: 0.5em;
+    justify-content: center;
+    width: -webkit-fill-available;
+  }
+
+  .nombre {
+    width: 15em;
+    margin: 0;
+  }
+  .email {
+    width: 15em;
+  }
+  .contraseña {
+    width: 15em;
+  }
+
+  .divTextoRegistro {
+    width: -webkit-fill-available;
+    height: fit-content;
+
+    .cabecera__contenedor__logoIndex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #logoIndex {
+      height: 5em;
+      width: auto;
+    }
+    .cabecera__titulo {
+      font-size: 3em;
+      padding: 0 0.75em;
+    }
+    .textoRegistro {
+      font-size: 10vw;
+    }
+    .formulario {
+      width: -webkit-fill-available;
+      padding: 1vw;
+    }
+    .textoInicio {
+      font-size: 10vw;
+    }
+    .formulario2 {
+      width: -webkit-fill-available;
+      padding: 1vw;
+    }
+    .email2 {
+      width: 15em;
+    }
+    .contraseña2 {
+      width: 15em;
+    }
+  }
+}
+@media (max-height: 650px) {
+  .formulario {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  .formulario2 {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  .usuario {
+    height: -webkit-fill-available;
+  }
+  .enlace {
+    margin-top: 0;
+  }
+  .nombre {
+    height: 1em;
+  }
+  .email {
+    height: 1em;
+  }
+  .contraseña {
+    height: 1em;
+  }
+  .email2 {
+    height: 1em;
+  }
+  .contraseña2 {
+    height: 1em;
+  }
+}
+@media (max-height: 500px) {
+  .usuario {
+    height: -webkit-fill-available;
+  }
+}
+@media (max-height: 430px) {
+  .usuario {
+    height: fit-content;
+  }
+}
