@@ -1,12 +1,47 @@
 import React, { useState, useEffect } from "react";
 import estilos from "../usuario.css";
 //Función principal con los props pertinentes
-export default function ElFormulario({
-  funcionNombre,
-  funcionEmail,
-  funcionContraseña,
-  funcionBoton,
-}) {
+export default function ElFormulario({ setUsuario }) {
+  //obtener el valor del input nombre(en registro solamente) y guardandolo con useState
+  const [nombre, setNombre] = useState("");
+  function funcionNombre(e) {
+    setNombre(e.target.value);
+  }
+  //obtener el valor del input email (en registro e iniciar sesión) y guardandolo con useState
+  const [email, setEmail] = useState("");
+  function funcionEmail(e) {
+    setEmail(e.target.value);
+  }
+  //obtener el valor del input contraseña (en registro e iniciar sesión) y guardandolo con useState
+  const [contraseña, setContraseña] = useState("");
+  function funcionContraseña(e) {
+    setContraseña(e.target.value);
+  }
+  //Función al presionar el botón send al registrar
+  function funcionBoton(e) {
+    //Al hacer click no se refresca la página
+    e.preventDefault();
+    if (nombre.length >= 1 && email.length >= 1 && contraseña.length >= 1) {
+      //Valor por defecto hasta que se verifique la cuenta
+      setUsuario(false);
+      //Guardo los datos obtenido con las funciones de registro en la constante datos como un objeto
+      const datos = { Name: nombre, Email: email, Password: contraseña };
+      //Si al buscar el mail puesto en el input mail, éste existe en localStorage, dice cuenta en uso
+      if (localStorage.getItem(`${datos.Email}`)) {
+        alert("Cuenta en uso");
+      } else {
+        //Si el mail ingresado no existe en localStorage, se crea
+        localStorage.setItem(datos.Email, JSON.stringify(datos));
+        setUsuario(true);
+      }
+      //Hago que los valores de los inputs en registrar se 'reinicien'
+      document.querySelector(".nombre").value = "";
+      document.querySelector(".email").value = "";
+      document.querySelector(".contraseña").value = "";
+    } else {
+      alert("Complete los campos");
+    }
+  }
   //Retorno el formulario de registro de usuarios
   return (
     <div className="contenedor">
@@ -20,9 +55,6 @@ export default function ElFormulario({
         </div>
         {/*Nombre*/}
         <div className="divNombre">
-          <label className="labelNombre" name="name">
-            Name
-          </label>
           {/* El valor del input se guarda en useState */}
           <input
             type="text"
@@ -30,11 +62,11 @@ export default function ElFormulario({
             onChange={(e) => {
               funcionNombre(e);
             }}
+            placeholder="Nombre"
           />
         </div>
         <div className="divEmail">
           {/* Email */}
-          <label className="labelEmail">Email</label>
           {/* El valor del input se guarda en useState */}
           <input
             type="email"
@@ -42,11 +74,11 @@ export default function ElFormulario({
             onChange={(e) => {
               funcionEmail(e);
             }}
+            placeholder="Email"
           />
         </div>
         <div className="divContraseña">
           {/* Contraseña */}
-          <label className="labelContraseña">Pasword</label>
           {/* El valor del input se guarda en useState */}
           <input
             type="password"
@@ -54,6 +86,7 @@ export default function ElFormulario({
             onChange={(e) => {
               funcionContraseña(e);
             }}
+            placeholder="Contraseña"
           />
         </div>
         <div className="divBoton">
