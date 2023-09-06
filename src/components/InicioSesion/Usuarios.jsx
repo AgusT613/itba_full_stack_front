@@ -1,34 +1,23 @@
-//Importo
-import Registrar from "./usuarios/registrar";
-import React, { useState, useEffect } from "react";
-import IniciarSesion from "./usuarios/iniciarSesion";
-import Header from "./components/Header";
+import { useContext } from 'react'
+import { UsuarioContexto } from '../../context/usuarioContexto'
+import Registrar from './usuarios/registrar'
+import IniciarSesion from './usuarios/iniciarSesion'
 import Enlace from './Enlace'
-//funcion general
-export default function Usuarios({ setUsuario }) {
-  
-  return (
-    <>
-      {/* Traigo el header */}
-      <Header />
-      {/* registrarse */}
-      <div className="registrarPadre">
-        {/* Registrarse con las variable de las funciones */}
-        <Registrar
-          setUsuario={setUsuario}
-        />
-      </div>
 
-      <div hidden className="iniciarSesionPadre">
-        {/* Iniciar sesión con las variable de las funciones */}
-        <IniciarSesion
-         setUsuario={setUsuario}
-        />
+export default function Usuarios () {
+  const { setUsuario } = useContext(UsuarioContexto)
+  return (
+    <main className='contenedor_registro_usuario'>
+      <div className='registrarPadre'>
+        <Registrar setUsuario={setUsuario} />
+      </div>
+      <div hidden className='iniciarSesionPadre'>
+        <IniciarSesion setUsuario={setUsuario} />
       </div>
       {/* Enlace de registro/inicio de sesión */}
-      <div className="divEnlace">
-        <Enlace/>
+      <div className='divEnlace'>
+        <Enlace />
       </div>
-    </>
-  );
+    </main>
+  )
 }

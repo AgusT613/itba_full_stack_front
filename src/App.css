@@ -1,0 +1,5 @@
+#pantalla_inicio_sesion{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}

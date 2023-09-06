@@ -1,34 +1,47 @@
 /* 
-    Contenido Primera Pantalla - Imagen del Banco
+    Ilustracion de Fondo
 */
-.contenedorImagen{
-    background-color: rgba(0, 0, 0, .5);
-    background-image: url(../../images/home1.png);
+.contenedor_imagen{
+    position: relative;
+    background-image: url(../../images/home-page.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    height: 100vh;
-    width: 100%;
 
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+/*
+    Titulo y Parrafo de Bienvenida
+*/
+.contenedor_texto_bienvenida{
+    height: 100vh;
+    background: #4e4cc57a;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 1em;
 }
 
-.contenedorImagen::after{
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, .3);
+.titulo_bienvenida{
+    text-shadow: 0px 4px 4px #000;
 }
 
-.tituloBienvenida{
-    text-align: end;
+.titulo_bienvenida{
     width: 100%;
-    padding: .5em .25em;
-    backdrop-filter: blur(4px);
-    color: #111;
-    text-shadow: 0 0 10px #fff;
+    color: #efefef;
     font-size: 3em;
+    padding: 0 .5em;
+}
+
+.texto_bienvenida{
+    padding: 1em 2em;
+    backdrop-filter: blur(15px);
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    font-size: 1.25em;
+    opacity: .8;
+    font-weight: 300;
+    line-height: 1.75em;
 }

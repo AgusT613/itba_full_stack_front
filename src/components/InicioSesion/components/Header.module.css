@@ -1,0 +1,16 @@
+.cabecera{
+    background: rgba(0, 0, 0, .4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor_imagen{
+    width: 15em;
+    height: auto;
+}
+
+.logo_itbank{
+    width: 100%;
+    height: auto;
+}

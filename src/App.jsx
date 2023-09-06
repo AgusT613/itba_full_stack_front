@@ -6,18 +6,20 @@ import Usuarios from './components/InicioSesion/Usuarios'
 import './App.css'
 
 const App = () => {
-  const { usuario,setUsuario } = useContext(UsuarioContexto)
+  const { usuario } = useContext(UsuarioContexto)
 
   return (
     <>
       {usuario
         ? (
-          <>
-            <Bienvenida />
-            <Homebanking />
-          </>
+          <Homebanking />
           )
-        : <div className="usuario"  ><Usuarios usuario={usuario} setUsuario={setUsuario}/></div>}
+        : (
+          <article id='pantalla_inicio_sesion'>
+            <Bienvenida />
+            <Usuarios />
+          </article>
+          )}
     </>
   )
 }

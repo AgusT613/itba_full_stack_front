@@ -1,11 +1,13 @@
-import logoBanco from '../../../images/logo.jpg'
+import LOGO_ITBANK from '../../../images/itbank-logo.png'
+import styles from './Header.module.css'
+
 export default function Header () {
   return (
-    <header className='cabecera'>
-      <figure className='cabecera__contenedor__logoIndex'>
-        <img id='logoIndex' src={logoBanco} alt='logo de ITBANK' />
+    <header className={styles.cabecera}>
+      <figure className={styles.contenedor_imagen}>
+        <img className={styles.logo_itbank} src={LOGO_ITBANK} alt='logo de ITBANK' />
       </figure>
-      <h1 className='cabecera__titulo'>Homebanking</h1>
+      <h1 className={styles.titulo_homebanking}>Homebanking</h1>
     </header>
   )
 }
