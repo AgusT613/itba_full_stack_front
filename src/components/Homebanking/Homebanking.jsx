@@ -5,6 +5,7 @@ import { Inicio } from '../Inicio/Inicio'
 import { Cuentas } from '../Cuentas/Cuentas'
 import { Transferencias } from '../Transferencias/Transferencias'
 import { Pagos } from '../Pagos/Pagos'
+import { MenuLateral } from "../MenuLateral/MenuLateral"
 import styles from './Homebanking.module.css'
 
 export const Homebanking = () => {
@@ -27,6 +28,7 @@ export const Homebanking = () => {
       {/* ------------------------ */}
       <aside className={styles.menu__lateral}>
         <h2>Menu Lateral</h2>
+        < MenuLateral />
         <span
           onClick={() => { setUsuario(false) }}
           style={{ cursor: 'pointer' }}
