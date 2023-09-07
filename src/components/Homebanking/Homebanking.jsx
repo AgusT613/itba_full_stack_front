@@ -29,7 +29,7 @@ export const Homebanking = () => {
       {/* ------------------------ */}
       <aside className={styles.menu__lateral}>
         <h2>Menu Lateral</h2>
-        <NavLink to='/cuentas'>Cuentas</NavLink>
+        <NavLink to='/'>Inicio</NavLink>
         <NavLink to='/conversor'>Conversor</NavLink>
         <span
           onClick={() => { setUsuario(false) }}
