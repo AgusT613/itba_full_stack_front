@@ -1,22 +1,32 @@
-import { useContext } from 'react'
-import { UsuarioContexto } from '../../context/usuarioContexto'
-import Registrar from './usuarios/registrar'
-import IniciarSesion from './usuarios/iniciarSesion'
-import Enlace from './Enlace'
+import { useState } from 'react'
+import Registrar from './components/Registrar'
+import IniciarSesion from './components/IniciarSesion'
+import './Usuarios.css'
 
 export default function Usuarios () {
-  const { setUsuario } = useContext(UsuarioContexto)
+  const [registro, setRegistro] = useState(true)
+  const cambiarFormulario = () => setRegistro(!registro)
+
   return (
-    <main className='contenedor_registro_usuario'>
-      <div className='registrarPadre'>
-        <Registrar setUsuario={setUsuario} />
-      </div>
-      <div hidden className='iniciarSesionPadre'>
-        <IniciarSesion setUsuario={setUsuario} />
-      </div>
-      {/* Enlace de registro/inicio de sesión */}
-      <div className='divEnlace'>
-        <Enlace />
+    <main id='contenedor_registro_usuario'>
+      <div>
+        <section>
+          <h2>
+            {registro
+              ? 'Registro de Usuario'
+              : 'Inicio de Sesión'}
+          </h2>
+
+          {registro
+            ? <Registrar />
+            : <IniciarSesion />}
+
+          <button onClick={cambiarFormulario}>
+            {registro
+              ? 'Ya tienes cuenta? Inicia sesión aquí'
+              : 'Deseas crearte una cuenta? Registrate aquí'}
+          </button>
+        </section>
       </div>
     </main>
   )
