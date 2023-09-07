@@ -7,7 +7,8 @@
 */
 .contenedor__pagina__principal{
     display: grid;
-    grid: 3em 1fr 6em / 9em 7fr
+    grid: 3em 1fr/ 9em 7fr;
+    grid-auto-rows: max-content;
 }
 .cabecera__titulo,
 .contenido__principal,

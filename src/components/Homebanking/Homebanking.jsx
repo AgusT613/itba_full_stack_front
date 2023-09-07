@@ -5,6 +5,7 @@ import { Transferencias } from '../Transferencias/Transferencias'
 import { Pagos } from '../Pagos/Pagos'
 import { MenuLateral } from '../MenuLateral/MenuLateral'
 import { Conversor } from '../Conversor/Conversor'
+import { Footer } from '../Footer/Footer'
 import styles from './Homebanking.module.css'
 
 export const Homebanking = () => {
@@ -27,10 +28,7 @@ export const Homebanking = () => {
       <aside className={styles.menu__lateral}>
         <MenuLateral />
       </aside>
-      <footer className={styles.mas__informacion}>
-        <p>Estamos comprometidos en hacer que tu experiencia en el mundo financiero sea más simple, transparente y conveniente. Explora nuestro portal de Homebanking y descubre cómo puedes tomar el control de tus finanzas de manera efectiva. ¡Gracias por confiar en ITBANK!</p>
-        <p>Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto con nosotros.</p>
-      </footer>
+      <Footer />
     </div>
   )
 }
