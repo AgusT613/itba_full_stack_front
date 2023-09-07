@@ -1,7 +1,10 @@
+import { useContext } from 'react'
+import { DatosUsuarioContexto } from '../../../context/datosUsuarioContexto'
 import { Tarjeta } from './Tarjeta'
 import styles from '../Inicio.module.css'
 
-export const MisTarjetas = ({ datosUsuario }) => {
+export const MisTarjetas = () => {
+  const { datosUsuario } = useContext(DatosUsuarioContexto)
   return (
     <article className={styles.contenedor_mis_tarjetas}>
       <h3>Mis Tarjetas</h3>

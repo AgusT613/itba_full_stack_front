@@ -1,6 +1,9 @@
+import { useContext } from 'react'
+import { DatosUsuarioContexto } from '../../../context/datosUsuarioContexto'
 import styles from '../Inicio.module.css'
 
-export const PerfilUsuario = ({ datosUsuario }) => {
+export const PerfilUsuario = () => {
+  const { datosUsuario } = useContext(DatosUsuarioContexto)
   return (
     <article className={styles.recuadro_usuario}>
       <figure className={styles.contenedor_imagen_usuario}>
