@@ -1,7 +1,238 @@
-.contenedorBienvenida{
-    padding: 1em 0;
+.recuadro_usuario,
+.contenedor_saldo_cuenta,
+.contenedor_mis_tarjetas,
+.contenedor_ultima_actividad{
+    outline: 3px solid #9b92ff;
+    border-radius: .75em;
+    padding: .25em .5em;
+}
+
+.contenedor_bienvenida{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.recuadro_usuario,
+.secciones_grid{
+    font-size: 1.25em;
+}
+
+.secciones_grid{
+    display: grid;
+    grid: max-content / repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 1em;
+    
+}
+/*
+    Estilos generales iconos
+*/
+.mas_detalles,
+.icono_accion,
+.icono_saldo_visible,
+.icono_saldo_no_visible,
+.icono_chip_seguridad_tarjeta,
+.tarjeta_banco{
+    display: inline-flex;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+}
+/*
+    Seccion Perfil de Usuario
+*/
+.recuadro_usuario{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.contenedor_imagen_usuario{
+    height: 3em;
+    width: auto;
+}
+
+.imagen_usuario{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.mas_detalles{
+    cursor: pointer;
+    background: url(../../images/icons8-flecha-32.png) no-repeat center center #fff;
+    background-size: 1em;
+}
+
+.mas_detalles:hover{
+    transition: .3s ease;
+    background-color: tomato;
+}
+
+/*
+    Seccion Saldo en Cuenta
+*/
+.contenedor_saldo_cuenta{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.seccion_saldo{
+    display: flex;
+    align-items: center;
+    gap: .5em;
+}
+
+.icono_saldo_visible,
+.icono_saldo_no_visible{
+    cursor: pointer;
+}
+.icono_saldo_visible{
+    background: url(../../images/icons8-visible-32.png) no-repeat center center;
+    background-size: 1em;
+}
+.icono_saldo_no_visible{
+    background: url(../../images/icons8-ocultar-32.png) no-repeat center center;
+    background-size: 1em;
+}
+
+.seccion_acciones{
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.seccion_acciones div{
+    cursor: pointer;
+    outline: 2px solid rgba(0, 0, 0, .3);
+    border-radius: 50%;
+    width: 5em;
+    height: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.seccion_acciones div:hover{
+    transition: .3s ease;
+    background: rgba(0, 0, 0, .3);
+}
+.seccion_acciones div:active{
+    transition: none;
+    background: rgba(0, 0, 0, .1);
+}
+
+.seccion_acciones div p{
+    font-size: .75em;
+}
+
+.icono_ingresar{
+    background: url(../../images/icons8-iniciar-la-transferencia-de-dinero-32.png) no-repeat center center;
+    background-size: 1em;
+}
+.icono_transferir{
+    background: url(../../images/icons8-flujo-de-fondos-32.png) no-repeat center center;
+    background-size: 1em;
+}
+.icono_sacar{
+    background: url(../../images/icons8-solicitud-de-dinero-32.png) no-repeat center center;
+    background-size: 1em;
+}
+.icono_cvu{
+    background: url(../../images/icons8-chequera-32.png) no-repeat center center;
+    background-size: 1em;
+}
+/*
+    Seccion Mis Tarjetas
+*/
+.contenedor_mis_tarjetas{
     display: flex;
     flex-direction: column;
     gap: 1em;
-    font-size: 1.25em;
+}
+
+.todas_las_tarjetas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tarjeta{
+    height: 12em;
+    width: 22em;
+    background: rgba(0, 0, 0, .3);
+    border-radius: 1em;
+    padding: .75em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.descripcion_tarjeta{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.descripcion_tarjeta h6,
+.descripcion_tarjeta p{
+    font-size: 1em;
+}
+
+.icono_chip_seguridad_tarjeta{
+    border-radius: 0;
+    width: 2em;
+    height: 2em;
+    background: url(../../images/icons8-chip-de-tarjeta-sim-48.png) no-repeat center center;
+}
+
+.numero_tarjeta{
+    display: flex;
+    gap: .5em;
+}
+
+.tarjeta_detalles{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.tarjeta_detalles p{
+    opacity: .7;
+}
+
+.tarjeta_banco{
+    border-radius: 0;
+    width: 2em;
+    background: url(../../images/icons8-tarjeta-de-crédito-mastercard-96.png) no-repeat center center;
+    background-size: 2em;
+}
+
+.carrousel_tarjetas{
+    font-size: small;
+    background: rgba(0, 0, 0, .2);
+    padding: .25em;
+    border-radius: .5em;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+}
+/*
+    Seccion Ultima Actividad
+*/
+.contenedor_ultima_actividad{
+    grid-column: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.contenedor_historial{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
