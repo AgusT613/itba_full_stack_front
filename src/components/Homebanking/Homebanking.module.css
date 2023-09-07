@@ -130,11 +130,10 @@
 */
 .contenido__principal{
     min-height: calc(100vh - 3em - 6em);
-    background: rgba(0, 0, 0, .3);
+    background: rgba(0, 0, 0, .2);
     padding: 1em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 /*
     Seccion Pie de Pagina
@@ -142,6 +141,7 @@
 .mas__informacion{
     background: rgba(0, 0, 0, .5);
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
 }
 

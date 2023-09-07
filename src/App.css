@@ -1,0 +1,14 @@
+#pantalla_inicio_sesion{   
+    position: fixed;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+@media (max-width: 870px){
+    #pantalla_inicio_sesion{
+        position: static;
+        display: flex;
+        flex-direction: column;
+    }
+}
