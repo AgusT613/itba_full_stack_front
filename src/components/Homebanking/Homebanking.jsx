@@ -1,16 +1,13 @@
-import { Route, Routes, NavLink } from 'react-router-dom'
-import { useContext } from 'react'
-import { UsuarioContexto } from '../../context/usuarioContexto'
+import { Route, Routes } from 'react-router-dom'
 import { Inicio } from '../Inicio/Inicio'
 import { Cuentas } from '../Cuentas/Cuentas'
 import { Transferencias } from '../Transferencias/Transferencias'
 import { Pagos } from '../Pagos/Pagos'
+import { MenuLateral } from '../MenuLateral/MenuLateral'
 import { Conversor } from '../Conversor/Conversor'
 import styles from './Homebanking.module.css'
 
 export const Homebanking = () => {
-  const { setUsuario } = useContext(UsuarioContexto)
-
   return (
     <div className={styles.contenedor__pagina__principal}>
       <header className={styles.cabecera__titulo}>
@@ -28,15 +25,7 @@ export const Homebanking = () => {
       </main>
       {/* ------------------------ */}
       <aside className={styles.menu__lateral}>
-        <h2>Menu Lateral</h2>
-        <NavLink to='/'>Inicio</NavLink>
-        <NavLink to='/conversor'>Conversor</NavLink>
-        <span
-          onClick={() => { setUsuario(false) }}
-          style={{ cursor: 'pointer' }}
-        >
-          Cerrar Sesion
-        </span>
+        <MenuLateral />
       </aside>
       <footer className={styles.mas__informacion}>
         <p>Estamos comprometidos en hacer que tu experiencia en el mundo financiero sea más simple, transparente y conveniente. Explora nuestro portal de Homebanking y descubre cómo puedes tomar el control de tus finanzas de manera efectiva. ¡Gracias por confiar en ITBANK!</p>

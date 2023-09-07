@@ -19,7 +19,7 @@
 */
 .menu__hamburguesa{
     transition: .3s ease;
-    background: url(../images/icons8-menú-ios-16-filled-32.png) no-repeat center center rgba(0, 0, 0, .25);
+    background: url(../../images/icons8-x-32.png) no-repeat center center rgba(0, 0, 0, .25);
     z-index: 10;
     content: '';
     border-radius: 50%;
@@ -33,7 +33,7 @@
 
 .menu__hamburguesa__lateral__visible{
     transition: .3s ease;
-    background: url(../images/icons8-x-32.png) no-repeat center center rgba(0, 0, 0, .25);
+    background: url(../../images/icons8-menú-ios-16-filled-32.png) no-repeat center center rgba(0, 0, 0, .25);
     left: 10em;
 }
 /*
@@ -66,56 +66,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-}
-
-#logo {
-    width: 100%;   
-}
-
-.menu__icono,
-.menu__cerrar__sesion{
-    margin: 1em 0;
-}
-
-.menu__icono{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.menu__navegacion{
-    padding: 0 1em;
-    height: 60%;
-    width: 100%;
-}
-
-.menu__cerrar__sesion{
-    background: rgba(0, 0, 0, .7);
-    padding: .5em;
-    border-radius: 1em;
-}
-
-.menu__cerrar__sesion:hover{
-    transition: .3s ease;
-    background: rgba(0, 0, 0, .9);
-}
-
-.menu__link__paginas{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.menu__link__paginas li a{
-    text-indent: .5em;
-}
-
-.menu__link__paginas li a:hover{
-    transition: .3s ease all;
-    border-radius: 1em;
-    background-color: #946dce;
-    padding: .2em 0;
 }
 /*
     Seccion Cabecera
