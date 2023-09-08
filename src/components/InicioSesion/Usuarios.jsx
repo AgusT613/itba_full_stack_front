@@ -5,7 +5,7 @@ import './Usuarios.css'
 
 export default function Usuarios () {
   const [registro, setRegistro] = useState(true)
-  const cambiarFormulario = () => setRegistro(!registro)
+  const toggleFormulario = () => setRegistro(!registro)
 
   return (
     <main id='contenedor_registro_usuario'>
@@ -21,7 +21,7 @@ export default function Usuarios () {
             ? <Registrar />
             : <IniciarSesion />}
 
-          <button onClick={cambiarFormulario}>
+          <button onClick={toggleFormulario}>
             {registro
               ? 'Ya tienes cuenta? Inicia sesión aquí'
               : 'Deseas crearte una cuenta? Registrate aquí'}
