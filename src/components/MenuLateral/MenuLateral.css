@@ -36,10 +36,10 @@
 
 .menu__navegacion a{
     text-indent: .5em;
+    transition: .3s ease all;
 }
 
 .menu__navegacion a:hover{
-    transition: .3s ease all;
     border-radius: 1em;
     background-color: #946dce;
     padding: .2em 0;

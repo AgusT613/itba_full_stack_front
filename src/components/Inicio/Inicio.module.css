@@ -2,26 +2,15 @@
 .contenedor_saldo_cuenta,
 .contenedor_mis_tarjetas,
 .contenedor_ultima_actividad{
-    outline: 3px solid #9b92ff;
+    outline: 2px solid #9b92ff;
     border-radius: .75em;
-    padding: .25em .5em;
-}
-
-.contenedor_bienvenida{
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-}
-
-.recuadro_usuario,
-.secciones_grid{
+    padding: .5em;
     font-size: 1.25em;
 }
 
-.secciones_grid{
+.contenedor_bienvenida{
     display: grid;
-    grid: max-content / repeat(2, 1fr);
-    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
     gap: 1em;
 }
 /*
@@ -36,20 +25,21 @@
     display: inline-flex;
     width: 1.5em;
     height: 1.5em;
-    border-radius: 50%;
+    border-radius: 1em;
 }
 /*
     Seccion Perfil de Usuario
 */
 .recuadro_usuario{
+    grid-column: 1 / 3;
     display: flex;
     align-items: center;
     gap: 1em;
 }
 
 .contenedor_imagen_usuario{
-    height: 3em;
-    width: auto;
+    height: auto;
+    width: 3em;
 }
 
 .imagen_usuario{
@@ -62,10 +52,10 @@
     cursor: pointer;
     background: url(../../images/icons8-flecha-32.png) no-repeat center center #fff;
     background-size: 1em;
+    transition: .3s ease;
 }
 
 .mas_detalles:hover{
-    transition: .3s ease;
     background-color: tomato;
 }
 
@@ -99,8 +89,9 @@
 
 .seccion_acciones{
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     gap: 1em;
+    justify-content: space-around;
 }
 
 .seccion_acciones div{
@@ -113,14 +104,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: .3s ease;
 }
 
 .seccion_acciones div:hover{
-    transition: .3s ease;
     background: rgba(0, 0, 0, .3);
 }
 .seccion_acciones div:active{
-    transition: none;
+    transition: .1s ease;
     background: rgba(0, 0, 0, .1);
 }
 
@@ -160,8 +151,8 @@
 }
 
 .tarjeta{
-    height: 12em;
-    width: 22em;
+    min-height: 12em;
+    width: 100%;
     background: rgba(0, 0, 0, .3);
     border-radius: 1em;
     padding: .75em;
@@ -195,9 +186,8 @@
 
 .tarjeta_detalles{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    gap: 2em;
 }
 
 .tarjeta_detalles p{
@@ -234,4 +224,39 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (max-width: 1000px){
+    .contenedor_bienvenida{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 400px){
+    .recuadro_usuario,
+    .contenedor_saldo_cuenta,
+    .contenedor_mis_tarjetas,
+    .contenedor_ultima_actividad{
+        outline: none;
+        border-radius: 0;
+        padding: .5em;
+        font-size: 1em;
+    }
+
+    .tarjeta_detalles{
+        display: grid;
+        grid: repeat(2, 1fr) / repeat(2, 1fr);
+        gap: .5em;
+    }
+}
+
+@media (max-width: 300px){
+    .tarjeta_detalles{
+        grid: auto / 1fr;
+    }
+
+    .contenedor_historial{
+        font-size: .7em;
+    }
 }

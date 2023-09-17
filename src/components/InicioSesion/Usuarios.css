@@ -33,9 +33,9 @@
     padding: 1em;
     border: none;
     border-radius: 2em;
+    transition: .3s ease all;
 }
 
 #contenedor_registro_usuario button:hover{
-    transition: .4s ease all;
     background: rgba(0, 0, 0, .3);
 }

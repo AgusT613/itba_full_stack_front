@@ -7,7 +7,7 @@
 */
 .contenedor__pagina__principal{
     display: grid;
-    grid: 3em 1fr/ 9em 7fr;
+    grid: 3em 1fr / 9em minmax(7em, 1fr);
     grid-auto-rows: max-content;
 }
 .cabecera__titulo,
@@ -18,29 +18,34 @@
 /*
     Responsive Menu Hamburguesa 
 */
-.menu__hamburguesa{
+.icono__menu__hamburguesa__cerrar,
+.icono__menu__hamburguesa__barra{
+    top: .5em;
+    background: #fff;
+    color: #000;
     transition: .3s ease;
-    background: url(../../images/icons8-x-32.png) no-repeat center center rgba(0, 0, 0, .25);
     z-index: 10;
-    content: '';
     border-radius: 50%;
     cursor: pointer;
     position: fixed;
-    right: 1em;
     top: -5em;
-    width: 3em;
-    height: 3em;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-.menu__hamburguesa__lateral__visible{
-    transition: .3s ease;
-    background: url(../../images/icons8-menú-ios-16-filled-32.png) no-repeat center center rgba(0, 0, 0, .25);
-    left: 10em;
+.icono__menu__hamburguesa__cerrar{
+    left: 11em;
+}
+.icono__menu__hamburguesa__barra{
+    right: 1em;
 }
 /*
     Seccion Menu Lateral
 */
-.menu__lateral{
+.menu__lateral,
+.menu__lateral__hamburguesa{
     position: fixed;
     top: 0;
     left: 0;
@@ -54,19 +59,11 @@
     justify-content: space-between;
 }
 
-.menu__lateral__visible{
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 9em;
-    background: #5a388f7a;
-    grid-row: 1 / 5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+.menu__lateral__hamburguesa{
+    display: none;
+    background: rgba(0, 0, 0, .5);
+    backdrop-filter: blur(5px);
+    width: 12em;
 }
 /*
     Seccion Cabecera
@@ -90,35 +87,12 @@
     Seccion Pie de Pagina
 */
 .mas__informacion{
+    grid-column: 2 / 3;
     background: rgba(0, 0, 0, .5);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.mas__informacion > section{
     display: grid;
-    grid: 1fr 2fr / 1fr;
-}
-
-.mas__informacion h4{
-    text-transform: uppercase;
-    opacity: .6;
-    font-weight: 300;
-    align-self: center;
-}
-
-.mas__informacion ul{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-
-.mas__informacion ul li a,
-.mas__informacion p {
-    font-size: .75em;
-    font-weight: 100;
-    letter-spacing: 1px;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    row-gap: 1em;
+    padding: 1em;
 }
 
 @media (max-width: 600px){
@@ -126,17 +100,28 @@
         display: none;
     }
 
-    .menu__hamburguesa{
-        top: 1em;
+    .menu__lateral__hamburguesa{
+        display: flex;
+    }
+
+    .icono__menu__hamburguesa__barra,
+    .icono__menu__hamburguesa__cerrar{
+        top: .5em;
     }
 
     .cabecera__titulo,
     .contenido__principal,
     .mas__informacion{
-        grid-column: 1 / 5;
+        grid-column: 1 / 3;
     }
 
     .tabla{
         width: 100%;
+    }
+}
+
+@media (max-width: 400px){
+    .contenido__principal{
+        padding: 0;
     }
 }

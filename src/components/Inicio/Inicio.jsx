@@ -10,11 +10,9 @@ export const Inicio = () => {
     <section className={styles.contenedor_bienvenida}>
       <ProveedorDatosUsuario>
         <PerfilUsuario />
-        <div className={styles.secciones_grid}>
-          <SaldoCuenta />
-          <MisTarjetas />
-          <UltimaActividad />
-        </div>
+        <SaldoCuenta />
+        <MisTarjetas />
+        <UltimaActividad />
       </ProveedorDatosUsuario>
     </section>
   )

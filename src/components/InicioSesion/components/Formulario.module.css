@@ -45,9 +45,9 @@
     border-radius: .5em;
     outline: 4px solid rgba(0, 0, 0, .3);
     padding: .75em 0;
+    transition: .3s ease;
 }
 
 .btn_enviar_datos:hover{
-    transition: .2s ease;
     background: rgba(0, 0, 0, .3);
 }
