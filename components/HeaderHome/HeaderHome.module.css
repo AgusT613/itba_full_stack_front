@@ -1,0 +1,39 @@
+/*
+    Seccion Cabecera - Logo del banco
+*/
+.cabecera{
+    background: rgba(0, 0, 0, .5);
+    height: 6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor_logo{
+    margin: .5em 0;
+    width: 15em;
+    height: auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor_logo::after{
+    position: absolute;
+    content: '';
+    border-radius: 2em;
+    width: 5px;
+    height: 100%;
+    background: #fff;
+    right: 0;
+}
+
+.logo_itbank{
+    width: 100%;
+    height: auto;
+}
+
+.titulo_homebanking{
+    margin: .25em;
+    font-size: 3em;
+}
