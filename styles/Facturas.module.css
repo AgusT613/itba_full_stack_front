@@ -1,0 +1,28 @@
+.contenedor_tabla{
+    display: flex;
+    justify-content: center;
+}
+
+.tabla_facturas{
+    margin: 1em 0;
+    border-collapse: collapse;
+}
+
+.tabla_facturas thead th{
+    padding: 1em;
+    background: #5500c68a;
+    text-transform: uppercase;
+}
+
+.tabla_facturas tbody{
+    background: rgba(0, 0, 0, .4);
+}
+
+.tabla_facturas tbody td{
+    padding: .5em 1em;
+    text-align: center;
+}
+
+.celda_descripcion:hover{
+    background: rgba(0, 0, 0, .4);
+}

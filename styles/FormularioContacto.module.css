@@ -1,0 +1,51 @@
+.formulario_contacto{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    place-items: center;
+}
+
+.formulario_contacto div{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.label_descripcion{
+    opacity: .9;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.campo_datos{
+    border: none;
+    border-bottom: 2px solid #fff;
+    border-radius: .4em;
+    background: rgb(246, 222, 248) ;
+    height: 3em;
+    padding: 0 .5em;
+    font-size: 1em;
+    color: black;
+}
+
+.campo_datos:focus{
+    outline: none;
+    border: 2px solid #fff;
+}
+
+.btn_enviar_consulta{
+    width: 13em;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: .5em;
+    outline: 4px solid rgba(0, 0, 0, .3);
+    padding: .75em 0;
+    transition: .3s ease;
+}
+
+.btn_enviar_consulta:hover{
+    background: rgba(0, 0, 0, .3);
+}
