@@ -10,7 +10,7 @@ export const MisTarjetas = () => {
     <article className={styles.contenedor_mis_tarjetas}>
       <h3>Mis Tarjetas</h3>
       <section className={styles.todas_las_tarjetas}>
-        <Tarjeta datosTarjeta={datosUsuario.tarjeta} />
+        <Tarjeta datosTarjeta={datosUsuario.tarjetas[0]} />
       </section>
       <section className={styles.carrousel_tarjetas}>
         <span>Carrousel de Tarjetas</span>

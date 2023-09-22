@@ -7,10 +7,9 @@
 */
 .contenedor__pagina__principal{
     display: grid;
-    grid: 3em 1fr / 9em minmax(7em, 1fr);
+    grid: 1fr / 9em minmax(7em, 1fr);
     grid-auto-rows: max-content;
 }
-.cabecera__titulo,
 .contenido__principal,
 .mas__informacion{
     grid-column: 2 / 5;

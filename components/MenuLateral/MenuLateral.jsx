@@ -29,6 +29,10 @@ export function MenuLateral () {
         <Link href='/inicio/transferencias'>Transferencias</Link>
         <Link href='/inicio/pagos'>Pagos</Link>
         <Link href='/inicio/conversor'>Conversor</Link>
+        <Link href='/inicio/tarjetas'>Tarjetas</Link>
+        <Link href='/inicio/facturas'>Facturas</Link>
+        <Link href='/inicio/prestamos'>Prestamos</Link>
+        <Link href='/inicio/contacto'>Contacto</Link>
       </nav>
       <span
         onClick={() => {

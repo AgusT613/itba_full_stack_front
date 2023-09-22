@@ -2,10 +2,10 @@ import styles from './Transferencias.module.css'
 
 export const Transferencias = () => {
   return (
-    <>
+    <div style={{ display: 'flex' }}>
       <section className={styles.transferencias}>
         <h2>Realizar transferencias</h2>
-        <form action='#' className={styles.contenedorFormulario}>
+        <form className={styles.contenedorFormulario}>
           <div className={styles.contenedorDatos}>
             <label htmlFor='receptor' className={styles.contenedorDescripcionCampo}>Receptor</label>
             <input type='receptor' name='receptor' className={styles.contenedorInputCampo} placeholder='Cuenta, contacto, correo' />
@@ -38,6 +38,6 @@ export const Transferencias = () => {
           <input type='submit' className={styles.contenedorBotonEnviar} value='Buscar' />
         </form>
       </section>
-    </>
+    </div>
   )
 }

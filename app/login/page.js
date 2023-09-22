@@ -4,6 +4,11 @@ import IniciarSesion from '@/components/IniciarSesion/IniciarSesion'
 import ToggleForm from '@/components/IniciarSesion/ToggleForm'
 import '../../components/IniciarSesion/Usuarios.css'
 
+export const metadata = {
+  title: 'Inicio de sesión - ITBANK',
+  description: 'Inicia sesión en nuestro portal bancario protegido por medidas de seguridad avanzadas. Administra tus finanzas, realiza transferencias y verifica tus saldos con confianza.'
+}
+
 export default function Page () {
   return (
     <>

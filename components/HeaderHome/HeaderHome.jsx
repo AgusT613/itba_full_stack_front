@@ -10,7 +10,7 @@ export default function HeaderHome ({ isAction = false }) {
         <Image className={styles.logo_itbank} src={LOGO_ITBANK} alt='logo de ITBANK' />
       </figure>
       <h1 className={styles.titulo_homebanking}>Homebanking</h1>
-      <nav>
+      <nav className={styles.navegacion}>
         {isAction
           ? <Link href='/'>Volver al Home</Link>
           : (
