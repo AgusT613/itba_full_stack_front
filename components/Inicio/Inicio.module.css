@@ -148,10 +148,12 @@
     overflow: hidden;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
+    gap: .5em;
 }
 
 .tarjeta{
+    cursor: pointer;
     min-height: 12em;
     width: 100%;
     background: rgba(0, 0, 0, .3);
@@ -160,6 +162,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.tarjeta:hover{
+    background: rgba(0, 0, 0, .4);
 }
 
 .descripcion_tarjeta{
@@ -210,6 +216,23 @@
     display: flex;
     align-self: center;
     justify-content: center;
+}
+
+.posicion_tarjeta,
+.flecha_desplazamiento{
+    cursor: pointer;
+    width: 2em;
+    height: auto;
+}
+
+.flecha_desplazamiento{
+    padding: .25em;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .2);
+    transition: .2s ease;
+}
+.flecha_desplazamiento:hover{
+    background: rgba(0, 0, 0, .4);
 }
 /*
     Seccion Ultima Actividad
