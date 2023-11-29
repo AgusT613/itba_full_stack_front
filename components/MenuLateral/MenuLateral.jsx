@@ -2,13 +2,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useContext } from 'react'
 import LOGO_ITBANK from '@/public/itbank-logo.png'
-import { UsuarioContexto } from '@/context/usuarioContexto'
 import './MenuLateral.css'
 
 export function MenuLateral () {
-  const { setUsuario } = useContext(UsuarioContexto)
   const router = useRouter()
 
   return (
@@ -24,6 +21,7 @@ export function MenuLateral () {
         />
       </figure>
       <nav className='menu__navegacion'>
+        <Link href='/'>Home</Link>
         <Link href='/inicio'>Inicio</Link>
         <Link href='/inicio/cuentas'>Cuentas</Link>
         <Link href='/inicio/transferencias'>Transferencias</Link>
@@ -36,7 +34,7 @@ export function MenuLateral () {
       </nav>
       <span
         onClick={() => {
-          setUsuario(false)
+          window.localStorage.clear()
           router.push('/')
         }}
         className='menu__cerrar__sesion'

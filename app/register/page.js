@@ -17,9 +17,7 @@ export default function Page () {
         <div>
           <section>
             <h2>Registro de Usuario</h2>
-            <ProveedorUsuario>
-              <Registrar />
-            </ProveedorUsuario>
+            <Registrar />
             <ToggleForm to='/login'>Ya tienes cuenta? Inicia sesión aquí</ToggleForm>
           </section>
         </div>

@@ -1,58 +1,57 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import { useContext, useState } from 'react'
-import { UsuarioContexto } from '../../context/usuarioContexto'
+import { useState } from 'react'
 import styles from './Formulario.module.css'
+import { LOGIN_USER_API } from '@/context/api_urls'
 
 export default function IniciarSesion () {
-  const router = useRouter()
-  const { setUsuario } = useContext(UsuarioContexto)
-  const [email, setEmail] = useState('')
+  const [usuario, setNombreUsuario] = useState('')
   const [contrasenia, setContrasenia] = useState('')
+  const router = useRouter()
 
-  const leerEmail = e => setEmail(e.target.value)
+  const leerUsuario = e => setNombreUsuario(e.target.value)
   const leerContrasenia = e => setContrasenia(e.target.value)
 
   function IniciarSesionUsuario (e) {
     e.preventDefault()
-    if (contrasenia.length > 0 && email.length > 0) {
-      // Valor por defecto hasta que se verifique la cuenta
-      setUsuario(false)
-      // Si se encuentra el mail en localStorage pero la contraseña no concuerda con la puesta en localStorage aviso que la contraseña es incorrecta
-      if (
-        window.localStorage.getItem(email) &&
-        JSON.parse(window.localStorage.getItem(email)).contrasenia !== contrasenia
-      ) {
-        window.alert('Contraseña incorrecta')
-        // Si se encuentra el mail en localstorage y concuerda la contraseña=>redirigo a la página
-      } else if (
-        window.localStorage.getItem(email) &&
-        JSON.parse(window.localStorage.getItem(email)).contrasenia === contrasenia
-      ) {
-        // Variable para redireccionar a la página principal
-        setUsuario(true)
-        router.push('/inicio')
-        // Si no se encuentra el correo en localStorage aviso que no existe la cuenta
-      } else if (!window.localStorage.getItem(email)) {
-        window.alert('No existe la cuenta')
+
+    const options = {
+      method: 'GET',
+      headers: {
+        Authorization: 'Basic ' + btoa(usuario + ':' + contrasenia)
       }
-      e.target.reset()
-    } else {
-      window.alert('Complete los campos')
     }
+
+    fetch(LOGIN_USER_API, options)
+      .then(response => {
+        if (response.status === 401 && usuario === '' && contrasenia === '') {
+          throw new Error('Acceso denegado. Completar los campos')
+        } else if (response.status === 401) {
+          throw new Error('Acceso denegado. Datos incorrectos')
+        } else {
+          window.localStorage.setItem('username', usuario)
+          window.localStorage.setItem('password', contrasenia)
+          window.localStorage.setItem('auth', 'true')
+          window.alert('Inicio de sesión correcto. Al aceptar se redirigira al homebanking')
+          router.push('/inicio')
+        }
+      })
+      .catch(error => {
+        window.alert(error)
+      })
   }
 
   return (
     <form onSubmit={IniciarSesionUsuario} className={styles.formulario}>
-      {/* Email */}
+      {/* Usuario */}
       <div>
-        <label className={styles.label_descripcion} htmlFor='email'>Correo Electrónico</label>
+        <label className={styles.label_descripcion} htmlFor='username'>Nombre de usuario</label>
         <input
           className={styles.campo_datos}
-          name='email'
-          type='email'
-          onChange={leerEmail}
-          placeholder='mariano@ejemplo.com'
+          name='username'
+          type='text'
+          onChange={leerUsuario}
+          placeholder='agust613'
         />
       </div>
       {/* Contraseña */}
@@ -63,7 +62,7 @@ export default function IniciarSesion () {
           name='contrasenia'
           type='password'
           onChange={leerContrasenia}
-          placeholder='123456'
+          placeholder='agustin123'
         />
       </div>
       <div>

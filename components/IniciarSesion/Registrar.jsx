@@ -1,12 +1,8 @@
 'use client'
-import { useRouter } from 'next/navigation'
-import { useState, useContext } from 'react'
-import { UsuarioContexto } from '@/context/usuarioContexto'
+import { useState } from 'react'
 import styles from './Formulario.module.css'
 
 export default function Registrar () {
-  const router = useRouter()
-  const { setUsuario } = useContext(UsuarioContexto)
   const [nombre, setNombre] = useState('')
   const [email, setEmail] = useState('')
   const [contrasenia, setContrasenia] = useState('')
@@ -17,23 +13,8 @@ export default function Registrar () {
 
   function RegistrarUsuario (e) {
     e.preventDefault()
-    if (nombre.length >= 1 && email.length >= 1 && contrasenia.length >= 1) {
-      // Valor por defecto hasta que se verifique la cuenta
-      setUsuario(false)
-      // Si al buscar el mail puesto en el input mail, éste existe en localStorage, avisa que la cuenta en uso
-      if (window.localStorage.getItem(email)) {
-        window.alert('Cuenta en uso')
-      } else {
-        // Si el mail ingresado no existe en localStorage, se crea
-        window.localStorage.setItem(email, JSON.stringify({ nombre, email, contrasenia }))
-        setUsuario(true)
-        router.push('/inicio')
-      }
-      // Hago que los valores de los inputs en registrar se 'reinicien'
-      e.target.reset()
-    } else {
-      window.alert('Complete los campos')
-    }
+
+    console.log(nombre, email, contrasenia)
   }
 
   return (
