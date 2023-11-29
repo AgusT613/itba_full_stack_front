@@ -36,8 +36,8 @@ export const MisTarjetas = () => {
         {listaTarjetas.map((tarj, index) => {
           return (
             index === tarjetaPosicion
-              ? <GoDotFill key={tarj.cardNumber} className={styles.posicion_tarjeta} />
-              : <GoDot key={tarj.cardNumber} className={styles.posicion_tarjeta} onClick={() => setTarjetaPosicion(index)} />
+              ? <GoDotFill key={tarj.id} className={styles.posicion_tarjeta} />
+              : <GoDot key={tarj.id} className={styles.posicion_tarjeta} onClick={() => setTarjetaPosicion(index)} />
           )
         })}
       </section>

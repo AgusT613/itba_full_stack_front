@@ -1,49 +1,25 @@
+'use client'
+import { LOGIN_USER_API, TARJETAS_USER_API } from '@/context/api_urls'
+
+async function obtenerDatosUsuario (nombreUsuario, auth) {
+  const userUrl = `${LOGIN_USER_API}?username=${nombreUsuario}`
+  const userResponse = await fetch(userUrl, auth)
+  const userData = await userResponse.json()
+  return userData[0]
+}
+
+async function obtenerTarjetas (userId, auth) {
+  const userUrl = `${TARJETAS_USER_API}?user_id=${userId}`
+  const response = await fetch(userUrl, auth)
+  const data = await response.json()
+  return data
+}
+
 export const datos = {
   fotoPerfil: 'https://randomuser.me/api/portraits/med/men/36.jpg',
-  nombre: 'David Doe',
-  saldoEnCuenta: 19000,
-  tarjetas: [
-    {
-      type: 'Credito',
-      cardNumber: '4111 1111 1111 1111',
-      expirationDate: '12/25',
-      cvv: '123',
-      issuer: 'Visa',
-      creditLimit: 500000,
-      availableCredit: 250000,
-      billingAddress: '123 Main St, Anytown, USA'
-    },
-    {
-      type: 'Credito',
-      cardNumber: '5555 5555 5555 5555',
-      expirationDate: '06/24',
-      cvv: '456',
-      issuer: 'MasterCard',
-      creditLimit: 800000,
-      availableCredit: 600000,
-      billingAddress: '456 Elm St, Otherville, USA'
-    },
-    {
-      type: 'Debito',
-      cardNumber: '6011 6011 6011 6011',
-      expirationDate: '09/23',
-      cvv: '789',
-      issuer: 'Discover',
-      accountBalance: 150000,
-      linkedAccount: 'Savings Account',
-      accountNumber: '1234567890'
-    },
-    {
-      type: 'Debito',
-      cardNumber: '4111 3411 3411 3411',
-      expirationDate: '03/26',
-      cvv: '234',
-      issuer: 'American Express',
-      accountBalance: 250000,
-      linkedAccount: 'Checking Account',
-      accountNumber: '9876543210'
-    }
-  ],
+  nombre: undefined,
+  saldoEnCuenta: undefined,
+  tarjetas: [],
   facturas: [
     {
       id: '10001',
@@ -116,5 +92,17 @@ export const datos = {
       amount: 6000.00
     }
   ]
-
 }
+
+const nombreUsuario = window.localStorage.getItem('username')
+const contraseniaUsuario = window.localStorage.getItem('password')
+const AUTH = { headers: { Authorization: `Basic ${btoa(`${nombreUsuario}:${contraseniaUsuario}`)}` } }
+obtenerDatosUsuario(nombreUsuario, AUTH)
+  .then(data => {
+    const { username, id } = data
+    datos.nombre = username
+    obtenerTarjetas(id, AUTH)
+      .then(tarjetas => {
+        datos.tarjetas = tarjetas
+      })
+  })

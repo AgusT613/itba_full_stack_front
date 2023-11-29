@@ -1,3 +1,4 @@
+'use client'
 import TituloNavegacion from '@/components/TituloNavegacion'
 import { datos } from '@/context/datosUsuario'
 

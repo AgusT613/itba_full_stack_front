@@ -1,11 +1,12 @@
+'use client'
 import { datos } from '@/context/datosUsuario'
 import Link from 'next/link'
 import styles from '@/styles/Facturas.module.css'
 
-export const metadata = {
-  title: 'Facturas - ITBANK',
-  description: 'Accede a tus facturas de manera rápida y segura. Consulta y descarga tus documentos financieros, verifica los detalles de tus transacciones y realiza un seguimiento de tus registros financieros con facilidad en nuestra plataforma bancaria.'
-}
+// export const metadata = {
+//   title: 'Facturas - ITBANK',
+//   description: 'Accede a tus facturas de manera rápida y segura. Consulta y descarga tus documentos financieros, verifica los detalles de tus transacciones y realiza un seguimiento de tus registros financieros con facilidad en nuestra plataforma bancaria.'
+// }
 
 export default function Page () {
   const listaFacturas = datos.facturas
