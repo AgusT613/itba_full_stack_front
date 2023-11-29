@@ -10,7 +10,7 @@
 }
 
 .formulario{
-    margin: 0 auto;
+    margin: 2rem auto;
     width: 70%;
     padding: 1.25em;
     gap: 1em;
@@ -39,6 +39,7 @@
     font-size: 1em;
     padding: 1em;
     background: #fff;
+    color: #000;
     border: none;
     transition: .1s ease;
 }

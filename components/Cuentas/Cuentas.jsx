@@ -1,15 +1,16 @@
+'use client'
 import styles from './Cuentas.module.css'
+import { datos } from '@/context/datosUsuario'
 
 const Carta = ({ descripcion, tipoAhorro, saldo }) => {
   return (
     <div className={styles.carta}>
       <h3>{descripcion}</h3>
       <div className={styles.detalles}>
-        <h4>{tipoAhorro}</h4>
+        <h4>IBAN: {tipoAhorro}</h4>
         <h2>
-          <b>{saldo}</b>
+          <b>SALDO: ${saldo}</b>
         </h2>
-        <button className={styles.boton}> Ver resumen Cta.</button>
         <button className={styles.boton}> Ver CBU</button>
         <button className={styles.boton}> Solicitar baja</button>
       </div>
@@ -20,16 +21,15 @@ const Carta = ({ descripcion, tipoAhorro, saldo }) => {
 export const Cuentas = () => {
   return (
     <section className={styles.contenedorCartas}>
-      <Carta
-        descripcion='Cuenta: 251688 en pesos'
-        saldo='Saldo: $48890.58'
-        tipoAhorro='CA-C. Ahorro comun PFis'
-      />
-      <Carta
-        descripcion='Cuenta: 251688 en pesos'
-        saldo='Saldo: $208990.58'
-        tipoAhorro='CA-C. Ahorro comun PFis'
-      />
+      {datos.cuentas.map(cuenta => (
+        <div key={cuenta.id}>
+          <Carta
+            descripcion={cuenta.tipo_cuenta}
+            saldo={cuenta.balance}
+            tipoAhorro={cuenta.iban}
+          />
+        </div>
+      ))}
     </section>
   )
 }

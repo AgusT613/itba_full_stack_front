@@ -28,14 +28,14 @@ export default function Page () {
               const rutaDinamica = `/inicio/facturas/${factura.id}`
               return (
                 <tr key={factura.id}>
-                  <td>{factura.payee}</td>
+                  <td>{factura.empresa}</td>
                   <td className={styles.celda_descripcion}>
                     <Link key={factura.id} href={rutaDinamica}>
-                      {factura.description}
+                      {factura.descripcion}
                     </Link>
                   </td>
-                  <td>{factura.dueDate}</td>
-                  <td>${factura.amount}</td>
+                  <td>{factura.vencimiento}</td>
+                  <td>${factura.monto}</td>
                 </tr>
               )
             })}

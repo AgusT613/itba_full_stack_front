@@ -1,4 +1,4 @@
-import { TablaHistorial } from '@/components/Pagos/components/TablaHistorial'
+import { TablaHistorial } from '@/components/Pagos/TablaHistorial'
 import styles from '../Inicio.module.css'
 
 export const UltimaActividad = () => {

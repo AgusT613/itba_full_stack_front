@@ -1,4 +1,4 @@
-import { TablaHistorial } from './components/TablaHistorial'
+import { TablaHistorial } from './TablaHistorial'
 import styles from './Pagos.module.css'
 
 export const Pagos = () => {

@@ -35,7 +35,6 @@ export default function CalculadoraPrestamos () {
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.formulario}>
-        <h2>Calculadora de Prestamos</h2>
         <div>
           <label>Importe a financiar</label>
           <input type='number' placeholder='En $. Ej.: 80000' onChange={handleChangeImporte} />
