@@ -20,6 +20,7 @@ export default function HeaderHome ({ isAction = false }) {
             <>
               <Link href='/register'>Registrarse</Link>
               <Link href='/login'>Iniciar Sesión</Link>
+              <Link href='/sucursales'>Sucursales</Link>
               {usuarioLogueado === 'true' && <Link href='/inicio'>Inicio</Link>}
             </>
             )}

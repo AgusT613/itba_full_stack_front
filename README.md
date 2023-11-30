@@ -22,6 +22,7 @@
       - 🟣 inicio/ ---> Aplicacion del homebanking
       - login/
       - register/
+      - sucursales/
       - globals.css
       - icon.png
       - layout.js
@@ -38,6 +39,7 @@
       - 🟣 Inicio/ ---> Aplicacion del homebanking
       - MenuLateral/
       - Pagos/
+      - Sucursales/
       - Transferencias/
       - TituloNavegacion.jsx
     - context/

@@ -1,5 +1,5 @@
 'use client'
-import { obtenerDatosUsuario, obtenerListado, CUENTAS_USER_API, TARJETAS_USER_API, PAGOS_USER_API, FACTURAS_USER_API, PRESTAMOS_USER_API } from '@/context/api_urls'
+import { obtenerDatosUsuario, obtenerListado, obtenerSucursales, CUENTAS_USER_API, TARJETAS_USER_API, PAGOS_USER_API, FACTURAS_USER_API, PRESTAMOS_USER_API, SUCURSALES_API } from '@/context/api_urls'
 
 export const datos = {
   fotoPerfil: 'https://randomuser.me/api/portraits/med/men/36.jpg',
@@ -9,8 +9,13 @@ export const datos = {
   cuentas: [],
   pagos: [],
   facturas: [],
-  prestamos: []
+  prestamos: [],
+  sucursales: []
 }
+
+obtenerSucursales(SUCURSALES_API)
+  .then(sucursales => { datos.sucursales = sucursales })
+  .catch(error => console.log(error))
 
 const nombreUsuario = window.localStorage.getItem('username')
 const contraseniaUsuario = window.localStorage.getItem('password')
