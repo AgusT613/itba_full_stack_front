@@ -25,7 +25,11 @@ obtenerDatosUsuario(nombreUsuario, AUTH)
       .catch(error => console.log(error))
     // ----
     obtenerListado(id, AUTH, CUENTAS_USER_API)
-      .then(cuentas => { datos.cuentas = cuentas })
+      .then(cuentas => {
+        const saldoCuentaITBANK = cuentas.find(cuenta => cuenta.iban.startsWith('ITBANK'))
+        datos.saldoEnCuenta = saldoCuentaITBANK.balance
+        datos.cuentas = cuentas
+      })
       .catch(error => console.log(error))
     // ----
     obtenerListado(id, AUTH, PAGOS_USER_API)
