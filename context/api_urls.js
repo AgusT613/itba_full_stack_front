@@ -43,9 +43,36 @@ export async function crearNuevoPrestamo (api, body) {
   if (response.status === 401) {
     throw new Error('Usuario no autorizado, inicie sesión nuevamente')
   }
+  if (response.status === 400) {
+    throw new Error('Error en el envio. Asegurese de completar todos los campos')
+  }
   const dataSent = await response.json()
   if (response.status === 201) {
     return { dataSent, status: response.status, message: 'Nuevo prestamo creado correctamente. Por favor, recargue la página para visualizar los cambios' }
   }
   return { dataSent, status: response.status }
+}
+
+export async function eliminarPrestamo (api) {
+  const nombreUsuario = window.localStorage.getItem('username')
+  const contraseniaUsuario = window.localStorage.getItem('password')
+  const options = {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Basic ${btoa(`${nombreUsuario}:${contraseniaUsuario}`)}`
+    }
+  }
+
+  const response = await fetch(api, options)
+  if (response.status === 401) {
+    throw new Error('Usuario no autorizado, inicie sesión nuevamente.')
+  }
+  if (response.status === 404) {
+    throw new Error('Este prestamo ya fue eliminado. Al recargar la página desaparecerá.')
+  }
+  if (response.status === 204) {
+    return { response, status: response.status, message: 'El prestamo se ha eliminado correctamente. Porfavor recargue la pagina para visualizar los cambios.' }
+  }
+  return response
 }

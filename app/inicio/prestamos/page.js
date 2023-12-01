@@ -1,6 +1,7 @@
 'use client'
 import CalculadoraPrestamos from '@/components/CalculadoraPrestamos/CalculadoraPrestamos'
 import FormularioSolicitarPrestamo from '@/components/SolicitarPrestamo'
+import { PRESTAMOS_USER_API, eliminarPrestamo } from '@/context/api_urls'
 import { datos } from '@/context/datosUsuario'
 
 // export const metadata = {
@@ -11,6 +12,29 @@ import { datos } from '@/context/datosUsuario'
 export default function Page () {
   const prestamosITBANK = datos.prestamos.filter(prestamo => prestamo.sucursal.nombre === 'ITBANK')
   const prestamosOtrasSucursales = datos.prestamos.filter(prestamo => prestamo.sucursal.nombre !== 'ITBANK')
+
+  const handleEliminarPrestamo = prestamoId => {
+    const urlEliminarPrestamo = `${PRESTAMOS_USER_API}${prestamoId}/?user_id=${datos.idUsuario}`
+
+    eliminarPrestamo(urlEliminarPrestamo)
+      .then(response => {
+        window.alert(response.message)
+        const confirmacion = window.confirm('Deseas recargar la página ahora?')
+        if (confirmacion) return window.location.reload()
+        else {
+          console.log(response)
+        }
+      })
+      .catch(error => {
+        window.alert(error.message)
+        const confirmacion = window.confirm('Deseas recargar la página ahora?')
+        if (confirmacion) return window.location.reload()
+        else {
+          console.log(error)
+        }
+      })
+  }
+
   return (
     <>
       <section>
@@ -31,7 +55,7 @@ export default function Page () {
               <p><strong>Fecha inicio del prestamo:</strong> {prestamo.fecha_inicio_prestamo}</p>
               <p><strong>Fecha finalizacion del prestamo:</strong> {prestamo.fecha_finalizacion_prestamo}</p>
               <strong className='text-center'>Monto: ${prestamo.monto}</strong>
-              <button className='bg-red-300 text-black rounded hover:bg-red-400 p-2'>Dar de Baja</button>
+              <button className='bg-red-300 text-black rounded hover:bg-red-400 p-2' onClick={() => handleEliminarPrestamo(prestamo.id)}>Dar de Baja</button>
             </div>
           ))}
         </div>
@@ -47,7 +71,7 @@ export default function Page () {
               <p><strong>Fecha inicio del prestamo:</strong> {prestamo.fecha_inicio_prestamo}</p>
               <p><strong>Fecha finalizacion del prestamo:</strong> {prestamo.fecha_finalizacion_prestamo}</p>
               <strong className='text-center'>Monto: ${prestamo.monto}</strong>
-              <button className='bg-red-300 text-black rounded hover:bg-red-400 p-2'>Dar de Baja</button>
+              <button className='bg-red-300 text-black rounded hover:bg-red-400 p-2' onClick={() => handleEliminarPrestamo(prestamo.id)}>Dar de Baja</button>
             </div>
           ))}
         </div>
