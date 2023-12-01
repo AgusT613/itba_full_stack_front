@@ -3,6 +3,7 @@ import { obtenerDatosUsuario, obtenerListado, obtenerSucursales, CUENTAS_USER_AP
 
 export const datos = {
   fotoPerfil: 'https://randomuser.me/api/portraits/med/men/36.jpg',
+  idUsuario: undefined,
   nombre: undefined,
   saldoEnCuenta: 0,
   tarjetas: [],
@@ -24,6 +25,7 @@ obtenerDatosUsuario(nombreUsuario, AUTH)
   .then(data => {
     const { username, id } = data
     datos.nombre = username
+    datos.idUsuario = id
     // ----
     obtenerListado(id, AUTH, TARJETAS_USER_API)
       .then(tarjetas => { datos.tarjetas = tarjetas })

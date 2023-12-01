@@ -5,6 +5,7 @@ export const PAGOS_USER_API = 'http://localhost:8000/api/pagos/'
 export const FACTURAS_USER_API = 'http://localhost:8000/api/facturas/'
 export const PRESTAMOS_USER_API = 'http://localhost:8000/api/prestamos/'
 export const SUCURSALES_API = 'http://localhost:8000/api/sucursales/'
+export const PRESTAMO_POR_SUCURSAL_ID_API = 'http://localhost:8000/api/prestamo-sucursal-id/'
 
 export async function obtenerDatosUsuario (nombreUsuario, auth) {
   const userUrl = `${LOGIN_USER_API}?username=${nombreUsuario}`
@@ -24,4 +25,27 @@ export async function obtenerSucursales (api) {
   const response = await fetch(api)
   const sucursales = await response.json()
   return sucursales
+}
+
+export async function crearNuevoPrestamo (api, body) {
+  const nombreUsuario = window.localStorage.getItem('username')
+  const contraseniaUsuario = window.localStorage.getItem('password')
+  const options = {
+    method: 'POST',
+    body: JSON.stringify(body),
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Basic ${btoa(`${nombreUsuario}:${contraseniaUsuario}`)}`
+    }
+  }
+
+  const response = await fetch(api, options)
+  if (response.status === 401) {
+    throw new Error('Usuario no autorizado, inicie sesión nuevamente')
+  }
+  const dataSent = await response.json()
+  if (response.status === 201) {
+    return { dataSent, status: response.status, message: 'Nuevo prestamo creado correctamente. Por favor, recargue la página para visualizar los cambios' }
+  }
+  return { dataSent, status: response.status }
 }
