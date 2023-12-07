@@ -1,26 +1,24 @@
 import styles from '../Inicio.module.css'
 
 export const Tarjeta = ({ datosTarjeta, onClick }) => {
-  const { tipo, marca, numero, fecha_expiracion: fechaExpiracion, cvv } = datosTarjeta
-
   return (
     <div className={styles.tarjeta} onClick={onClick}>
       <section className={styles.descripcion_tarjeta}>
-        <h6>{tipo}</h6>
-        <p>{marca}</p>
+        <h6>{datosTarjeta?.tipo}</h6>
+        <p>{datosTarjeta?.marca}</p>
       </section>
       <span className={styles.icono_chip_seguridad_tarjeta} />
       <section className={styles.numero_tarjeta}>
-        {numero}
+        {datosTarjeta?.numero}
       </section>
       <section className={styles.tarjeta_detalles}>
         <div>
           <p>Vencimiento</p>
-          <span>{fechaExpiracion}</span>
+          <span>{datosTarjeta?.fecha_expiracion}</span>
         </div>
         <div>
           <p>CVV</p>
-          <span>{cvv}</span>
+          <span>{datosTarjeta?.cvv}</span>
         </div>
         <span className={styles.tarjeta_banco} />
       </section>

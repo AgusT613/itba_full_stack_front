@@ -1,7 +1,9 @@
 'use client'
-import { datos } from '@/context/datosUsuario'
 import Link from 'next/link'
 import styles from '@/styles/Facturas.module.css'
+import { useContext, useEffect, useState } from 'react'
+import { DatosUsuarioContexto } from '@/context/datosUsuarioContexto'
+import { FACTURAS_USER_API, obtenerListado } from '@/context/services'
 
 // export const metadata = {
 //   title: 'Facturas - ITBANK',
@@ -9,7 +11,16 @@ import styles from '@/styles/Facturas.module.css'
 // }
 
 export default function Page () {
-  const listaFacturas = datos.facturas
+  const [listaFacturas, setListaFacturas] = useState([])
+  const { datosUsuario } = useContext(DatosUsuarioContexto)
+
+  useEffect(() => {
+    const { userId, username, password } = datosUsuario
+    obtenerListado(userId, FACTURAS_USER_API, username, password)
+      .then(facturas => setListaFacturas(facturas))
+      .catch(error => console.log(error))
+  }, [])
+
   return (
     <>
       <h2>Pantalla Facturas</h2>

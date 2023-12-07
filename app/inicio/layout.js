@@ -4,6 +4,7 @@ import { MenuLateralResponsive } from '@/components/MenuLateral/MenuLateralRespo
 import { Footer } from '@/components/Footer/Footer'
 import styles from '@/app/inicio/layout.module.css'
 import { useRouter } from 'next/navigation'
+import useLocalStorageGI from '@/hooks/useLocalStorageGI'
 
 // export const metadata = {
 //   title: 'Inicio - ITBANK',
@@ -11,7 +12,7 @@ import { useRouter } from 'next/navigation'
 // }
 
 export default function Inicio ({ children }) {
-  const usuarioLogueado = window.localStorage.getItem('auth')
+  const usuarioLogueado = useLocalStorageGI('auth')
   const router = useRouter()
 
   return (

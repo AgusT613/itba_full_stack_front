@@ -3,9 +3,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import LOGO_ITBANK from '@/public/itbank-logo.png'
 import styles from './HeaderHome.module.css'
+import useLocalStorageGI from '@/hooks/useLocalStorageGI'
 
 export default function HeaderHome ({ isAction = false }) {
-  const usuarioLogueado = window.localStorage.getItem('auth')
+  const usuarioLogueado = useLocalStorageGI('auth')
 
   return (
     <header className={styles.cabecera}>

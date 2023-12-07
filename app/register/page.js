@@ -1,4 +1,3 @@
-import { ProveedorUsuario } from '@/context/usuarioContexto'
 import Registrar from '@/components/IniciarSesion/Registrar'
 import ToggleForm from '@/components/IniciarSesion/ToggleForm'
 import HeaderHome from '@/components/HeaderHome/HeaderHome'

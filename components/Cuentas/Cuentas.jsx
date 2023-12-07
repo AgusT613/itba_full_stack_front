@@ -1,6 +1,8 @@
 'use client'
+import { useContext, useEffect, useState } from 'react'
 import styles from './Cuentas.module.css'
-import { datos } from '@/context/datosUsuario'
+import { DatosUsuarioContexto } from '@/context/datosUsuarioContexto'
+import { CUENTAS_USER_API, obtenerListado } from '@/context/services'
 
 const Carta = ({ descripcion, tipoAhorro, saldo }) => {
   return (
@@ -19,9 +21,19 @@ const Carta = ({ descripcion, tipoAhorro, saldo }) => {
 }
 
 export const Cuentas = () => {
+  const [listaCuentas, setListaCuentas] = useState([])
+  const { datosUsuario } = useContext(DatosUsuarioContexto)
+
+  useEffect(() => {
+    const { userId, username, password } = datosUsuario
+    obtenerListado(userId, CUENTAS_USER_API, username, password)
+      .then(cuentas => setListaCuentas(cuentas))
+      .catch(error => console.log(error))
+  }, [])
+
   return (
     <section className={styles.contenedorCartas}>
-      {datos.cuentas.map(cuenta => (
+      {listaCuentas.map(cuenta => (
         <div key={cuenta.id}>
           <Carta
             descripcion={cuenta.tipo_cuenta}

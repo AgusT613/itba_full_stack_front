@@ -1,8 +1,9 @@
 'use client'
 import CalculadoraPrestamos from '@/components/CalculadoraPrestamos/CalculadoraPrestamos'
 import FormularioSolicitarPrestamo from '@/components/SolicitarPrestamo'
-import { PRESTAMOS_USER_API, eliminarPrestamo } from '@/context/api_urls'
-import { datos } from '@/context/datosUsuario'
+import { DatosUsuarioContexto } from '@/context/datosUsuarioContexto'
+import { PRESTAMOS_USER_API, eliminarPrestamo, obtenerListado } from '@/context/services'
+import { useContext, useEffect, useState } from 'react'
 
 // export const metadata = {
 //   title: 'Prestamos - ITBANK',
@@ -10,11 +11,25 @@ import { datos } from '@/context/datosUsuario'
 // }
 
 export default function Page () {
-  const prestamosITBANK = datos.prestamos.filter(prestamo => prestamo.sucursal.nombre === 'ITBANK')
-  const prestamosOtrasSucursales = datos.prestamos.filter(prestamo => prestamo.sucursal.nombre !== 'ITBANK')
+  // const [listaPrestamos, setListaPrestamos] = useState([])
+  const [prestamosITBANK, setPrestamosITBANK] = useState([])
+  const [prestamosOtrasSucursales, setPrestamosOtrasSucursales] = useState([])
+  const { datosUsuario } = useContext(DatosUsuarioContexto)
+
+  useEffect(() => {
+    const { userId, username, password } = datosUsuario
+    obtenerListado(userId, PRESTAMOS_USER_API, username, password)
+      .then(prestamos => {
+        const prestamosITBANK = prestamos.filter(prestamo => prestamo.sucursal.nombre === 'ITBANK')
+        const prestamosOtrasSucursales = prestamos.filter(prestamo => prestamo.sucursal.nombre !== 'ITBANK')
+        setPrestamosITBANK(prestamosITBANK)
+        setPrestamosOtrasSucursales(prestamosOtrasSucursales)
+      })
+      .catch(error => console.log(error))
+  }, [])
 
   const handleEliminarPrestamo = prestamoId => {
-    const urlEliminarPrestamo = `${PRESTAMOS_USER_API}${prestamoId}/?user_id=${datos.idUsuario}`
+    const urlEliminarPrestamo = `${PRESTAMOS_USER_API}${prestamoId}/?user_id=${datosUsuario.userId}`
 
     eliminarPrestamo(urlEliminarPrestamo)
       .then(response => {
@@ -46,7 +61,7 @@ export default function Page () {
       <section>
         <div className='bg-[rgba(0,0,0,.2)] py-2 px-4 rounded-xl'>
           <h2 className='text-3xl font-medium '>Listado Prestamos ITBANK</h2>
-          <h3 className='text-xl font-normal'>Dirección: {prestamosITBANK[0].sucursal.direccion}</h3>
+          <h3 className='text-xl font-normal'>Dirección: {prestamosITBANK[0]?.sucursal.direccion}</h3>
         </div>
         <div className='grid grid-cols-2 my-8 gap-4'>
           {prestamosITBANK.map(prestamo => (

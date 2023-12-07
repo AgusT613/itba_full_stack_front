@@ -1,48 +1,57 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { obtenerInicioSesion } from '@/context/services'
 import styles from './Formulario.module.css'
-import { LOGIN_USER_API } from '@/context/api_urls'
+import { DatosUsuarioContexto } from '@/context/datosUsuarioContexto'
 
 export default function IniciarSesion () {
   const [usuario, setNombreUsuario] = useState('')
   const [contrasenia, setContrasenia] = useState('')
+  // Evita llamar a la api cuando se ingresa al formulario por primera vez
+  const [formularioEnviado, setFormularioEnviado] = useState(false)
+  const { setDatosUsuario } = useContext(DatosUsuarioContexto)
   const router = useRouter()
 
-  const leerUsuario = e => setNombreUsuario(e.target.value)
-  const leerContrasenia = e => setContrasenia(e.target.value)
-
-  function IniciarSesionUsuario (e) {
-    e.preventDefault()
-
-    const options = {
-      method: 'GET',
-      headers: {
-        Authorization: 'Basic ' + btoa(usuario + ':' + contrasenia)
-      }
-    }
-
-    fetch(LOGIN_USER_API, options)
-      .then(response => {
-        if (response.status === 401 && usuario === '' && contrasenia === '') {
-          throw new Error('Acceso denegado. Completar los campos')
-        } else if (response.status === 401) {
-          throw new Error('Acceso denegado. Datos incorrectos')
-        } else {
+  useEffect(() => {
+    const username = window.localStorage.getItem('username')
+    const password = window.localStorage.getItem('password')
+    if (formularioEnviado && username === null && password === null) {
+      obtenerInicioSesion(usuario, contrasenia)
+        .then(response => {
           window.localStorage.setItem('username', usuario)
           window.localStorage.setItem('password', contrasenia)
           window.localStorage.setItem('auth', 'true')
-          window.alert('Inicio de sesión correcto. Al aceptar se redirigira al homebanking')
+          window.localStorage.setItem('user_id', response.user.id)
+          setDatosUsuario({
+            username: usuario,
+            password: contrasenia,
+            userId: response.user.id
+          })
+          window.alert(response.message)
           router.push('/inicio')
-        }
-      })
-      .catch(error => {
-        window.alert(error)
-      })
+        })
+        .catch(error => {
+          window.alert(error.message)
+          console.log(error)
+        })
+      setFormularioEnviado(false)
+    }
+    if (username !== null && password !== null) {
+      window.alert('El usuario ya inicio sesión anteriormente. Puede navegar a su homebanking')
+    }
+  }, [formularioEnviado, usuario, contrasenia])
+
+  const iniciarSesionUsuario = (e) => {
+    e.preventDefault()
+    setFormularioEnviado(true)
+    const valoresFormulario = Object.fromEntries(new FormData(e.target))
+    setNombreUsuario(valoresFormulario.username)
+    setContrasenia(valoresFormulario.password)
   }
 
   return (
-    <form onSubmit={IniciarSesionUsuario} className={styles.formulario}>
+    <form onSubmit={iniciarSesionUsuario} className={styles.formulario}>
       {/* Usuario */}
       <div>
         <label className={styles.label_descripcion} htmlFor='username'>Nombre de usuario</label>
@@ -50,18 +59,16 @@ export default function IniciarSesion () {
           className={styles.campo_datos}
           name='username'
           type='text'
-          onChange={leerUsuario}
           placeholder='agust613'
         />
       </div>
       {/* Contraseña */}
       <div>
-        <label className={styles.label_descripcion} htmlFor='contrasenia'>Contraseña</label>
+        <label className={styles.label_descripcion} htmlFor='password'>Contraseña</label>
         <input
           className={styles.campo_datos}
-          name='contrasenia'
+          name='password'
           type='password'
-          onChange={leerContrasenia}
           placeholder='agustin123'
         />
       </div>

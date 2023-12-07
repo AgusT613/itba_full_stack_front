@@ -1,16 +1,20 @@
 'use client'
-import { createContext, useState } from 'react'
-import { datos } from './datosUsuario'
+import useUserData from '@/hooks/useUserData'
+import { createContext } from 'react'
+
+const datos = {
+  userId: undefined,
+  username: undefined,
+  password: undefined
+}
 
 export const DatosUsuarioContexto = createContext()
 
 export const ProveedorDatosUsuario = ({ children }) => {
-  const [datosUsuario, setDatosUsuario] = useState(datos)
-  const [saldoVisible, setSaldoVisible] = useState(true)
+  const { datosUsuario, setDatosUsuario } = useUserData(datos)
 
-  const revelarSaldo = () => setSaldoVisible(!saldoVisible)
   return (
-    <DatosUsuarioContexto.Provider value={{ datosUsuario, saldoVisible, revelarSaldo }}>
+    <DatosUsuarioContexto.Provider value={{ datosUsuario, setDatosUsuario }}>
       {children}
     </DatosUsuarioContexto.Provider>
   )

@@ -15,11 +15,11 @@ export const PerfilUsuario = () => {
           height={0}
           style={{ width: '100%', height: 'auto' }}
           className={styles.imagen_usuario}
-          src={datosUsuario.fotoPerfil}
+          src='https://randomuser.me/api/portraits/med/men/36.jpg'
           alt='Su foto de perfil de usuario'
         />
       </figure>
-      <h3>Hola {datosUsuario.nombre} !</h3>
+      <h3>Hola {datosUsuario.username}!</h3>
       <span className={styles.mas_detalles} />
     </article>
   )

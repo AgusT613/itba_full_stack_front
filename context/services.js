@@ -4,25 +4,51 @@ export const CUENTAS_USER_API = 'http://localhost:8000/api/cuentas/'
 export const PAGOS_USER_API = 'http://localhost:8000/api/pagos/'
 export const FACTURAS_USER_API = 'http://localhost:8000/api/facturas/'
 export const PRESTAMOS_USER_API = 'http://localhost:8000/api/prestamos/'
-export const SUCURSALES_API = 'http://localhost:8000/api/sucursales/'
+const SUCURSALES_API = 'http://localhost:8000/api/sucursales/'
 export const PRESTAMO_POR_SUCURSAL_ID_API = 'http://localhost:8000/api/prestamo-sucursal-id/'
 
-export async function obtenerDatosUsuario (nombreUsuario, auth) {
+const headerAuth = (nombreUsuario, contrasenia) => {
+  const basicAuth = 'Basic ' + btoa(nombreUsuario + ':' + contrasenia)
+  return { headers: { Authorization: basicAuth } }
+}
+
+export async function obtenerDatosUsuario (nombreUsuario, contrasenia) {
   const userUrl = `${LOGIN_USER_API}?username=${nombreUsuario}`
-  const userResponse = await fetch(userUrl, auth)
+  const userResponse = await fetch(userUrl, headerAuth(nombreUsuario, contrasenia))
   const userData = await userResponse.json()
   return userData[0]
 }
 
-export async function obtenerListado (userId, auth, api) {
+export async function obtenerInicioSesion (usuario, contrasenia) {
+  const response = await fetch(LOGIN_USER_API, headerAuth(usuario, contrasenia))
+
+  if (response.status === 401 && usuario === '' && contrasenia === '') {
+    throw new Error('Acceso denegado. Completar los campos')
+  } else if (response.status === 401) {
+    throw new Error('Acceso denegado. Datos incorrectos')
+  } else if (response.status === 200) {
+    const userData = await obtenerDatosUsuario(usuario, contrasenia)
+    return {
+      message: 'Inicio de sesión correcto. Al aceptar se redirigira al homebanking',
+      user: userData
+    }
+  } else {
+    return {
+      status: response.status,
+      message: response.text
+    }
+  }
+}
+
+export async function obtenerListado (userId, api, nombreUsuario, contrasenia) {
   const userUrl = `${api}?user_id=${userId}`
-  const response = await fetch(userUrl, auth)
+  const response = await fetch(userUrl, headerAuth(nombreUsuario, contrasenia))
   const data = await response.json()
   return data
 }
 
-export async function obtenerSucursales (api) {
-  const response = await fetch(api)
+export async function obtenerSucursales () {
+  const response = await fetch(SUCURSALES_API)
   const sucursales = await response.json()
   return sucursales
 }

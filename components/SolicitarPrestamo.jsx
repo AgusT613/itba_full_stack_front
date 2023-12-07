@@ -1,7 +1,7 @@
 'use client'
-import { datos } from '@/context/datosUsuario'
-import { crearNuevoPrestamo, PRESTAMO_POR_SUCURSAL_ID_API } from '@/context/api_urls'
-import { useRef, useState } from 'react'
+import { DatosUsuarioContexto } from '@/context/datosUsuarioContexto'
+import { crearNuevoPrestamo, obtenerSucursales, PRESTAMO_POR_SUCURSAL_ID_API } from '@/context/services'
+import { useContext, useEffect, useRef, useState } from 'react'
 
 const formularioInicial = {
   error: {
@@ -18,6 +18,14 @@ export default function FormularioSolicitarPrestamo () {
   const [resetPage, setResetPage] = useState(false)
   const [error, setError] = useState(formularioInicial.error)
   const [success, setSuccess] = useState(formularioInicial.success)
+  const [sucursales, setSucursales] = useState([])
+  const { datosUsuario } = useContext(DatosUsuarioContexto)
+
+  useEffect(() => {
+    obtenerSucursales()
+      .then(sucursales => setSucursales(sucursales))
+      .catch(error => console.log(error))
+  }, [])
 
   const handleResetPage = () => {
     window.location.reload()
@@ -32,10 +40,9 @@ export default function FormularioSolicitarPrestamo () {
   const handleSubmit = (e) => {
     e.preventDefault()
     const datosFormulario = Object.fromEntries(new FormData(e.target))
-    const idUsuario = datos.idUsuario
 
     const body = {
-      cliente: idUsuario,
+      cliente: datosUsuario.userId,
       sucursal: parseInt(datosFormulario.sucursal),
       tipo_prestamo: datosFormulario.tipoPrestamo,
       fecha_inicio_prestamo: datosFormulario.fechaInicioPrestamo,
@@ -62,7 +69,7 @@ export default function FormularioSolicitarPrestamo () {
         <div className='w-full flex justify-between items-center'>
           <label htmlFor='sucursal'>Sucursal</label>
           <select name='sucursal' className='min-w-[20rem] px-2 py-1 rounded-md bg-transparent border-2 border-black placeholder:text-[rgba(255,255,255,.7)]'>
-            {datos.sucursales.map(sucursal => (
+            {sucursales.map(sucursal => (
               <option value={sucursal.id} key={sucursal.id}>{sucursal.nombre}</option>
             ))}
           </select>

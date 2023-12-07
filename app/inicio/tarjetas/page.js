@@ -1,8 +1,10 @@
 'use client'
 import { Tarjeta } from '@/components/Inicio/components/Tarjeta'
-import { datos } from '@/context/datosUsuario'
+import { DatosUsuarioContexto } from '@/context/datosUsuarioContexto'
+import { TARJETAS_USER_API, obtenerListado } from '@/context/services'
 import styles from '@/styles/Tarjetas.module.css'
 import Link from 'next/link'
+import { useContext, useEffect, useState } from 'react'
 
 // export const metadata = {
 //   title: 'Tarjetas - ITBANK',
@@ -10,12 +12,20 @@ import Link from 'next/link'
 // }
 
 export default function Page () {
-  const listaTarjetas = datos.tarjetas
+  const [listaTarjetas, setListaTarjetas] = useState([])
+  const { datosUsuario } = useContext(DatosUsuarioContexto)
+
+  useEffect(() => {
+    const { userId, username, password } = datosUsuario
+    obtenerListado(userId, TARJETAS_USER_API, username, password)
+      .then(tarjetas => setListaTarjetas(tarjetas))
+      .catch(error => console.log(error))
+  }, [])
 
   return (
     <>
       <section className={styles.contenedor_tarjetas}>
-        {listaTarjetas.map((tarjeta) => {
+        {listaTarjetas.length && listaTarjetas.map(tarjeta => {
           const rutaDinamicaTarjeta = `/inicio/tarjetas/${tarjeta.id}`
           return (
             <Link key={tarjeta.id} href={rutaDinamicaTarjeta}>
