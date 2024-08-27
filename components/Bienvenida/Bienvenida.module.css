@@ -1,51 +1,74 @@
-/* 
-    Ilustracion de Fondo
-*/
-.contenedor_imagen{
-    position: relative;
-    background-image: url(../../public/home-page.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
 /*
     Contiene la cabecera y el parrafo de bienvenida
 */
-.contenedor_bienvenida{
-    height: 100vh;
-    background: #4e4cc542;
+.wrapperPrincipal{
+    height: 100dvh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 1em;
+}
+
+.hero{
+    display: flex;
+    padding: 1rem 3rem;
+    gap: 2rem;
+}
+
+.bienvenida{
+    background: linear-gradient(360deg, #3339, transparent 100%);
+    width: 35em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.bienvenida h1{
+    font-size: 2.5em;
+}
+
+.bienvenida h2{
+    font-size: 2.25em;
+    opacity: .8;
+}
+
+.carrousel_imagenes{
+    border-radius: 2rem;
+    flex-grow: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+}
+
+.image{
+    border-radius: inherit;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 /*
     Seccion Parrafo - Texto de bienvenida al usuario
 */
 .texto_bienvenida{
-    padding: 1em 2em;
-    background: rgba(0, 0, 0, .5);
+    text-align: center;
+    padding: 0 2rem;
     color: #fff;
-    font-size: 1.25em;
+    font-size: 0.90em;
+    text-wrap: balance;
     font-weight: 300;
     line-height: 1.75em;
 }
 
-@media (max-width: 820px){
-    .texto_bienvenida{
-        transition: .3s ease;
-        font-size: 1.05em;
-    }
-}
+/* @media (max-width: 820px){
+
+} */
 
 @media (max-width: 600px){
     .titulo_homebanking{
         transition: .3s ease;
         font-size: 2em;
-    }
-
-    .texto_bienvenida{
-        font-size: 1em;
     }
 }
 
@@ -53,19 +76,11 @@
     .titulo_homebanking{
         font-size: 1.5em;
     }
-
-    .texto_bienvenida{
-        font-size: .9em;
-    }
 }
 
 @media (max-width: 280px){
     .titulo_homebanking{
         font-size: 1em;
         margin: 0 .5em;
-    }
-
-    .texto_bienvenida{
-        font-size: .8em;
     }
 }
