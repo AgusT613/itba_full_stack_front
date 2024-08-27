@@ -2,41 +2,49 @@
     Seccion Cabecera - Logo del banco
 */
 .cabecera{
-    padding: 1em;
     background: rgba(0, 0, 0, .5);
-    height: 6em;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-grow: 1;
 }
 
 .contenedor_logo{
-    width: 15em;
+    margin: .5em 0;
+    width: 12em;
     display: flex;
     align-items: center;
 }
 
 .logo_itbank{
+    min-width: 10em;
     width: 100%;
     height: auto;
 }
 
-.titulo_homebanking{
-    font-size: 3em;
-}
-
 .navegacion{
-    font-size: 1.25em;
+    margin: 0 .5em;
+    text-align: center;
+    font-size: 1.15em;
     display: flex;
     gap: .5em;
 }
 
 .navegacion a{
+    width: 7em;
     transition: .2s ease;
-    border-radius: 1em;
-    padding: .75em .5em;
+    border-radius: .5em;
+    padding: .25em;
 }
 
 .navegacion a:hover{
     background: rgba(0, 0, 0, .4);
+}
+
+@media (max-width: 550px){
+    .cabecera{
+        justify-content: space-around;
+        flex-direction: column;
+        height: 100%;
+    }
 }
