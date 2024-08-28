@@ -6,25 +6,27 @@ import styles from './HeaderHome.module.css'
 import useLocalStorageGI from '@/hooks/useLocalStorageGI'
 
 export default function HeaderHome ({ isAction = false }) {
-  const usuarioLogueado = useLocalStorageGI('auth')
+  const userIsLogged = useLocalStorageGI('auth')
 
   return (
-    <header className={styles.cabecera}>
-      <figure className={styles.contenedor_logo}>
-        <Image className={styles.logo_itbank} src={LOGO_ITBANK} alt='logo de ITBANK' />
+    <header className={styles.header}>
+      <figure className={styles.header__logoContainer}>
+        <Image src={LOGO_ITBANK} alt='Logo del banco ITBANK' />
       </figure>
-      <nav className={styles.navegacion}>
-        {isAction
-          ? <Link href='/'>Volver al Home</Link>
-          : (
-            <>
-              <Link href='/register'>Registrarse</Link>
-              <Link href='/login'>Iniciar Sesión</Link>
-              <Link href='/sucursales'>Sucursales</Link>
-              {usuarioLogueado === 'true' && <Link href='/inicio'>Inicio</Link>}
-            </>
-            )}
-      </nav>
+      <div className={styles.navContainer}>
+        <nav className={styles.navContainer__homebanking}>
+          {isAction
+            ? <Link href='/'>Volver al Home</Link>
+            : (
+              <>
+                <Link href='/register'>Registrarse</Link>
+                <Link href='/login'>Iniciar Sesión</Link>
+                <Link href='/sucursales'>Sucursales</Link>
+                {userIsLogged === 'true' && <Link href='/inicio'>Inicio</Link>}
+              </>
+              )}
+        </nav>
+      </div>
     </header>
   )
 }

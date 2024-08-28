@@ -1,48 +1,43 @@
-/*
-    Seccion Cabecera - Logo del banco
-*/
-.cabecera{
-    background: rgba(0, 0, 0, .5);
+/* ------ HEADER SECTION ------ */
+.header{
+    background: rgba(0, 0, 0, .4);
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: 5rem 1fr;
+    max-height: 100dvh;
+    position: sticky;
+    top: 0;
+}
+
+.header__logoContainer{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-grow: 1;
 }
 
-.contenedor_logo{
-    margin: .5em 0;
-    width: 12em;
-    display: flex;
-    align-items: center;
-}
-
-.logo_itbank{
-    min-width: 10em;
-    width: 100%;
-    height: auto;
-}
-
-.navegacion{
-    margin: 0 .5em;
+.navContainer__homebanking{
+    height: 100%;
     text-align: center;
-    font-size: 1.15em;
     display: flex;
-    gap: .5em;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
 }
 
-.navegacion a{
+.navContainer__homebanking a{
     width: 7em;
     transition: .2s ease;
     border-radius: .5em;
     padding: .25em;
 }
 
-.navegacion a:hover{
+.navContainer__homebanking a:hover{
     background: rgba(0, 0, 0, .4);
 }
 
+/* ------ MEDIA QUERIES ------ */
 @media (max-width: 550px){
-    .cabecera{
+    .header{
         justify-content: space-around;
         flex-direction: column;
         height: 100%;

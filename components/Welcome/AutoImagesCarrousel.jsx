@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import styles from '@/components/Bienvenida/Bienvenida.module.css'
+import styles from '@/components/Welcome/Welcome.module.css'
 import { useEffect, useRef, useState } from 'react'
 import { imagesList } from './imagesList'
 
@@ -24,7 +24,7 @@ export default function AutoImagesCarrousel () {
 
   return (
     <Image
-      className={styles.image}
+      className={styles.heroSection__image}
       width={500}
       height={500}
       src={image.url}

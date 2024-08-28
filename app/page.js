@@ -1,5 +1,5 @@
-import Bienvenida from '@/components/Bienvenida/Bienvenida'
+import Welcome from '@/components/Welcome/Welcome'
 
 export default function Page () {
-  return <Bienvenida />
+  return <Welcome />
 }

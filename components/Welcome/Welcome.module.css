@@ -1,21 +1,24 @@
-/*
-    Contiene la cabecera y el parrafo de bienvenida
-*/
-.wrapperPrincipal{
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
+/* ------ WRAPPER OF HEADER - MAIN ------ */
+.wrapperContainer{
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: 9rem 1fr;
 }
 
-.hero{
+/* ------ HERO SECTION ------ */
+.heroSection{
+    min-height: 100dvh;
     display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 1rem 3rem;
     gap: 2rem;
 }
 
-.bienvenida{
+.heroSection__titles{
     background: linear-gradient(360deg, #3339, transparent 100%);
     width: 35em;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,16 +26,16 @@
     gap: 2rem;
 }
 
-.bienvenida h1{
+.heroSection__titles h1{
     font-size: 2.5em;
 }
 
-.bienvenida h2{
+.heroSection__titles h2{
     font-size: 2.25em;
     opacity: .8;
 }
 
-.carrousel_imagenes{
+.heroSection__carrousel{
     border-radius: 2rem;
     flex-grow: 2;
     display: flex;
@@ -42,16 +45,14 @@
     height: 500px;
 }
 
-.image{
+.heroSection__image{
     border-radius: inherit;
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
-/*
-    Seccion Parrafo - Texto de bienvenida al usuario
-*/
-.texto_bienvenida{
+
+.heroSection__titles p{
     text-align: center;
     padding: 0 2rem;
     color: #fff;
@@ -61,26 +62,15 @@
     line-height: 1.75em;
 }
 
+/* ------ MEDIA QUERIES ------ */
 /* @media (max-width: 820px){
-
 } */
 
-@media (max-width: 600px){
-    .titulo_homebanking{
-        transition: .3s ease;
-        font-size: 2em;
-    }
-}
+/* @media (max-width: 600px){
+} */
 
-@media (max-width: 380px){
-    .titulo_homebanking{
-        font-size: 1.5em;
-    }
-}
+/* @media (max-width: 380px){
+} */
 
-@media (max-width: 280px){
-    .titulo_homebanking{
-        font-size: 1em;
-        margin: 0 .5em;
-    }
-}
+/* @media (max-width: 280px){
+} */
