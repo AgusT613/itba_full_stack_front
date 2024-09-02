@@ -3,6 +3,8 @@ import styles from './Welcome.module.css'
 import AutoImagesCarrousel from './AutoImagesCarrousel'
 import bankResources from './bankResourcesList'
 import BankResourceContainer from './BankResourceContainer'
+import bankActionsList from './bankActionsList'
+import BankActionContainer from './BankActionContainer'
 
 export default function Welcome () {
   return (
@@ -10,6 +12,7 @@ export default function Welcome () {
       <div className={styles.wrapperContainer}>
         <HeaderHome />
         <main>
+          {/* HERO SECTION */}
           <section className={styles.heroSection}>
             <div className={styles.heroSection__titles}>
               <h1>Banco Online ITBANK</h1>
@@ -21,13 +24,22 @@ export default function Welcome () {
               <AutoImagesCarrousel />
             </figure>
           </section>
+
+          {/* BANK RESOURCES */}
           <section className={styles.bankResources}>
             <h4 className={styles.bankResources__title}>¿Qué estas buscando?</h4>
             <div className={styles.bankResources__items}>
               {bankResources.map(resource => (
-                <BankResourceContainer resourceList={resource} key={resource[0]}/>
+                <BankResourceContainer resourceList={resource} key={resource}/>
               ))}
             </div>
+          </section>
+
+          {/* BANK ACTIONS */}
+          <section className={styles.actionContainer}>
+            {bankActionsList.map(action => (
+                <BankActionContainer bankAction={action} key={action}/>
+            ))}
           </section>
         </main>
       </div>
