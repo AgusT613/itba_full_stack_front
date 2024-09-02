@@ -5,6 +5,7 @@ import bankResources from './bankResourcesList'
 import BankResourceContainer from './BankResourceContainer'
 import bankActionsList from './bankActionsList'
 import BankActionContainer from './BankActionContainer'
+import FooterHome from './FooterHome'
 
 export default function Welcome () {
   return (
@@ -43,6 +44,7 @@ export default function Welcome () {
           </section>
         </main>
       </div>
+      <FooterHome />
     </>
   )
 }
