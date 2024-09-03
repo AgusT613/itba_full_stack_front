@@ -21,7 +21,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
 .navContainer__homebanking a{

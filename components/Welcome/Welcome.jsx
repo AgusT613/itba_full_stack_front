@@ -10,7 +10,7 @@ import FooterHome from './FooterHome'
 export default function Welcome () {
   return (
     <>
-      <div className={styles.wrapperContainer}>
+      <div className={styles.wrapperContainer} id='init'>
         <HeaderHome />
         <main>
           {/* HERO SECTION */}
@@ -27,7 +27,7 @@ export default function Welcome () {
           </section>
 
           {/* BANK RESOURCES */}
-          <section className={styles.bankResources}>
+          <section className={styles.bankResources} id='resources'>
             <h4 className={styles.bankResources__title}>¿Qué estas buscando?</h4>
             <div className={styles.bankResources__items}>
               {bankResources.map(resource => (
@@ -37,7 +37,7 @@ export default function Welcome () {
           </section>
 
           {/* BANK ACTIONS */}
-          <section className={styles.actionContainer}>
+          <section className={styles.actionContainer} id='actions'>
             {bankActionsList.map(action => (
                 <BankActionContainer bankAction={action} key={action}/>
             ))}

@@ -6,7 +6,7 @@ import bankContacts from "./bankContacts";
 
 export default function FooterHome(){
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.footer} id="footer">
             <div className={styles.footer__wrapperInfo}>
                 <FooterInfoContainer title="Suscribite" description="Enterate de todas las novedades y beneficios que tenemos para vos." className={styles.footer__form}>
                 <form>

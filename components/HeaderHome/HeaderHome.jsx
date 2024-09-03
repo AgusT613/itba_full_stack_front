@@ -19,6 +19,11 @@ export default function HeaderHome ({ isAction = false }) {
             ? <Link href='/'>Volver al Home</Link>
             : (
               <>
+                <Link href="#init">Inicio</Link>
+                <Link href="#resources">Recursos</Link>
+                <Link href="#actions">Herramientas</Link>
+                <Link href="#footer">Información</Link>
+
                 <Link href='/register'>Registrarse</Link>
                 <Link href='/login'>Iniciar Sesión</Link>
                 <Link href='/sucursales'>Sucursales</Link>
