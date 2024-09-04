@@ -1,3 +1,9 @@
+.wrapperContainer{
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    min-height: 100dvh;
+}
+
 .formulario{
     display: flex;
     flex-direction: column;

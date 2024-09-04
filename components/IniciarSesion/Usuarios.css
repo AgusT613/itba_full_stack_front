@@ -7,7 +7,7 @@
 
 #contenedor_registro_usuario > div{
     background: rgba(0, 0, 0, .2);
-    height: calc(100vh - 6em);
+    height: 100dvh;
     width: 100%;
     display: flex;
     justify-content: center;

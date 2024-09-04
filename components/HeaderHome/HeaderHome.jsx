@@ -11,7 +11,7 @@ export default function HeaderHome ({ isAction = false }) {
   return (
     <header className={styles.header}>
       <figure className={styles.header__logoContainer}>
-        <Image src={LOGO_ITBANK} alt='Logo del banco ITBANK' />
+        <Image src={LOGO_ITBANK} alt='Logo del banco ITBANK' height={75}/>
       </figure>
       <div className={styles.navContainer}>
         <nav className={styles.navContainer__homebanking}>
