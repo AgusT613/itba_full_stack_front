@@ -1,8 +1,7 @@
-import Registrar from '@/components/IniciarSesion/Registrar'
-import ToggleForm from '@/components/IniciarSesion/ToggleForm'
+import SignUpForm from '@/components/Login/SignUpForm'
+import ToggleForm from '@/components/Login/ToggleForm'
 import HeaderHome from '@/components/HeaderHome/HeaderHome'
-import '../../components/IniciarSesion/Usuarios.css'
-import styles from "@/components/IniciarSesion/Formulario.module.css"
+import styles from "@/components/Login/Form.module.css"
 
 export const metadata = {
   title: 'Registro de Usuario- ITBANK',
@@ -13,14 +12,12 @@ export default function Page () {
   return (
     <div className={styles.wrapperContainer}>
       <HeaderHome isAction />
-      <main id='contenedor_registro_usuario'>
-        <div>
-          <section>
-            <h2>Registro de Usuario</h2>
-            <Registrar />
-            <ToggleForm to='/login'>Ya tienes cuenta? Inicia sesión aquí</ToggleForm>
-          </section>
-        </div>
+      <main className={styles.userLoginContainer}>
+        <section>
+          <h2>Registro de Usuario</h2>
+          <SignUpForm />
+          <ToggleForm to='/login'>Ya tienes cuenta? Inicia sesión aquí</ToggleForm>
+        </section>
       </main>
     </div>
   )

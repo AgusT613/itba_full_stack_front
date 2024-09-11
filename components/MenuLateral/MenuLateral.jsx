@@ -35,7 +35,7 @@ export function MenuLateral () {
       </nav>
       <span
         onClick={() => {
-          window.localStorage.clear()
+          window.localStorage.removeItem("auth")
           router.push('/')
         }}
         className='menu__cerrar__sesion'
