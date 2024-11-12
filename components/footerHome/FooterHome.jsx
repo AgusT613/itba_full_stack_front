@@ -1,8 +1,8 @@
 import Image from "next/image";
 import FooterInfoContainer from "./FooterInfoContainer";
-import styles from "@/components/Welcome/Welcome.module.css"
+import styles from "@/components/footerHome/footerHome.module.css"
 import ITBANK_LOGO from "@/public/itbank-logo.png"
-import bankContacts from "./bankContacts";
+import { BRANCH_OFFICE } from "@/utils/userDataModel";
 
 export default function FooterHome(){
     return (
@@ -12,7 +12,7 @@ export default function FooterHome(){
                 <form>
                     <input type="email" placeholder='Correo electrónico'/>
                     <select name="nw-interests" id="newsletter-interests">
-                    <option selected>Seleccione un interés</option>
+                    <option defaultValue={"no-selected"}>Seleccione un interés</option>
                     <option value="promotions">Promociones y Beneficios</option>
                     <option value="pymes">Instituto PyMes</option>
                     <option value="economic-studies">Estudios Económicos</option>
@@ -24,10 +24,11 @@ export default function FooterHome(){
                 </FooterInfoContainer>
                 <FooterInfoContainer title="Contactanos" description="De Lunes a Viernes de 8 a 20hs" className={styles.footer__contact}>
                 <ul>
-                    {bankContacts.map(contact => (
-                    <div key={contact.title}>
-                        <h5>{contact.title}</h5>
-                        <span>{contact.number}</span>
+                    {BRANCH_OFFICE.map(contact => (
+                    <div key={contact.name}>
+                        <h5>{contact.name}</h5>
+                        <span>{contact.address}</span>
+                        <span>{contact.contactNumber}</span>
                     </div>
                     ))}
                 </ul>

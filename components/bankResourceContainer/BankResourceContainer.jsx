@@ -1,4 +1,4 @@
-import styles from "@/components/Welcome/Welcome.module.css"
+import styles from "@/components/bankResourceContainer/bankResourceContainer.module.css"
 
 export default function BankResourceContainer ({resourceList}){
     const { title, description, href, icon } = resourceList

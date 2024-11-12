@@ -2,15 +2,27 @@
     width: 100%;
 }
 
-.menu__icono,
 .menu__cerrar__sesion{
     margin: 1em 0;
 }
 
+.itbankLogoRedirect{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .menu__icono{
+    margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.goBackHome{
+    font-size: .8rem;
+    opacity: .8;
 }
 
 .menu__navegacion{

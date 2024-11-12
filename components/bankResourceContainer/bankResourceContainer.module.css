@@ -1,0 +1,82 @@
+/* ------ BANK RESOURCE SECTION ------ */
+.bankResources {
+  min-height: 100dvh;
+}
+
+.bankResources__title {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent 100%);
+  padding: 1rem;
+  font-size: 1.6rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.bankResources__items {
+  padding: 3rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.bankResources__itemBox {
+  min-height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #eeed;
+  color: #333;
+  padding: 1rem;
+  clip-path: polygon(0px 0px, 100% 0px, 100% 85%, 90% 100%, 0px 100%);
+  position: relative;
+}
+
+.bankResources__itemBox::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background: rgb(98, 26, 255);
+}
+
+.bankResources__itemBox div {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.bankResources__itemBox__icon {
+  box-sizing: content-box;
+  font-size: 1.3rem;
+  border: 1px solid #000;
+  border-radius: 50%;
+  padding: 0.25rem;
+}
+
+.bankResources__itemBox__title {
+  font-size: 1.4rem;
+}
+
+.bankResources__itemBox__description {
+  font-size: 0.9rem;
+  text-wrap: balance;
+}
+
+.bankResources__itemBox__moreInfoLink {
+  border-radius: 1rem;
+  padding: 0.25rem 1rem;
+  background: rgb(194, 63, 255);
+  width: max-content;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: scale 0.15s ease-in-out;
+}
+
+.bankResources__itemBox__moreInfoLink:hover {
+  background-color: rgb(194, 63, 255, 0.8);
+  scale: 1.05;
+}

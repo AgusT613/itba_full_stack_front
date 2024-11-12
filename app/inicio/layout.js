@@ -6,11 +6,6 @@ import styles from '@/app/inicio/layout.module.css'
 import { useRouter } from 'next/navigation'
 import useLocalStorageGI from '@/hooks/useLocalStorageGI'
 
-// export const metadata = {
-//   title: 'Inicio - ITBANK',
-//   description: 'Bienvenido a ITBANK, tu socio financiero de confianza. Descubre una amplia gama de servicios bancarios, desde acceso a tus cuentas hasta préstamos y asesoría financiera. Nuestra misión es ayudarte a alcanzar tus metas financieras y ofrecerte seguridad y comodidad en cada transacción.'
-// }
-
 export default function Inicio ({ children }) {
   const usuarioLogueado = useLocalStorageGI('auth')
   const router = useRouter()

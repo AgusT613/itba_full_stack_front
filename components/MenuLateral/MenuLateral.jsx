@@ -10,18 +10,19 @@ export function MenuLateral () {
 
   return (
     <>
-      <figure className='menu__icono'>
-        <Image
-          width={0}
-          height={0}
-          style={{ width: '100%', height: 'auto' }}
-          id='logo'
-          src={LOGO_ITBANK}
-          alt='Imagen de logo del banco ITBANK, compuesto por el nombre del banco estilizado'
-        />
-      </figure>
+      <Link href={"/"} className='itbankLogoRedirect'>
+        <figure className='menu__icono'>
+          <Image
+            width={100}
+            height={100}
+            id='logo'
+            src={LOGO_ITBANK}
+            alt='Imagen de logo del banco ITBANK, compuesto por el nombre del banco estilizado'
+          />
+        </figure>
+        <span className="goBackHome">Volver a Home</span>
+      </Link>
       <nav className='menu__navegacion'>
-        <Link href='/'>Home</Link>
         <Link href='/inicio'>Inicio</Link>
         <Link href='/inicio/cuentas'>Cuentas</Link>
         <Link href='/inicio/transferencias'>Transferencias</Link>

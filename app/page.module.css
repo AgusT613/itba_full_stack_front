@@ -1,0 +1,6 @@
+/* ------ WRAPPER OF HEADER - MAIN ------ */
+.wrapperContainer {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+}

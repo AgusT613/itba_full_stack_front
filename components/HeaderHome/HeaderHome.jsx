@@ -11,7 +11,9 @@ export default function HeaderHome ({ isAction = false }) {
   return (
     <header className={styles.header}>
       <figure className={styles.header__logoContainer}>
-        <Image src={LOGO_ITBANK} alt='Logo del banco ITBANK' height={75}/>
+        <Link href={"#init"}>
+          <Image src={LOGO_ITBANK} alt='Logo del banco ITBANK' height={75}/>
+        </Link>
       </figure>
       <div className={styles.navContainer}>
         <nav className={styles.navContainer__homebanking}>
@@ -19,7 +21,6 @@ export default function HeaderHome ({ isAction = false }) {
             ? <Link href='/'>Volver al Home</Link>
             : (
               <>
-                <Link href="#init">Inicio</Link>
                 <Link href="#resources">Recursos</Link>
                 <Link href="#actions">Herramientas</Link>
                 <Link href="#footer">Información</Link>
@@ -27,7 +28,7 @@ export default function HeaderHome ({ isAction = false }) {
                 <Link href='/register'>Registrarse</Link>
                 <Link href='/login'>Iniciar Sesión</Link>
                 <Link href='/sucursales'>Sucursales</Link>
-                {userIsLogged === 'true' && <Link href='/inicio'>Inicio</Link>}
+                {userIsLogged === 'true' && <Link href='/inicio'>Homebanking</Link>}
               </>
               )}
         </nav>

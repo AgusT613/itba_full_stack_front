@@ -1,4 +1,4 @@
-import styles from "@/components/Welcome/Welcome.module.css"
+import styles from "@/components/bankActionContainer/bankActionContainer.module.css"
 import Image from "next/image"
 
 export default function BankActionContainer({ bankAction }){

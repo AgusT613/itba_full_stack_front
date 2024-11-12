@@ -1,4 +1,4 @@
-import styles from "@/components/Welcome/Welcome.module.css"
+import styles from "@/components/footerHome/footerHome.module.css"
 
 export default function FooterInfoContainer({title, description, children, className}){
     const classVar = `${styles.footerInfoContainer} ${className}`
