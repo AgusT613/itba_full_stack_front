@@ -1,26 +1,25 @@
 'use client'
 import Image from 'next/image'
-import { useContext } from 'react'
-import { DatosUsuarioContexto } from '../../../context/datosUsuarioContexto'
 import styles from '../Inicio.module.css'
+import { USER } from '@/utils/userDataModel'
 
 export const PerfilUsuario = () => {
-  const { datosUsuario } = useContext(DatosUsuarioContexto)
+  const welcome = `Bienvenido ${USER.customer.name} ${USER.customer.lastName}!`
+
   return (
     <article className={styles.recuadro_usuario}>
       <figure className={styles.contenedor_imagen_usuario}>
         <Image
           unoptimized
-          width={0}
-          height={0}
-          style={{ width: '100%', height: 'auto' }}
+          width={25}
+          height={25}
           className={styles.imagen_usuario}
-          src='https://randomuser.me/api/portraits/med/men/36.jpg'
+          src={USER.customer.img}
           alt='Su foto de perfil de usuario'
         />
       </figure>
-      <h3>Hola {datosUsuario.username}!</h3>
-      <span className={styles.mas_detalles} />
+      <h3>{welcome}</h3>
+      {/* <span className={styles.mas_detalles} /> */}
     </article>
   )
 }

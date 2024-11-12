@@ -1,23 +1,8 @@
-'use client'
 import TituloNavegacion from '@/components/TituloNavegacion'
-import { DatosUsuarioContexto } from '@/context/datosUsuarioContexto'
-import { FACTURAS_USER_API, obtenerListado } from '@/context/services'
-import { useContext, useEffect, useState } from 'react'
+import { USER } from '@/utils/userDataModel'
 
 export default function Page ({ params }) {
-  const idParametro = params.facturaId
-  const [factura, setFactura] = useState()
-  const { datosUsuario } = useContext(DatosUsuarioContexto)
-
-  useEffect(() => {
-    const { userId, username, password } = datosUsuario
-    obtenerListado(userId, FACTURAS_USER_API, username, password)
-      .then(facturas => {
-        const factura = facturas.find(factura => factura.id === parseInt(idParametro))
-        setFactura(factura)
-      })
-      .catch(error => console.log(error))
-  }, [])
+  const factura = USER.billPayment.find(factura => factura.id === parseInt(params.facturaId))
 
   return (
     <>
@@ -25,19 +10,19 @@ export default function Page ({ params }) {
       <table className='bg-[rgba(0,0,0,.4)] rounded-xl m-6'>
         <tr>
           <td className='p-3'>Empresa</td>
-          <td>{factura?.empresa}</td>
+          <td>{factura.recipient}</td>
         </tr>
         <tr>
           <td className='p-3'>Descripcion</td>
-          <td>{factura?.descripcion}</td>
+          <td>{factura.description}</td>
         </tr>
         <tr>
           <td className='p-3'>Fecha de vencimiento</td>
-          <td>{factura?.vencimiento}</td>
+          <td>{factura.expirationDate}</td>
         </tr>
         <tr>
           <td className='p-3'>Cantidad a pagar</td>
-          <td>{factura?.monto}</td>
+          <td>{factura.amount}</td>
         </tr>
       </table>
     </>

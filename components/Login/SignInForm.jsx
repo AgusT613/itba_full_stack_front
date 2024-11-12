@@ -1,13 +1,9 @@
 'use client'
 import { useRouter } from 'next/navigation'
-// import { useContext } from 'react'
-// import { obtenerInicioSesion } from '@/context/services'
-// import { DatosUsuarioContexto } from '@/context/datosUsuarioContexto'
 import userSignIn from './utils/userSignIn'
 import styles from '@/components/Login/Form.module.css'
 
 export default function IniciarSesion () {
-  // const { setDatosUsuario } = useContext(DatosUsuarioContexto)
   const router = useRouter()
 
   const onSignIn = e =>{

@@ -1,7 +1,6 @@
 'use client'
-import { DatosUsuarioContexto } from '@/context/datosUsuarioContexto'
-import { crearNuevoPrestamo, obtenerSucursales, PRESTAMO_POR_SUCURSAL_ID_API } from '@/context/services'
-import { useContext, useEffect, useRef, useState } from 'react'
+import { BRANCH_OFFICE, USER } from '@/utils/userDataModel'
+import { useRef, useState } from 'react'
 
 const formularioInicial = {
   error: {
@@ -18,18 +17,6 @@ export default function FormularioSolicitarPrestamo () {
   const [resetPage, setResetPage] = useState(false)
   const [error, setError] = useState(formularioInicial.error)
   const [success, setSuccess] = useState(formularioInicial.success)
-  const [sucursales, setSucursales] = useState([])
-  const { datosUsuario } = useContext(DatosUsuarioContexto)
-
-  useEffect(() => {
-    obtenerSucursales()
-      .then(sucursales => setSucursales(sucursales))
-      .catch(error => console.log(error))
-  }, [])
-
-  const handleResetPage = () => {
-    window.location.reload()
-  }
 
   const handleFormReset = () => {
     formCrearPrestamoRef.current.reset()
@@ -42,24 +29,15 @@ export default function FormularioSolicitarPrestamo () {
     const datosFormulario = Object.fromEntries(new FormData(e.target))
 
     const body = {
-      cliente: datosUsuario.userId,
-      sucursal: parseInt(datosFormulario.sucursal),
-      tipo_prestamo: datosFormulario.tipoPrestamo,
-      fecha_inicio_prestamo: datosFormulario.fechaInicioPrestamo,
-      fecha_finalizacion_prestamo: datosFormulario.fechaFinalizacionPrestamo,
-      monto: datosFormulario.monto
+      user: USER.customer.id,
+      branchOffice: parseInt(datosFormulario.sucursal),
+      loanType: datosFormulario.tipoPrestamo,
+      grandDate: datosFormulario.fechaInicioPrestamo,
+      expirationDate: datosFormulario.fechaFinalizacionPrestamo,
+      amount: datosFormulario.monto
     }
 
-    crearNuevoPrestamo(PRESTAMO_POR_SUCURSAL_ID_API, body)
-      .then(response => {
-        setSuccess({ message: response?.message })
-        setResetPage(true)
-        console.log(response)
-      })
-      .catch(error => {
-        setError({ state: true, message: error.message })
-        console.log(error)
-      })
+    console.log(body);
   }
 
   return (
@@ -69,8 +47,8 @@ export default function FormularioSolicitarPrestamo () {
         <div className='w-full flex justify-between items-center'>
           <label htmlFor='sucursal'>Sucursal</label>
           <select name='sucursal' className='min-w-[20rem] px-2 py-1 rounded-md bg-transparent border-2 border-black placeholder:text-[rgba(255,255,255,.7)]'>
-            {sucursales.map(sucursal => (
-              <option value={sucursal.id} key={sucursal.id}>{sucursal.nombre}</option>
+            {BRANCH_OFFICE.map(sucursal => (
+              <option value={sucursal.id} key={sucursal.id}>{sucursal.name}</option>
             ))}
           </select>
         </div>

@@ -1,25 +1,8 @@
-'use client'
 import Link from 'next/link'
 import styles from '@/styles/Facturas.module.css'
-import { useContext, useEffect, useState } from 'react'
-import { DatosUsuarioContexto } from '@/context/datosUsuarioContexto'
-import { FACTURAS_USER_API, obtenerListado } from '@/context/services'
-
-// export const metadata = {
-//   title: 'Facturas - ITBANK',
-//   description: 'Accede a tus facturas de manera rápida y segura. Consulta y descarga tus documentos financieros, verifica los detalles de tus transacciones y realiza un seguimiento de tus registros financieros con facilidad en nuestra plataforma bancaria.'
-// }
+import { USER } from '@/utils/userDataModel'
 
 export default function Page () {
-  const [listaFacturas, setListaFacturas] = useState([])
-  const { datosUsuario } = useContext(DatosUsuarioContexto)
-
-  useEffect(() => {
-    const { userId, username, password } = datosUsuario
-    obtenerListado(userId, FACTURAS_USER_API, username, password)
-      .then(facturas => setListaFacturas(facturas))
-      .catch(error => console.log(error))
-  }, [])
 
   return (
     <>
@@ -35,18 +18,18 @@ export default function Page () {
             </tr>
           </thead>
           <tbody>
-            {listaFacturas.map(factura => {
+            {USER.billPayment.map(factura => {
               const rutaDinamica = `/inicio/facturas/${factura.id}`
               return (
                 <tr key={factura.id}>
-                  <td>{factura.empresa}</td>
+                  <td>{factura.recipient}</td>
                   <td className={styles.celda_descripcion}>
                     <Link key={factura.id} href={rutaDinamica}>
-                      {factura.descripcion}
+                      {factura.description}
                     </Link>
                   </td>
-                  <td>{factura.vencimiento}</td>
-                  <td>${factura.monto}</td>
+                  <td>{factura.expirationDate}</td>
+                  <td>${factura.amount}</td>
                 </tr>
               )
             })}
