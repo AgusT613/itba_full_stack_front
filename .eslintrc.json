@@ -1,6 +1,22 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": [
+    "airbnb-base",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier"],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "extensions": [".js", ".jsx"],
+        "map": [
+          ["@", "."]
+        ]
+      }
+    }
+  },
   "rules": {
-    "react-hooks/exhaustive-deps": "off"
+    "eqeqeq": ["error", "always"],
+    "no-empty-function": "error"
   }
 }
