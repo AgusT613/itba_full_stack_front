@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function useLocalStorageGI (key) {
+export default function useLocalStorageGI(key) {
   const [state, setState] = useState()
 
   useEffect(() => {

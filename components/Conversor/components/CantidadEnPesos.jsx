@@ -1,6 +1,10 @@
 import styles from '../Conversor.module.css'
 
-export const CantidadEnPesos = ({ valorUno, leerCantidadAConvertir, leerCambioMonedaUno }) => {
+export default function CantidadEnPesos({
+  valorUno,
+  leerCantidadAConvertir,
+  leerCambioMonedaUno,
+}) {
   return (
     <div>
       <input

@@ -1,7 +1,8 @@
 'use client'
+
 import { useState } from 'react'
-import styles from '../Inicio.module.css'
 import { USER } from '@/utils/userDataModel'
+import styles from '../Inicio.module.css'
 
 export const CantidadSaldo = () => {
   const [saldoVisible, setSaldoVisible] = useState(false)
@@ -14,7 +15,11 @@ export const CantidadSaldo = () => {
       <span>{saldoVisible ? USER.customer.balance : '***'}</span>
       <span
         onClick={revelarSaldo}
-        className={saldoVisible ? styles.icono_saldo_no_visible : styles.icono_saldo_visible}
+        className={
+          saldoVisible
+            ? styles.icono_saldo_no_visible
+            : styles.icono_saldo_visible
+        }
       />
     </>
   )

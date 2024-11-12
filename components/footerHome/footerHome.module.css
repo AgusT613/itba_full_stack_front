@@ -12,8 +12,8 @@
   width: 80%;
   display: grid;
   grid-template-areas:
-    "contact contact"
-    "form links";
+    'contact contact'
+    'form links';
   gap: 2rem;
 }
 
@@ -26,7 +26,7 @@
 }
 
 .footerInfoContainer > h5::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: 0;
@@ -55,7 +55,7 @@
   padding: 0.5rem 1rem;
 }
 
-.footer__form input[type="email"] {
+.footer__form input[type='email'] {
   flex-grow: 3;
   flex-shrink: 3;
   outline: none;
@@ -68,7 +68,7 @@
   flex-grow: 2;
 }
 
-.footer__form input[type="submit"] {
+.footer__form input[type='submit'] {
   background-color: #333d;
   flex-grow: 1;
   font-weight: 300;
@@ -76,7 +76,7 @@
   transition: background-color 0.15s ease-in-out;
 }
 
-.footer__form input[type="submit"]:hover {
+.footer__form input[type='submit']:hover {
   background-color: #222;
 }
 

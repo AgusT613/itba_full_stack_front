@@ -11,7 +11,10 @@ export const SaldoCuenta = () => {
       </section>
       <section className={styles.seccion_acciones}>
         <AccionUsuario accion='Ingresar' className={styles.icono_ingresar} />
-        <AccionUsuario accion='Transferir' className={styles.icono_transferir} />
+        <AccionUsuario
+          accion='Transferir'
+          className={styles.icono_transferir}
+        />
         <AccionUsuario accion='Sacar' className={styles.icono_sacar} />
         <AccionUsuario accion='Tu CVU' className={styles.icono_cvu} />
       </section>

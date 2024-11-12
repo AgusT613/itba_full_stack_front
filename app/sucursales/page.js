@@ -1,7 +1,7 @@
 import HeaderHome from '@/components/HeaderHome/HeaderHome'
 import ListadoSucursales from '@/components/Sucursales/Sucursales'
 
-export default function Sucursales () {
+export default function Sucursales() {
   return (
     <>
       <HeaderHome isAction />

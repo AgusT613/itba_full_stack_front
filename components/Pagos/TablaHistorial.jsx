@@ -1,5 +1,5 @@
-import styles from './Pagos.module.css'
 import { USER } from '@/utils/userDataModel'
+import styles from './Pagos.module.css'
 
 export const TablaHistorial = () => {
   return (
@@ -12,15 +12,13 @@ export const TablaHistorial = () => {
         </tr>
       </thead>
       <tbody>
-        {
-          USER.paymentRecords.map(value => (
-            <tr key={value.id}>
-              <td>{value.service}</td>
-              <td>${value.amount}</td>
-              <td>{value.paymentDate}</td>
-            </tr>
-          ))
-        }
+        {USER.paymentRecords.map((value) => (
+          <tr key={value.id}>
+            <td>{value.service}</td>
+            <td>${value.amount}</td>
+            <td>{value.paymentDate}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   )

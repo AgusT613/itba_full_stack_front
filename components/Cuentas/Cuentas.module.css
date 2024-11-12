@@ -1,31 +1,31 @@
-.contenedorCartas{
-    height: 100%;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1em;
+.contenedorCartas {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1em;
 }
 
-.carta{
-    text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    border-radius: 10px; 
-    background-color:rgba(0, 0, 0, .25);
-    padding: 9px;
-    color: whitesmoke;
-    width: 400px;
+.carta {
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 9px;
+  color: whitesmoke;
+  width: 400px;
 }
 
-.detalles{
-    background-color: whitesmoke;
-    color: black;
-    border-radius: 10px;
-    padding: 20px; 
+.detalles {
+  background-color: whitesmoke;
+  color: black;
+  border-radius: 10px;
+  padding: 20px;
 }
 
-.boton{
-    width:300px;
-    border-color: darkslategray;
-    border-radius: 5px;
+.boton {
+  width: 300px;
+  border-color: darkslategray;
+  border-radius: 5px;
 }

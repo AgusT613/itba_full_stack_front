@@ -1,7 +1,8 @@
 'use client'
+
 import Image from 'next/image'
-import styles from '../Inicio.module.css'
 import { USER } from '@/utils/userDataModel'
+import styles from '../Inicio.module.css'
 
 export const PerfilUsuario = () => {
   const welcome = `Bienvenido ${USER.customer.name} ${USER.customer.lastName}!`

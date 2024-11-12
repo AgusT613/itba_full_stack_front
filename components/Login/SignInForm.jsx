@@ -1,14 +1,15 @@
 'use client'
-import { useRouter } from 'next/navigation'
-import userSignIn from './utils/userSignIn'
-import styles from '@/components/Login/Form.module.css'
 
-export default function IniciarSesion () {
+import { useRouter } from 'next/navigation'
+import styles from '@/components/Login/Form.module.css'
+import userSignIn from './utils/userSignIn'
+
+export default function IniciarSesion() {
   const router = useRouter()
 
-  const onSignIn = e =>{
-    if (userSignIn(e)){
-      router.push("/inicio")
+  const onSignIn = (e) => {
+    if (userSignIn(e)) {
+      router.push('/inicio')
     }
   }
 
@@ -16,7 +17,9 @@ export default function IniciarSesion () {
     <form onSubmit={onSignIn} className={styles.form}>
       {/* User email */}
       <div>
-        <label className={styles.labelDescription} htmlFor='email'>Correo electrónico</label>
+        <label className={styles.labelDescription} htmlFor='email'>
+          Correo electrónico
+        </label>
         <input
           className={styles.inputData}
           name='email'
@@ -26,7 +29,9 @@ export default function IniciarSesion () {
       </div>
       {/* Password */}
       <div>
-        <label className={styles.labelDescription} htmlFor='password'>Contraseña</label>
+        <label className={styles.labelDescription} htmlFor='password'>
+          Contraseña
+        </label>
         <input
           className={styles.inputData}
           name='password'

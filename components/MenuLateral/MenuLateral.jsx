@@ -1,16 +1,17 @@
 'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import LOGO_ITBANK from '@/public/itbank-logo.png'
 import './MenuLateral.css'
 
-export function MenuLateral () {
+export function MenuLateral() {
   const router = useRouter()
 
   return (
     <>
-      <Link href={"/"} className='itbankLogoRedirect'>
+      <Link href={'/'} className='itbankLogoRedirect'>
         <figure className='menu__icono'>
           <Image
             width={100}
@@ -20,7 +21,7 @@ export function MenuLateral () {
             alt='Imagen de logo del banco ITBANK, compuesto por el nombre del banco estilizado'
           />
         </figure>
-        <span className="goBackHome">Volver a Home</span>
+        <span className='goBackHome'>Volver a Home</span>
       </Link>
       <nav className='menu__navegacion'>
         <Link href='/inicio'>Inicio</Link>
@@ -36,7 +37,7 @@ export function MenuLateral () {
       </nav>
       <span
         onClick={() => {
-          window.localStorage.removeItem("auth")
+          window.localStorage.removeItem('auth')
           router.push('/')
         }}
         className='menu__cerrar__sesion'

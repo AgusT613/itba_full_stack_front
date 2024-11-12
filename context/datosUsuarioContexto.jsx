@@ -1,11 +1,12 @@
 'use client'
+
 import useUserData from '@/hooks/useUserData'
 import { createContext } from 'react'
 
 const datos = {
   userId: undefined,
   username: undefined,
-  password: undefined
+  password: undefined,
 }
 
 export const DatosUsuarioContexto = createContext()

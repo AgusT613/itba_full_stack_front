@@ -1,6 +1,6 @@
 import styles from '../Inicio.module.css'
 
-export function Tarjeta ({ datosTarjeta }) {
+export function Tarjeta({ datosTarjeta }) {
   const { type, brand, number, expirationDate, cvv } = datosTarjeta
 
   return (
@@ -10,9 +10,7 @@ export function Tarjeta ({ datosTarjeta }) {
         <p>{brand}</p>
       </section>
       <span className={styles.icono_chip_seguridad_tarjeta} />
-      <section className={styles.numero_tarjeta}>
-        {number}
-      </section>
+      <section className={styles.numero_tarjeta}>{number}</section>
       <section className={styles.tarjeta_detalles}>
         <div>
           <p>Vencimiento</p>

@@ -1,56 +1,56 @@
-.contenedor_conversor_divisas{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
+.contenedor_conversor_divisas {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
-.formulario_conversor{
-    background: rgba(0, 0, 0, .3);
-    border-radius: .5em;
-    align-self: center;
-    width: max-content;
-    display: flex;
-    gap: .5em;
-    padding: 1em;
+.formulario_conversor {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0.5em;
+  align-self: center;
+  width: max-content;
+  display: flex;
+  gap: 0.5em;
+  padding: 1em;
 }
 
-.formulario_conversor div{
-    display: flex;
-    flex-direction: column;
+.formulario_conversor div {
+  display: flex;
+  flex-direction: column;
 }
 
-.cantidad_moneda{
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    height: 2em;
-    color: #fff;
-    border: none;
-    width: 6em;
-    background: none;
-    font-size: 3em;
+.cantidad_moneda {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  height: 2em;
+  color: #fff;
+  border: none;
+  width: 6em;
+  background: none;
+  font-size: 3em;
 }
 .cantidad_moneda:focus,
-.formulario_conversor div select:focus{
-    outline: none;
+.formulario_conversor div select:focus {
+  outline: none;
 }
 
-.formulario_conversor div select{
-    color: #fff;
-    opacity: .8;
-    background: rgba(0, 0, 0, .5);
-    border: none;
-    padding: 1em;
+.formulario_conversor div select {
+  color: #fff;
+  opacity: 0.8;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding: 1em;
 }
 
-@media (max-width: 760px){
-    .formulario_conversor{
-        flex-direction: column;
-    }
+@media (max-width: 760px) {
+  .formulario_conversor {
+    flex-direction: column;
+  }
 }
 
-@media (max-width: 340px){
-    .formulario_conversor{
-        width: 15em;
-    }
+@media (max-width: 340px) {
+  .formulario_conversor {
+    width: 15em;
+  }
 }

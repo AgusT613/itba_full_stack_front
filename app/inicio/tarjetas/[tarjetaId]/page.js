@@ -2,12 +2,16 @@ import TituloNavegacion from '@/components/TituloNavegacion'
 import styles from '@/styles/Tarjetas.module.css'
 import { USER } from '@/utils/userDataModel'
 
-export default function Page ({ params }) {
-  const tarjeta = USER.cards.find(value => value.id === parseInt(params.tarjetaId))
+export default function Page({ params }) {
+  const tarjeta = USER.cards.find(
+    (value) => value.id === parseInt(params.tarjetaId),
+  )
 
   return (
     <>
-      <TituloNavegacion ruta='/inicio/tarjetas'>Detalles de Tarjeta</TituloNavegacion>
+      <TituloNavegacion ruta='/inicio/tarjetas'>
+        Detalles de Tarjeta
+      </TituloNavegacion>
       <section>
         <table className={styles.tabla_detalles_tarjeta}>
           <tbody>

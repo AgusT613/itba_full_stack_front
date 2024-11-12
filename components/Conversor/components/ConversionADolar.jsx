@@ -1,6 +1,6 @@
 import styles from '../Conversor.module.css'
 
-export const ConversionADolar = ({ valorDos, leerCambioMonedaDos }) => {
+export default function ConversionADolar({ valorDos, leerCambioMonedaDos }) {
   return (
     <div>
       <span className={styles.cantidad_moneda}>{valorDos}</span>

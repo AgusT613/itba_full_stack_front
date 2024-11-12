@@ -2,8 +2,7 @@ import Link from 'next/link'
 import styles from '@/styles/Facturas.module.css'
 import { USER } from '@/utils/userDataModel'
 
-export default function Page () {
-
+export default function Page() {
   return (
     <>
       <h2>Pantalla Facturas</h2>
@@ -18,7 +17,7 @@ export default function Page () {
             </tr>
           </thead>
           <tbody>
-            {USER.billPayment.map(factura => {
+            {USER.billPayment.map((factura) => {
               const rutaDinamica = `/inicio/facturas/${factura.id}`
               return (
                 <tr key={factura.id}>

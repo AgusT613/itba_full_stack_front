@@ -1,10 +1,11 @@
 'use client'
+
 import Image from 'next/image'
 import styles from '@/components/hero/hero.module.css'
 import { useEffect, useRef, useState } from 'react'
 import { imagesList } from '../../utils/imagesList'
 
-export default function AutoImagesCarrousel () {
+export default function AutoImagesCarrousel() {
   const imageIndex = useRef(0)
   const [image, setImage] = useState(imagesList[imageIndex.current])
 

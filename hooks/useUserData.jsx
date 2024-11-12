@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function useUserData (initialState) {
+export default function useUserData(initialState) {
   const [datosUsuario, setDatosUsuario] = useState(initialState)
 
   useEffect(() => {

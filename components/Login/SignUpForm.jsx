@@ -1,14 +1,15 @@
 'use client'
+
 import styles from '@/components/Login/Form.module.css'
 import { useRouter } from 'next/navigation'
 import userSignUp from './utils/userSignUp'
 
-export default function SignUpForm () {
+export default function SignUpForm() {
   const router = useRouter()
 
-  const onSignUp = e =>{
-    if (userSignUp(e)){
-      router.push("/inicio")
+  const onSignUp = (e) => {
+    if (userSignUp(e)) {
+      router.push('/inicio')
     }
   }
 
@@ -16,7 +17,9 @@ export default function SignUpForm () {
     <form onSubmit={onSignUp} className={styles.form}>
       {/* User Email */}
       <div>
-        <label className={styles.labelDescription} htmlFor='email'>Correo Electrónico</label>
+        <label className={styles.labelDescription} htmlFor='email'>
+          Correo Electrónico
+        </label>
         <input
           className={styles.inputData}
           name='email'
@@ -26,7 +29,9 @@ export default function SignUpForm () {
       </div>
       {/* User Password */}
       <div>
-        <label className={styles.labelDescription} htmlFor='password'>Contraseña</label>
+        <label className={styles.labelDescription} htmlFor='password'>
+          Contraseña
+        </label>
         <input
           className={styles.inputData}
           name='password'
@@ -34,11 +39,7 @@ export default function SignUpForm () {
           placeholder='1235678'
         />
       </div>
-      <input
-        className={styles.submitBtn}
-        type='submit'
-        value='Registrarse'
-      />
+      <input className={styles.submitBtn} type='submit' value='Registrarse' />
     </form>
   )
 }

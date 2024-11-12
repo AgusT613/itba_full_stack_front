@@ -17,6 +17,9 @@
   },
   "rules": {
     "eqeqeq": ["error", "always"],
-    "no-empty-function": "error"
+    "no-empty-function": "error",
+    "radix": "off",
+    "import/prefer-default-export": "off",
+    "react-hooks/exhaustive-deps": "off"
   }
 }

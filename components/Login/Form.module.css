@@ -58,7 +58,7 @@
   background: rgba(0, 0, 0, 0.2);
 }
 
-.formWrapper{
+.formWrapper {
   min-height: inherit;
   display: flex;
   flex-direction: column;
@@ -66,16 +66,16 @@
   justify-content: center;
 }
 
-.link{
+.link {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
 }
 
-.goBackHome{
-  opacity: .9;
-  font-size: .8rem;
+.goBackHome {
+  opacity: 0.9;
+  font-size: 0.8rem;
 }
 
 .userLoginContainer section {

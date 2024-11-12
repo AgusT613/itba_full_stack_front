@@ -1,22 +1,23 @@
 'use client'
+
 import { useState } from 'react'
 import styles from '@/styles/FormularioContacto.module.css'
 
-export default function FormularioContacto () {
+export default function FormularioContacto() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     dni: '',
     telefono: '',
-    message: ''
+    message: '',
   })
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     })
   }
 
@@ -30,7 +31,9 @@ export default function FormularioContacto () {
       <h2>Formulario de contacto</h2>
       <form onSubmit={handleSubmit} className={styles.formulario_contacto}>
         <div>
-          <label htmlFor='firstName' className={styles.label_descripcion}>Nombre</label>
+          <label htmlFor='firstName' className={styles.label_descripcion}>
+            Nombre
+          </label>
           <input
             className={styles.campo_datos}
             type='text'
@@ -42,7 +45,9 @@ export default function FormularioContacto () {
           />
         </div>
         <div>
-          <label htmlFor='lastName' className={styles.label_descripcion}>Apellido</label>
+          <label htmlFor='lastName' className={styles.label_descripcion}>
+            Apellido
+          </label>
           <input
             className={styles.campo_datos}
             type='text'
@@ -54,7 +59,9 @@ export default function FormularioContacto () {
           />
         </div>
         <div>
-          <label htmlFor='email' className={styles.label_descripcion}>Email</label>
+          <label htmlFor='email' className={styles.label_descripcion}>
+            Email
+          </label>
           <input
             className={styles.campo_datos}
             type='email'
@@ -66,7 +73,9 @@ export default function FormularioContacto () {
           />
         </div>
         <div>
-          <label htmlFor='telefono' className={styles.label_descripcion}>Número de teléfono</label>
+          <label htmlFor='telefono' className={styles.label_descripcion}>
+            Número de teléfono
+          </label>
           <input
             className={styles.campo_datos}
             type='number'
@@ -78,7 +87,9 @@ export default function FormularioContacto () {
           />
         </div>
         <div>
-          <label htmlFor='message' className={styles.label_descripcion}>Mensaje</label>
+          <label htmlFor='message' className={styles.label_descripcion}>
+            Mensaje
+          </label>
           <input
             className={styles.campo_datos}
             type='textarea'
@@ -89,7 +100,9 @@ export default function FormularioContacto () {
             required
           />
         </div>
-        <button type='submit' className={styles.btn_enviar_consulta}>Enviar</button>
+        <button type='submit' className={styles.btn_enviar_consulta}>
+          Enviar
+        </button>
       </form>
     </>
   )
