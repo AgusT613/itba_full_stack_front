@@ -1,14 +1,33 @@
 {
   "extends": [
-    "airbnb-base",
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
     "next/core-web-vitals",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
-  "plugins": ["prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "prettier",
+    "import",
+    "@typescript-eslint"
+  ],
   "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
     "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+        "project": "./tsconfig.json"
+      },
       "alias": {
-        "extensions": [".js", ".jsx"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
         "map": [
           ["@", "."]
         ]
