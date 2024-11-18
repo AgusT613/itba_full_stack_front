@@ -2,7 +2,7 @@ import { CantidadSaldo } from './CantidadSaldo'
 import { AccionUsuario } from './AccionUsuario'
 import styles from '../Inicio.module.css'
 
-export const SaldoCuenta = () => {
+export function SaldoCuenta() {
   return (
     <article className={styles.contenedor_saldo_cuenta}>
       <h3>Saldo en Cuenta</h3>

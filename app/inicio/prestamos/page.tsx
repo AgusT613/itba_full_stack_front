@@ -49,6 +49,7 @@ export default function Page() {
               </p>
               <strong className='text-center'>Monto: ${prestamo.amount}</strong>
               <button
+                type='button'
                 className='bg-red-300 text-black rounded hover:bg-red-400 p-2'
                 onClick={() => handleEliminarPrestamo(prestamo.id)}
               >
@@ -84,6 +85,7 @@ export default function Page() {
               </p>
               <strong className='text-center'>Monto: ${prestamo.amount}</strong>
               <button
+                type='button'
                 className='bg-red-300 text-black rounded hover:bg-red-400 p-2'
                 onClick={() => handleEliminarPrestamo(prestamo.id)}
               >

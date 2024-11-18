@@ -1,6 +1,6 @@
 import styles from './Transferencias.module.css'
 
-export const Transferencias = () => {
+export function Transferencias() {
   return (
     <div style={{ display: 'flex' }}>
       <section className={styles.transferencias}>
@@ -14,6 +14,7 @@ export const Transferencias = () => {
               Receptor
             </label>
             <input
+              id='receptor'
               type='receptor'
               name='receptor'
               className={styles.contenedorInputCampo}
@@ -28,6 +29,7 @@ export const Transferencias = () => {
               Monto
             </label>
             <input
+              id='monto'
               type='text'
               name='monto'
               className={styles.contenedorInputCampo}
@@ -49,6 +51,7 @@ export const Transferencias = () => {
               Desde
             </label>
             <input
+              id='date'
               type='date'
               name='fechaInicio'
               className={styles.contenedorInputCampo}
@@ -59,6 +62,7 @@ export const Transferencias = () => {
               Hasta
             </label>
             <input
+              id='date'
               type='date'
               name='fechaFin'
               className={styles.contenedorInputCampo}
@@ -68,7 +72,11 @@ export const Transferencias = () => {
             <label htmlFor='tipo' className={styles.contenedorDescripcionCampo}>
               Tipo
             </label>
-            <select name='tipos' className={styles.contenedorInputCampo}>
+            <select
+              id='tipo'
+              name='tipos'
+              className={styles.contenedorInputCampo}
+            >
               <option value='text'>Realizadas</option>
               <option value='text'>Recibidas</option>
             </select>

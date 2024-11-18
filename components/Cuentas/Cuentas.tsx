@@ -2,7 +2,7 @@ import { USER } from '@/utils/userDataModel'
 import styles from './Cuentas.module.css'
 import { Carta } from './Carta'
 
-export const Cuentas = () => {
+export function Cuentas() {
   return (
     <section className={styles.contenedorCartas}>
       {USER.accounts.map((cuenta) => (

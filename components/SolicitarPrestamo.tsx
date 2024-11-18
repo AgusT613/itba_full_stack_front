@@ -54,6 +54,7 @@ export default function FormularioSolicitarPrestamo() {
         <div className='w-full flex justify-between items-center'>
           <label htmlFor='sucursal'>Sucursal</label>
           <select
+            id='sucursal'
             name='sucursal'
             className='min-w-[20rem] px-2 py-1 rounded-md bg-transparent border-2 border-black placeholder:text-[rgba(255,255,255,.7)]'
           >
@@ -67,6 +68,7 @@ export default function FormularioSolicitarPrestamo() {
         <div className='w-full flex justify-between items-center'>
           <label htmlFor='tipoPrestamo'>Tipo de prestamo</label>
           <select
+            id='tipoPrestamo'
             name='tipoPrestamo'
             className='min-w-[20rem] px-2 py-1 rounded-md bg-transparent border-2 border-black placeholder:text-[rgba(255,255,255,.7)]'
           >
@@ -78,6 +80,7 @@ export default function FormularioSolicitarPrestamo() {
         <div className='w-full flex justify-between items-center'>
           <label htmlFor='fechaInicioPrestamo'>Fecha de inicio prestamo</label>
           <input
+            id='fechaInicioPrestamo'
             type='date'
             name='fechaInicioPrestamo'
             className='min-w-[20rem] px-2 py-1 rounded-md bg-transparent border-2 border-black placeholder:text-[rgba(255,255,255,.7)]'
@@ -88,6 +91,7 @@ export default function FormularioSolicitarPrestamo() {
             Fecha de finalizacion prestamo
           </label>
           <input
+            id='fechaFinalizacionPrestamo'
             type='date'
             name='fechaFinalizacionPrestamo'
             className='min-w-[20rem] px-2 py-1 rounded-md bg-transparent border-2 border-black placeholder:text-[rgba(255,255,255,.7)]'
@@ -96,6 +100,7 @@ export default function FormularioSolicitarPrestamo() {
         <div className='w-full flex justify-between items-center'>
           <label htmlFor='monto'>Monto</label>
           <input
+            id='monto'
             type='number'
             name='monto'
             placeholder='500000'

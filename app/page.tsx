@@ -42,7 +42,10 @@ export default function Page() {
             </h4>
             <div className={bankResources.bankResources__items}>
               {BANK_RESOURCES.map((resource) => (
-                <BankResourceContainer resourceList={resource} key={resource} />
+                <BankResourceContainer
+                  resourceList={resource}
+                  key={resource.description}
+                />
               ))}
             </div>
           </section>
@@ -50,7 +53,10 @@ export default function Page() {
           {/* BANK ACTIONS */}
           <section className={bankActions.actionContainer} id='actions'>
             {BANK_ACTIONS.map((action) => (
-              <BankActionContainer bankAction={action} key={action} />
+              <BankActionContainer
+                bankAction={action}
+                key={action.description}
+              />
             ))}
           </section>
         </main>

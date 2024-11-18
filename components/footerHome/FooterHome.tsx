@@ -16,9 +16,7 @@ export default function FooterHome() {
           <form>
             <input type='email' placeholder='Correo electrónico' />
             <select name='nw-interests' id='newsletter-interests'>
-              <option defaultValue={'no-selected'}>
-                Seleccione un interés
-              </option>
+              <option defaultValue='no-selected'>Seleccione un interés</option>
               <option value='promotions'>Promociones y Beneficios</option>
               <option value='pymes'>Instituto PyMes</option>
               <option value='economic-studies'>Estudios Económicos</option>

@@ -1,7 +1,7 @@
 import { USER } from '@/utils/userDataModel'
 import styles from './Pagos.module.css'
 
-export const TablaHistorial = () => {
+export function TablaHistorial() {
   return (
     <table className={styles.tablaPagos}>
       <thead>

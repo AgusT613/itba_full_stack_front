@@ -11,7 +11,7 @@ export function MenuLateral() {
 
   return (
     <>
-      <Link href={'/'} className='itbankLogoRedirect'>
+      <Link href='/' className='itbankLogoRedirect'>
         <figure className='menu__icono'>
           <Image
             width={100}

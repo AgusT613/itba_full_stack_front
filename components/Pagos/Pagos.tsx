@@ -1,7 +1,7 @@
 import { TablaHistorial } from './TablaHistorial'
 import styles from './Pagos.module.css'
 
-export const Pagos = () => {
+export function Pagos() {
   return (
     <div
       style={{
@@ -13,7 +13,9 @@ export const Pagos = () => {
       <section className={styles.tabla}>
         <h2> Historial de pagos</h2>
         <TablaHistorial />
-        <button className={styles.verMasHistorial}>Ver más</button>
+        <button type='button' className={styles.verMasHistorial}>
+          Ver más
+        </button>
       </section>
     </div>
   )

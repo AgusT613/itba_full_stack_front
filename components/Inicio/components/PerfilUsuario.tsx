@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { USER } from '@/utils/userDataModel'
 import styles from '../Inicio.module.css'
 
-export const PerfilUsuario = () => {
+export function PerfilUsuario() {
   const welcome = `Bienvenido ${USER.customer.name} ${USER.customer.lastName}!`
 
   return (

@@ -6,7 +6,7 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import { MenuLateral } from '@/components/MenuLateral/MenuLateral'
 import styles from '@/app/inicio/layout.module.css'
 
-export const MenuLateralResponsive = () => {
+export function MenuLateralResponsive() {
   const [menuLateral, setMenuLateral] = useState(false)
 
   const toggleMenuLateral = () => {

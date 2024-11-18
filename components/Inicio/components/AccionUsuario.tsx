@@ -1,6 +1,6 @@
 import styles from '../Inicio.module.css'
 
-export const AccionUsuario = ({ accion, className }) => {
+export function AccionUsuario({ accion, className }) {
   return (
     <div>
       <span className={`${styles.icono_accion} ${className}`} />

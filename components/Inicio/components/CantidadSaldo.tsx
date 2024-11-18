@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { USER } from '@/utils/userDataModel'
 import styles from '../Inicio.module.css'
 
-export const CantidadSaldo = () => {
+export function CantidadSaldo() {
   const [saldoVisible, setSaldoVisible] = useState(false)
 
   const revelarSaldo = () => setSaldoVisible(!saldoVisible)

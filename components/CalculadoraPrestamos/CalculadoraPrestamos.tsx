@@ -38,24 +38,27 @@ export default function CalculadoraPrestamos() {
     <>
       <form onSubmit={handleSubmit} className={styles.formulario}>
         <div>
-          <label>Importe a financiar</label>
+          <label htmlFor='loan-amount'>Importe a financiar</label>
           <input
+            id='loan-amount'
             type='number'
             placeholder='En $. Ej.: 80000'
             onChange={handleChangeImporte}
           />
         </div>
         <div>
-          <label>Plazo de amortizacion</label>
+          <label htmlFor='loan-period'>Plazo de amortizacion</label>
           <input
+            id='loan-period'
             type='number'
             placeholder='En años. Ej.: 2'
             onChange={handleChangePlazo}
           />
         </div>
         <div>
-          <label>Interes del prestador</label>
+          <label htmlFor='loan-interest'>Interes del prestador</label>
           <input
+            id='loan-interest'
             type='number'
             placeholder='En %. Ej.: 5'
             onChange={handleChangeInteres}

@@ -1,7 +1,7 @@
 import { TablaHistorial } from '@/components/Pagos/TablaHistorial'
 import styles from '../Inicio.module.css'
 
-export const UltimaActividad = () => {
+export function UltimaActividad() {
   return (
     <article className={styles.contenedor_ultima_actividad}>
       <h3>Última Actividad</h3>

@@ -3,9 +3,9 @@ export async function obtenerConversion(monedaUno) {
     const data = await fetch(
       `https://api.exchangerate-api.com/v4/latest/${monedaUno}`,
     )
-    return data.json()
+    return await data.json()
   } catch (error) {
-    console.log(error)
+    console.error(error)
     return error
   }
 }

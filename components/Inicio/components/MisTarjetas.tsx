@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-
 'use client'
 
 import { useRouter } from 'next/navigation'
@@ -10,22 +8,21 @@ import { USER } from '@/utils/userDataModel'
 import styles from '../Inicio.module.css'
 import { Tarjeta } from './Tarjeta'
 
-export const MisTarjetas = () => {
+export function MisTarjetas() {
   const listaTarjetas = USER.cards
   const [tarjetaPosicion, setTarjetaPosicion] = useState(0)
   const router = useRouter()
   const cantidadTarjetas = listaTarjetas.length - 1
 
-  const avanzar = () => {
+  const avanzar = () =>
     tarjetaPosicion >= 0 && tarjetaPosicion < cantidadTarjetas
       ? setTarjetaPosicion(tarjetaPosicion + 1)
       : setTarjetaPosicion(0)
-  }
-  const retroceder = () => {
+
+  const retroceder = () =>
     tarjetaPosicion <= 0
       ? setTarjetaPosicion(cantidadTarjetas)
       : setTarjetaPosicion(tarjetaPosicion - 1)
-  }
 
   return (
     <article className={styles.contenedor_mis_tarjetas}>

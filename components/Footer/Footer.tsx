@@ -19,12 +19,12 @@ export function Footer() {
           <h4>Legales</h4>
           <ul>
             <li>
-              <a href='' target='_blank'>
+              <a href='#' target='_blank'>
                 Políticas de privacidad
               </a>
             </li>
             <li>
-              <a href='' target='_blank'>
+              <a href='#' target='_blank'>
                 Términos y condiciones
               </a>
             </li>
@@ -34,17 +34,17 @@ export function Footer() {
           <h4>Contacto</h4>
           <ul>
             <li>
-              <a href='' target='_blank'>
+              <a href='#' target='_blank'>
                 WhatsApp
               </a>
             </li>
             <li>
-              <a href='' target='_blank'>
+              <a href='#' target='_blank'>
                 Instagram
               </a>
             </li>
             <li>
-              <a href='' target='_blank'>
+              <a href='#' target='_blank'>
                 Twitter
               </a>
             </li>

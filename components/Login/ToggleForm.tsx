@@ -9,5 +9,9 @@ export default function ToggleForm({ children, to }) {
     router.push(to)
   }
 
-  return <button onClick={toggleFormulario}>{children}</button>
+  return (
+    <button type='button' onClick={toggleFormulario}>
+      {children}
+    </button>
+  )
 }

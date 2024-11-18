@@ -11,7 +11,7 @@ const datos = {
 
 export const DatosUsuarioContexto = createContext()
 
-export const ProveedorDatosUsuario = ({ children }) => {
+export function ProveedorDatosUsuario({ children }) {
   const { datosUsuario, setDatosUsuario } = useUserData(datos)
 
   return (
