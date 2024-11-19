@@ -1,0 +1,60 @@
+/* ------ BANK ACTIONS SECTION ------ */
+.actionContainer {
+  background-color: rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 250px);
+}
+
+.actionContainer img:nth-child(3n) {
+  grid-column: 2 / 3;
+}
+
+.actionContainer div:nth-child(4) {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  justify-self: end;
+}
+
+.actionContainer__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.actionContainer__content {
+  display: flex;
+  padding: 0 3rem;
+  align-items: center;
+}
+
+.actionContainer__content div {
+  width: 100%;
+  height: 70%;
+  display: grid;
+  grid-template-rows: 1fr 1fr 3fr;
+  align-items: center;
+}
+
+.actionContainer__content h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.actionContainer__content span {
+  font-size: 0.9rem;
+}
+
+.actionContainer__content a {
+  width: 8rem;
+  background-color: rgb(194, 63, 255);
+  text-align: center;
+  padding: 0.25rem 1rem;
+  border-radius: 2rem;
+  transition: scale 0.15s ease-in-out;
+}
+
+.actionContainer__content a:hover {
+  background-color: rgba(194, 63, 255, 0.8);
+  scale: 1.05;
+}

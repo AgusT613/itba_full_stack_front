@@ -1,0 +1,6 @@
+next.config.js
+package.json
+package-lock.json
+node_modules
+TODO.md
+.next

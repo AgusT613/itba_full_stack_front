@@ -1,36 +1,36 @@
-.tabla{
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
+.tabla {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
-.tablaPagos{
-    text-align: center;
+.tablaPagos {
+  text-align: center;
 }
 
-.tablaPagos thead tr{
-    text-transform: uppercase;
-    background: #946dced2;
+.tablaPagos thead tr {
+  text-transform: uppercase;
+  background: #946dced2;
 }
 
 .tablaPagos tr td,
-.tablaPagos tr th{
-    width: 10em;
-    outline: 1px solid #946dce;
-    padding: .5em;
+.tablaPagos tr th {
+  width: 10em;
+  outline: 1px solid #946dce;
+  padding: 0.5em;
 }
 
-.verMasHistorial{
-    cursor: pointer;
-    width: 7em;
-    align-self: center;
-    padding: .5em;
-    border-radius: 1em;
+.verMasHistorial {
+  cursor: pointer;
+  width: 7em;
+  align-self: center;
+  padding: 0.5em;
+  border-radius: 1em;
 }
 
-.verMasHistorial:hover{
-    transition: .3s ease;
-    color: #eee;
-    background: #111;
+.verMasHistorial:hover {
+  transition: 0.3s ease;
+  color: #eee;
+  background: #111;
 }

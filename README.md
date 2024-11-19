@@ -1,27 +1,27 @@
-# Homebanking - ITBA Fullstack
+# 🔷 Frontend Homebanking NextJS 🔷
 
-## ⛳ Sprint 1 - Maqueta de Homebanking
+- [Backend del proyecto hecho con Django](https://github.com/AgusT613/itba_full_stack_back) 🏹
+- [Configuración del proyecto](#🔸-instalación-del-proyecto) ⏬
+- [Credenciales para testear la aplicación](#🔸-credenciales) ⏬
 
-#### 💻 Pantallas de Usuario:
+## 🔸 Instalación del proyecto
 
-- Formulario de Inicio de Sesión
-  - Nombre de usuario
-  - Contraseña
-  - Boton
-  - Validación
-  - Mensaje al usuario
-- Página principal
-  - Encabezado
-  - Menu Lateral
-  - Sección Principal
-  - Pie de Página
+- Clonar el repositorio y acceder a la carpeta.
 
-#### 🧷 Boceto de la Maqueta:
+```bash
+  git clone https://github.com/AgusT613/itba_full_stack_front.git
 
-![Boceto de homebanking dibujado con excalidraw](./public/resumen_maqueta_sprint_1.png)
+  cd itba_full_stack_front
+```
 
-## ⛳ Sprint 2 - Migración a React
+- Una vez hecho, ejecutar la instalacion de dependencias.
 
-![React - Pantalla de inicio de sesion y pagina principal](./public/proyecto_react_sprint2_mapa.png)
+```bash
+  npm install
+```
 
-## ⛳ Sprint 3 - Migración a Next
+- Por último, arrancar el servidor de desarrollo:
+
+```bash
+  npm run dev
+```

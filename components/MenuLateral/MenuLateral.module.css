@@ -1,0 +1,58 @@
+#logo {
+  width: 100%;
+}
+
+.menu__cerrar__sesion {
+  margin: 1em 0;
+}
+
+.itbankLogoRedirect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.menu__icono {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.goBackHome {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.menu__navegacion {
+  padding: 0 1em;
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.menu__cerrar__sesion {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.5em;
+  border-radius: 1em;
+}
+
+.menu__cerrar__sesion:hover {
+  transition: 0.3s ease;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.menu__navegacion a {
+  text-indent: 0.5em;
+  transition: 0.3s ease all;
+}
+
+.menu__navegacion a:hover {
+  border-radius: 1em;
+  background-color: #946dce;
+  padding: 0.2em 0;
+}
