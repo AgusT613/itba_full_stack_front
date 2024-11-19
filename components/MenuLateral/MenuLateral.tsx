@@ -4,15 +4,20 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import LOGO_ITBANK from '@/public/itbank-logo.png'
-import './MenuLateral.css'
+import styles from './MenuLateral.module.css'
 
 export function MenuLateral() {
   const router = useRouter()
 
+  const handleLogOut = () => {
+    window.localStorage.removeItem('auth')
+    router.push('/')
+  }
+
   return (
     <>
-      <Link href='/' className='itbankLogoRedirect'>
-        <figure className='menu__icono'>
+      <Link href='/' className={styles.itbankLogoRedirect}>
+        <figure className={styles.menu__icono}>
           <Image
             width={100}
             height={100}
@@ -21,9 +26,9 @@ export function MenuLateral() {
             alt='Imagen de logo del banco ITBANK, compuesto por el nombre del banco estilizado'
           />
         </figure>
-        <span className='goBackHome'>Volver a Home</span>
+        <span className={styles.goBackHome}>Volver a Home</span>
       </Link>
-      <nav className='menu__navegacion'>
+      <nav className={styles.menu__navegacion}>
         <Link href='/inicio'>Inicio</Link>
         <Link href='/inicio/cuentas'>Cuentas</Link>
         <Link href='/inicio/transferencias'>Transferencias</Link>
@@ -35,13 +40,7 @@ export function MenuLateral() {
         <Link href='/inicio/sucursales'>Sucursales</Link>
         <Link href='/inicio/contacto'>Contacto</Link>
       </nav>
-      <span
-        onClick={() => {
-          window.localStorage.removeItem('auth')
-          router.push('/')
-        }}
-        className='menu__cerrar__sesion'
-      >
+      <span onClick={handleLogOut} className={styles.menu__cerrar__sesion}>
         Cerrar Sesion
       </span>
     </>

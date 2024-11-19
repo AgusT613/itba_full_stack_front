@@ -1,5 +1,16 @@
 import TituloNavegacion from '@/components/TituloNavegacion'
+import { styled } from '@/styled-system/jsx'
 import { USER } from '@/utils/userDataModel'
+
+const Table = styled.table`
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  margin: 0.75rem 0;
+`
+
+const TD = styled.td`
+  padding: 1rem;
+`
 
 export default function Page({ params }) {
   const { recipient, description, expirationDate, amount } =
@@ -12,24 +23,24 @@ export default function Page({ params }) {
       <TituloNavegacion ruta='/inicio/facturas'>
         Detalle de Factura
       </TituloNavegacion>
-      <table className='bg-[rgba(0,0,0,.4)] rounded-xl m-6'>
+      <Table>
         <tr>
-          <td className='p-3'>Empresa</td>
+          <TD>Empresa</TD>
           <td>{recipient}</td>
         </tr>
         <tr>
-          <td className='p-3'>Descripcion</td>
+          <TD>Descripcion</TD>
           <td>{description}</td>
         </tr>
         <tr>
-          <td className='p-3'>Fecha de vencimiento</td>
+          <TD>Fecha de vencimiento</TD>
           <td>{expirationDate}</td>
         </tr>
         <tr>
-          <td className='p-3'>Cantidad a pagar</td>
+          <TD>Cantidad a pagar</TD>
           <td>{amount}</td>
         </tr>
-      </table>
+      </Table>
     </>
   )
 }
