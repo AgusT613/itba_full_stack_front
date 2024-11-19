@@ -1,6 +1,6 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { useState } from 'react'
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi/index'
 import { GoDot, GoDotFill } from 'react-icons/go/index'
@@ -13,7 +13,6 @@ import { Tarjeta } from './Tarjeta'
 export function MisTarjetas() {
   const listaTarjetas = USER.cards
   const [tarjetaPosicion, setTarjetaPosicion] = useState(0)
-  const router = useRouter()
   const cantidadTarjetas = listaTarjetas.length - 1
 
   const avanzar = () =>
@@ -34,12 +33,12 @@ export function MisTarjetas() {
           onClick={retroceder}
           className={styles.flecha_desplazamiento}
         />
-        <Tarjeta
-          datosTarjeta={listaTarjetas[tarjetaPosicion]}
-          onClick={() => {
-            router.push(`/inicio/tarjetas/${listaTarjetas[tarjetaPosicion].id}`)
-          }}
-        />
+        <Link
+          href={`/inicio/tarjetas/${listaTarjetas[tarjetaPosicion].id}`}
+          style={{ width: '100%' }}
+        >
+          <Tarjeta datosTarjeta={listaTarjetas[tarjetaPosicion]} />
+        </Link>
         <BiRightArrow
           onClick={avanzar}
           className={styles.flecha_desplazamiento}

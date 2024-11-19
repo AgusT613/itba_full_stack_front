@@ -24,6 +24,9 @@ const nextConfig = {
 
     return config
   },
+  eslint: {
+    dirs: ['utils', "hooks", "context", "app", "components"], // Only run ESLint on the 'pages' and 'utils' directories during production builds (next build)
+  },
 }
 
 module.exports = nextConfig

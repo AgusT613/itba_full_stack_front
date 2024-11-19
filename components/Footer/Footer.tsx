@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import styles from './Footer.module.css'
 
 export function Footer() {
@@ -19,35 +21,23 @@ export function Footer() {
           <h4>Legales</h4>
           <ul>
             <li>
-              <a href='#' target='_blank'>
+              <Link href='/legal/privacidad' target='_blank'>
                 Políticas de privacidad
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='#' target='_blank'>
+              <Link href='/legal/terminos' target='_blank'>
                 Términos y condiciones
-              </a>
+              </Link>
             </li>
           </ul>
         </section>
         <section>
           <h4>Contacto</h4>
           <ul>
-            <li>
-              <a href='#' target='_blank'>
-                WhatsApp
-              </a>
-            </li>
-            <li>
-              <a href='#' target='_blank'>
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a href='#' target='_blank'>
-                Twitter
-              </a>
-            </li>
+            <li>WhatsApp</li>
+            <li>Instagram</li>
+            <li>Twitter</li>
           </ul>
         </section>
         <section>

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import styles from '@/components/footerHome/footerHome.module.css'
 import ITBANK_LOGO from '@/public/itbank-logo.png'
@@ -48,7 +49,9 @@ export default function FooterHome() {
           description='Descubre más acerca de nuestros servicios'
           className={styles.footer__links}
         >
-          <a href='#'>Preguntas frecuentes</a>
+          <Link href='/legal/faq' target='_blank'>
+            Preguntas frecuentes
+          </Link>
         </FooterInfoContainer>
       </div>
       <div className={styles.footer__logo}>

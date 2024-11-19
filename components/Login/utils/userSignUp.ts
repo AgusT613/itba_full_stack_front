@@ -5,7 +5,7 @@ export default function userSignUp(e) {
 
   if (userList === null) {
     localStorage.setItem('users', JSON.stringify([formData]))
-    localStorage.setItem('auth', true)
+    localStorage.setItem('auth', 'true')
     alert('Usuario creado, redirigiendo al homebanking')
     return true
   }
@@ -15,7 +15,7 @@ export default function userSignUp(e) {
   }
   userList.push(formData)
   localStorage.setItem('users', JSON.stringify(userList))
-  localStorage.setItem('auth', true)
+  localStorage.setItem('auth', 'true')
   alert('Usuario creado, redirigiendo al homebanking')
   return true
 }

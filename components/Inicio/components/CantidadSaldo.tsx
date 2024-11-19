@@ -15,7 +15,8 @@ export function CantidadSaldo() {
     <>
       <span>$</span>
       <span>{saldoVisible ? USER.customer.balance : '***'}</span>
-      <span
+      <button
+        type='button'
         onClick={revelarSaldo}
         className={
           saldoVisible

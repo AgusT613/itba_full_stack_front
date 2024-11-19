@@ -41,7 +41,7 @@
     "no-empty-function": "error",
     "radix": "off",
     "import/prefer-default-export": "off",
-    "react-hooks/exhaustive-deps": "off",
+    "react-hooks/exhaustive-deps": "warn",
     "sort-imports": [
       "error",
       {

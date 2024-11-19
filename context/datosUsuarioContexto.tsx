@@ -1,7 +1,8 @@
 'use client'
 
+import { createContext, useMemo } from 'react'
+
 import useUserData from '@/hooks/useUserData'
-import { createContext } from 'react'
 
 const datos = {
   userId: undefined,
@@ -9,13 +10,17 @@ const datos = {
   password: undefined,
 }
 
-export const DatosUsuarioContexto = createContext()
+export const DatosUsuarioContexto = createContext(null)
 
 export function ProveedorDatosUsuario({ children }) {
   const { datosUsuario, setDatosUsuario } = useUserData(datos)
+  const memoData = useMemo(
+    () => ({ datosUsuario, setDatosUsuario }),
+    [datosUsuario, setDatosUsuario],
+  )
 
   return (
-    <DatosUsuarioContexto.Provider value={{ datosUsuario, setDatosUsuario }}>
+    <DatosUsuarioContexto.Provider value={memoData}>
       {children}
     </DatosUsuarioContexto.Provider>
   )

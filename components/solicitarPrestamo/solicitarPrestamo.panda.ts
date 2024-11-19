@@ -75,9 +75,3 @@ export const Button = styled.input`
     background-color: rgba(0, 0, 0, 0.6);
   }
 `
-
-export const Message = styled.p`
-  font-size: 0.875rem;
-  color: ${(props) =>
-    props.error ? 'var(--colors-red-300)' : 'var(--colors-green-300)'};
-`

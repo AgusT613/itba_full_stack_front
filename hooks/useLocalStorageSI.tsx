@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export default function useLocalStorageSI(key, value) {
-  const [state, setState] = useState()
+  const [state, setState] = useState<string>()
 
   useEffect(() => {
     window.localStorage.setItem(key, value)

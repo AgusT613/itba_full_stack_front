@@ -8,7 +8,7 @@ export default function CalculadoraPrestamos() {
   const [importe, setImporte] = useState(0)
   const [plazoAmortizacion, setPlazoAmortizacion] = useState(0)
   const [interes, setInteres] = useState(0)
-  const [resultado, setResultado] = useState(0)
+  const [resultado, setResultado] = useState<number | string>(0)
 
   const handleChangeImporte = (e) => setImporte(parseInt(e.target.value))
   const handleChangePlazo = (e) =>
@@ -19,7 +19,7 @@ export default function CalculadoraPrestamos() {
     e.preventDefault()
     /*
       Formula para calculo de prestamos
-        Cuota Mensual = (Capital * i) / [1 - (1+i) ** (-n)]
+        Cuota Mensual = (Capital * i) / (1 - (1+i) ** (-n))
 
       Capital = dinero prestado (importe)
       i = interes en decimales
@@ -28,7 +28,7 @@ export default function CalculadoraPrestamos() {
     if (importe > 0 && plazoAmortizacion > 0 && interes > 0) {
       const i = interes / 100 / 12
       const n = plazoAmortizacion * 12
-      const cuotaMensual = (importe * i) / [1 - (1 + i) ** -n]
+      const cuotaMensual = (importe * i) / (1 - (1 + i) ** -n)
       setResultado(cuotaMensual.toFixed(2))
     } else {
       setResultado('Todos los campos deben ser mayor a cero')

@@ -1,5 +1,6 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { useRef, useState } from 'react'
 
 import { BRANCH_OFFICE, USER } from '@/utils/userDataModel'
@@ -13,33 +14,22 @@ import {
   Input,
   Label,
   Legend,
-  Message,
   Select,
 } from './solicitarPrestamo.panda'
-
-const formularioInicial = {
-  error: {
-    state: false,
-    message: undefined,
-  },
-  success: {
-    message: 'Asegurese de cargar bien los datos',
-  },
-}
 
 export default function FormularioSolicitarPrestamo() {
   const formCrearPrestamoRef = useRef(null)
   const [resetPage, setResetPage] = useState(false)
-  const [error, setError] = useState(formularioInicial.error)
-  const [success, setSuccess] = useState(formularioInicial.success)
+  const router = useRouter()
 
   const handleFormReset = () => {
     formCrearPrestamoRef.current.reset()
-    setError(formularioInicial.error)
-    setSuccess(formularioInicial.success)
   }
 
-  const handleResetPage = () => {}
+  const handleResetPage = () => {
+    router.refresh()
+    setResetPage(!resetPage)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -47,7 +37,7 @@ export default function FormularioSolicitarPrestamo() {
 
     const body = {
       user: USER.customer.id,
-      branchOffice: parseInt(datosFormulario.sucursal),
+      branchOffice: datosFormulario.sucursal,
       loanType: datosFormulario.tipoPrestamo,
       grandDate: datosFormulario.fechaInicioPrestamo,
       expirationDate: datosFormulario.fechaFinalizacionPrestamo,
@@ -55,6 +45,8 @@ export default function FormularioSolicitarPrestamo() {
     }
 
     console.log(body)
+
+    setResetPage(!resetPage)
   }
 
   return (
@@ -114,7 +106,7 @@ export default function FormularioSolicitarPrestamo() {
           onClick={handleFormReset}
           value='Reiniciar formulario'
         />
-        <Button type='submit' />
+        <Button type='submit' value='Pedir Prestamo' />
         {resetPage && (
           <Button
             type='button'
@@ -123,12 +115,6 @@ export default function FormularioSolicitarPrestamo() {
           />
         )}
       </ButtonRow>
-
-      {error.state ? (
-        <Message error>{error.message}</Message>
-      ) : (
-        <Message>{success.message}</Message>
-      )}
     </Form>
   )
 }

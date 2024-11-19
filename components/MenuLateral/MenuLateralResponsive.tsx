@@ -16,7 +16,8 @@ export function MenuLateralResponsive() {
 
   return (
     <div>
-      <span
+      <button
+        type='button'
         onClick={toggleMenuLateral}
         className={
           menuLateral
@@ -25,7 +26,7 @@ export function MenuLateralResponsive() {
         }
       >
         {menuLateral ? <GrClose /> : <GiHamburgerMenu />}
-      </span>
+      </button>
       {menuLateral && (
         <aside className={styles.menu__lateral__hamburguesa}>
           <MenuLateral />

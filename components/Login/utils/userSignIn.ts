@@ -13,7 +13,7 @@ export default function userSignIn(e) {
     )
     return false
   }
-  localStorage.setItem('auth', true)
+  localStorage.setItem('auth', 'true')
   alert('Logueado, redirigiendo al homebanking')
   return true
 }

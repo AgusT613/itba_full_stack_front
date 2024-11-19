@@ -42,9 +42,13 @@ export function MenuLateral() {
         <Link href='/inicio/sucursales'>Sucursales</Link>
         <Link href='/inicio/contacto'>Contacto</Link>
       </nav>
-      <span onClick={handleLogOut} className={styles.menu__cerrar__sesion}>
+      <button
+        type='button'
+        onClick={handleLogOut}
+        className={styles.menu__cerrar__sesion}
+      >
         Cerrar Sesion
-      </span>
+      </button>
     </>
   )
 }
