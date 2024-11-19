@@ -1,11 +1,13 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
+
+import styles from '@/app/inicio/layout.module.css'
+import { Footer } from '@/components/Footer/Footer'
 import { MenuLateral } from '@/components/MenuLateral/MenuLateral'
 import { MenuLateralResponsive } from '@/components/MenuLateral/MenuLateralResponsive'
-import { Footer } from '@/components/Footer/Footer'
-import styles from '@/app/inicio/layout.module.css'
-import { useRouter } from 'next/navigation'
 import useLocalStorageGI from '@/hooks/useLocalStorageGI'
+
 import { Button, H2, Section, Wrapper } from './layout.panda'
 
 export default function Inicio({ children }) {

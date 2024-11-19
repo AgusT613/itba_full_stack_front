@@ -1,5 +1,5 @@
-import { TablaHistorial } from './TablaHistorial'
 import styles from './Pagos.module.css'
+import { TablaHistorial } from './TablaHistorial'
 
 export function Pagos() {
   return (

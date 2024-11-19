@@ -3,7 +3,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+
 import LOGO_ITBANK from '@/public/itbank-logo.png'
+
 import styles from './MenuLateral.module.css'
 
 export function MenuLateral() {

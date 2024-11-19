@@ -1,5 +1,5 @@
-import { CantidadSaldo } from './CantidadSaldo'
 import { AccionUsuario } from './AccionUsuario'
+import { CantidadSaldo } from './CantidadSaldo'
 import styles from '../Inicio.module.css'
 
 export function SaldoCuenta() {

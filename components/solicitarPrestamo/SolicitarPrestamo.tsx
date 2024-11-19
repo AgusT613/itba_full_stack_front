@@ -1,7 +1,9 @@
 'use client'
 
-import { BRANCH_OFFICE, USER } from '@/utils/userDataModel'
 import { useRef, useState } from 'react'
+
+import { BRANCH_OFFICE, USER } from '@/utils/userDataModel'
+
 import {
   Button,
   ButtonRow,

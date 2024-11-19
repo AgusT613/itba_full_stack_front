@@ -3,8 +3,10 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi/index'
-import { GoDotFill, GoDot } from 'react-icons/go/index'
+import { GoDot, GoDotFill } from 'react-icons/go/index'
+
 import { USER } from '@/utils/userDataModel'
+
 import styles from '../Inicio.module.css'
 import { Tarjeta } from './Tarjeta'
 

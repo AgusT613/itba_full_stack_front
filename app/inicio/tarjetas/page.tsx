@@ -1,7 +1,8 @@
+import Link from 'next/link'
+
 import { Tarjeta } from '@/components/Inicio/components/Tarjeta'
 import styles from '@/styles/Tarjetas.module.css'
 import { USER } from '@/utils/userDataModel'
-import Link from 'next/link'
 
 export default function Page() {
   return (

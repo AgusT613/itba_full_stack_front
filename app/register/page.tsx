@@ -1,9 +1,10 @@
+import Image from 'next/image'
+import Link from 'next/link'
+
+import styles from '@/components/Login/Form.module.css'
 import SignUpForm from '@/components/Login/SignUpForm'
 import ToggleForm from '@/components/Login/ToggleForm'
-import styles from '@/components/Login/Form.module.css'
-import Link from 'next/link'
 import LOGO_ITBANK from '@/public/itbank-logo.png'
-import Image from 'next/image'
 
 export const metadata = {
   title: 'Registro de Usuario- ITBANK',

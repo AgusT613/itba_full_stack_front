@@ -1,6 +1,7 @@
 import { USER } from '@/utils/userDataModel'
-import styles from './Cuentas.module.css'
+
 import { Carta } from './Carta'
+import styles from './Cuentas.module.css'
 
 export function Cuentas() {
   return (

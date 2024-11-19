@@ -1,5 +1,6 @@
-import styles from '@/components/bankActionContainer/bankActionContainer.module.css'
 import Image from 'next/image'
+
+import styles from '@/components/bankActionContainer/bankActionContainer.module.css'
 
 export default function BankActionContainer({ bankAction }) {
   const { title, description, btn, href, image, alt } = bankAction

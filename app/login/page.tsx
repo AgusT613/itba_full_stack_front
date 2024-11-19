@@ -1,8 +1,9 @@
+import Image from 'next/image'
+import Link from 'next/link'
+
+import styles from '@/components/Login/Form.module.css'
 import SignInForm from '@/components/Login/SignInForm'
 import ToggleForm from '@/components/Login/ToggleForm'
-import styles from '@/components/Login/Form.module.css'
-import Link from 'next/link'
-import Image from 'next/image'
 import LOGO_ITBANK from '@/public/itbank-logo.png'
 
 export const metadata = {

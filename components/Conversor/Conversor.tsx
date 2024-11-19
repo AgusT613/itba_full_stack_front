@@ -1,9 +1,9 @@
 'use client'
 
-import useCurrencyConverter from './hooks/useCurrencyConverter'
 import CantidadEnPesos from './components/CantidadEnPesos'
 import ConversionADolar from './components/ConversionADolar'
 import styles from './Conversor.module.css'
+import useCurrencyConverter from './hooks/useCurrencyConverter'
 
 export default function Conversor() {
   const { valorUno, setValorUno, valorDos, setMonedaUno, setMonedaDos } =

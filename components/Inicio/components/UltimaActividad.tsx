@@ -1,4 +1,5 @@
 import { TablaHistorial } from '@/components/Pagos/TablaHistorial'
+
 import styles from '../Inicio.module.css'
 
 export function UltimaActividad() {

@@ -1,4 +1,5 @@
 import { USER } from '@/utils/userDataModel'
+
 import styles from './Pagos.module.css'
 
 export function TablaHistorial() {

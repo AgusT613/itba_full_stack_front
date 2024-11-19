@@ -1,7 +1,9 @@
 import Image from 'next/image'
+
 import styles from '@/components/footerHome/footerHome.module.css'
 import ITBANK_LOGO from '@/public/itbank-logo.png'
 import { BRANCH_OFFICE } from '@/utils/userDataModel'
+
 import FooterInfoContainer from './FooterInfoContainer'
 
 export default function FooterHome() {

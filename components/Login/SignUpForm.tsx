@@ -1,7 +1,9 @@
 'use client'
 
-import styles from '@/components/Login/Form.module.css'
 import { useRouter } from 'next/navigation'
+
+import styles from '@/components/Login/Form.module.css'
+
 import userSignUp from './utils/userSignUp'
 
 export default function SignUpForm() {

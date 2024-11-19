@@ -1,7 +1,9 @@
 'use client'
 
 import { useState } from 'react'
+
 import { USER } from '@/utils/userDataModel'
+
 import styles from '../Inicio.module.css'
 
 export function CantidadSaldo() {

@@ -1,10 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { GrClose } from 'react-icons/gr'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { MenuLateral } from '@/components/MenuLateral/MenuLateral'
+import { GrClose } from 'react-icons/gr'
+
 import styles from '@/app/inicio/layout.module.css'
+import { MenuLateral } from '@/components/MenuLateral/MenuLateral'
 
 export function MenuLateralResponsive() {
   const [menuLateral, setMenuLateral] = useState(false)
