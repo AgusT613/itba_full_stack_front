@@ -4,7 +4,7 @@ import { FaRegBuilding } from 'react-icons/fa'
 import { HiOutlineUsers } from 'react-icons/hi2'
 import { MdOutlineSavings, MdWorkOutline } from 'react-icons/md'
 
-import styles from '@/components/bankResourceContainer/bankResourceContainer.module.css'
+import styles from '@/components/home/bankResources/bankResourceWrapper.module.css'
 import BANNER_1 from '@/public/banner_1.jpeg'
 import BANNER_2 from '@/public/banner_2.jpeg'
 import BANNER_3 from '@/public/banner_3.jpeg'
