@@ -1,4 +1,4 @@
-import styles from '@/components/footerHome/footerHome.module.css'
+import styles from '@/components/footer/footer.module.css'
 
 export default function FooterInfoContainer({
   title,

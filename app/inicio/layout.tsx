@@ -3,7 +3,6 @@
 import { useRouter } from 'next/navigation'
 
 import styles from '@/app/inicio/layout.module.css'
-import { Footer } from '@/components/Footer/Footer'
 import { MenuLateral } from '@/components/MenuLateral/MenuLateral'
 import { MenuLateralResponsive } from '@/components/MenuLateral/MenuLateralResponsive'
 import useLocalStorageGI from '@/hooks/useLocalStorageGI'
@@ -21,9 +20,6 @@ export default function Inicio({ children }) {
       <aside className={styles.menu__lateral}>
         <MenuLateral />
       </aside>
-      <footer className={styles.mas__informacion}>
-        <Footer />
-      </footer>
     </div>
   ) : (
     <Section>

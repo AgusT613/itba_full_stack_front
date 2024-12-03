@@ -1,3 +1,4 @@
+import Footer from '@/components/footer/Footer'
 import FormularioContacto from '@/components/FormularioContacto/FormularioContacto'
 
 export const metadata = {
@@ -7,5 +8,10 @@ export const metadata = {
 }
 
 export default function Page() {
-  return <FormularioContacto />
+  return (
+    <>
+      <Footer />
+      <FormularioContacto />
+    </>
+  )
 }

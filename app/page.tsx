@@ -1,4 +1,4 @@
-import FooterHome from '@/components/footerHome/FooterHome'
+import Footer from '@/components/footer/Footer'
 import HeaderHome from '@/components/HeaderHome/HeaderHome'
 import BankActionWrapper from '@/components/home/bankActions/bankActionWrapper'
 import BankResourceWrapper from '@/components/home/bankResources/BankResourceWrapper'
@@ -17,7 +17,7 @@ export default function Page() {
           <BankActionWrapper />
         </main>
       </Wrapper>
-      <FooterHome />
+      <Footer />
     </>
   )
 }

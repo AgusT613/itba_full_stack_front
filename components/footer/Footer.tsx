@@ -1,15 +1,32 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import styles from '@/components/footerHome/footerHome.module.css'
+import styles from '@/components/footer/footer.module.css'
 import ITBANK_LOGO from '@/public/itbank-logo.png'
+import { styled } from '@/styled-system/jsx'
 import { BRANCH_OFFICE } from '@/utils/userDataModel'
 
 import FooterInfoContainer from './FooterInfoContainer'
 
-export default function FooterHome() {
+const Article = styled.div`
+  color: #ccc;
+  font-weigth: 300;
+`
+
+export default function Footer() {
   return (
     <footer className={styles.footer} id='footer'>
+      <Article>
+        <p>
+          ¡Gracias por confiar en ITBANK! Estamos comprometidos en hacer que tu
+          experiencia en el mundo financiero sea más simple, transparente y
+          conveniente.
+        </p>
+        <p>
+          Si tienes alguna pregunta o sugerencia, no dudes en ponerte en
+          contacto con nosotros.
+        </p>
+      </Article>
       <div className={styles.footer__wrapperInfo}>
         <FooterInfoContainer
           title='Suscribite'
