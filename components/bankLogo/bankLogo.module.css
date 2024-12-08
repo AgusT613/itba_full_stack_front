@@ -1,0 +1,18 @@
+/* ------ NEXTJS LINK COMPONENT ------ */
+.link {
+  margin: 1rem 0;
+
+  /* ------ FIGURE WRAPPER ------ */
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    /* ------ REDIRECT TO TITLE ------ */
+    .goToSection {
+      opacity: 0.8;
+      font-size: 0.8rem;
+    }
+  }
+}

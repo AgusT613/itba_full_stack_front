@@ -73,11 +73,6 @@
   flex-direction: column;
 }
 
-.goBackHome {
-  opacity: 0.9;
-  font-size: 0.8rem;
-}
-
 .userLoginContainer section {
   padding: 0 2rem;
   display: grid;

@@ -39,7 +39,6 @@ export function MenuLateral() {
         <Link href='/inicio/tarjetas'>Tarjetas</Link>
         <Link href='/inicio/facturas'>Facturas</Link>
         <Link href='/inicio/prestamos'>Prestamos</Link>
-        <Link href='/inicio/sucursales'>Sucursales</Link>
         <Link href='/inicio/contacto'>Contacto</Link>
       </nav>
       <button
