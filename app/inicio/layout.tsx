@@ -7,8 +7,6 @@ import { MenuLateral } from '@/components/MenuLateral/MenuLateral'
 import { MenuLateralResponsive } from '@/components/MenuLateral/MenuLateralResponsive'
 import useLocalStorageGI from '@/hooks/useLocalStorageGI'
 
-import { Button, H2, Section, Wrapper } from './layout.panda'
-
 export default function Inicio({ children }) {
   const usuarioLogueado: string = useLocalStorageGI('auth')
   const router = useRouter()
@@ -22,11 +20,19 @@ export default function Inicio({ children }) {
       </aside>
     </div>
   ) : (
-    <Section>
-      <Wrapper>
-        <H2>Inicie sesion para acceder a su homebanking</H2>
-        <Button onClick={() => router.push('/login')}>Iniciar sesión</Button>
-      </Wrapper>
-    </Section>
+    <section className={styles.section}>
+      <div className={styles.wrapper}>
+        <h2 className={styles.title}>
+          Inicie sesion para acceder a su homebanking
+        </h2>
+        <button
+          className={styles.btn}
+          onClick={() => router.push('/login')}
+          type='button'
+        >
+          Iniciar sesión
+        </button>
+      </div>
+    </section>
   )
 }

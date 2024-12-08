@@ -3,7 +3,6 @@
   padding: 3rem 5rem;
   display: grid;
   gap: 2rem;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), transparent 100%);
   grid-template-areas:
     'description description'
     'contact contact'

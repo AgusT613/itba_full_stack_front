@@ -1,12 +1,10 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
-import LOGO_ITBANK from '@/public/itbank-logo.png'
-
 import styles from './MenuLateral.module.css'
+import BankLogo from '../bankLogo/BankLogo'
 
 export function MenuLateral() {
   const router = useRouter()
@@ -18,18 +16,7 @@ export function MenuLateral() {
 
   return (
     <>
-      <Link href='/' className={styles.itbankLogoRedirect}>
-        <figure className={styles.menu__icono}>
-          <Image
-            width={100}
-            height={100}
-            id='logo'
-            src={LOGO_ITBANK}
-            alt='Imagen de logo del banco ITBANK, compuesto por el nombre del banco estilizado'
-          />
-        </figure>
-        <span className={styles.goBackHome}>Volver a Home</span>
-      </Link>
+      <BankLogo href='/'>Volver al Home</BankLogo>
       <nav className={styles.menu__navegacion}>
         <Link href='/inicio'>Inicio</Link>
         <Link href='/inicio/cuentas'>Cuentas</Link>

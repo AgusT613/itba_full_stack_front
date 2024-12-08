@@ -12,7 +12,7 @@ export default function NewsletterForm() {
       <select
         name='nw-interests'
         id='newsletter-interests'
-        className={`${styles2.btnPadding} ${styles2.btnBg}`}
+        className={`${styles.select} ${styles2.btnPadding} ${styles2.btnBg}`}
       >
         <option defaultValue='no-selected'>Seleccione un interés</option>
         <option value='promotions'>Promociones y Beneficios</option>
