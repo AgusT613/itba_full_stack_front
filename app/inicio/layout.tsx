@@ -13,7 +13,7 @@ export default function Inicio({ children }) {
   const usuarioLogueado: string = useLocalStorageGI('auth')
   const router = useRouter()
 
-  return usuarioLogueado === 'true' ? (
+  return usuarioLogueado ? (
     <div className={styles.contenedor__pagina__principal}>
       <main className={styles.contenido__principal}>{children}</main>
       <MenuLateralResponsive />

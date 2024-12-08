@@ -5,11 +5,11 @@ import BankResourceWrapper from '@/components/home/bankResources/BankResourceWra
 import Hero from '@/components/home/hero/Hero'
 import { homeLinks } from '@/utils/headerLinks'
 
-import { Wrapper } from './page.panda'
+import styles from './page.module.css'
 
 export default function Page() {
   return (
-    <Wrapper id='init'>
+    <div className={styles.wrapper}>
       <Header links={homeLinks} />
       <div>
         <main>
@@ -19,6 +19,6 @@ export default function Page() {
         </main>
         <Footer />
       </div>
-    </Wrapper>
+    </div>
   )
 }

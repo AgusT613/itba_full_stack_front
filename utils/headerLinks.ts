@@ -1,15 +1,15 @@
 export const homeLinks = [
   {
     href: '#resources',
-    title: 'Recursos',
+    title: 'Servicios',
   },
   {
     href: '#actions',
-    title: 'Herramientas',
+    title: 'Ayuda',
   },
   {
     href: '#footer',
-    title: 'Información',
+    title: 'Contacto',
   },
   {
     href: '/inicio',

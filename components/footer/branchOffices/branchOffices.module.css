@@ -1,0 +1,22 @@
+.wrapperBranchOffice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  .container {
+    border: 1px solid #333;
+    border-radius: 0.25rem;
+    background-color: #3333;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1 1 15rem;
+    padding: 1rem;
+
+    .title {
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  }
+}
