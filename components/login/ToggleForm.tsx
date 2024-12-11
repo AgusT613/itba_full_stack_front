@@ -2,6 +2,8 @@
 
 import { useRouter } from 'next/navigation'
 
+import styles from './form.module.css'
+
 export default function ToggleForm({ children, to }) {
   const router = useRouter()
 
@@ -10,7 +12,11 @@ export default function ToggleForm({ children, to }) {
   }
 
   return (
-    <button type='button' onClick={toggleFormulario}>
+    <button
+      type='button'
+      onClick={toggleFormulario}
+      className={styles.toggleForm}
+    >
       {children}
     </button>
   )

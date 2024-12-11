@@ -3,14 +3,16 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
+import signOutAction from '@/actions/signOutAction'
+
 import styles from './MenuLateral.module.css'
 import BankLogo from '../bankLogo/BankLogo'
 
 export function MenuLateral() {
   const router = useRouter()
 
-  const handleLogOut = () => {
-    window.localStorage.removeItem('auth')
+  const handleLogOut = async () => {
+    await signOutAction()
     router.push('/')
   }
 

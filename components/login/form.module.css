@@ -53,38 +53,7 @@
 }
 
 /* ------ USER SECTION ----- */
-.userLoginContainer {
-  min-height: 100dvh;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.formWrapper {
-  min-height: inherit;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.link {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-}
-
-.userLoginContainer section {
-  padding: 0 2rem;
-  display: grid;
-  grid-template-rows: 1fr 3fr 1fr;
-  align-items: center;
-}
-
-.userLoginContainer h2 {
-  font-size: 1.75rem;
-}
-
-.userLoginContainer button {
+.toggleForm {
   background: none;
   cursor: pointer;
   color: #fff;
@@ -94,6 +63,17 @@
   transition: 0.3s ease all;
 }
 
-.userLoginContainer button:hover {
+.toggleForm:hover {
   background: rgba(0, 0, 0, 0.3);
+}
+
+.messageContainer {
+  max-width: 20rem;
+  text-align: center;
+  text-wrap: balance;
+  display: flex;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  border-radius: 1rem;
 }

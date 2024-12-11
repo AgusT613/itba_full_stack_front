@@ -1,14 +1,17 @@
-const path = require("path")
+const path = require('path')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    serverActions: true,
+  },
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "randomuser.me",
-        port: "",
-        pathname: "/api/**",
+        protocol: 'https',
+        hostname: 'randomuser.me',
+        port: '',
+        pathname: '/api/**',
       },
     ],
   },
@@ -19,13 +22,13 @@ const nextConfig = {
 
     config.resolve.alias = {
       ...config.resolve.alias,
-      "@": path.resolve(__dirname, "./"),
+      '@': path.resolve(__dirname, './'),
     }
 
     return config
   },
   eslint: {
-    dirs: ['utils', "hooks", "context", "app", "components"], // Only run ESLint on the 'pages' and 'utils' directories during production builds (next build)
+    dirs: ['utils', 'hooks', 'context', 'app', 'components'], // Only run ESLint on the 'pages' and 'utils' directories during production builds (next build)
   },
 }
 
