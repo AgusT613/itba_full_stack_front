@@ -4,7 +4,7 @@
   gap: 1.5em;
 }
 
-.form div {
+.inputWrapper {
   display: flex;
   flex-direction: column;
   gap: 0.5em;
@@ -50,30 +50,4 @@
 
 .submitBtn:hover {
   background: rgba(0, 0, 0, 0.3);
-}
-
-/* ------ USER SECTION ----- */
-.toggleForm {
-  background: none;
-  cursor: pointer;
-  color: #fff;
-  padding: 1rem;
-  border: none;
-  border-radius: 2rem;
-  transition: 0.3s ease all;
-}
-
-.toggleForm:hover {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.messageContainer {
-  max-width: 20rem;
-  text-align: center;
-  text-wrap: balance;
-  display: flex;
-  margin: auto;
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 0.5rem;
-  border-radius: 1rem;
 }

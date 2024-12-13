@@ -3,10 +3,9 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-import styles from '@/components/login/form.module.css'
 import userSignUp from '@/utils/userSignUp'
 
-import FormMessage from './FormMessage'
+import LoginForm from './loginForm/LoginForm'
 
 export default function SignUpForm() {
   const [message, setMessage] = useState<string | null>(null)
@@ -44,42 +43,11 @@ export default function SignUpForm() {
   }, [success])
 
   return (
-    <>
-      <form action={formAction} className={styles.form}>
-        {/* User Email */}
-        <div>
-          <label className={styles.labelDescription} htmlFor='email'>
-            Correo Electrónico
-          </label>
-          <input
-            className={styles.inputData}
-            name='email'
-            type='email'
-            placeholder='agus@example.com'
-            required
-          />
-        </div>
-        {/* User Password */}
-        <div>
-          <label className={styles.labelDescription} htmlFor='password'>
-            Contraseña
-          </label>
-          <input
-            className={styles.inputData}
-            name='password'
-            type='password'
-            placeholder='123'
-            required
-          />
-        </div>
-        <input
-          className={styles.submitBtn}
-          type='submit'
-          value='Registrarse'
-          disabled={success}
-        />
-      </form>
-      <FormMessage message={message} success={success} />
-    </>
+    <LoginForm
+      formAction={formAction}
+      success={success}
+      message={message}
+      formTitle='Registrarse'
+    />
   )
 }

@@ -1,0 +1,10 @@
+.messageContainer {
+  max-width: 25rem;
+  text-align: center;
+  text-wrap: balance;
+  display: flex;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  border-radius: 1rem;
+}

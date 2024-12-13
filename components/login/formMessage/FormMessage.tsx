@@ -1,4 +1,4 @@
-import styles from '@/components/login/form.module.css'
+import styles from './formMessage.module.css'
 
 export default function FormMessage({ message, success }) {
   return (

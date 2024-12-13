@@ -1,5 +1,5 @@
 import SignInForm from '@/components/login/SignInForm'
-import ToggleForm from '@/components/login/ToggleForm'
+import ToggleForm from '@/components/login/toggleForm/ToggleForm'
 
 import styles from '../layout.module.css'
 
@@ -12,7 +12,7 @@ export const metadata = {
 export default function Page() {
   return (
     <>
-      <h2 className={styles.formTitle}>Iniciar Sesion</h2>
+      <h2 className={styles.formTitle}>Iniciar Sesión</h2>
       <SignInForm />
       <ToggleForm to='/login/registrarse'>
         Deseas crearte una cuenta? Registrate aquí

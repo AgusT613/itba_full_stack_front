@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 
-import styles from './form.module.css'
+import styles from './toggleForm.module.css'
 
 export default function ToggleForm({ children, to }) {
   const router = useRouter()
