@@ -1,0 +1,22 @@
+/* ------ BANK RESOURCE SECTION ------ */
+.bankResources {
+  min-height: 100dvh;
+
+  /* ------ TITLE SECTION ------ */
+  .sectionHeading {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent 100%);
+    padding: 1rem;
+    font-size: 1.6rem;
+    text-align: center;
+    font-weight: 700;
+  }
+
+  /* ------ BANK RESOURCES ------ */
+  .resourcesList {
+    padding: 3rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}

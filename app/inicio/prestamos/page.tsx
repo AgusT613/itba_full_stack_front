@@ -4,16 +4,7 @@ import CalculadoraPrestamos from '@/components/CalculadoraPrestamos/CalculadoraP
 import FormularioSolicitarPrestamo from '@/components/solicitarPrestamo/SolicitarPrestamo'
 import { BRANCH_OFFICE, USER } from '@/utils/userDataModel'
 
-import {
-  Card,
-  DeleteButton,
-  Grid,
-  H2,
-  H3,
-  Section,
-  Span,
-  Strong,
-} from './page.panda'
+import styles from './page.module.css'
 
 export default function Page() {
   const prestamosITBANK = USER.loan.filter(
@@ -29,17 +20,19 @@ export default function Page() {
 
   return (
     <>
-      <Section>
-        <H2>Solicitar un Prestamo</H2>
+      <section className={styles.section}>
+        <h2 className={styles.h2}>Solicitar un Prestamo</h2>
         <FormularioSolicitarPrestamo />
-      </Section>
-      <Section>
-        <H2>Listado Prestamos ITBANK</H2>
-        <Span>Dirección: {BRANCH_OFFICE[0].address}</Span>
-        <Grid>
+      </section>
+      <section className={styles.section}>
+        <h2 className={styles.h2}>Listado Prestamos ITBANK</h2>
+        <span className={styles.span}>
+          Dirección: {BRANCH_OFFICE[0].address}
+        </span>
+        <div className={styles.grid}>
           {prestamosITBANK.map((prestamo) => (
-            <Card key={prestamo.id}>
-              <H3>Prestamo {prestamo.type}</H3>
+            <article className={styles.card} key={prestamo.id}>
+              <h3 className={styles.h3}>Prestamo {prestamo.type}</h3>
               <p>
                 <strong>Fecha inicio del prestamo:</strong> {prestamo.grandDate}
               </p>
@@ -47,20 +40,26 @@ export default function Page() {
                 <strong>Fecha finalizacion del prestamo:</strong>{' '}
                 {prestamo.expirationDate}
               </p>
-              <Strong>Monto: ${prestamo.amount}</Strong>
-              <DeleteButton onClick={() => handleEliminarPrestamo(prestamo.id)}>
+              <strong className={styles.strong}>
+                Monto: ${prestamo.amount}
+              </strong>
+              <button
+                type='button'
+                className={styles.deleteBtn}
+                onClick={() => handleEliminarPrestamo(prestamo.id)}
+              >
                 Dar de Baja
-              </DeleteButton>
-            </Card>
+              </button>
+            </article>
           ))}
-        </Grid>
-      </Section>
-      <Section>
-        <H2>Listado Prestamos por Sucursal</H2>
-        <Grid>
+        </div>
+      </section>
+      <section className={styles.section}>
+        <h2 className={styles.h2}>Listado Prestamos por Sucursal</h2>
+        <div className={styles.grid}>
           {prestamosOtrasSucursales.map((prestamo) => (
-            <Card key={prestamo.id}>
-              <H3>Prestamo {prestamo.type}</H3>
+            <article className={styles.card} key={prestamo.id}>
+              <h3 className={styles.h3}>Prestamo {prestamo.type}</h3>
               <p>
                 <strong>Nombre sucursal:</strong> {BRANCH_OFFICE[1].name}
               </p>
@@ -74,18 +73,24 @@ export default function Page() {
                 <strong>Fecha finalizacion del prestamo:</strong>{' '}
                 {prestamo.expirationDate}
               </p>
-              <Strong>Monto: ${prestamo.amount}</Strong>
-              <DeleteButton onClick={() => handleEliminarPrestamo(prestamo.id)}>
+              <strong className={styles.strong}>
+                Monto: ${prestamo.amount}
+              </strong>
+              <button
+                type='button'
+                className={styles.deleteBtn}
+                onClick={() => handleEliminarPrestamo(prestamo.id)}
+              >
                 Dar de Baja
-              </DeleteButton>
-            </Card>
+              </button>
+            </article>
           ))}
-        </Grid>
-      </Section>
-      <Section>
-        <H2>Calculadora de Prestamos</H2>
+        </div>
+      </section>
+      <section className={styles.section}>
+        <h2 className={styles.h2}>Calculadora de Prestamos</h2>
         <CalculadoraPrestamos />
-      </Section>
+      </section>
     </>
   )
 }

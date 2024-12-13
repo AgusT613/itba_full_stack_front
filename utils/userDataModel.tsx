@@ -4,7 +4,6 @@ import { FaRegBuilding } from 'react-icons/fa'
 import { HiOutlineUsers } from 'react-icons/hi2'
 import { MdOutlineSavings, MdWorkOutline } from 'react-icons/md'
 
-import styles from '@/components/bankResourceContainer/bankResourceContainer.module.css'
 import BANNER_1 from '@/public/banner_1.jpeg'
 import BANNER_2 from '@/public/banner_2.jpeg'
 import BANNER_3 from '@/public/banner_3.jpeg'
@@ -12,8 +11,8 @@ import BANNER_3 from '@/public/banner_3.jpeg'
 export const USER = {
   customer: {
     id: 0,
-    name: 'Lucas',
-    lastName: 'Gonzalez',
+    name: 'Super',
+    lastName: 'Usuario',
     dni: 47806975,
     age: 26,
     balance: 1000,
@@ -169,41 +168,41 @@ export const BANK_RESOURCES = [
     description:
       'Solicitá tu tarjeta de crédito con renovación bonificada 100% digital.',
     href: '#',
-    icon: <MdOutlineSavings className={styles.bankResources__itemBox__icon} />,
+    icon: <MdOutlineSavings />,
   },
   {
     title: 'Prestamo Personal',
     description:
       'Solicitá tu préstamo personal a tasa preferencial y usalo para lo que más quieras.',
     href: '#',
-    icon: <BsCash className={styles.bankResources__itemBox__icon} />,
+    icon: <BsCash />,
   },
   {
     title: 'Cuenta Sueldo',
     description: 'Pasá tu sueldo al Ciudad y disfrutá de todos los beneficios.',
     href: '#',
-    icon: <MdWorkOutline className={styles.bankResources__itemBox__icon} />,
+    icon: <MdWorkOutline />,
   },
   {
     title: 'Cuenta Jubilación',
     description:
       'Cobrá tu jubilación en el Ciudad y disfrutá de los ahorros que tenemos para vos.',
     href: '#',
-    icon: <HiOutlineUsers className={styles.bankResources__itemBox__icon} />,
+    icon: <HiOutlineUsers />,
   },
   {
     title: 'Cuenta Consorcio',
     description:
       '¡Con la cuenta consorcio del Ciudad reducí el gasto bancario de las expensas!',
     href: '#',
-    icon: <FaRegBuilding className={styles.bankResources__itemBox__icon} />,
+    icon: <FaRegBuilding />,
   },
   {
     title: 'Cuenta Comercio',
     description:
       'La oferta integral que tu comercio necesita, está en el Ciudad.',
     href: '#',
-    icon: <CiShop className={styles.bankResources__itemBox__icon} />,
+    icon: <CiShop />,
   },
 ]
 

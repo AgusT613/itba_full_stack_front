@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
-import styles from '@/components/hero/hero.module.css'
+import styles from '@/components/autoImagesCarrousel/autoImagesCarrousel.module.css'
 
 import { imagesList } from '../../utils/imagesList'
 
@@ -25,13 +25,5 @@ export default function AutoImagesCarrousel() {
     return () => clearInterval(intervalId)
   }, [])
 
-  return (
-    <Image
-      className={styles.heroSection__image}
-      width={500}
-      height={500}
-      src={image.url}
-      alt={image.alt}
-    />
-  )
+  return <Image src={image.url} alt={image.alt} className={styles.image} />
 }

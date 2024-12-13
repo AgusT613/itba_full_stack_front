@@ -1,0 +1,17 @@
+/* ------ BANK ACTIONS SECTION ------ */
+.bankActions {
+  background-color: rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 250px);
+}
+
+.bankActions img:nth-child(3n) {
+  grid-column: 2 / 3;
+}
+
+.bankActions div:nth-child(4) {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  justify-self: end;
+}

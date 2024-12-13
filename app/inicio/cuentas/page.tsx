@@ -1,4 +1,7 @@
-import { Cuentas } from '@/components/Cuentas/Cuentas'
+import AccountCard from '@/components/accountCard/AccountCard'
+import { USER } from '@/utils/userDataModel'
+
+import styles from './page.module.css'
 
 export const metadata = {
   title: 'Cuentas - ITBANK',
@@ -7,5 +10,16 @@ export const metadata = {
 }
 
 export default function Page() {
-  return <Cuentas />
+  return (
+    <section className={styles.cardsWrapper}>
+      {USER.accounts.map((account) => (
+        <AccountCard
+          key={account.number}
+          cardTitle={account.type}
+          currency={account.currency}
+          amountMoney={account.balance}
+        />
+      ))}
+    </section>
+  )
 }

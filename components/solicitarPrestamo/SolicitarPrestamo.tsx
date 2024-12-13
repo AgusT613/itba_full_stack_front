@@ -5,17 +5,7 @@ import { useRef, useState } from 'react'
 
 import { BRANCH_OFFICE, USER } from '@/utils/userDataModel'
 
-import {
-  Button,
-  ButtonRow,
-  Fieldset,
-  Form,
-  FormRow,
-  Input,
-  Label,
-  Legend,
-  Select,
-} from './solicitarPrestamo.panda'
+import styles from './solicitarPrestamo.module.css'
 
 export default function FormularioSolicitarPrestamo() {
   const formCrearPrestamoRef = useRef(null)
@@ -50,71 +40,97 @@ export default function FormularioSolicitarPrestamo() {
   }
 
   return (
-    <Form ref={formCrearPrestamoRef} onSubmit={handleSubmit}>
-      <Fieldset>
-        <Legend>Prestamo</Legend>
+    <form
+      ref={formCrearPrestamoRef}
+      onSubmit={handleSubmit}
+      className={styles.form}
+    >
+      <fieldset className={styles.fieldset}>
+        <legend className={styles.legend}>Préstamo</legend>
 
-        <FormRow>
-          <Label htmlFor='sucursal'>Sucursal</Label>
-          <Select id='sucursal' name='sucursal'>
+        <div className={styles.formRow}>
+          <label htmlFor='sucursal' className={styles.label}>
+            Sucursal
+          </label>
+          <select id='sucursal' name='sucursal' className={styles.select}>
             {BRANCH_OFFICE.map((sucursal) => (
               <option value={sucursal.id} key={sucursal.id}>
                 {sucursal.name}
               </option>
             ))}
-          </Select>
-        </FormRow>
+          </select>
+        </div>
 
-        <FormRow>
-          <Label htmlFor='tipoPrestamo'>Tipo de prestamo</Label>
-          <Select id='tipoPrestamo' name='tipoPrestamo'>
-            <option value='hipotecario'>Prestamo hipotecario</option>
-            <option value='personal'>Prestamo personal</option>
-            <option value='prendario'>Prestamo prendario</option>
-          </Select>
-        </FormRow>
+        <div className={styles.formRow}>
+          <label htmlFor='tipoPrestamo' className={styles.label}>
+            Tipo de préstamo
+          </label>
+          <select
+            id='tipoPrestamo'
+            name='tipoPrestamo'
+            className={styles.select}
+          >
+            <option value='hipotecario'>Préstamo hipotecario</option>
+            <option value='personal'>Préstamo personal</option>
+            <option value='prendario'>Préstamo prendario</option>
+          </select>
+        </div>
 
-        <FormRow>
-          <Label htmlFor='fechaInicioPrestamo'>Fecha de inicio prestamo</Label>
-          <Input
+        <div className={styles.formRow}>
+          <label htmlFor='fechaInicioPrestamo' className={styles.label}>
+            Fecha de inicio del préstamo
+          </label>
+          <input
             id='fechaInicioPrestamo'
             type='date'
             name='fechaInicioPrestamo'
+            className={styles.input}
           />
-        </FormRow>
+        </div>
 
-        <FormRow>
-          <Label htmlFor='fechaFinalizacionPrestamo'>
-            Fecha de finalizacion prestamo
-          </Label>
-          <Input
+        <div className={styles.formRow}>
+          <label htmlFor='fechaFinalizacionPrestamo' className={styles.label}>
+            Fecha de finalización del préstamo
+          </label>
+          <input
             id='fechaFinalizacionPrestamo'
             type='date'
             name='fechaFinalizacionPrestamo'
+            className={styles.input}
           />
-        </FormRow>
+        </div>
 
-        <FormRow>
-          <Label htmlFor='monto'>Monto</Label>
-          <Input id='monto' type='number' name='monto' placeholder='500000' />
-        </FormRow>
-      </Fieldset>
+        <div className={styles.formRow}>
+          <label htmlFor='monto' className={styles.label}>
+            Monto
+          </label>
+          <input
+            id='monto'
+            type='number'
+            name='monto'
+            placeholder='500000'
+            className={styles.input}
+          />
+        </div>
+      </fieldset>
 
-      <ButtonRow>
-        <Button
+      <div className={styles.buttonRow}>
+        <input
           type='button'
           onClick={handleFormReset}
           value='Reiniciar formulario'
+          className={styles.button}
         />
-        <Button type='submit' value='Pedir Prestamo' />
+        <input type='submit' value='Pedir Préstamo' className={styles.button} />
         {resetPage && (
-          <Button
+          <input
             type='button'
             onClick={handleResetPage}
             value='Recargar página'
+            className={styles.button}
           />
         )}
-      </ButtonRow>
-    </Form>
+      </div>
+    </form>
   )
 }

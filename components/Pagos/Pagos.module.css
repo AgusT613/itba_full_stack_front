@@ -22,6 +22,7 @@
 }
 
 .verMasHistorial {
+  color: #000;
   cursor: pointer;
   width: 7em;
   align-self: center;

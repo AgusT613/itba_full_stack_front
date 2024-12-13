@@ -1,0 +1,9 @@
+.table {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  margin: 0.75rem 0;
+}
+
+.title {
+  padding: 1rem;
+}

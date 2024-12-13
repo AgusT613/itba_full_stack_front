@@ -1,0 +1,23 @@
+.newsletterForm {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.inputEmail {
+  flex-grow: 3;
+  flex-shrink: 3;
+  outline: none;
+  color: #333;
+}
+
+.inputSubmit {
+  background-color: #333d;
+  flex-grow: 1;
+  font-weight: 300;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.inputSubmit:hover {
+  background-color: #222;
+}
