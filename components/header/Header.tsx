@@ -1,18 +1,15 @@
-import Link from 'next/link'
+import { INavItem } from '@/types/navItem'
 
 import styles from './header.module.css'
 import BankLogo from '../bankLogo/BankLogo'
+import NavItems from '../navItems/NavItems'
 
-export default function Header({ links }) {
+export default function Header({ links }: { links: INavItem[] }) {
   return (
     <header className={styles.header}>
       <BankLogo href='#init'>Home</BankLogo>
       <nav className={styles.nav}>
-        {links.map((link) => (
-          <Link key={link.href} href={link.href} className={styles.link}>
-            {link.title}
-          </Link>
-        ))}
+        <NavItems links={links} />
       </nav>
     </header>
   )

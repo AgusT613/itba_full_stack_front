@@ -1,12 +1,13 @@
 'use client'
 
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 import signOutAction from '@/actions/signOutAction'
+import { homebankingLinks } from '@/utils/headerLinks'
 
 import styles from './MenuLateral.module.css'
 import BankLogo from '../bankLogo/BankLogo'
+import NavItems from '../navItems/NavItems'
 
 export function MenuLateral() {
   const router = useRouter()
@@ -20,15 +21,7 @@ export function MenuLateral() {
     <>
       <BankLogo href='/'>Volver al Home</BankLogo>
       <nav className={styles.menu__navegacion}>
-        <Link href='/inicio'>Inicio</Link>
-        <Link href='/inicio/cuentas'>Cuentas</Link>
-        <Link href='/inicio/transferencias'>Transferencias</Link>
-        <Link href='/inicio/pagos'>Pagos</Link>
-        <Link href='/inicio/conversor'>Conversor</Link>
-        <Link href='/inicio/tarjetas'>Tarjetas</Link>
-        <Link href='/inicio/facturas'>Facturas</Link>
-        <Link href='/inicio/prestamos'>Prestamos</Link>
-        <Link href='/inicio/contacto'>Contacto</Link>
+        <NavItems links={homebankingLinks} />
       </nav>
       <button
         type='button'
