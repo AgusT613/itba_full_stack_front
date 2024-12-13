@@ -1,5 +1,4 @@
 import Footer from '@/components/footer/Footer'
-import FormularioContacto from '@/components/FormularioContacto/FormularioContacto'
 
 export const metadata = {
   title: 'Contacto - ITBANK',
@@ -8,10 +7,5 @@ export const metadata = {
 }
 
 export default function Page() {
-  return (
-    <>
-      <Footer />
-      <FormularioContacto />
-    </>
-  )
+  return <Footer />
 }
