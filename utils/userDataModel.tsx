@@ -11,8 +11,8 @@ import BANNER_3 from '@/public/banner_3.jpeg'
 export const USER = {
   customer: {
     id: 0,
-    name: 'Lucas',
-    lastName: 'Gonzalez',
+    name: 'Super',
+    lastName: 'Usuario',
     dni: 47806975,
     age: 26,
     balance: 1000,
