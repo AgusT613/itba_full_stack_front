@@ -1,6 +1,7 @@
 import TituloNavegacion from '@/components/TituloNavegacion'
-import styles from '@/styles/Tarjetas.module.css'
 import { USER } from '@/utils/userDataModel'
+
+import styles from './page.module.css'
 
 export default function Page({ params }) {
   const tarjeta = USER.cards.find(
@@ -13,7 +14,7 @@ export default function Page({ params }) {
         Detalles de Tarjeta
       </TituloNavegacion>
       <section>
-        <table className={styles.tabla_detalles_tarjeta}>
+        <table className={styles.table}>
           <tbody>
             <tr>
               <td>Banco</td>
