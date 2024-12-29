@@ -1,0 +1,39 @@
+.cards {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+
+  .nextPreviousBtn {
+    padding: 0.25em;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    transition: 0.2s ease;
+  }
+
+  .nextPreviousBtn:hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .link {
+    width: 100%;
+  }
+}
+
+.positions {
+  font-size: small;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.25em;
+  border-radius: 0.5em;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}
+
+.dotPosition,
+.nextPreviousBtn {
+  cursor: pointer;
+  width: 2em;
+  height: auto;
+}

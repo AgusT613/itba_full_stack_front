@@ -1,0 +1,31 @@
+.container {
+  cursor: pointer;
+  outline: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+}
+
+.container:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+.container:active {
+  transition: 0.1s ease;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  display: inline-flex;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 1em;
+}
+
+.text {
+  font-size: 0.75em;
+}

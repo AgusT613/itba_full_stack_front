@@ -2,27 +2,27 @@
 
 import Image from 'next/image'
 
+import SectionDivider from '@/components/sectionDivider/SectionDivider'
 import { USER } from '@/utils/userDataModel'
 
-import styles from '../Inicio.module.css'
+import styles from './userProfile.module.css'
 
-export function PerfilUsuario() {
+export function UserProfile() {
   const welcome = `Bienvenido ${USER.customer.name} ${USER.customer.lastName}!`
 
   return (
-    <article className={styles.recuadro_usuario}>
-      <figure className={styles.contenedor_imagen_usuario}>
+    <SectionDivider className={styles.container}>
+      <figure className={styles.imageContainer}>
         <Image
           unoptimized
           width={25}
           height={25}
-          className={styles.imagen_usuario}
+          className={styles.image}
           src={USER.customer.img}
           alt='Su foto de perfil de usuario'
         />
       </figure>
       <h3>{welcome}</h3>
-      {/* <span className={styles.mas_detalles} /> */}
-    </article>
+    </SectionDivider>
   )
 }
