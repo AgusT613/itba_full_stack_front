@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: center;
+
+  .table {
+    margin: 1em 0;
+    border-collapse: collapse;
+
+    .tableHead th {
+      padding: 1em;
+      background: #5500c68a;
+      text-transform: uppercase;
+    }
+
+    .tableBody {
+      background: rgba(0, 0, 0, 0.4);
+
+      .dataDescription:hover {
+        background: rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    .tableBody td {
+      padding: 0.5em 1em;
+      text-align: center;
+    }
+  }
+}
