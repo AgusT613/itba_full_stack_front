@@ -1,4 +1,4 @@
-import TituloNavegacion from '@/components/TituloNavegacion'
+import NavigationTitle from '@/components/navigationTitle/NavigationTitle'
 import { USER } from '@/utils/userDataModel'
 
 import styles from './page.module.css'
@@ -11,9 +11,9 @@ export default function Page({ params }) {
 
   return (
     <>
-      <TituloNavegacion ruta='/inicio/facturas'>
+      <NavigationTitle href='/inicio/facturas'>
         Detalle de Factura
-      </TituloNavegacion>
+      </NavigationTitle>
       <table className={styles.table}>
         <tr>
           <td className={styles.title}>Empresa</td>

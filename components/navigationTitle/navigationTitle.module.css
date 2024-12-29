@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  .btnGoBack {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 0.25em 0.5em;
+    width: max-content;
+    border-radius: 0.5em;
+
+    .btnGoBack:hover {
+      background: rgba(0, 0, 0, 0.4);
+    }
+  }
+}

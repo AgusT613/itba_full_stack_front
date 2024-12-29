@@ -1,4 +1,4 @@
-import TituloNavegacion from '@/components/TituloNavegacion'
+import NavigationTitle from '@/components/navigationTitle/NavigationTitle'
 import { USER } from '@/utils/userDataModel'
 
 import styles from './page.module.css'
@@ -10,9 +10,9 @@ export default function Page({ params }) {
 
   return (
     <>
-      <TituloNavegacion ruta='/inicio/tarjetas'>
+      <NavigationTitle href='/inicio/tarjetas'>
         Detalles de Tarjeta
-      </TituloNavegacion>
+      </NavigationTitle>
       <section>
         <table className={styles.table}>
           <tbody>
