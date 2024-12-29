@@ -1,7 +1,7 @@
-export async function obtenerConversion(monedaUno) {
+export async function getCurrencyConversion(currency) {
   try {
     const data = await fetch(
-      `https://api.exchangerate-api.com/v4/latest/${monedaUno}`,
+      `https://api.exchangerate-api.com/v4/latest/${currency}`,
     )
     return await data.json()
   } catch (error) {

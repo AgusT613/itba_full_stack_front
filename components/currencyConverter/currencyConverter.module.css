@@ -1,0 +1,51 @@
+.form {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0.5em;
+  align-self: center;
+  width: max-content;
+  display: flex;
+  gap: 0.5em;
+  padding: 1em;
+
+  .box {
+    display: flex;
+    flex-direction: column;
+
+    .moneyAmount {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      height: 2em;
+      color: #fff;
+      border: none;
+      width: 6em;
+      background: none;
+      font-size: 3em;
+    }
+
+    .selectCurrency {
+      color: #fff;
+      opacity: 0.8;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      padding: 1em;
+    }
+  }
+}
+
+.moneyAmount:focus,
+.selectCurrency:focus {
+  outline: none;
+}
+
+@media (max-width: 760px) {
+  .form {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 340px) {
+  .form {
+    width: 15em;
+  }
+}
