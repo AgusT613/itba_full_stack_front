@@ -1,15 +1,11 @@
-.formulario,
-.formulario div {
+.form,
+.form div {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-.formulario h2 {
-  text-align: center;
-}
-
-.formulario {
+.form {
   margin: 2rem auto;
   width: 70%;
   padding: 1.25em;
@@ -17,22 +13,22 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-.formulario div label {
+.form label {
   font-size: 1.15em;
   margin-bottom: 0.25em;
 }
 
-.formulario div input {
+.form input {
   border: none;
   font-size: 1.25em;
   padding: 0.5em;
 }
 
-.formulario div input:focus {
+.form input:focus {
   outline: none;
 }
 
-.btn_calcular_prestamo {
+.btn {
   cursor: pointer;
   text-transform: uppercase;
   font-weight: 600;
@@ -42,17 +38,18 @@
   color: #000;
   border: none;
   transition: 0.1s ease;
+
+  .btn:hover {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+
+  .btn:active {
+    background: rgba(0, 0, 0, 0.3);
+  }
 }
 
-.btn_calcular_prestamo:hover {
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-}
-.btn_calcular_prestamo:active {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.resultado {
+.result {
   background: rgba(0, 0, 0, 0.4);
   width: 70%;
   margin: 0 auto;
@@ -60,9 +57,9 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
 
-.resultado h3,
-.resultado span {
-  font-size: 1.25em;
+  .title,
+  .amount {
+    font-size: 1.25em;
+  }
 }

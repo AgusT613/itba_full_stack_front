@@ -5,15 +5,17 @@ import { useRef, useState } from 'react'
 
 import { BRANCH_OFFICE, USER } from '@/utils/userDataModel'
 
-import styles from './solicitarPrestamo.module.css'
+import styles from './loanRequestForm.module.css'
 
-export default function FormularioSolicitarPrestamo() {
-  const formCrearPrestamoRef = useRef(null)
+export default function LoanRequestForm() {
+  const formRef = useRef(null)
   const [resetPage, setResetPage] = useState(false)
+  const [message, setMessage] = useState('')
   const router = useRouter()
 
   const handleFormReset = () => {
-    formCrearPrestamoRef.current.reset()
+    setMessage('')
+    formRef.current.reset()
   }
 
   const handleResetPage = () => {
@@ -23,36 +25,31 @@ export default function FormularioSolicitarPrestamo() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const datosFormulario = Object.fromEntries(new FormData(e.target))
+    const formData = Object.fromEntries(new FormData(e.target))
 
     const body = {
       user: USER.customer.id,
-      branchOffice: datosFormulario.sucursal,
-      loanType: datosFormulario.tipoPrestamo,
-      grandDate: datosFormulario.fechaInicioPrestamo,
-      expirationDate: datosFormulario.fechaFinalizacionPrestamo,
-      amount: datosFormulario.monto,
+      ...formData,
     }
 
-    console.log(body)
-
+    setMessage(JSON.stringify(body))
     setResetPage(!resetPage)
   }
 
   return (
-    <form
-      ref={formCrearPrestamoRef}
-      onSubmit={handleSubmit}
-      className={styles.form}
-    >
+    <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
       <fieldset className={styles.fieldset}>
         <legend className={styles.legend}>Préstamo</legend>
 
         <div className={styles.formRow}>
-          <label htmlFor='sucursal' className={styles.label}>
+          <label htmlFor='branchOffice' className={styles.label}>
             Sucursal
           </label>
-          <select id='sucursal' name='sucursal' className={styles.select}>
+          <select
+            id='branchOffice'
+            name='branchOffice'
+            className={styles.select}
+          >
             {BRANCH_OFFICE.map((sucursal) => (
               <option value={sucursal.id} key={sucursal.id}>
                 {sucursal.name}
@@ -62,14 +59,10 @@ export default function FormularioSolicitarPrestamo() {
         </div>
 
         <div className={styles.formRow}>
-          <label htmlFor='tipoPrestamo' className={styles.label}>
+          <label htmlFor='loanType' className={styles.label}>
             Tipo de préstamo
           </label>
-          <select
-            id='tipoPrestamo'
-            name='tipoPrestamo'
-            className={styles.select}
-          >
+          <select id='loanType' name='loanType' className={styles.select}>
             <option value='hipotecario'>Préstamo hipotecario</option>
             <option value='personal'>Préstamo personal</option>
             <option value='prendario'>Préstamo prendario</option>
@@ -77,42 +70,44 @@ export default function FormularioSolicitarPrestamo() {
         </div>
 
         <div className={styles.formRow}>
-          <label htmlFor='fechaInicioPrestamo' className={styles.label}>
+          <label htmlFor='grandDate' className={styles.label}>
             Fecha de inicio del préstamo
           </label>
           <input
-            id='fechaInicioPrestamo'
+            id='grandDate'
             type='date'
-            name='fechaInicioPrestamo'
+            name='grandDate'
             className={styles.input}
           />
         </div>
 
         <div className={styles.formRow}>
-          <label htmlFor='fechaFinalizacionPrestamo' className={styles.label}>
+          <label htmlFor='expirationDate' className={styles.label}>
             Fecha de finalización del préstamo
           </label>
           <input
-            id='fechaFinalizacionPrestamo'
+            id='expirationDate'
             type='date'
-            name='fechaFinalizacionPrestamo'
+            name='expirationDate'
             className={styles.input}
           />
         </div>
 
         <div className={styles.formRow}>
-          <label htmlFor='monto' className={styles.label}>
+          <label htmlFor='amount' className={styles.label}>
             Monto
           </label>
           <input
-            id='monto'
+            id='amount'
             type='number'
-            name='monto'
+            name='amount'
             placeholder='500000'
             className={styles.input}
           />
         </div>
       </fieldset>
+
+      <div className={styles.messageContainer}>{message}</div>
 
       <div className={styles.buttonRow}>
         <input
