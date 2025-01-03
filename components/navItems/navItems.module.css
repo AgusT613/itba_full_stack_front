@@ -1,0 +1,14 @@
+.link {
+  transition: 200ms ease;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.link:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.currentLink {
+  outline: 2px solid rgba(0, 0, 0, 0.4);
+}

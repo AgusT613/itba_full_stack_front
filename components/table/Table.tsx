@@ -16,7 +16,7 @@ export function Table({ header, data }) {
         {data.map((value) => (
           <tr key={value.id}>
             {Object.keys(value).map((entry) => (
-              <td key={value.id} className={styles.bodyRow}>
+              <td key={value[entry]} className={styles.bodyRow}>
                 {value[entry]}
               </td>
             ))}
