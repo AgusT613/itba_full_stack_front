@@ -1,5 +1,5 @@
+import AsideNav from '@/components/asideNav/AsideNav'
 import Footer from '@/components/footer/Footer'
-import Header from '@/components/header/Header'
 import BankActionWrapper from '@/components/home/bankActions/bankActionWrapper'
 import BankResourceWrapper from '@/components/home/bankResources/BankResourceWrapper'
 import Hero from '@/components/home/hero/Hero'
@@ -10,7 +10,10 @@ import styles from './page.module.css'
 export default function Page() {
   return (
     <div className={styles.wrapper}>
-      <Header links={homeLinks} />
+      <AsideNav
+        links={homeLinks}
+        bankLogoProps={{ href: '#init', title: 'Home' }}
+      />
       <div>
         <main>
           <Hero />

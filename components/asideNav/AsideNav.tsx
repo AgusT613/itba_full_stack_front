@@ -6,13 +6,22 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import { GrClose } from 'react-icons/gr'
 
 import signOutAction from '@/actions/signOutAction'
-import { homebankingLinks } from '@/utils/headerLinks'
+import { INavItem } from '@/types/navItem'
 
 import styles from './asideNav.module.css'
 import BankLogo from '../bankLogo/BankLogo'
 import NavItems from '../navItems/NavItems'
 
-export default function AsideNav() {
+export default function AsideNav({
+  links,
+  bankLogoProps,
+  isHomebanking = false,
+}: {
+  links: INavItem[]
+  bankLogoProps: INavItem
+  isHomebanking?: boolean
+}) {
+  const { href, title } = bankLogoProps
   const [asideNavVisible, setAsideNavVisible] = useState(true)
   const [responsive, setResponsive] = useState(false)
   const router = useRouter()
@@ -55,17 +64,19 @@ export default function AsideNav() {
       </button>
       {asideNavVisible && (
         <>
-          <BankLogo href='/'>Volver al Home</BankLogo>
+          <BankLogo href={href}>{title}</BankLogo>
           <nav className={styles.nav}>
-            <NavItems links={homebankingLinks} />
+            <NavItems links={links} />
           </nav>
-          <button
-            type='button'
-            onClick={handleLogOut}
-            className={styles.btnLogOut}
-          >
-            Cerrar Sesion
-          </button>
+          {isHomebanking && (
+            <button
+              type='button'
+              onClick={handleLogOut}
+              className={styles.btnLogOut}
+            >
+              Cerrar Sesion
+            </button>
+          )}
         </>
       )}
     </aside>
