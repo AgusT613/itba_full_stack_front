@@ -1,15 +1,16 @@
 import Link from 'next/link'
 
-import styles from '@/styles/Facturas.module.css'
 import { USER } from '@/utils/userDataModel'
+
+import styles from './page.module.css'
 
 export default function Page() {
   return (
     <>
-      <h2>Pantalla Facturas</h2>
-      <section className={styles.contenedor_tabla}>
-        <table className={styles.tabla_facturas}>
-          <thead>
+      <h2>Facturas</h2>
+      <section className={styles.container}>
+        <table className={styles.table}>
+          <thead className={styles.tableHead}>
             <tr>
               <th>Empresa</th>
               <th>Descripcion</th>
@@ -17,22 +18,23 @@ export default function Page() {
               <th>Monto</th>
             </tr>
           </thead>
-          <tbody>
-            {USER.billPayment.map((factura) => {
-              const rutaDinamica = `/inicio/facturas/${factura.id}`
-              return (
-                <tr key={factura.id}>
-                  <td>{factura.recipient}</td>
-                  <td className={styles.celda_descripcion}>
-                    <Link key={factura.id} href={rutaDinamica}>
-                      {factura.description}
-                    </Link>
-                  </td>
-                  <td>{factura.expirationDate}</td>
-                  <td>${factura.amount}</td>
-                </tr>
-              )
-            })}
+
+          <tbody className={styles.tableBody}>
+            {USER.billPayment.map((factura) => (
+              <tr key={factura.id}>
+                <td>{factura.recipient}</td>
+                <td className={styles.dataDescription}>
+                  <Link
+                    key={factura.id}
+                    href={`/inicio/facturas/${factura.id}`}
+                  >
+                    {factura.description}
+                  </Link>
+                </td>
+                <td>{factura.expirationDate}</td>
+                <td>${factura.amount}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </section>

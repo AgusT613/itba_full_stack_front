@@ -1,6 +1,7 @@
-import TituloNavegacion from '@/components/TituloNavegacion'
-import styles from '@/styles/Tarjetas.module.css'
+import NavigationTitle from '@/components/navigationTitle/NavigationTitle'
 import { USER } from '@/utils/userDataModel'
+
+import styles from './page.module.css'
 
 export default function Page({ params }) {
   const tarjeta = USER.cards.find(
@@ -9,11 +10,11 @@ export default function Page({ params }) {
 
   return (
     <>
-      <TituloNavegacion ruta='/inicio/tarjetas'>
+      <NavigationTitle href='/inicio/tarjetas'>
         Detalles de Tarjeta
-      </TituloNavegacion>
+      </NavigationTitle>
       <section>
-        <table className={styles.tabla_detalles_tarjeta}>
+        <table className={styles.table}>
           <tbody>
             <tr>
               <td>Banco</td>

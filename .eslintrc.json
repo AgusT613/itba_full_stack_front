@@ -42,6 +42,7 @@
     "radix": "off",
     "import/prefer-default-export": "off",
     "react-hooks/exhaustive-deps": "warn",
+    "react/require-default-props": "off",
     "sort-imports": [
       "error",
       {

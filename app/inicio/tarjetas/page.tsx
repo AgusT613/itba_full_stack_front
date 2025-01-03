@@ -1,17 +1,21 @@
 import Link from 'next/link'
 
-import { Tarjeta } from '@/components/Inicio/components/Tarjeta'
-import styles from '@/styles/Tarjetas.module.css'
+import Card from '@/components/card/Card'
 import { USER } from '@/utils/userDataModel'
+
+import styles from './page.module.css'
 
 export default function Page() {
   return (
-    <section className={styles.contenedor_tarjetas}>
-      {USER.cards.map((tarjeta) => (
-        <Link key={tarjeta.id} href={`/inicio/tarjetas/${tarjeta.id}`}>
-          <Tarjeta datosTarjeta={tarjeta} />
-        </Link>
-      ))}
-    </section>
+    <>
+      <h2>Tarjetas</h2>
+      <section className={styles.container}>
+        {USER.cards.map((card) => (
+          <Link key={card.id} href={`/inicio/tarjetas/${card.id}`}>
+            <Card card={card} />
+          </Link>
+        ))}
+      </section>
+    </>
   )
 }

@@ -1,4 +1,6 @@
-import Conversor from '@/components/Conversor/Conversor'
+import CurrencyConverter from '@/components/currencyConverter/currencyConverter'
+
+import styles from './page.module.css'
 
 export const metadata = {
   title: 'Conversor - ITBANK',
@@ -7,5 +9,10 @@ export const metadata = {
 }
 
 export default function Page() {
-  return <Conversor />
+  return (
+    <section className={styles.container}>
+      <h2>Conversor</h2>
+      <CurrencyConverter />
+    </section>
+  )
 }

@@ -1,0 +1,76 @@
+.navContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 9em;
+  background: #5a28ab7a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  :is(.iconClose, .iconOpen) {
+    display: none;
+    top: 0.5rem;
+    background: #fff;
+    color: #000;
+    transition: 0.3s ease;
+    z-index: 100;
+    border-radius: 50%;
+    cursor: pointer;
+    position: fixed;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .iconClose {
+    left: 11rem;
+  }
+
+  .iconOpen {
+    right: 0.5rem;
+  }
+
+  .nav {
+    padding: 0 1em;
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .btnLogOut {
+    margin: 1em 0;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.5em;
+    border-radius: 1em;
+
+    .btnLogOut:hover {
+      transition: 0.3s ease;
+      background: rgba(0, 0, 0, 0.9);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .navContainer {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    width: 12em;
+
+    :is(.iconOpen, .iconClose) {
+      display: flex;
+    }
+  }
+
+  .responsive {
+    width: 0;
+    background: none;
+    backdrop-filter: none;
+  }
+}

@@ -1,0 +1,14 @@
+.table {
+  text-align: center;
+}
+
+.headerRow {
+  text-transform: uppercase;
+  background: #946dced2;
+}
+
+.bodyRow {
+  width: 10em;
+  outline: 1px solid #946dce;
+  padding: 0.5em;
+}

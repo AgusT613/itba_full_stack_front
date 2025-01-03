@@ -1,0 +1,65 @@
+.form,
+.form div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form {
+  margin: 2rem auto;
+  width: 70%;
+  padding: 1.25em;
+  gap: 1em;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.form label {
+  font-size: 1.15em;
+  margin-bottom: 0.25em;
+}
+
+.form input {
+  border: none;
+  font-size: 1.25em;
+  padding: 0.5em;
+}
+
+.form input:focus {
+  outline: none;
+}
+
+.btn {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1em;
+  padding: 1em;
+  background: #fff;
+  color: #000;
+  border: none;
+  transition: 0.1s ease;
+
+  .btn:hover {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+
+  .btn:active {
+    background: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.result {
+  background: rgba(0, 0, 0, 0.4);
+  width: 70%;
+  margin: 0 auto;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .title,
+  .amount {
+    font-size: 1.25em;
+  }
+}
