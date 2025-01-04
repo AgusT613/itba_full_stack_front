@@ -28,7 +28,7 @@
   }
 
   .iconClose {
-    left: 11rem;
+    left: 9rem;
   }
 
   .iconOpen {
@@ -62,9 +62,9 @@
 @media (max-width: 600px) {
   .navContainer {
     position: fixed;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
-    width: 12rem;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    width: 10rem;
 
     :is(.iconOpen, .iconClose) {
       display: flex;

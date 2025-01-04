@@ -6,6 +6,6 @@
 
 @media (max-width: 600px) {
   .wrapper {
-    grid-template-columns: 1fr;
+    display: block;
   }
 }
