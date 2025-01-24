@@ -1,4 +1,10 @@
+.wrapper {
+  height: 100%;
+  display: flex;
+}
+
 .container {
+  margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25em, 1fr));
   gap: 1em;

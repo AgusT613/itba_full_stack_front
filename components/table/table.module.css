@@ -12,3 +12,21 @@
   outline: 1px solid #946dce;
   padding: 0.5em;
 }
+
+@media (width <= 750px) {
+  .bodyRow {
+    font-size: 0.9rem;
+  }
+}
+
+@media (width <= 450px) {
+  .bodyRow {
+    font-size: 0.8rem;
+  }
+}
+
+@media (width <= 375px) {
+  .bodyRow {
+    font-size: 0.7rem;
+  }
+}
