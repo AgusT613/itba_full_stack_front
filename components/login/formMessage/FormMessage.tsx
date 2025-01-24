@@ -4,7 +4,7 @@ export default function FormMessage({ message, success }) {
   return (
     <div
       className={styles.messageContainer}
-      style={{ color: `${success ? '#62cb62' : '#ff3355'}` }}
+      style={{ color: `${success ? '#62cb62' : '#ff748b'}` }}
     >
       {message}
     </div>
