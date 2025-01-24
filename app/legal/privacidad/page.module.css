@@ -2,7 +2,6 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
-  font-family: 'Arial', sans-serif;
 }
 
 .title {
@@ -16,14 +15,15 @@
 }
 
 .sectionTitle {
+  margin-bottom: 1rem;
   font-size: 1.5rem;
-  color: #2c3e50;
+  color: #000;
 }
 
 .paragraph {
   line-height: 1.6;
   font-size: 1rem;
-  color: #34495e;
+  color: #000;
 }
 
 .list {
@@ -33,6 +33,26 @@
 
 .listItem {
   font-size: 1rem;
-  color: #34495e;
+  color: #000;
   margin-bottom: 0.5rem;
+}
+
+@media (width < 600px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.15rem;
+  }
+
+  :is(.paragraph, .listItem) {
+    font-size: 0.9rem;
+  }
+}
+
+@media (width < 300px) {
+  .title {
+    font-size: 1.5rem;
+  }
 }

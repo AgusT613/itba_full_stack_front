@@ -41,13 +41,29 @@ export default function Footer() {
         description='Descubre más acerca de nuestros servicios'
         className={styles.linksContainer}
       >
-        <Link
-          href='/legal/faq'
-          target='_blank'
-          className={`${styles.btnPadding} ${styles.btnBg}`}
-        >
-          Preguntas frecuentes
-        </Link>
+        <div className={styles.linksWrapper}>
+          <Link
+            href='/legal/faq'
+            target='_blank'
+            className={`${styles.btnPadding} ${styles.btnBg}`}
+          >
+            Preguntas frecuentes
+          </Link>
+          <Link
+            href='/legal/privacidad'
+            target='_blank'
+            className={`${styles.btnPadding} ${styles.btnBg}`}
+          >
+            Privacidad
+          </Link>
+          <Link
+            href='/legal/terminos'
+            target='_blank'
+            className={`${styles.btnPadding} ${styles.btnBg}`}
+          >
+            Terminos y Condiciones
+          </Link>
+        </div>
       </FooterInfoContainer>
     </footer>
   )
