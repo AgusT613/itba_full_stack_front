@@ -15,3 +15,16 @@
   grid-row: 2 / 3;
   justify-self: end;
 }
+
+@media (width <= 700px) {
+  .bankActions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+  }
+
+  .bankActions img {
+    display: none;
+  }
+}

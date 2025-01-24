@@ -51,3 +51,18 @@
     flex-direction: column;
   }
 }
+
+@media (width <= 850px) {
+  .footer {
+    padding: 2rem;
+    grid-template-areas:
+      'description'
+      'contact'
+      'form'
+      'links';
+
+    .description {
+      font-size: 0.9rem;
+    }
+  }
+}
