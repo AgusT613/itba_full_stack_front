@@ -16,7 +16,7 @@
   justify-self: end;
 }
 
-@media (320px <= width <= 480px) {
+@media (width <= 700px) {
   .bankActions {
     display: flex;
     flex-direction: column;

@@ -47,7 +47,7 @@
   }
 }
 
-@media (320px <= width <= 480px) {
+@media (width <= 900px) {
   .heroWrapper {
     grid-template-columns: 1fr;
     grid-template-rows: max-content 1fr;
@@ -75,5 +75,11 @@
         padding: 0;
       }
     }
+  }
+}
+
+@media (height >= 1000px) {
+  .heroWrapper {
+    min-height: 800px;
   }
 }

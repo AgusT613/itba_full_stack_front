@@ -43,7 +43,7 @@
   scale: 1.05;
 }
 
-@media (320px <= width <= 480px) {
+@media (width <= 480px) {
   .contentWrapper {
     padding: 0;
 

@@ -1,7 +1,5 @@
 /* ------ BANK RESOURCE SECTION ------ */
 .bankResources {
-  min-height: 100dvh;
-
   /* ------ TITLE SECTION ------ */
   .sectionHeading {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), transparent 100%);
@@ -15,13 +13,14 @@
   .resourcesList {
     padding: 3rem;
     display: grid;
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
 
-@media (320px <= width <= 480px) {
+@media (width <= 480px) {
   .bankResources {
     .resourcesList {
       padding: 1rem 2rem 2rem 2rem;

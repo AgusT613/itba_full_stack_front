@@ -52,7 +52,7 @@
   }
 }
 
-@media (320px <= width <= 480px) {
+@media (width <= 850px) {
   .footer {
     padding: 2rem;
     grid-template-areas:

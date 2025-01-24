@@ -77,3 +77,12 @@
     backdrop-filter: none;
   }
 }
+
+@media (height >= 1000px) {
+  .navContainer {
+    .nav {
+      justify-content: center;
+      gap: 2rem;
+    }
+  }
+}
