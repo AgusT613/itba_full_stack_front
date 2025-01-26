@@ -13,6 +13,14 @@
   padding: 0.5em;
 }
 
+.link {
+  cursor: pointer;
+}
+
+.link:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 @media (width <= 750px) {
   .bodyRow {
     font-size: 0.9rem;

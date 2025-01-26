@@ -9,18 +9,3 @@
   flex-direction: column;
   gap: 1em;
 }
-
-.moreBtn {
-  color: #000;
-  cursor: pointer;
-  width: 7em;
-  align-self: center;
-  padding: 0.5em;
-  border-radius: 1em;
-}
-
-.moreBtn:hover {
-  transition: 0.3s ease;
-  color: #eee;
-  background: #111;
-}

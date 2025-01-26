@@ -14,9 +14,6 @@ export default function Page() {
       <section className={styles.sectionWrapper}>
         <h2> Historial de pagos</h2>
         <Table data={USER.paymentRecords} header={activityRecordTableHeader} />
-        <button type='button' className={styles.moreBtn}>
-          Ver más
-        </button>
       </section>
     </div>
   )
