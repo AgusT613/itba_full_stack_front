@@ -8,7 +8,7 @@ export default function LoanCalculator() {
   const [amount, setAmount] = useState(0)
   const [amortization, setAmortization] = useState(0)
   const [interest, setInterest] = useState(0)
-  const [result, setResult] = useState<number | string>(0)
+  const [result, setResult] = useState<string>('$0')
 
   const handleChangeAmount = (e) => setAmount(parseInt(e.target.value))
   const handleChangeAmortization = (e) =>
@@ -29,7 +29,7 @@ export default function LoanCalculator() {
       const i = interest / 100 / 12
       const n = amortization * 12
       const monthFee = (amount * i) / (1 - (1 + i) ** -n)
-      setResult(monthFee.toFixed(2))
+      setResult(`$${monthFee.toFixed(2)}`)
     } else {
       setResult('Todos los campos deben ser mayor a cero')
     }
@@ -38,27 +38,36 @@ export default function LoanCalculator() {
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <div>
-          <label htmlFor='amount'>Importe a financiar</label>
+        <div className={styles.formRow}>
+          <label htmlFor='amount' className={styles.label}>
+            Importe a financiar
+          </label>
           <input
+            className={styles.input}
             id='amount'
             type='number'
             placeholder='En $. Ej.: 80000'
             onChange={handleChangeAmount}
           />
         </div>
-        <div>
-          <label htmlFor='period'>Plazo de amortizacion</label>
+        <div className={styles.formRow}>
+          <label htmlFor='period' className={styles.label}>
+            Plazo de amortizacion
+          </label>
           <input
+            className={styles.input}
             id='period'
             type='number'
             placeholder='En años. Ej.: 2'
             onChange={handleChangeAmortization}
           />
         </div>
-        <div>
-          <label htmlFor='interest'>Interes del prestador</label>
+        <div className={styles.formRow}>
+          <label htmlFor='interest' className={styles.label}>
+            Interes del prestador
+          </label>
           <input
+            className={styles.input}
             id='interest'
             type='number'
             placeholder='En %. Ej.: 5'
@@ -67,8 +76,9 @@ export default function LoanCalculator() {
         </div>
         <input type='submit' value='Calcular' className={styles.btn} />
       </form>
+
       <section className={styles.result}>
-        <h3 className={styles.title}>Resultado de Cuota Mensual en $</h3>
+        <h3 className={styles.title}>Resultado de Cuota Mensual</h3>
         <span className={styles.amount}>{result}</span>
       </section>
     </>

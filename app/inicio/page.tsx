@@ -7,11 +7,13 @@ import styles from './page.module.css'
 
 export default async function Page() {
   return (
-    <section className={styles.container}>
-      <UserProfile />
-      <AccountMoney />
-      <BankCards />
-      <ActivityRecord />
-    </section>
+    <div className={styles.wrapper}>
+      <section className={styles.container}>
+        <UserProfile />
+        <AccountMoney />
+        <BankCards />
+        <ActivityRecord />
+      </section>
+    </div>
   )
 }
