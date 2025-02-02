@@ -51,7 +51,11 @@ export default function LoanRequestForm() {
             className={styles.select}
           >
             {BRANCH_OFFICE.map((sucursal) => (
-              <option value={sucursal.id} key={sucursal.id}>
+              <option
+                value={sucursal.id}
+                key={sucursal.id}
+                className={styles.option}
+              >
                 {sucursal.name}
               </option>
             ))}

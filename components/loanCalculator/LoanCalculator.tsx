@@ -38,27 +38,36 @@ export default function LoanCalculator() {
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <div>
-          <label htmlFor='amount'>Importe a financiar</label>
+        <div className={styles.formRow}>
+          <label htmlFor='amount' className={styles.label}>
+            Importe a financiar
+          </label>
           <input
+            className={styles.input}
             id='amount'
             type='number'
             placeholder='En $. Ej.: 80000'
             onChange={handleChangeAmount}
           />
         </div>
-        <div>
-          <label htmlFor='period'>Plazo de amortizacion</label>
+        <div className={styles.formRow}>
+          <label htmlFor='period' className={styles.label}>
+            Plazo de amortizacion
+          </label>
           <input
+            className={styles.input}
             id='period'
             type='number'
             placeholder='En años. Ej.: 2'
             onChange={handleChangeAmortization}
           />
         </div>
-        <div>
-          <label htmlFor='interest'>Interes del prestador</label>
+        <div className={styles.formRow}>
+          <label htmlFor='interest' className={styles.label}>
+            Interes del prestador
+          </label>
           <input
+            className={styles.input}
             id='interest'
             type='number'
             placeholder='En %. Ej.: 5'
@@ -67,9 +76,10 @@ export default function LoanCalculator() {
         </div>
         <input type='submit' value='Calcular' className={styles.btn} />
       </form>
+
       <section className={styles.result}>
-        <h3 className={styles.title}>Resultado de Cuota Mensual en $</h3>
-        <span className={styles.amount}>{result}</span>
+        <h3 className={styles.title}>Resultado de Cuota Mensual</h3>
+        <span className={styles.amount}>${result}</span>
       </section>
     </>
   )
