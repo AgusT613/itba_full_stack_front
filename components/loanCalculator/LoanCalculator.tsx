@@ -8,7 +8,7 @@ export default function LoanCalculator() {
   const [amount, setAmount] = useState(0)
   const [amortization, setAmortization] = useState(0)
   const [interest, setInterest] = useState(0)
-  const [result, setResult] = useState<number | string>(0)
+  const [result, setResult] = useState<string>('$0')
 
   const handleChangeAmount = (e) => setAmount(parseInt(e.target.value))
   const handleChangeAmortization = (e) =>
@@ -29,7 +29,7 @@ export default function LoanCalculator() {
       const i = interest / 100 / 12
       const n = amortization * 12
       const monthFee = (amount * i) / (1 - (1 + i) ** -n)
-      setResult(monthFee.toFixed(2))
+      setResult(`$${monthFee.toFixed(2)}`)
     } else {
       setResult('Todos los campos deben ser mayor a cero')
     }
@@ -79,7 +79,7 @@ export default function LoanCalculator() {
 
       <section className={styles.result}>
         <h3 className={styles.title}>Resultado de Cuota Mensual</h3>
-        <span className={styles.amount}>${result}</span>
+        <span className={styles.amount}>{result}</span>
       </section>
     </>
   )
