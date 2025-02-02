@@ -3,7 +3,8 @@ import { USER } from '@/utils/userDataModel'
 
 import styles from './page.module.css'
 
-export default function Page({ params }) {
+export default async function Page(props) {
+  const params = await props.params
   const tarjeta = USER.cards.find(
     (value) => value.id === parseInt(params.tarjetaId),
   )
