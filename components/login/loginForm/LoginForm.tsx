@@ -18,14 +18,14 @@ export default function LoginForm({
     <>
       <form action={formAction} className={styles.form}>
         <div className={styles.inputWrapper}>
-          <label className={styles.labelDescription} htmlFor='email'>
-            Correo electrónico
+          <label className={styles.labelDescription} htmlFor='username'>
+            Nombre de usuario
           </label>
           <input
             className={styles.inputData}
-            name='email'
-            type='email'
-            placeholder='agus@example.com'
+            name='username'
+            type='text'
+            placeholder='agus123'
           />
         </div>
 

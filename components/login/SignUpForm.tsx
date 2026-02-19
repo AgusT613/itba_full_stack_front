@@ -11,33 +11,19 @@ export default function SignUpForm() {
   const [message, setMessage] = useState<string | null>(null)
   const [success, setSuccess] = useState<boolean | null>(null)
   const [urlRedirection, setUrlRedirection] = useState<string | null>(null)
-  const [newUser, setNewUser] = useState(null)
 
   const router = useRouter()
 
   const formAction = async (formData: FormData) => {
-    let userList = JSON.parse(localStorage.getItem('users'))
-
-    if (!userList) {
-      userList = localStorage.setItem('users', JSON.stringify([]))
-    }
-
-    const res = await userSignUp(formData, userList)
+    const res = await userSignUp(formData)
 
     setMessage(res.message)
     setSuccess(res.success)
     setUrlRedirection(res.urlRedirection)
-    setNewUser(formData)
   }
 
   useEffect(() => {
     if (success) {
-      const { email, password } = Object.fromEntries(newUser)
-      const newUserList = JSON.parse(localStorage.getItem('users'))
-
-      newUserList.push({ email, password })
-      localStorage.setItem('users', JSON.stringify(newUserList))
-
       router.push(urlRedirection)
     }
   }, [success])

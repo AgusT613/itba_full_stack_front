@@ -1,28 +1,27 @@
 'use server'
+import { REGISTER_USER_ENDPOINT } from '@/constants/apiEndpoints'
 
-import createAuthCookie from '@/actions/createAuthCookie'
-import { IUserList } from '@/types/login'
+export default async function userSignUp(formData: FormData) {
+  const rawFormData = Object.fromEntries(formData)
+  const response = await fetch(REGISTER_USER_ENDPOINT, {
+    method: 'POST',
+    body: JSON.stringify({
+      username: rawFormData.username,
+      password: rawFormData.password,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
 
-export default async function userSignUp(
-  formData: FormData,
-  userList: IUserList[],
-) {
-  if (userList === null) {
-    await createAuthCookie()
+  if (response.status !== 201) {
     return {
-      message: 'Usuario creado, redirigiendo al homebanking',
-      success: true,
+      message: `No se pudo crear el usuario. ${response.statusText}`,
+      success: false,
       urlRedirection: '/inicio',
     }
   }
-  if (userList?.some((user) => user.email === formData.get('email'))) {
-    return {
-      message: 'El usuario ya existe, intente con otro email',
-      success: false,
-    }
-  }
 
-  await createAuthCookie()
   return {
     message: 'Usuario creado, redirigiendo al homebanking',
     success: true,
