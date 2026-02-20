@@ -26,7 +26,7 @@ export default function SignUpForm() {
     if (success) {
       router.push(urlRedirection)
     }
-  }, [success])
+  }, [router, success, urlRedirection])
 
   return (
     <LoginForm

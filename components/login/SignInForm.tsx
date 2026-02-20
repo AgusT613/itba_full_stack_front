@@ -22,7 +22,7 @@ export default function SignInForm() {
 
   useEffect(() => {
     if (success) router.push('/inicio')
-  }, [success])
+  }, [router, success])
 
   return (
     <LoginForm
