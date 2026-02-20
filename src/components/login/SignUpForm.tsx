@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-import userSignUp from '@/utils/userSignUp'
+import userSignUp from '@/src/services/userSignUp'
 
 import LoginForm from './loginForm/LoginForm'
 
