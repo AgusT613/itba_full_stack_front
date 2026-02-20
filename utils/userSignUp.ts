@@ -1,5 +1,5 @@
 'use server'
-import { REGISTER_USER_ENDPOINT } from '@/constants/apiEndpoints'
+import { REGISTER_USER_ENDPOINT } from '@/utils/apiEndpoints'
 
 export default async function userSignUp(formData: FormData) {
   const rawFormData = Object.fromEntries(formData)

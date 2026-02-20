@@ -1,4 +1,4 @@
-import NavigationTitle from '@/components/navigationTitle/NavigationTitle'
+import NavigationTitle from '@/src/components/navigationTitle/NavigationTitle'
 import { USER } from '@/utils/userDataModel'
 
 import styles from './page.module.css'

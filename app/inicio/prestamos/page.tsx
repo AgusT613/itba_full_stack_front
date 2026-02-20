@@ -1,8 +1,8 @@
-import ITBANKLoans from '@/components/itbankLoans/ITBANKLoans'
-import LoanCalculator from '@/components/loanCalculator/LoanCalculator'
-import LoanRequestForm from '@/components/loanRequestForm/LoanRequestForm'
-import OtherLoans from '@/components/otherLoans/OtherLoans'
-import SectionDivider2 from '@/components/sectionDivider2/SectionDivider2'
+import ITBANKLoans from '@/src/components/itbankLoans/ITBANKLoans'
+import LoanCalculator from '@/src/components/loanCalculator/LoanCalculator'
+import LoanRequestForm from '@/src/components/loanRequestForm/LoanRequestForm'
+import OtherLoans from '@/src/components/otherLoans/OtherLoans'
+import SectionDivider2 from '@/src/components/sectionDivider2/SectionDivider2'
 import { BRANCH_OFFICE, USER } from '@/utils/userDataModel'
 
 import styles from './page.module.css'

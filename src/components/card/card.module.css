@@ -1,0 +1,70 @@
+.card {
+  cursor: pointer;
+  min-height: 12em;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 1em;
+  padding: 0.75em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .card:hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    :is(.type, .brand) {
+      font-size: 1em;
+    }
+  }
+
+  .securityChip {
+    border-radius: 0;
+    width: 2em;
+    height: 2em;
+    background: url(../../../public/icons8-chip-de-tarjeta-sim-48.png) no-repeat
+      center center;
+  }
+
+  .number {
+    display: flex;
+    gap: 0.5em;
+  }
+
+  .detailsContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .detail {
+      opacity: 0.7;
+    }
+
+    .cardMock {
+      width: 2rem;
+      height: 2rem;
+      background: url(../../../public/icons8-tarjeta-de-crédito-mastercard-96.png)
+        no-repeat center center;
+      background-size: 2rem;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .detailsContainer {
+    display: grid;
+    grid: repeat(2, 1fr) / repeat(2, 1fr);
+    gap: 0.5em;
+  }
+}
+
+@media (max-width: 300px) {
+  .detailsContainer {
+    grid: auto / 1fr;
+  }
+}

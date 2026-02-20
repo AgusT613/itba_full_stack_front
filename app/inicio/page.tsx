@@ -1,7 +1,7 @@
-import AccountMoney from '@/components/accountMoney/AccountMoney'
-import ActivityRecord from '@/components/activityRecord/ActivityRecord'
-import BankCards from '@/components/bankCards/BankCards'
-import { UserProfile } from '@/components/userProfile/UserProfile'
+import AccountMoney from '@/src/components/accountMoney/AccountMoney'
+import ActivityRecord from '@/src/components/activityRecord/ActivityRecord'
+import BankCards from '@/src/components/bankCards/BankCards'
+import { UserProfile } from '@/src/components/userProfile/UserProfile'
 
 import styles from './page.module.css'
 

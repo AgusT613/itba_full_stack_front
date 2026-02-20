@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import Card from '@/components/card/Card'
+import Card from '@/src/components/card/Card'
 import { USER } from '@/utils/userDataModel'
 
 import styles from './page.module.css'

@@ -1,4 +1,4 @@
-import { Table } from '@/components/table/Table'
+import { Table } from '@/src/components/table/Table'
 import { activityRecordTableHeader } from '@/utils/tableHeaders'
 import { USER } from '@/utils/userDataModel'
 

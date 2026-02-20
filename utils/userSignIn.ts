@@ -1,7 +1,7 @@
 'use server'
 import { cookies } from 'next/headers'
 
-import { LOGIN_USER_ENDPOINT } from '@/constants/apiEndpoints'
+import { LOGIN_USER_ENDPOINT } from '@/utils/apiEndpoints'
 
 export default async function userSignIn(formData: FormData) {
   const username = formData.get('username')

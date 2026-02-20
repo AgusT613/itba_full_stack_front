@@ -1,4 +1,4 @@
-import AccountCard from '@/components/accountCard/AccountCard'
+import AccountCard from '@/src/components/accountCard/AccountCard'
 import { USER } from '@/utils/userDataModel'
 
 import styles from './page.module.css'
