@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
-import { ICard } from '@/src/types/card'
+import { TCard } from '../types/homebanking'
 
-export default function useCardCarrousel(cardList: ICard[]) {
+export default function useCardCarrousel(cardList: TCard[]) {
   const [cardListIndex, setCardListIndex] = useState(0)
   const href = `/inicio/tarjetas/${cardList[cardListIndex].id}`
 

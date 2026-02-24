@@ -1,6 +1,7 @@
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL
 
 export const HOMEBANKING_ENDPOINT = new URL('/api/homebanking/', BASE_URL)
+export const CURRENT_USER_ENDPOINT = new URL('me', HOMEBANKING_ENDPOINT)
 export const ACCOUNTS_ENDPOINT = new URL('accounts', HOMEBANKING_ENDPOINT)
 export const TRANSFERS_ENDPOINT = new URL('transfers', HOMEBANKING_ENDPOINT)
 export const CARDS_ENDPOINT = new URL('cards', HOMEBANKING_ENDPOINT)

@@ -6,10 +6,10 @@ import SectionDivider from '@/src/components/sectionDivider/SectionDivider'
 import { USER } from '@/utils/userDataModel'
 
 import styles from './userProfile.module.css'
+import { TUser } from '@/src/types/homebanking'
+import { toCapitalize } from '@/utils/toCapitalize'
 
-export function UserProfile() {
-  const welcome = `Bienvenido ${USER.customer.name} ${USER.customer.lastName}!`
-
+export function UserProfile({ user }: { user: TUser }) {
   return (
     <SectionDivider className={styles.container}>
       <figure className={styles.imageContainer}>
@@ -22,7 +22,7 @@ export function UserProfile() {
           alt='Su foto de perfil de usuario'
         />
       </figure>
-      <h3>{welcome}</h3>
+      <h3>Bienvenido {toCapitalize(user.username)}!</h3>
     </SectionDivider>
   )
 }
