@@ -1,14 +1,18 @@
 import styles from '@/src/components/footer/branchOffices/branchOffices.module.css'
-import { BRANCH_OFFICE } from '@/utils/userDataModel'
+import { TBranchOffice } from '@/src/types/branchOffice'
 
-export default function BranchOffices() {
+export default async function BranchOffices({
+  branchOfficesList,
+}: {
+  branchOfficesList: TBranchOffice[]
+}) {
   return (
     <ul className={styles.wrapperBranchOffice}>
-      {BRANCH_OFFICE.map((contact) => (
+      {branchOfficesList.map((contact) => (
         <article key={contact.name} className={styles.container}>
           <h5 className={styles.title}>{contact.name}</h5>
           <span>{contact.address}</span>
-          <span>{contact.contactNumber}</span>
+          <span>{contact.contact}</span>
         </article>
       ))}
     </ul>

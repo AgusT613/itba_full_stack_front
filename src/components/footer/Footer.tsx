@@ -5,8 +5,11 @@ import styles from '@/src/components/footer/footer.module.css'
 import BranchOffices from './branchOffices/BranchOffices'
 import FooterInfoContainer from './footerInfoContainer/FooterInfoContainer'
 import NewsletterForm from './newsletterForm/NewsletterForm'
+import { getBranchOffices } from '@/src/lib/dataFetch'
 
-export default function Footer() {
+export default async function Footer() {
+  const branchOffices = await getBranchOffices()
+
   return (
     <footer className={styles.footer} id='footer'>
       <article className={styles.description}>
@@ -28,13 +31,15 @@ export default function Footer() {
         <NewsletterForm />
       </FooterInfoContainer>
 
-      <FooterInfoContainer
-        title='Contactanos'
-        description='De Lunes a Viernes de 8 a 20hs'
-        className={styles.contactContainer}
-      >
-        <BranchOffices />
-      </FooterInfoContainer>
+      {branchOffices && (
+        <FooterInfoContainer
+          title='Contactanos'
+          description='De Lunes a Viernes de 8 a 20hs'
+          className={styles.contactContainer}
+        >
+          <BranchOffices branchOfficesList={branchOffices} />
+        </FooterInfoContainer>
+      )}
 
       <FooterInfoContainer
         title='Links Útiles'

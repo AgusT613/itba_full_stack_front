@@ -1,4 +1,10 @@
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL
+export const BASE_URL = process.env.NEXT_PUBLIC_API_URL
+
+export const PUBLIC_ENDPOINT = new URL('/api/itbank/', BASE_URL)
+export const BRANCH_OFFICES_ENDPOINT = new URL(
+  'branch-offices',
+  PUBLIC_ENDPOINT,
+)
 
 export const HOMEBANKING_ENDPOINT = new URL('/api/homebanking/', BASE_URL)
 export const CURRENT_USER_ENDPOINT = new URL('me', HOMEBANKING_ENDPOINT)
