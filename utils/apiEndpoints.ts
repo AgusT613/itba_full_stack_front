@@ -1,4 +1,5 @@
-export const BASE_URL = process.env.NEXT_PUBLIC_API_URL
+export const BASE_URL =
+  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
 
 export const PUBLIC_ENDPOINT = new URL('/api/itbank/', BASE_URL)
 export const BRANCH_OFFICES_ENDPOINT = new URL(
