@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import userSignIn from '@/src/services/userSignIn'
 
 import LoginForm from './loginForm/LoginForm'
+import { isServerAlive } from '@/src/lib/pingServer'
 
 export default function SignInForm() {
   const [message, setMessage] = useState<string | null>(null)
@@ -14,10 +15,17 @@ export default function SignInForm() {
   const router = useRouter()
 
   const formAction = async (formData: FormData) => {
-    const res = await userSignIn(formData)
+    if (await isServerAlive()) {
+      const res = await userSignIn(formData)
 
-    setMessage(res.message)
-    setSuccess(res.success)
+      setMessage(res.message)
+      setSuccess(res.success)
+    } else {
+      setMessage(
+        'El servidor no está disponible. Por favor, inténtalo de nuevo más tarde.',
+      )
+      setSuccess(false)
+    }
   }
 
   useEffect(() => {
