@@ -1,8 +1,8 @@
-import AsideNav from '@/components/asideNav/AsideNav'
-import Footer from '@/components/footer/Footer'
-import BankActionWrapper from '@/components/home/bankActions/bankActionWrapper'
-import BankResourceWrapper from '@/components/home/bankResources/BankResourceWrapper'
-import Hero from '@/components/home/hero/Hero'
+import AsideNav from '@/src/components/asideNav/AsideNav'
+import Footer from '@/src/components/footer/Footer'
+import BankActionWrapper from '@/src/components/home/bankActions/bankActionWrapper'
+import BankResourceWrapper from '@/src/components/home/bankResources/BankResourceWrapper'
+import Hero from '@/src/components/home/hero/Hero'
 import { homeLinks } from '@/utils/headerLinks'
 
 import styles from './page.module.css'

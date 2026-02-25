@@ -1,9 +1,10 @@
-import NavigationTitle from '@/components/navigationTitle/NavigationTitle'
+import NavigationTitle from '@/src/components/navigationTitle/NavigationTitle'
 import { USER } from '@/utils/userDataModel'
 
 import styles from './page.module.css'
 
-export default function Page({ params }) {
+export default async function Page(props) {
+  const params = await props.params
   const { recipient, description, expirationDate, amount } =
     USER.billPayment.find(
       (factura) => factura.id === parseInt(params.facturaId),

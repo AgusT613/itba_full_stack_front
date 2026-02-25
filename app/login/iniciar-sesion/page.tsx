@@ -1,5 +1,5 @@
-import SignInForm from '@/components/login/SignInForm'
-import ToggleForm from '@/components/login/toggleForm/ToggleForm'
+import SignInForm from '@/src/components/login/SignInForm'
+import ToggleForm from '@/src/components/login/toggleForm/ToggleForm'
 
 import styles from '../layout.module.css'
 

@@ -3,5 +3,5 @@
 import { cookies } from 'next/headers'
 
 export default async function signOutAction() {
-  cookies().delete('auth')
+  ;(await cookies()).delete('session_token')
 }

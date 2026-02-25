@@ -1,10 +1,5 @@
-const path = require('path')
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverActions: true,
-  },
   images: {
     remotePatterns: [
       {
@@ -14,21 +9,6 @@ const nextConfig = {
         pathname: '/api/**',
       },
     ],
-  },
-  webpack: (config) => {
-    config.plugins = config.plugins || []
-
-    config.optimization.providedExports = true
-
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': path.resolve(__dirname, './'),
-    }
-
-    return config
-  },
-  eslint: {
-    dirs: ['utils', 'hooks', 'context', 'app', 'components'], // Only run ESLint on the 'pages' and 'utils' directories during production builds (next build)
   },
 }
 

@@ -1,4 +1,4 @@
-import BankLogo from '@/components/bankLogo/BankLogo'
+import BankLogo from '@/src/components/bankLogo/BankLogo'
 
 import styles from './layout.module.css'
 

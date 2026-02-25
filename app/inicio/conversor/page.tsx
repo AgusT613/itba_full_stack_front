@@ -1,4 +1,4 @@
-import CurrencyConverter from '@/components/currencyConverter/currencyConverter'
+import CurrencyConverter from '@/src/components/currencyConverter/currencyConverter'
 
 import styles from './page.module.css'
 
