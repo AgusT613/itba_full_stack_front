@@ -1,7 +1,7 @@
 import AccountCard from '@/src/components/accountCard/AccountCard'
-import { USER } from '@/utils/userDataModel'
 
 import styles from './page.module.css'
+import { getAccounts } from '@/src/lib/dataFetch'
 
 export const metadata = {
   title: 'Cuentas - ITBANK',
@@ -9,17 +9,16 @@ export const metadata = {
     'Accede a tus cuentas de manera rápido y segura con nuestra web.',
 }
 
-export default function Page() {
-  return (
+export default async function Page() {
+  const bankAccounts = await getAccounts()
+
+  return bankAccounts ? (
     <section className={styles.cardsWrapper}>
-      {USER.accounts.map((account) => (
-        <AccountCard
-          key={account.number}
-          cardTitle={account.type}
-          currency={account.currency}
-          amountMoney={account.balance}
-        />
+      {bankAccounts.map((account) => (
+        <AccountCard key={account.account_number} account={account} />
       ))}
     </section>
+  ) : (
+    <p>No tienes cuentas registradas.</p>
   )
 }
