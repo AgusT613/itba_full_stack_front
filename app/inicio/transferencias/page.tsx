@@ -16,15 +16,17 @@ export default async function Page() {
 
   return (
     <div className={styles.container}>
-      <section className={styles.wrapper}>
+      <section className={`${styles.wrapper} ${styles.transferForm}`}>
         <h2 className={styles.title}>Realizar Transferencia</h2>
         <MakeTransferForm bankAccountsAlias={bankAccountsAlias} />
       </section>
 
-      <section className={styles.wrapper}>
-        <h2 className={styles.title}>Historial de Transferencias</h2>
-        <Table data={transfersData} header={transferHistoryTableHeader} />
-      </section>
+      {transfersData.length > 0 && (
+        <section className={`${styles.wrapper} ${styles.transferHistory}`}>
+          <h2 className={styles.title}>Historial de Transferencias</h2>
+          <Table data={transfersData} header={transferHistoryTableHeader} />
+        </section>
+      )}
 
       {/* <section className={styles.wrapper}>
         <h2 className={styles.title}>Historial de Transferencias</h2>
