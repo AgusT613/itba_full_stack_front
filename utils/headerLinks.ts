@@ -30,10 +30,10 @@ export const homebankingLinks = [
     href: '/inicio/transferencias',
     title: 'Transferencias',
   },
-  {
-    href: '/inicio/pagos',
-    title: 'Pagos',
-  },
+  // {
+  //   href: '/inicio/pagos',
+  //   title: 'Pagos',
+  // },
   {
     href: '/inicio/conversor',
     title: 'Conversor',
@@ -42,10 +42,10 @@ export const homebankingLinks = [
     href: '/inicio/tarjetas',
     title: 'Tarjetas',
   },
-  {
-    href: '/inicio/facturas',
-    title: 'Facturas',
-  },
+  // {
+  //   href: '/inicio/facturas',
+  //   title: 'Facturas',
+  // },
   {
     href: '/inicio/prestamos',
     title: 'Prestamos',

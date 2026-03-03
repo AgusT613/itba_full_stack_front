@@ -31,7 +31,7 @@ export default async function Footer() {
         <NewsletterForm />
       </FooterInfoContainer>
 
-      {branchOffices && (
+      {branchOffices.length > 0 && (
         <FooterInfoContainer
           title='Contactanos'
           description='De Lunes a Viernes de 8 a 20hs'
