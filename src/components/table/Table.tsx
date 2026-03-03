@@ -32,7 +32,10 @@ export function Table({ header, data, itemLink }: ITable) {
               }
 
               return (
-                <td key={value[entry]} className={styles.bodyRow}>
+                <td
+                  key={value.id + entry + value[entry]}
+                  className={styles.bodyRow}
+                >
                   {value[entry]}
                 </td>
               )

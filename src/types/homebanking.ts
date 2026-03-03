@@ -11,6 +11,7 @@ export type TUserBankAccount = {
   balance: number
   id: number
   user_id: number
+  alias: string
 }
 
 export type TCard = {

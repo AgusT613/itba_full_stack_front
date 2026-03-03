@@ -1,4 +1,8 @@
 import styles from './page.module.css'
+import { getAccounts, getTransfers } from '@/src/lib/dataFetch'
+import MakeTransferForm from '@/src/components/transfers/makeTransferForm'
+import { Table } from '@/src/components/table/Table'
+import { transferHistoryTableHeader } from '@/utils/tableHeaders'
 
 export const metadata = {
   title: 'Transferencias - ITBANK',
@@ -6,45 +10,23 @@ export const metadata = {
     'Realiza transferencias seguras y rápidas en línea con nuestro servicio de banca en línea. Confía en nuestra plataforma segura para gestionar tus transferencias bancarias de forma eficiente y proteger tu patrimonio financiero.',
 }
 
-export default function Page() {
+export default async function Page() {
+  const bankAccountsAlias = await getAccounts()
+  const transfersData = await getTransfers()
+
   return (
     <div className={styles.container}>
       <section className={styles.wrapper}>
         <h2 className={styles.title}>Realizar Transferencia</h2>
-        <form className={styles.form}>
-          <div className={styles.inputWrapper}>
-            <label htmlFor='receiver' className={styles.label}>
-              Receptor
-            </label>
-            <input
-              id='receiver'
-              type='text'
-              name='receiver'
-              className={styles.input}
-              placeholder='Alias o CVU'
-            />
-          </div>
-          <div className={styles.inputWrapper}>
-            <label htmlFor='money' className={styles.label}>
-              Monto
-            </label>
-            <input
-              id='money'
-              type='text'
-              name='money'
-              className={styles.input}
-              placeholder='$1000'
-            />
-          </div>
-          <input
-            type='submit'
-            className={styles.inputSubmit}
-            value='Realizar Transferencia'
-          />
-        </form>
+        <MakeTransferForm bankAccountsAlias={bankAccountsAlias} />
       </section>
 
       <section className={styles.wrapper}>
+        <h2 className={styles.title}>Historial de Transferencias</h2>
+        <Table data={transfersData} header={transferHistoryTableHeader} />
+      </section>
+
+      {/* <section className={styles.wrapper}>
         <h2 className={styles.title}>Historial de Transferencias</h2>
         <form className={styles.form}>
           <div className={styles.inputDateWrapper}>
@@ -82,7 +64,7 @@ export default function Page() {
           </div>
           <input type='submit' className={styles.inputSubmit} value='Filtrar' />
         </form>
-      </section>
+      </section> */}
     </div>
   )
 }

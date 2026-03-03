@@ -1,4 +1,5 @@
 import { TTransfer } from './homebanking'
+import { TTransferHistory } from './transferHistory'
 
 interface IBillPayment {
   id: number
@@ -17,7 +18,7 @@ interface IPaymentRecords {
 
 export interface ITable {
   header: string[]
-  data: IBillPayment[] | IPaymentRecords[] | TTransfer[]
+  data: IBillPayment[] | IPaymentRecords[] | TTransfer[] | TTransferHistory[]
   itemLink?: {
     matchHeader: string
     href: string

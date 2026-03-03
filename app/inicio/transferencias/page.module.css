@@ -44,7 +44,7 @@
         font-size: 1rem;
 
         .label {
-          width: 5rem;
+          width: 100%;
         }
 
         .input {
@@ -61,6 +61,10 @@
         .input:focus {
           outline: none;
           border-bottom-color: rgb(164, 0, 164);
+        }
+
+        .select option {
+          background: #2225;
         }
       }
 
