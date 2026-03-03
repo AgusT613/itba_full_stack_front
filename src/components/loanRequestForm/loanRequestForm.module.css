@@ -61,6 +61,14 @@
     min-height: 2rem;
   }
 
+  .successMessage {
+    color: #98ec98;
+  }
+
+  .errorMessage {
+    color: #ec9898;
+  }
+
   .buttonRow {
     display: flex;
     flex-wrap: wrap;

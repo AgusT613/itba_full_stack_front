@@ -1,38 +1,27 @@
-import ITBANKLoans from '@/src/components/itbankLoans/ITBANKLoans'
 import LoanCalculator from '@/src/components/loanCalculator/LoanCalculator'
 import LoanRequestForm from '@/src/components/loanRequestForm/LoanRequestForm'
 import OtherLoans from '@/src/components/otherLoans/OtherLoans'
 import SectionDivider2 from '@/src/components/sectionDivider2/SectionDivider2'
-import { BRANCH_OFFICE, USER } from '@/utils/userDataModel'
-
 import styles from './page.module.css'
+import { getAccounts, getBranchOffices, getLoans } from '@/src/lib/dataFetch'
 
-export default function Page() {
-  const ITBANKLoansList = USER.loan.filter(
-    (loan) => loan.branchOffice === 'ITBANK',
-  )
-  const otherLoansList = USER.loan.filter(
-    (loan) => loan.branchOffice !== 'ITBANK',
-  )
+export default async function Page() {
+  const branchOfficesList = await getBranchOffices()
+  const bankAccounts = await getAccounts()
+  const loanList = await getLoans()
 
   return (
     <>
       <SectionDivider2 title='Solicitar un Prestamo'>
-        <LoanRequestForm />
+        <LoanRequestForm
+          branchOfficesList={branchOfficesList}
+          bankAccounts={bankAccounts}
+        />
       </SectionDivider2>
 
-      <SectionDivider2
-        title='Listado Prestamos ITBANK'
-        subtitle={`Dirección: ${BRANCH_OFFICE[0].address}`}
-      >
+      <SectionDivider2 title='Listado Prestamos'>
         <div className={styles.wrapper}>
-          <ITBANKLoans loansList={ITBANKLoansList} />
-        </div>
-      </SectionDivider2>
-
-      <SectionDivider2 title='Listado Prestamos por Sucursal'>
-        <div className={styles.wrapper}>
-          <OtherLoans loansList={otherLoansList} />
+          <OtherLoans loansList={loanList} />
         </div>
       </SectionDivider2>
 

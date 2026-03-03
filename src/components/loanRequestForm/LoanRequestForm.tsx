@@ -1,72 +1,95 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useRef, useState } from 'react'
-
-import { BRANCH_OFFICE, USER } from '@/utils/userDataModel'
+import { useActionState, useRef } from 'react'
 
 import styles from './loanRequestForm.module.css'
+import { TBranchOffice } from '@/src/types/branchOffice'
+import { TUserBankAccount } from '@/src/types/homebanking'
+import { requestLoan } from '@/actions/requestLoanAction'
 
-export default function LoanRequestForm() {
-  const formRef = useRef(null)
-  const [resetPage, setResetPage] = useState(false)
-  const [message, setMessage] = useState('')
+const initialFormState = {
+  success: false,
+  message: '',
+}
+
+export default function LoanRequestForm({
+  branchOfficesList,
+  bankAccounts,
+}: {
+  branchOfficesList: TBranchOffice[]
+  bankAccounts: TUserBankAccount[]
+}) {
+  const formRef = useRef<HTMLFormElement>(null)
+  const [state, formAction, pending] = useActionState(
+    requestLoan,
+    initialFormState,
+  )
   const router = useRouter()
 
   const handleFormReset = () => {
-    setMessage('')
-    formRef.current.reset()
+    formRef.current?.reset()
   }
 
   const handleResetPage = () => {
     router.refresh()
-    setResetPage(!resetPage)
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const formData = Object.fromEntries(new FormData(e.target))
-
-    const body = {
-      user: USER.customer.id,
-      ...formData,
-    }
-
-    setMessage(JSON.stringify(body))
-    setResetPage(!resetPage)
   }
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
+    <form ref={formRef} action={formAction} className={styles.form}>
       <fieldset className={styles.fieldset}>
         <legend className={styles.legend}>Préstamo</legend>
 
         <div className={styles.formRow}>
-          <label htmlFor='branchOffice' className={styles.label}>
+          <label htmlFor='branch_office_id' className={styles.label}>
             Sucursal
           </label>
           <select
-            id='branchOffice'
-            name='branchOffice'
+            id='branch_office_id'
+            name='branch_office_id'
             className={styles.select}
           >
-            {BRANCH_OFFICE.map((sucursal) => (
+            <option value=''>Elegir sucursal</option>
+            {branchOfficesList.map((sucursal) => (
               <option
                 value={sucursal.id}
                 key={sucursal.id}
                 className={styles.option}
               >
-                {sucursal.name}
+                {sucursal.name} - {sucursal.address}
               </option>
             ))}
           </select>
         </div>
 
         <div className={styles.formRow}>
-          <label htmlFor='loanType' className={styles.label}>
+          <label htmlFor='user_account_id' className={styles.label}>
+            Cuenta de usuario
+          </label>
+          <select
+            id='user_account_id'
+            name='user_account_id'
+            className={styles.select}
+          >
+            <option value=''>Elegir cuenta de usuario</option>
+            {bankAccounts.map((account) => (
+              <option
+                value={account.id}
+                key={account.id}
+                className={styles.option}
+              >
+                {account.alias} - {account.account_number}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className={styles.formRow}>
+          <label htmlFor='loan_type' className={styles.label}>
             Tipo de préstamo
           </label>
-          <select id='loanType' name='loanType' className={styles.select}>
+          <select id='loan_type' name='loan_type' className={styles.select}>
+            <option value=''>Elegir tipo de prestamo</option>
             <option value='hipotecario'>Préstamo hipotecario</option>
             <option value='personal'>Préstamo personal</option>
             <option value='prendario'>Préstamo prendario</option>
@@ -74,25 +97,13 @@ export default function LoanRequestForm() {
         </div>
 
         <div className={styles.formRow}>
-          <label htmlFor='grandDate' className={styles.label}>
-            Fecha de inicio del préstamo
-          </label>
-          <input
-            id='grandDate'
-            type='date'
-            name='grandDate'
-            className={styles.input}
-          />
-        </div>
-
-        <div className={styles.formRow}>
-          <label htmlFor='expirationDate' className={styles.label}>
+          <label htmlFor='due_date' className={styles.label}>
             Fecha de finalización del préstamo
           </label>
           <input
-            id='expirationDate'
+            id='due_date'
             type='date'
-            name='expirationDate'
+            name='due_date'
             className={styles.input}
           />
         </div>
@@ -109,9 +120,40 @@ export default function LoanRequestForm() {
             className={styles.input}
           />
         </div>
+
+        <div className={styles.formRow}>
+          <label htmlFor='interest_rate' className={styles.label}>
+            Tasa de interés
+          </label>
+          <input
+            id='interest_rate'
+            type='number'
+            name='interest_rate'
+            placeholder='0.15'
+            step='0.01'
+            className={styles.input}
+          />
+        </div>
+
+        <div className={styles.formRow}>
+          <label htmlFor='total_installments' className={styles.label}>
+            Cantidad de cuotas
+          </label>
+          <input
+            id='total_installments'
+            type='number'
+            name='total_installments'
+            placeholder='24'
+            className={styles.input}
+          />
+        </div>
       </fieldset>
 
-      <div className={styles.messageContainer}>{message}</div>
+      <div
+        className={`${styles.messageContainer} ${state.success ? styles.successMessage : styles.errorMessage}`}
+      >
+        {state.message}
+      </div>
 
       <div className={styles.buttonRow}>
         <input
@@ -120,8 +162,13 @@ export default function LoanRequestForm() {
           value='Reiniciar formulario'
           className={styles.button}
         />
-        <input type='submit' value='Pedir Préstamo' className={styles.button} />
-        {resetPage && (
+        <input
+          type='submit'
+          disabled={pending}
+          value={pending ? 'Enviando...' : 'Pedir préstamo'}
+          className={styles.button}
+        />
+        {state.success && (
           <input
             type='button'
             onClick={handleResetPage}

@@ -4,6 +4,7 @@ import {
   BRANCH_OFFICES_ENDPOINT,
   CARDS_ENDPOINT,
   HOMEBANKING_ENDPOINT,
+  LOANS_ENDPOINT,
   TRANSFERS_ENDPOINT,
 } from '@/utils/apiEndpoints'
 import { HomeBankingData, TCard, TUserBankAccount } from '../types/homebanking'
@@ -11,6 +12,7 @@ import { TBranchOffice } from '../types/branchOffice'
 import { isServerAlive } from './pingServer'
 import { getSessionToken } from './getSessionToken'
 import { TTransferHistory } from '../types/transferHistory'
+import { TLoan } from '../types/loan'
 
 export const getHomebankingData = cache(async (): Promise<HomeBankingData> => {
   const token = await getSessionToken()
@@ -87,6 +89,22 @@ export const getTransfers = cache(async (): Promise<TTransferHistory[]> => {
 
   if (!res.ok) {
     throw new Error('Failed to fetch transfers data')
+  }
+
+  return res.json()
+})
+
+export const getLoans = cache(async (): Promise<TLoan[]> => {
+  const token = await getSessionToken()
+  const res = await fetch(LOANS_ENDPOINT.toString(), {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  })
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch loans data')
   }
 
   return res.json()
