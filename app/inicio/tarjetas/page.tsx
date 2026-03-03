@@ -10,11 +10,15 @@ export default async function Page() {
     <>
       <h2>Tarjetas</h2>
       <section className={styles.container}>
-        {cards.map((card) => (
-          <Link key={card.id} href={`/inicio/tarjetas/${card.id}`}>
-            <Card card={card} />
-          </Link>
-        ))}
+        {cards.length ? (
+          cards.map((card) => (
+            <Link key={card.id} href={`/inicio/tarjetas/${card.id}`}>
+              <Card card={card} />
+            </Link>
+          ))
+        ) : (
+          <p>No hay tarjetas disponibles</p>
+        )}
       </section>
     </>
   )
