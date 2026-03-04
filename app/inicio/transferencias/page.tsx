@@ -1,5 +1,9 @@
 import styles from './page.module.css'
-import { getAccounts, getTransfers } from '@/src/lib/dataFetch'
+import {
+  getAccounts,
+  getTransfers,
+  getUserSavedAliases,
+} from '@/src/lib/dataFetch'
 import MakeTransferForm from '@/src/components/transfers/makeTransferForm'
 import { Table } from '@/src/components/table/Table'
 import { transferHistoryTableHeader } from '@/utils/tableHeaders'
@@ -13,12 +17,16 @@ export const metadata = {
 export default async function Page() {
   const bankAccountsAlias = await getAccounts()
   const transfersData = await getTransfers()
+  const savedAliases = await getUserSavedAliases()
 
   return (
     <div className={styles.container}>
       <section className={`${styles.wrapper} ${styles.transferForm}`}>
         <h2 className={styles.title}>Realizar Transferencia</h2>
-        <MakeTransferForm bankAccountsAlias={bankAccountsAlias} />
+        <MakeTransferForm
+          bankAccountsAlias={bankAccountsAlias}
+          savedAliases={savedAliases}
+        />
       </section>
 
       {transfersData.length > 0 && (

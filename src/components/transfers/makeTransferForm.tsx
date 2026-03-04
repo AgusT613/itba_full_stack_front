@@ -3,7 +3,8 @@
 import { handleTransfer } from '@/actions/makeTransferAction'
 import styles from '@/app/inicio/transferencias/page.module.css'
 import { TUserBankAccount } from '@/src/types/homebanking'
-import { useActionState } from 'react'
+import { TUserSavedAlias } from '@/src/types/userSavedAlias'
+import { useActionState, useState } from 'react'
 
 const initialState = {
   message: '',
@@ -12,9 +13,12 @@ const initialState = {
 
 export default function MakeTransferForm({
   bankAccountsAlias,
+  savedAliases,
 }: {
   bankAccountsAlias: TUserBankAccount[]
+  savedAliases: TUserSavedAlias[]
 }) {
+  const [inputType, setInputType] = useState<'text' | 'select'>('text')
   const [state, formAction, pending] = useActionState(
     handleTransfer,
     initialState,
@@ -40,16 +44,50 @@ export default function MakeTransferForm({
         </select>
       </div>
       <div className={styles.inputWrapper}>
-        <label htmlFor='receiver_alias' className={styles.label}>
-          Receptor
-        </label>
-        <input
-          id='receiver_alias'
-          type='text'
-          name='receiver_alias'
-          className={styles.input}
-          placeholder='Alias o CVU'
-        />
+        <div className='flex flex-row justify-between w-full items-center'>
+          <label htmlFor='receiver_alias' className={styles.label}>
+            Receptor
+          </label>
+          <div className='flex flex-row items-center gap-2 px-2'>
+            <button
+              type='button'
+              className='bg-black/30 p-2 rounded-sm'
+              onClick={() => setInputType('text')}
+            >
+              Escribir
+            </button>
+            <button
+              type='button'
+              className='bg-black/30 p-2 rounded-sm'
+              onClick={() => setInputType('select')}
+            >
+              Elegir
+            </button>
+          </div>
+        </div>
+        {inputType === 'text' && (
+          <input
+            id='receiver_alias'
+            type='text'
+            name='receiver_alias'
+            className={styles.input}
+            placeholder='Alias'
+          />
+        )}
+        {inputType === 'select' && (
+          <select
+            name='receiver_alias'
+            id='receiver_alias'
+            className={styles.input}
+          >
+            <option value=''>Seleccionar receptor</option>
+            {savedAliases.map((alias) => (
+              <option key={alias.id} value={alias.alias}>
+                {alias.alias}
+              </option>
+            ))}
+          </select>
+        )}
       </div>
       <div className={styles.inputWrapper}>
         <label htmlFor='balance' className={styles.label}>

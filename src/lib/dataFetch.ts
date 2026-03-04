@@ -15,6 +15,7 @@ import { getSessionToken } from './getSessionToken'
 import { TTransferHistory } from '../types/transferHistory'
 import { TLoan } from '../types/loan'
 import { TAccountAlias } from '../types/alias'
+import { TUserSavedAlias } from '../types/userSavedAlias'
 
 export const getHomebankingData = cache(async (): Promise<HomeBankingData> => {
   const token = await getSessionToken()
@@ -116,6 +117,24 @@ export const getAccountAliases = cache(async (): Promise<TAccountAlias[]> => {
 
   return res.json()
 })
+
+export const getUserSavedAliases = cache(
+  async (): Promise<TUserSavedAlias[]> => {
+    const token = await getSessionToken()
+    const res = await fetch(`${ALIAS_ENDPOINT.toString()}/save`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
+
+    if (!res.ok) {
+      throw new Error('Failed to fetch user saved aliases')
+    }
+
+    return res.json()
+  },
+)
 
 export const getTransfers = cache(async (): Promise<TTransferHistory[]> => {
   const token = await getSessionToken()
