@@ -30,6 +30,11 @@ export default function AccountMoney({
           className={styles.cvuIcon}
           href='/inicio/alias'
         />
+        <UserAction
+          actionName='Agregar alias'
+          className={styles.addAliasIcon}
+          href='/inicio/agregar-alias'
+        />
       </article>
     </SectionDivider>
   )

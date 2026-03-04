@@ -1,4 +1,6 @@
-*,
+@import 'tailwindcss';
+
+/* *,
 *::after,
 *::before {
   margin: 0;
@@ -7,7 +9,7 @@
   list-style: none;
   outline: none;
   border: none;
-}
+} */
 
 body {
   color: #eee;
@@ -30,9 +32,9 @@ a {
   display: block;
 }
 
-:is(a, select, input, button) {
+/* :is(a, select, input, button) {
   color: #eee;
-}
+} */
 
 button {
   cursor: pointer;
