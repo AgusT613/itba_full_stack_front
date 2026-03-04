@@ -9,6 +9,7 @@
   align-items: center;
   justify-content: center;
   transition: 0.3s ease;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .container:hover {
@@ -16,7 +17,7 @@
 }
 .container:active {
   transition: 0.1s ease;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .icon {

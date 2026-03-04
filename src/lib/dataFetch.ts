@@ -78,6 +78,27 @@ export const getAccounts = cache(async (): Promise<TUserBankAccount[]> => {
   return res.json()
 })
 
+export const getAccountById = cache(
+  async (accountId: string): Promise<TUserBankAccount> => {
+    const token = await getSessionToken()
+    const res = await fetch(
+      `${ACCOUNTS_ENDPOINT.toString()}/by/?acc_id=${accountId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      },
+    )
+
+    if (!res.ok) {
+      throw new Error('Failed to fetch account data')
+    }
+
+    return res.json()
+  },
+)
+
 export const getTransfers = cache(async (): Promise<TTransferHistory[]> => {
   const token = await getSessionToken()
   const res = await fetch(TRANSFERS_ENDPOINT.toString(), {

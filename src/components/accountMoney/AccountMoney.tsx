@@ -15,10 +15,21 @@ export default function AccountMoney({
       <h3>Saldo en Cuenta</h3>
       <CurrentMoney balance={userBankAccount.balance} />
       <article className={styles.userActions}>
-        <UserAction actionName='Ingresar' className={styles.depositIcon} />
-        <UserAction actionName='Transferir' className={styles.transferIcon} />
-        <UserAction actionName='Sacar' className={styles.withdrawIcon} />
-        <UserAction actionName='Mi CVU' className={styles.cvuIcon} />
+        <UserAction
+          actionName='Ingresar'
+          className={styles.depositIcon}
+          href='/inicio/depositar'
+        />
+        <UserAction
+          actionName='Transferir'
+          className={styles.transferIcon}
+          href='/inicio/transferencias'
+        />
+        <UserAction
+          actionName='Mi alias'
+          className={styles.cvuIcon}
+          href='/inicio/alias'
+        />
       </article>
     </SectionDivider>
   )
