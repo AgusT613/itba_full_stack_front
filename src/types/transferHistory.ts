@@ -4,4 +4,5 @@ export type TTransferHistory = {
   receiver_id: number
   sender_id: number
   balance: number
+  transfer_type: string
 }

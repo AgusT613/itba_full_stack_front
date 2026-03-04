@@ -1,10 +1,11 @@
 export const activityRecordTableHeader = ['id', 'pago', 'monto', 'fecha']
 export const transferHistoryTableHeader = [
-  'id',
-  'fecha',
+  'tipo',
+  'emite',
   'recibe',
   'monto',
-  'emite',
+  'id',
+  'fecha',
 ]
 export const billPaymentTableHeader = [
   'id',
