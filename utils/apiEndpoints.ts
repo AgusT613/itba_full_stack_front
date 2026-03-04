@@ -13,6 +13,8 @@ export const ACCOUNTS_ENDPOINT = new URL('accounts', HOMEBANKING_ENDPOINT)
 export const TRANSFERS_ENDPOINT = new URL('transfers', HOMEBANKING_ENDPOINT)
 export const CARDS_ENDPOINT = new URL('cards', HOMEBANKING_ENDPOINT)
 export const LOANS_ENDPOINT = new URL('loans', HOMEBANKING_ENDPOINT)
+export const DEPOSITS_ENDPOINT = new URL('deposit', HOMEBANKING_ENDPOINT)
+export const ALIAS_ENDPOINT = new URL('alias', HOMEBANKING_ENDPOINT)
 
 export const AUTH_ENDPOINT = new URL('/api/auth/', BASE_URL)
 export const LOGIN_USER_ENDPOINT = new URL('token', AUTH_ENDPOINT)

@@ -1,6 +1,7 @@
 import { cache } from 'react'
 import {
   ACCOUNTS_ENDPOINT,
+  ALIAS_ENDPOINT,
   BRANCH_OFFICES_ENDPOINT,
   CARDS_ENDPOINT,
   HOMEBANKING_ENDPOINT,
@@ -13,6 +14,7 @@ import { isServerAlive } from './pingServer'
 import { getSessionToken } from './getSessionToken'
 import { TTransferHistory } from '../types/transferHistory'
 import { TLoan } from '../types/loan'
+import { TAccountAlias } from '../types/alias'
 
 export const getHomebankingData = cache(async (): Promise<HomeBankingData> => {
   const token = await getSessionToken()
@@ -98,6 +100,22 @@ export const getAccountById = cache(
     return res.json()
   },
 )
+
+export const getAccountAliases = cache(async (): Promise<TAccountAlias[]> => {
+  const token = await getSessionToken()
+  const res = await fetch(`${ALIAS_ENDPOINT.toString()}/all`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+  })
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch account aliases')
+  }
+
+  return res.json()
+})
 
 export const getTransfers = cache(async (): Promise<TTransferHistory[]> => {
   const token = await getSessionToken()
