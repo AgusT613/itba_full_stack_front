@@ -27,9 +27,11 @@ export type TCard = {
 
 export type TTransfer = {
   id: number
+  sender_username: string
   receiver_username: string
   balance: number
   transfer_date: string
+  transfer_type: string
 }
 
 export type HomeBankingData = {

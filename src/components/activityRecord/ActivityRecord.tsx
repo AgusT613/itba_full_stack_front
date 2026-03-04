@@ -1,4 +1,4 @@
-import { activityRecordTableHeader } from '@/utils/tableHeaders'
+import { transferHistoryTableHeader } from '@/utils/tableHeaders'
 
 import styles from './activityRecord.module.css'
 import SectionDivider from '../sectionDivider/SectionDivider'
@@ -21,7 +21,7 @@ export default function ActivityRecord({
       <h3>Última Actividad</h3>
       <section className={styles.sectionWrapper}>
         {transfers.length ? (
-          <Table header={activityRecordTableHeader} data={dataTransfers} />
+          <Table header={transferHistoryTableHeader} data={dataTransfers} />
         ) : (
           <p>No se han registrado actividades recientes.</p>
         )}
