@@ -80,12 +80,17 @@ export default function MakeTransferForm({
             id='receiver_alias'
             className={styles.input}
           >
-            <option value=''>Seleccionar receptor</option>
-            {savedAliases.map((alias) => (
-              <option key={alias.id} value={alias.alias}>
-                {alias.alias}
-              </option>
-            ))}
+            <option value=''>
+              {savedAliases.length > 0
+                ? 'Seleccionar receptor'
+                : 'No hay aliases disponibles'}
+            </option>
+            {savedAliases.length > 0 &&
+              savedAliases.map((alias) => (
+                <option key={alias.id} value={alias.alias}>
+                  {alias.alias}
+                </option>
+              ))}
           </select>
         )}
       </div>

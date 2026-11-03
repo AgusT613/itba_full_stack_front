@@ -128,9 +128,7 @@ export const getUserSavedAliases = cache(
       },
     })
 
-    if (!res.ok) {
-      throw new Error('Failed to fetch user saved aliases')
-    }
+    // TODO: Add "if (!res.ok)" check server error
 
     return res.json()
   },

@@ -17,15 +17,7 @@ export default function ITBANKLoans({ loansList }) {
             value[0] !== 'branchOffice',
         )
 
-        return (
-          <Loan
-            key={id}
-            id={id}
-            type={type}
-            itemList={itemList}
-            labels={labels}
-          />
-        )
+        return <Loan key={type} loan={loan} />
       })}
     </>
   )

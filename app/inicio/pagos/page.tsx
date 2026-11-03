@@ -1,5 +1,5 @@
 import { Table } from '@/src/components/table/Table'
-import { activityRecordTableHeader } from '@/utils/tableHeaders'
+import { transferHistoryTableHeader } from '@/utils/tableHeaders'
 import { USER } from '@/utils/userDataModel'
 
 import styles from './page.module.css'
@@ -13,7 +13,7 @@ export default function Page() {
     <div className={styles.container}>
       <section className={styles.sectionWrapper}>
         <h2> Historial de pagos</h2>
-        <Table data={USER.paymentRecords} header={activityRecordTableHeader} />
+        <Table data={USER.paymentRecords} header={transferHistoryTableHeader} />
       </section>
     </div>
   )
