@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
 test.describe('Route Protection & Proxy Guard', () => {
   test('redirects unauthenticated user accessing /inicio/cuentas to login page', async ({

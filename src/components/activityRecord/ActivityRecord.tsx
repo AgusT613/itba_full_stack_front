@@ -1,10 +1,9 @@
+import type { TTransfer } from '@/src/types/homebanking'
 import { transferHistoryTableHeader } from '@/utils/tableHeaders'
-
-import styles from './activityRecord.module.css'
+import { toFormatDateString } from '@/utils/toDate'
 import SectionDivider from '../sectionDivider/SectionDivider'
 import { Table } from '../table/Table'
-import { TTransfer } from '@/src/types/homebanking'
-import { toFormatDateString } from '@/utils/toDate'
+import styles from './activityRecord.module.css'
 
 export default function ActivityRecord({
   transfers,

@@ -1,6 +1,6 @@
 'use client'
-import { saveAlias } from '@/actions/saveAliasAction'
 import { useActionState } from 'react'
+import { saveAlias } from '@/actions/saveAliasAction'
 
 const initialFormState = {
   message: '',
@@ -16,7 +16,9 @@ export default function AddAliasForm() {
   return (
     <div className='bg-black/10 p-5 my-5 rounded-md inline-flex gap-4 flex-col'>
       <form action={formAction} className='flex gap-4'>
-        <label htmlFor='alias' hidden />
+        <label htmlFor='alias' className='sr-only'>
+          Alias
+        </label>
         <input
           type='text'
           id='alias'

@@ -1,8 +1,8 @@
 'use client'
-import styles from './bankCards.module.css'
-import SectionDivider from '../sectionDivider/SectionDivider'
-import { TCard } from '@/src/types/homebanking'
+import type { TCard } from '@/src/types/homebanking'
 import CarrouselWrapper from '../carrousel/CarrouselWrapper'
+import SectionDivider from '../sectionDivider/SectionDivider'
+import styles from './bankCards.module.css'
 
 export default function BankCards({ cards }: { cards: TCard[] }) {
   return (

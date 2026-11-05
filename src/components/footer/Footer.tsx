@@ -1,11 +1,10 @@
 import Link from 'next/link'
 
 import styles from '@/src/components/footer/footer.module.css'
-
+import { getBranchOffices } from '@/src/lib/dataFetch'
 import BranchOffices from './branchOffices/BranchOffices'
 import FooterInfoContainer from './footerInfoContainer/FooterInfoContainer'
 import NewsletterForm from './newsletterForm/NewsletterForm'
-import { getBranchOffices } from '@/src/lib/dataFetch'
 
 export default async function Footer() {
   const branchOffices = await getBranchOffices()

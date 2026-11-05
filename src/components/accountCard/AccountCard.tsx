@@ -1,4 +1,4 @@
-import { TUserBankAccount } from '@/src/types/homebanking'
+import type { TUserBankAccount } from '@/src/types/homebanking'
 import styles from './accountCard.module.css'
 
 export default function AccountCard({

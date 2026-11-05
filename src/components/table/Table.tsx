@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { ITable } from '@/src/types/table'
+import type { ITable } from '@/src/types/table'
 
 import styles from './table.module.css'
 

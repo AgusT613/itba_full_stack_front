@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Card from '@/src/components/card/Card'
-import styles from './page.module.css'
 import { getCards } from '@/src/lib/dataFetch'
+import styles from './page.module.css'
 
 export default async function Page() {
   const cards = await getCards()

@@ -2,9 +2,8 @@ import AccountMoney from '@/src/components/accountMoney/AccountMoney'
 import ActivityRecord from '@/src/components/activityRecord/ActivityRecord'
 import BankCards from '@/src/components/bankCards/BankCards'
 import { UserProfile } from '@/src/components/userProfile/UserProfile'
-
-import styles from './page.module.css'
 import { getHomebankingData } from '@/src/lib/dataFetch'
+import styles from './page.module.css'
 
 export default async function Page() {
   const { user, cards, itbank_account, transfers } = await getHomebankingData()

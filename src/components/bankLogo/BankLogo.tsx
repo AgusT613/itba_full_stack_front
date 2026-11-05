@@ -1,8 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-
-import styles from '@/src/components/bankLogo/bankLogo.module.css'
 import LOGO_ITBANK from '@/public/itbank-logo.png'
+import styles from '@/src/components/bankLogo/bankLogo.module.css'
 
 export default function BankLogo({ children, href }) {
   return (

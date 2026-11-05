@@ -12,29 +12,28 @@
 }
 
 .depositIcon {
-  background: url(public/icons8-iniciar-la-transferencia-de-dinero-32.png)
-    no-repeat center center;
+  background: url('/icons8-iniciar-la-transferencia-de-dinero-32.png') no-repeat
+    center center;
   background-size: 1em;
 }
 
 .transferIcon {
-  background: url(public/icons8-flujo-de-fondos-32.png) no-repeat center center;
+  background: url('/icons8-flujo-de-fondos-32.png') no-repeat center center;
   background-size: 1em;
 }
 
 .withdrawIcon {
-  background: url(public/icons8-solicitud-de-dinero-32.png) no-repeat center
-    center;
+  background: url('/icons8-solicitud-de-dinero-32.png') no-repeat center center;
   background-size: 1em;
 }
 
 .cvuIcon {
-  background: url(public/icons8-chequera-32.png) no-repeat center center;
+  background: url('/icons8-chequera-32.png') no-repeat center center;
   background-size: 1em;
 }
 
 .addAliasIcon {
-  background: url(public/icons8-tarjeta-de-crédito-mastercard-96.png) no-repeat
+  background: url('/icons8-tarjeta-de-crédito-mastercard-96.png') no-repeat
     center center;
   background-size: 1em;
 }

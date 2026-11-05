@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { INavItem } from '@/src/types/navItem'
+import type { INavItem } from '@/src/types/navItem'
 
 import styles from './navItems.module.css'
 

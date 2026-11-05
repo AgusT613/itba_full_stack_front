@@ -1,7 +1,6 @@
 import AccountCard from '@/src/components/accountCard/AccountCard'
-
-import styles from './page.module.css'
 import { getAccounts } from '@/src/lib/dataFetch'
+import styles from './page.module.css'
 
 export const metadata = {
   title: 'Cuentas - ITBANK',

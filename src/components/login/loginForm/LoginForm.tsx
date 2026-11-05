@@ -1,5 +1,5 @@
-import styles from './loginForm.module.css'
 import FormMessage from '../formMessage/FormMessage'
+import styles from './loginForm.module.css'
 
 interface ILoginForm {
   formAction: (formData: FormData) => Promise<void>

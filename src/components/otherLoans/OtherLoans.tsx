@@ -1,4 +1,4 @@
-import { TLoan } from '@/src/types/loan'
+import type { TLoan } from '@/src/types/loan'
 import Loan from '../loan/Loan'
 
 export default function OtherLoans({ loansList }: { loansList: TLoan[] }) {

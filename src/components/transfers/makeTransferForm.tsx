@@ -1,10 +1,10 @@
 'use client'
 
+import { useActionState, useState } from 'react'
 import { handleTransfer } from '@/actions/makeTransferAction'
 import styles from '@/app/inicio/transferencias/page.module.css'
-import { TUserBankAccount } from '@/src/types/homebanking'
-import { TUserSavedAlias } from '@/src/types/userSavedAlias'
-import { useActionState, useState } from 'react'
+import type { TUserBankAccount } from '@/src/types/homebanking'
+import type { TUserSavedAlias } from '@/src/types/userSavedAlias'
 
 const initialState = {
   message: '',

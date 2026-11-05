@@ -3,11 +3,10 @@
 import Image from 'next/image'
 
 import SectionDivider from '@/src/components/sectionDivider/SectionDivider'
-import { USER } from '@/utils/userDataModel'
-
-import styles from './userProfile.module.css'
-import { TUser } from '@/src/types/homebanking'
+import type { TUser } from '@/src/types/homebanking'
 import { toCapitalize } from '@/utils/toCapitalize'
+import { USER } from '@/utils/userDataModel'
+import styles from './userProfile.module.css'
 
 export function UserProfile({ user }: { user: TUser }) {
   return (

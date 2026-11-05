@@ -1,5 +1,5 @@
-import { TTransfer } from './homebanking'
-import { TTransferHistory } from './transferHistory'
+import type { TTransfer } from './homebanking'
+import type { TTransferHistory } from './transferHistory'
 
 interface IBillPayment {
   id: number

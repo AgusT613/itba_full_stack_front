@@ -2,11 +2,10 @@
 
 import { useRouter } from 'next/navigation'
 import { useActionState, useRef } from 'react'
-
-import styles from './loanRequestForm.module.css'
-import { TBranchOffice } from '@/src/types/branchOffice'
-import { TUserBankAccount } from '@/src/types/homebanking'
 import { requestLoan } from '@/actions/requestLoanAction'
+import type { TBranchOffice } from '@/src/types/branchOffice'
+import type { TUserBankAccount } from '@/src/types/homebanking'
+import styles from './loanRequestForm.module.css'
 
 const initialFormState = {
   success: false,

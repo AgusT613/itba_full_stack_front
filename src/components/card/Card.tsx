@@ -1,6 +1,6 @@
+import type { TCard } from '@/src/types/homebanking'
 import { toFormatDateString } from '@/utils/toDate'
 import styles from './card.module.css'
-import { TCard } from '@/src/types/homebanking'
 
 export default function Card({ card }: { card: TCard }) {
   return (

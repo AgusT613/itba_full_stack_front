@@ -1,5 +1,5 @@
 import styles from '@/src/components/footer/branchOffices/branchOffices.module.css'
-import { TBranchOffice } from '@/src/types/branchOffice'
+import type { TBranchOffice } from '@/src/types/branchOffice'
 
 export default async function BranchOffices({
   branchOfficesList,

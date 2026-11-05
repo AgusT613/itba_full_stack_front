@@ -1,7 +1,7 @@
-import { TCard } from '@/src/types/homebanking'
+import useCardCarrousel from '@/src/hooks/useCardCarrousel'
+import type { TCard } from '@/src/types/homebanking'
 import Card from '../card/Card'
 import Carrousel from './Carrousel'
-import useCardCarrousel from '@/src/hooks/useCardCarrousel'
 
 export default function CardCarrouselWrapper({
   cardList,

@@ -2,8 +2,8 @@ import LoanCalculator from '@/src/components/loanCalculator/LoanCalculator'
 import LoanRequestForm from '@/src/components/loanRequestForm/LoanRequestForm'
 import OtherLoans from '@/src/components/otherLoans/OtherLoans'
 import SectionDivider2 from '@/src/components/sectionDivider2/SectionDivider2'
-import styles from './page.module.css'
 import { getAccounts, getBranchOffices, getLoans } from '@/src/lib/dataFetch'
+import styles from './page.module.css'
 
 export default async function Page() {
   const branchOfficesList = await getBranchOffices()

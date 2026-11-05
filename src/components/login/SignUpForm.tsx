@@ -2,11 +2,9 @@
 
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-
-import userSignUp from '@/src/services/userSignUp'
-
-import LoginForm from './loginForm/LoginForm'
 import { isServerAlive } from '@/src/lib/pingServer'
+import userSignUp from '@/src/services/userSignUp'
+import LoginForm from './loginForm/LoginForm'
 
 export default function SignUpForm() {
   const [message, setMessage] = useState<string | null>(null)

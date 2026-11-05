@@ -68,7 +68,7 @@ La plataforma cuenta con un portal público y un panel privado de homebanking pr
 - **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) combinado con CSS Modules (`*.module.css`) y CSS personalizado.
 - **Iconos**: [React Icons 5.5.0](https://react-icons.github.io/react-icons/).
 - **Optimización de Imágenes**: [Sharp 0.34.5](https://sharp.pixelplumbing.com/) junto a `next/image`.
-- **Linter & Formatter**: ESLint 9 (Flat Config con `@typescript-eslint`) y Prettier.
+- **Linter & Formatter**: [Biome 2.6](https://biomejs.dev/) (linter, formateador y organizador de imports unificado en Rust).
 - **Backend API**: [FastAPI](https://github.com/AgusT613/itba-full-stack-back-fastapi).
 
 ---
@@ -139,9 +139,11 @@ NEXT_PUBLIC_API_URL="http://0.0.0.0:8000"
    npm run test:e2e
    ```
 
-7. **Ejecutar el linter**:
+7. **Ejecutar el linter y formateador (Biome)**:
    ```bash
-   npm run lint
+   npm run lint        # Verificación de lint y formato
+   npm run lint:fix    # Corrección automática de lint e imports
+   npm run format      # Formateo de código
    ```
 
 ---
@@ -214,5 +216,5 @@ itba_full_stack_front/
 ├── next.config.js                # Configuración de Next.js y dominios de imágenes
 ├── tsconfig.json                 # Configuración de compilación de TypeScript
 ├── package.json                  # Definición de dependencias y scripts
-└── eslint.config.mjs             # Configuración de ESLint 9 (Flat Config)
+└── biome.json                    # Configuración de Biome (linter y formatter)
 ```

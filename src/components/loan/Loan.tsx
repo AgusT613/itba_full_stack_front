@@ -1,10 +1,10 @@
 'use client'
 
-import { TLoan } from '@/src/types/loan'
-import styles from './loan.module.css'
+import { useRouter } from 'next/navigation'
 import { useActionState } from 'react'
 import { deleteLoan } from '@/actions/deleteLoanAction'
-import { useRouter } from 'next/navigation'
+import type { TLoan } from '@/src/types/loan'
+import styles from './loan.module.css'
 
 const initialFormState = {
   message: '',

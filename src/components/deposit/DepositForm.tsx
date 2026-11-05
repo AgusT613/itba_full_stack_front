@@ -1,9 +1,9 @@
 'use client'
 
+import { useActionState } from 'react'
 import { depositToAccount } from '@/actions/depositToAccountAction'
 import styles from '@/app/inicio/depositar/page.module.css'
-import { TAccountAlias } from '@/src/types/alias'
-import { useActionState } from 'react'
+import type { TAccountAlias } from '@/src/types/alias'
 
 const initialFormState = {
   message: '',

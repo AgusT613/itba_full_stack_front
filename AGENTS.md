@@ -2,6 +2,12 @@
 
 Welcome to the **ITBANK Frontend** codebase. This file serves as the definitive reference manual for AI coding agents and human developers working on, maintaining, or refactoring this project.
 
+<!-- BEGIN:nextjs-agent-rules -->
+## This is NOT the Next.js you know
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+<!-- END:nextjs-agent-rules -->
+
 ---
 
 ## 📌 Project Overview
@@ -34,7 +40,7 @@ Welcome to the **ITBANK Frontend** codebase. This file serves as the definitive 
 | **Icons**                | React Icons 5.5.0                      | FontAwesome, Feather, Material Design icons                                      |
 | **Images**               | Sharp 0.34.5 & `next/image`            | Optimized remote images from `randomuser.me`                                     |
 | **Routing Guard**        | Next.js `proxy.ts`                     | Modern Next.js file convention for proxying and routing control                  |
-| **Linting & Formatting** | ESLint 9 (Flat Config), Prettier 3.8.1 | `eslint.config.mjs`, `@typescript-eslint` 8.56                                   |
+| **Linting & Formatting** | Biome 2.6 (`biome.json`)               | High-performance Rust-based linter, formatter and import organizer               |
 | **Backend Integration**  | FastAPI Backend                        | Communicates via REST over `NEXT_PUBLIC_API_URL` (default `http://0.0.0.0:8000`) |
 
 ---
@@ -114,7 +120,7 @@ itba_full_stack_front/
 ├── next.config.js                # Next.js config (remote image patterns)
 ├── tsconfig.json                 # TypeScript compiler options
 ├── package.json                  # Scripts and dependencies
-└── eslint.config.mjs             # ESLint 9 configuration
+└── biome.json                    # Biome linter and formatter configuration
 ```
 
 ---
@@ -246,8 +252,17 @@ npm run test:watch
 # Run Playwright E2E tests
 npm run test:e2e
 
-# Run linter
+# Run Biome linter
 npm run lint
+
+# Run Biome linter with auto-fixes
+npm run lint:fix
+
+# Format code with Biome
+npm run format
+
+# Verify formatting without modifying files
+npm run format:check
 
 # Production build check
 npm run build

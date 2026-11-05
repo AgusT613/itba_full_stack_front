@@ -6,11 +6,10 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import { GrClose } from 'react-icons/gr'
 
 import signOutAction from '@/actions/signOutAction'
-import { INavItem } from '@/src/types/navItem'
-
-import styles from './asideNav.module.css'
+import type { INavItem } from '@/src/types/navItem'
 import BankLogo from '../bankLogo/BankLogo'
 import NavItems from '../navItems/NavItems'
+import styles from './asideNav.module.css'
 
 export default function AsideNav({
   links,

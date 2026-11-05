@@ -1,12 +1,12 @@
-import styles from './page.module.css'
+import { Table } from '@/src/components/table/Table'
+import MakeTransferForm from '@/src/components/transfers/makeTransferForm'
 import {
   getAccounts,
   getTransfers,
   getUserSavedAliases,
 } from '@/src/lib/dataFetch'
-import MakeTransferForm from '@/src/components/transfers/makeTransferForm'
-import { Table } from '@/src/components/table/Table'
 import { transferHistoryTableHeader } from '@/utils/tableHeaders'
+import styles from './page.module.css'
 
 export const metadata = {
   title: 'Transferencias - ITBANK',

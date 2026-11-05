@@ -8,14 +8,18 @@ import {
   LOANS_ENDPOINT,
   TRANSFERS_ENDPOINT,
 } from '@/utils/apiEndpoints'
-import { HomeBankingData, TCard, TUserBankAccount } from '../types/homebanking'
-import { TBranchOffice } from '../types/branchOffice'
-import { isServerAlive } from './pingServer'
+import type { TAccountAlias } from '../types/alias'
+import type { TBranchOffice } from '../types/branchOffice'
+import type {
+  HomeBankingData,
+  TCard,
+  TUserBankAccount,
+} from '../types/homebanking'
+import type { TLoan } from '../types/loan'
+import type { TTransferHistory } from '../types/transferHistory'
+import type { TUserSavedAlias } from '../types/userSavedAlias'
 import { getSessionToken } from './getSessionToken'
-import { TTransferHistory } from '../types/transferHistory'
-import { TLoan } from '../types/loan'
-import { TAccountAlias } from '../types/alias'
-import { TUserSavedAlias } from '../types/userSavedAlias'
+import { isServerAlive } from './pingServer'
 
 export const getHomebankingData = cache(async (): Promise<HomeBankingData> => {
   const token = await getSessionToken()

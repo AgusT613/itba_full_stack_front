@@ -1,9 +1,8 @@
 import SectionDivider from '@/src/components/sectionDivider/SectionDivider'
-
-import styles from './accountMoney.module.css'
+import type { TUserBankAccount } from '@/src/types/homebanking'
 import CurrentMoney from '../currentMoney/CurrentMoney'
 import UserAction from '../userAction/UserAction'
-import { TUserBankAccount } from '@/src/types/homebanking'
+import styles from './accountMoney.module.css'
 
 export default function AccountMoney({
   userBankAccount,
