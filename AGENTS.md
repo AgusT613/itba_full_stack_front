@@ -33,12 +33,12 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 | Layer                    | Technology                             | Details                                                                          |
 | :----------------------- | :------------------------------------- | :------------------------------------------------------------------------------- |
-| **Framework**            | Next.js 16.1.6                         | App Router (`app/` directory), React Server Components (RSC)                     |
-| **UI Library**           | React 19.2.4                           | React 19 hooks (`useActionState`, `useFormStatus`, `cache`)                      |
-| **Language**             | TypeScript 5.9.3                       | Target `ES2017`, paths mapped to `@/*`                                           |
-| **Styling**              | Tailwind CSS v4 & CSS Modules          | `@tailwindcss/postcss` 4.2.1 alongside scoped `*.module.css`                     |
-| **Icons**                | React Icons 5.5.0                      | FontAwesome, Feather, Material Design icons                                      |
-| **Images**               | Sharp 0.34.5 & `next/image`            | Optimized remote images from `randomuser.me`                                     |
+| **Framework**            | Next.js 16.4.5                         | App Router (`app/` directory), React Server Components (RSC)                     |
+| **UI Library**           | React 19.3.1                           | React 19 hooks (`useActionState`, `useFormStatus`, `cache`)                      |
+| **Language**             | TypeScript 6.0.3                       | Target `ES2017`, paths mapped to `@/*`                                           |
+| **Styling**              | Tailwind CSS v4 & CSS Modules          | `@tailwindcss/postcss` 4.3.4 alongside scoped `*.module.css`                     |
+| **Icons**                | React Icons 5.7.0                      | FontAwesome, Feather, Material Design icons                                      |
+| **Images**               | Sharp 0.35.5 & `next/image`            | Optimized remote images from `randomuser.me`                                     |
 | **Routing Guard**        | Next.js `proxy.ts`                     | Modern Next.js file convention for proxying and routing control                  |
 | **Linting & Formatting** | Biome 2.6 (`biome.json`)               | High-performance Rust-based linter, formatter and import organizer               |
 | **Backend Integration**  | FastAPI Backend                        | Communicates via REST over `NEXT_PUBLIC_API_URL` (default `http://0.0.0.0:8000`) |

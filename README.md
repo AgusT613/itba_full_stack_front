@@ -62,12 +62,12 @@ La plataforma cuenta con un portal público y un panel privado de homebanking pr
 
 ## 🛠️ Tecnologías Utilizadas
 
-- **Framework**: [Next.js 16.1.6](https://nextjs.org/) con App Router y React Server Components (RSC).
-- **Librería UI**: [React 19.2.4](https://react.dev/) aprovechando `useActionState` y `cache()`.
-- **Lenguaje**: [TypeScript 5.9.3](https://www.typescriptlang.org/).
+- **Framework**: [Next.js 16.4.5](https://nextjs.org/) con App Router y React Server Components (RSC).
+- **Librería UI**: [React 19.3.1](https://react.dev/) aprovechando `useActionState` y `cache()`.
+- **Lenguaje**: [TypeScript 6.0.3](https://www.typescriptlang.org/).
 - **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) combinado con CSS Modules (`*.module.css`) y CSS personalizado.
-- **Iconos**: [React Icons 5.5.0](https://react-icons.github.io/react-icons/).
-- **Optimización de Imágenes**: [Sharp 0.34.5](https://sharp.pixelplumbing.com/) junto a `next/image`.
+- **Iconos**: [React Icons 5.7.0](https://react-icons.github.io/react-icons/).
+- **Optimización de Imágenes**: [Sharp 0.35.5](https://sharp.pixelplumbing.com/) junto a `next/image`.
 - **Linter & Formatter**: [Biome 2.6](https://biomejs.dev/) (linter, formateador y organizador de imports unificado en Rust).
 - **Backend API**: [FastAPI](https://github.com/AgusT613/itba-full-stack-back-fastapi).
 
