@@ -28,7 +28,8 @@
   }
 }
 
-.successMessage, .errorMessage {
+.successMessage,
+.errorMessage {
   text-align: center;
 }
 

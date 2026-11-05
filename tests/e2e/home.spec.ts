@@ -8,7 +8,9 @@ test.describe('Home Page Public Experience', () => {
     await expect(page).toHaveTitle(/ITBANK/i)
 
     // Check that navigation elements are visible
-    const loginLink = page.getByRole('link', { name: /iniciar sesión/i }).first()
+    const loginLink = page
+      .getByRole('link', { name: /iniciar sesión/i })
+      .first()
     if (await loginLink.isVisible()) {
       await expect(loginLink).toBeVisible()
     }

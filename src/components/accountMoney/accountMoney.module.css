@@ -18,14 +18,13 @@
 }
 
 .transferIcon {
-  background: url(public/icons8-flujo-de-fondos-32.png) no-repeat center
-    center;
+  background: url(public/icons8-flujo-de-fondos-32.png) no-repeat center center;
   background-size: 1em;
 }
 
 .withdrawIcon {
-  background: url(public/icons8-solicitud-de-dinero-32.png) no-repeat
-    center center;
+  background: url(public/icons8-solicitud-de-dinero-32.png) no-repeat center
+    center;
   background-size: 1em;
 }
 

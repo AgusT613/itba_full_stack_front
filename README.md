@@ -7,6 +7,7 @@ Plataforma moderna de **Homebanking** desarrollada con **Next.js 16 (App Router)
 ---
 
 ## 📑 Tabla de Contenidos
+
 - [✨ Características Principales](#-características-principales)
 - [🛠️ Tecnologías Utilizadas](#️-tecnologías-utilizadas)
 - [🏗️ Arquitectura del Proyecto](#️-arquitectura-del-proyecto)
@@ -83,6 +84,7 @@ La plataforma cuenta con un portal público y un panel privado de homebanking pr
 ## 🚀 Instalación y Puesta en Marcha
 
 ### Prerrequisitos
+
 - **Node.js**: Versión 20.x o superior (ver `.nvmrc`).
 - **npm** o **pnpm**.
 - Tener en ejecución el backend en [FastAPI](https://github.com/AgusT613/itba-full-stack-back-fastapi).
@@ -98,34 +100,41 @@ NEXT_PUBLIC_API_URL="http://0.0.0.0:8000"
 ### Comandos Disponibles
 
 1. **Clonar el repositorio e ingresar a la carpeta**:
+
    ```bash
    git clone https://github.com/AgusT613/itba_full_stack_front.git
    cd itba_full_stack_front
    ```
 
 2. **Instalar dependencias**:
+
    ```bash
    npm install
    ```
 
 3. **Iniciar el servidor de desarrollo**:
+
    ```bash
    npm run dev
    ```
+
    Abrir [http://localhost:3000](http://localhost:3000) en el navegador.
 
 4. **Compilar para producción**:
+
    ```bash
    npm run build
    npm run start
    ```
 
 5. **Ejecutar las pruebas unitarias y de componentes (Vitest)**:
+
    ```bash
    npm test
    ```
 
 6. **Ejecutar las pruebas E2E (Playwright)**:
+
    ```bash
    npm run test:e2e
    ```

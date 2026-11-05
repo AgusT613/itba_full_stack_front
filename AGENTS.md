@@ -7,9 +7,11 @@ Welcome to the **ITBANK Frontend** codebase. This file serves as the definitive 
 ## 📌 Project Overview
 
 **ITBANK** is a fictional digital homebanking platform built with **Next.js 16 (App Router)** and **React 19**, designed as the frontend client for a comprehensive full-stack banking ecosystem.
+
 - **Backend Repository (FastAPI)**: [itba-full-stack-back-fastapi](https://github.com/AgusT613/itba-full-stack-back-fastapi) 🚀
 
 ### Core Capabilities:
+
 - **Landing & Public Portal**: Marketing landing page, customer resources, branch office locator, newsletter subscription, and legal information.
 - **Authentication & Route Guard**: User registration and login with cookie-based JWT sessions (`session_token`), with backend health checks and route protection via Next.js `proxy.ts`.
 - **Accounts Dashboard**: Consolidated balance overview, recent transaction feeds, profile summary, and multi-account breakdown.
@@ -23,17 +25,17 @@ Welcome to the **ITBANK Frontend** codebase. This file serves as the definitive 
 
 ## 🛠️ Technology Stack
 
-| Layer | Technology | Details |
-| :--- | :--- | :--- |
-| **Framework** | Next.js 16.1.6 | App Router (`app/` directory), React Server Components (RSC) |
-| **UI Library** | React 19.2.4 | React 19 hooks (`useActionState`, `useFormStatus`, `cache`) |
-| **Language** | TypeScript 5.9.3 | Target `ES2017`, paths mapped to `@/*` |
-| **Styling** | Tailwind CSS v4 & CSS Modules | `@tailwindcss/postcss` 4.2.1 alongside scoped `*.module.css` |
-| **Icons** | React Icons 5.5.0 | FontAwesome, Feather, Material Design icons |
-| **Images** | Sharp 0.34.5 & `next/image` | Optimized remote images from `randomuser.me` |
-| **Routing Guard** | Next.js `proxy.ts` | Modern Next.js file convention for proxying and routing control |
-| **Linting & Formatting** | ESLint 9 (Flat Config), Prettier 3.8.1 | `eslint.config.mjs`, `@typescript-eslint` 8.56 |
-| **Backend Integration** | FastAPI Backend | Communicates via REST over `NEXT_PUBLIC_API_URL` (default `http://0.0.0.0:8000`) |
+| Layer                    | Technology                             | Details                                                                          |
+| :----------------------- | :------------------------------------- | :------------------------------------------------------------------------------- |
+| **Framework**            | Next.js 16.1.6                         | App Router (`app/` directory), React Server Components (RSC)                     |
+| **UI Library**           | React 19.2.4                           | React 19 hooks (`useActionState`, `useFormStatus`, `cache`)                      |
+| **Language**             | TypeScript 5.9.3                       | Target `ES2017`, paths mapped to `@/*`                                           |
+| **Styling**              | Tailwind CSS v4 & CSS Modules          | `@tailwindcss/postcss` 4.2.1 alongside scoped `*.module.css`                     |
+| **Icons**                | React Icons 5.5.0                      | FontAwesome, Feather, Material Design icons                                      |
+| **Images**               | Sharp 0.34.5 & `next/image`            | Optimized remote images from `randomuser.me`                                     |
+| **Routing Guard**        | Next.js `proxy.ts`                     | Modern Next.js file convention for proxying and routing control                  |
+| **Linting & Formatting** | ESLint 9 (Flat Config), Prettier 3.8.1 | `eslint.config.mjs`, `@typescript-eslint` 8.56                                   |
+| **Backend Integration**  | FastAPI Backend                        | Communicates via REST over `NEXT_PUBLIC_API_URL` (default `http://0.0.0.0:8000`) |
 
 ---
 
@@ -120,19 +122,25 @@ itba_full_stack_front/
 ## ⚙️ Key Architectural Patterns & Data Flow
 
 ### 1. Server Components for Data Fetching
+
 - Routes under `app/inicio/*` are primarily React Server Components (RSC).
 - Data fetching logic is centralized in `src/lib/dataFetch.ts` wrapped in React’s `cache()` to deduplicate requests during rendering.
 - Requests pass the JWT token retrieved from incoming cookies via `getSessionToken()`.
 
 ### 2. React 19 Server Actions for Mutations
+
 - State mutations (transfers, alias creation, loan applications, deposits) reside in the `actions/` folder and use `'use server'`.
 - Client components consume Server Actions using React 19’s `useActionState`:
   ```tsx
-  const [state, formAction, pending] = useActionState(handleTransfer, initialState)
+  const [state, formAction, pending] = useActionState(
+    handleTransfer,
+    initialState,
+  )
   ```
 - This pattern eliminates the need for separate API route handlers (`app/api/*`) for standard form submissions.
 
 ### 3. Session & Route Protection (`proxy.ts`)
+
 - Next.js evolved its routing proxy convention ([Next.js Proxy File Convention](https://nextjs.org/docs/app/api-reference/file-conventions/proxy#migration-to-proxy)), using `proxy.ts` at the project root.
 - The `proxy` handler inspects the incoming `session_token` cookie for routes matching `/inicio/:path*`, redirecting unauthenticated visitors to `/login/iniciar-sesion`.
 - On login (`src/services/userSignIn.ts`), cookies are set with:
@@ -176,6 +184,7 @@ When modifying this repository, be aware of the following:
 The testing strategy is structured into unit, integration/mocking, and end-to-end layers:
 
 ### 1. Unit & Component Testing (Vitest + React Testing Library)
+
 - **Engine**: **Vitest** configured in `vitest.config.mts` with `@vitejs/plugin-react` and `jsdom`.
 - **Location**: `tests/unit/**/*.{test,spec}.{ts,tsx}`.
 - **Coverage focus**:
@@ -184,11 +193,13 @@ The testing strategy is structured into unit, integration/mocking, and end-to-en
   - React 19 Client and Server Components interaction.
 
 ### 2. Network & API Mocking (MSW v2)
+
 - **Engine**: **Mock Service Worker (MSW v2)** configured in `tests/mocks/handlers.ts` and `tests/mocks/server.ts`.
 - **Lifecycle**: Integrated into Vitest via `tests/setup.ts` (`server.listen()`, `server.resetHandlers()`, `server.close()`).
 - Simulates FastAPI backend endpoints (`/api/homebanking/`, `/api/itbank/branch-offices`, `/api/homebanking/deposit`) so tests run deterministically offline and in CI.
 
 ### 3. End-to-End Testing (Playwright)
+
 - **Engine**: **@playwright/test** configured in `playwright.config.ts`.
 - **Location**: `tests/e2e/**/*.spec.ts`.
 - **Coverage focus**:
@@ -200,11 +211,13 @@ The testing strategy is structured into unit, integration/mocking, and end-to-en
 ## 🚀 Recommended Improvements Roadmap
 
 ### 1. Robustness & Architecture
+
 - [ ] **Type Safety**: Enable `"strict": true` in `tsconfig.json` and type all component props and event handlers.
 - [ ] **Error & Loading Boundaries**: Add `loading.tsx` (skeleton screens) and `error.tsx` (fallback boundaries) inside `app/inicio/` to prevent whole-page crashes on network failures.
 - [ ] **Validation Schema**: Integrate [Zod](https://zod.dev/) for client-side and server action form validation (amounts > 0, valid CBU/alias formats, due dates).
 
 ### 2. UI/UX & Design Modernization
+
 - [ ] **shadcn/ui & Radix UI Primitives**: Replace custom dropdowns, dialogs, and alerts with accessible, headless primitives styled with Tailwind CSS v4.
 - [ ] **Tremor / Recharts Financial Visualizations**:
   - Add expense categorization and cash flow charts to the dashboard.
@@ -219,6 +232,7 @@ The testing strategy is structured into unit, integration/mocking, and end-to-en
 ## 🧑‍💻 Agent Working Guidelines & Commands
 
 ### Commands:
+
 ```bash
 # Start development server
 npm run dev
@@ -240,6 +254,7 @@ npm run build
 ```
 
 ### Coding Rules:
+
 - **Never commit broken builds**: Always run `npm run lint` and verify type validity before completing your task.
 - **Server vs Client**: Clearly mark files with `'use client'` or `'use server'` at the very top line. Server Actions must remain strictly separated from client bundle code.
 - **Paths**: Use the `@/*` alias for imports (e.g. `@/src/components/...`, `@/actions/...`, `@/utils/...`).
