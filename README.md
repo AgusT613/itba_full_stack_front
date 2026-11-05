@@ -120,7 +120,17 @@ NEXT_PUBLIC_API_URL="http://0.0.0.0:8000"
    npm run start
    ```
 
-5. **Ejecutar el linter**:
+5. **Ejecutar las pruebas unitarias y de componentes (Vitest)**:
+   ```bash
+   npm test
+   ```
+
+6. **Ejecutar las pruebas E2E (Playwright)**:
+   ```bash
+   npm run test:e2e
+   ```
+
+7. **Ejecutar el linter**:
    ```bash
    npm run lint
    ```
@@ -184,7 +194,14 @@ itba_full_stack_front/
 │   ├── services/                 # Llamadas de autenticación y servicios auxiliares
 │   └── types/                    # Definiciones TypeScript de entidades y dominio
 ├── utils/                        # URLs de endpoints, formato de fechas y cabeceras
+├── tests/                        # Suite de pruebas automatizadas
+│   ├── e2e/                      # Pruebas End-to-End con Playwright
+│   ├── unit/                     # Pruebas unitarias y de componentes con Vitest
+│   ├── mocks/                    # Mock Service Worker (MSW v2) para endpoints de FastAPI
+│   └── setup.ts                  # Configuración y ciclo de vida de tests
 ├── proxy.ts                      # Enrutador y middleware de protección de sesiones
+├── vitest.config.mts             # Configuración de Vitest y alias de rutas
+├── playwright.config.ts          # Configuración de Playwright y navegador Chromium
 ├── next.config.js                # Configuración de Next.js y dominios de imágenes
 ├── tsconfig.json                 # Configuración de compilación de TypeScript
 ├── package.json                  # Definición de dependencias y scripts

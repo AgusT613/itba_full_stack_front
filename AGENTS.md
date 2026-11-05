@@ -102,6 +102,13 @@ itba_full_stack_front/
 │   ├── tableHeaders.ts           # Column headers for history tables
 │   └── toDate.ts, toCapitalize.ts# Formatting helpers
 ├── proxy.ts                      # Route guard & redirection logic (Next.js proxy convention)
+├── tests/                        # Automated testing suite
+│   ├── e2e/                      # Playwright End-to-End tests
+│   ├── unit/                     # Vitest unit and component tests
+│   ├── mocks/                    # MSW (Mock Service Worker) API handlers & server
+│   └── setup.ts                  # Test environment setup & MSW lifecycle
+├── vitest.config.mts             # Vitest configuration with React plugin and path alias
+├── playwright.config.ts          # Playwright configuration with Chromium project
 ├── next.config.js                # Next.js config (remote image patterns)
 ├── tsconfig.json                 # TypeScript compiler options
 ├── package.json                  # Scripts and dependencies
@@ -164,6 +171,32 @@ When modifying this repository, be aware of the following:
 
 ---
 
+## 🧪 Testing Architecture & Standards
+
+The testing strategy is structured into unit, integration/mocking, and end-to-end layers:
+
+### 1. Unit & Component Testing (Vitest + React Testing Library)
+- **Engine**: **Vitest** configured in `vitest.config.mts` with `@vitejs/plugin-react` and `jsdom`.
+- **Location**: `tests/unit/**/*.{test,spec}.{ts,tsx}`.
+- **Coverage focus**:
+  - Financial calculations and math formulas (e.g. `LoanCalculator.tsx` amortization formula).
+  - Utility and date formatters (`utils/toDate.ts`).
+  - React 19 Client and Server Components interaction.
+
+### 2. Network & API Mocking (MSW v2)
+- **Engine**: **Mock Service Worker (MSW v2)** configured in `tests/mocks/handlers.ts` and `tests/mocks/server.ts`.
+- **Lifecycle**: Integrated into Vitest via `tests/setup.ts` (`server.listen()`, `server.resetHandlers()`, `server.close()`).
+- Simulates FastAPI backend endpoints (`/api/homebanking/`, `/api/itbank/branch-offices`, `/api/homebanking/deposit`) so tests run deterministically offline and in CI.
+
+### 3. End-to-End Testing (Playwright)
+- **Engine**: **@playwright/test** configured in `playwright.config.ts`.
+- **Location**: `tests/e2e/**/*.spec.ts`.
+- **Coverage focus**:
+  - Route guards and unauthenticated redirections via `proxy.ts`.
+  - Public landing page rendering and navigation flows.
+
+---
+
 ## 🚀 Recommended Improvements Roadmap
 
 ### 1. Robustness & Architecture
@@ -189,6 +222,15 @@ When modifying this repository, be aware of the following:
 ```bash
 # Start development server
 npm run dev
+
+# Run unit tests
+npm test
+
+# Run unit tests in watch mode
+npm run test:watch
+
+# Run Playwright E2E tests
+npm run test:e2e
 
 # Run linter
 npm run lint
