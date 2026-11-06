@@ -3,6 +3,13 @@
 import { useActionState, useEffect, useRef, useState } from 'react'
 import { toast } from 'sonner'
 import { handleTransfer } from '@/actions/makeTransferAction'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/src/components/ui/select'
 import { cn } from '@/src/lib/utils'
 import type { TUserBankAccount } from '@/src/types/homebanking'
 import type { TUserSavedAlias } from '@/src/types/userSavedAlias'
@@ -54,24 +61,18 @@ export default function MakeTransferForm({
         >
           Cuenta Origen
         </label>
-        <select
-          name='sender_alias'
-          id='sender_alias'
-          className='w-full p-2.5 rounded-md bg-black/20 border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm'
-        >
-          <option value='' className='text-black bg-white'>
-            Seleccionar cuenta
-          </option>
-          {bankAccountsAlias.map((account) => (
-            <option
-              key={account.id}
-              value={account.alias}
-              className='text-black bg-white'
-            >
-              {account.alias}
-            </option>
-          ))}
-        </select>
+        <Select name='sender_alias'>
+          <SelectTrigger id='sender_alias'>
+            <SelectValue placeholder='Seleccionar cuenta' />
+          </SelectTrigger>
+          <SelectContent>
+            {bankAccountsAlias.map((account) => (
+              <SelectItem key={account.id} value={account.alias}>
+                {account.alias}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       <div className='flex flex-col gap-1.5'>
@@ -120,27 +121,24 @@ export default function MakeTransferForm({
           />
         )}
         {inputType === 'select' && (
-          <select
-            name='receiver_alias'
-            id='receiver_alias'
-            className='w-full p-2.5 rounded-md bg-black/20 border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm'
-          >
-            <option value='' className='text-black bg-white'>
-              {savedAliases.length > 0
-                ? 'Seleccionar receptor'
-                : 'No hay aliases disponibles'}
-            </option>
-            {savedAliases.length > 0 &&
-              savedAliases.map((alias) => (
-                <option
-                  key={alias.id}
-                  value={alias.alias}
-                  className='text-black bg-white'
-                >
+          <Select name='receiver_alias'>
+            <SelectTrigger id='receiver_alias'>
+              <SelectValue
+                placeholder={
+                  savedAliases.length > 0
+                    ? 'Seleccionar receptor'
+                    : 'No hay aliases disponibles'
+                }
+              />
+            </SelectTrigger>
+            <SelectContent>
+              {savedAliases.map((alias) => (
+                <SelectItem key={alias.id} value={alias.alias}>
                   {alias.alias}
-                </option>
+                </SelectItem>
               ))}
-          </select>
+            </SelectContent>
+          </Select>
         )}
       </div>
 

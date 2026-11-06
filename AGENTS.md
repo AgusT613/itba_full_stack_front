@@ -81,7 +81,8 @@ itba_full_stack_front/
 │   │   └── contacto/             # Support & contact information
 │   └── legal/                    # Public legal routes (terminos, privacidad, faq)
 ├── src/
-│   ├── components/               # Modular UI Components (CSS Modules & Tailwind)
+│   ├── components/               # Modular UI Components (Tailwind CSS v4)
+│   │   ├── ui/                   # Accessible headless primitives (AlertDialog, Select, Accordion)
 │   │   ├── accountCard/          # Individual bank account card
 │   │   ├── accountMoney/         # Primary balance display widget
 │   │   ├── activityRecord/       # Transaction history activity record
@@ -224,7 +225,7 @@ The testing strategy is structured into unit, integration/mocking, and end-to-en
 
 ### 2. UI/UX & Design Modernization
 
-- [ ] **shadcn/ui & Radix UI Primitives**: Replace custom dropdowns, dialogs, and alerts with accessible, headless primitives styled with Tailwind CSS v4.
+- [x] **shadcn/ui & Radix UI Primitives**: Replaced custom dropdowns, dialogs, and alerts with accessible, headless primitives styled with Tailwind CSS v4.
 - [ ] **Tremor / Recharts Financial Visualizations**:
   - Add expense categorization and cash flow charts to the dashboard.
   - Interactive loan amortization breakdown charts.

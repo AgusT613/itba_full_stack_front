@@ -4,6 +4,13 @@ import { useRouter } from 'next/navigation'
 import { useActionState, useEffect, useRef } from 'react'
 import { toast } from 'sonner'
 import { requestLoan } from '@/actions/requestLoanAction'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/src/components/ui/select'
 import type { TBranchOffice } from '@/src/types/branchOffice'
 import type { TUserBankAccount } from '@/src/types/homebanking'
 
@@ -64,72 +71,52 @@ export default function LoanRequestForm({
           <label htmlFor='branch_office_id' className='text-sm font-medium'>
             Sucursal
           </label>
-          <select
-            id='branch_office_id'
-            name='branch_office_id'
-            className='w-full p-2 rounded-md bg-transparent border-2 border-black/40 focus:outline-none focus:border-primary-500'
-          >
-            <option value='' className='text-black bg-white'>
-              Elegir sucursal
-            </option>
-            {branchOfficesList.map((sucursal) => (
-              <option
-                value={sucursal.id}
-                key={sucursal.id}
-                className='text-black bg-white'
-              >
-                {sucursal.name} - {sucursal.address}
-              </option>
-            ))}
-          </select>
+          <Select name='branch_office_id'>
+            <SelectTrigger id='branch_office_id'>
+              <SelectValue placeholder='Elegir sucursal' />
+            </SelectTrigger>
+            <SelectContent>
+              {branchOfficesList.map((sucursal) => (
+                <SelectItem value={String(sucursal.id)} key={sucursal.id}>
+                  {sucursal.name} - {sucursal.address}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
           <label htmlFor='user_account_id' className='text-sm font-medium'>
             Cuenta de usuario
           </label>
-          <select
-            id='user_account_id'
-            name='user_account_id'
-            className='w-full p-2 rounded-md bg-transparent border-2 border-black/40 focus:outline-none focus:border-primary-500'
-          >
-            <option value='' className='text-black bg-white'>
-              Elegir cuenta de usuario
-            </option>
-            {bankAccounts.map((account) => (
-              <option
-                value={account.id}
-                key={account.id}
-                className='text-black bg-white'
-              >
-                {account.alias} - {account.account_number}
-              </option>
-            ))}
-          </select>
+          <Select name='user_account_id'>
+            <SelectTrigger id='user_account_id'>
+              <SelectValue placeholder='Elegir cuenta de usuario' />
+            </SelectTrigger>
+            <SelectContent>
+              {bankAccounts.map((account) => (
+                <SelectItem value={String(account.id)} key={account.id}>
+                  {account.alias} - {account.account_number}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
           <label htmlFor='loan_type' className='text-sm font-medium'>
             Tipo de préstamo
           </label>
-          <select
-            id='loan_type'
-            name='loan_type'
-            className='w-full p-2 rounded-md bg-transparent border-2 border-black/40 focus:outline-none focus:border-primary-500'
-          >
-            <option value='' className='text-black bg-white'>
-              Elegir tipo de prestamo
-            </option>
-            <option value='hipotecario' className='text-black bg-white'>
-              Préstamo hipotecario
-            </option>
-            <option value='personal' className='text-black bg-white'>
-              Préstamo personal
-            </option>
-            <option value='prendario' className='text-black bg-white'>
-              Préstamo prendario
-            </option>
-          </select>
+          <Select name='loan_type'>
+            <SelectTrigger id='loan_type'>
+              <SelectValue placeholder='Elegir tipo de prestamo' />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value='hipotecario'>Préstamo hipotecario</SelectItem>
+              <SelectItem value='personal'>Préstamo personal</SelectItem>
+              <SelectItem value='prendario'>Préstamo prendario</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>

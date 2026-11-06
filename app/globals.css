@@ -13,9 +13,12 @@
   --color-bank-warning: #f59e0b;
 
   /* Surface & Card Backgrounds */
+  --color-surface: rgba(18, 10, 36, 0.75);
   --color-surface-card: rgba(0, 0, 0, 0.25);
   --color-surface-hover: rgba(255, 255, 255, 0.08);
+  --color-surface-border: rgba(255, 255, 255, 0.15);
   --color-border-subtle: rgba(255, 255, 255, 0.15);
+  --color-foreground: #ffffff;
 }
 
 body {
@@ -51,4 +54,30 @@ button {
 }
 ::-webkit-scrollbar-track {
   background: #7568ff;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
 }

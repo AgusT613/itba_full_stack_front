@@ -3,6 +3,13 @@
 import { useActionState, useEffect, useRef } from 'react'
 import { toast } from 'sonner'
 import { depositToAccount } from '@/actions/depositToAccountAction'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/src/components/ui/select'
 import type { TAccountAlias } from '@/src/types/alias'
 
 const initialFormState = {
@@ -46,24 +53,18 @@ export default function DepositForm({
         <label htmlFor='alias' className='text-sm font-semibold'>
           Alias
         </label>
-        <select
-          id='alias'
-          name='alias'
-          className='w-full p-2.5 rounded-md bg-black/20 border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm'
-        >
-          <option value='' className='text-black bg-white'>
-            Elegir alias
-          </option>
-          {aliasList.map((alias) => (
-            <option
-              key={alias.alias}
-              value={alias.alias}
-              className='text-black bg-white'
-            >
-              {alias.alias}
-            </option>
-          ))}
-        </select>
+        <Select name='alias'>
+          <SelectTrigger id='alias'>
+            <SelectValue placeholder='Elegir alias' />
+          </SelectTrigger>
+          <SelectContent>
+            {aliasList.map((alias) => (
+              <SelectItem key={alias.alias} value={alias.alias}>
+                {alias.alias}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       <div className='flex flex-col gap-1.5'>

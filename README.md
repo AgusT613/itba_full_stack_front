@@ -65,7 +65,9 @@ La plataforma cuenta con un portal público y un panel privado de homebanking pr
 - **Framework**: [Next.js 16.4.5](https://nextjs.org/) con App Router y React Server Components (RSC).
 - **Librería UI**: [React 19.3.1](https://react.dev/) aprovechando `useActionState` y `cache()`.
 - **Lenguaje**: [TypeScript 6.0.3](https://www.typescriptlang.org/).
-- **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) combinado con CSS Modules (`*.module.css`) y CSS personalizado.
+- **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) con tokens de diseño `@theme` centralizados.
+- **Componentes UI Accesibles**: [Radix UI](https://www.radix-ui.com/) (primitivas headless para modales, selects y acordeones).
+- **Notificaciones**: [Sonner](https://sonner.emilkowal.ski/) (toasts modernos y accesibles con soporte React 19).
 - **Iconos**: [Lucide React 1.70.0](https://lucide.dev/).
 - **Optimización de Imágenes**: [Sharp 0.35.5](https://sharp.pixelplumbing.com/) junto a `next/image`.
 - **Linter & Formatter**: [Biome 2.6](https://biomejs.dev/) (linter, formateador y organizador de imports unificado en Rust).
