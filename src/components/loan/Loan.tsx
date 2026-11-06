@@ -1,9 +1,9 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useActionState } from 'react'
+import { useActionState, useEffect } from 'react'
+import { toast } from 'sonner'
 import { deleteLoan } from '@/actions/deleteLoanAction'
-import { cn } from '@/src/lib/utils'
 import type { TLoan } from '@/src/types/loan'
 
 const initialFormState = {
@@ -17,6 +17,20 @@ export default function Loan({ loan }: { loan: TLoan }) {
     initialFormState,
   )
   const router = useRouter()
+
+  useEffect(() => {
+    if (!state.message) return
+
+    if (state.success) {
+      toast.success('Préstamo cancelado', {
+        description: state.message,
+      })
+    } else {
+      toast.error('Error al cancelar préstamo', {
+        description: state.message,
+      })
+    }
+  }, [state])
 
   return (
     <article className='bg-surface p-6 rounded-xl flex flex-col gap-3 shadow-md border border-surface-border'>
@@ -74,17 +88,6 @@ export default function Loan({ loan }: { loan: TLoan }) {
             {pending ? 'Cancelando...' : 'Cancelar Prestamo'}
           </button>
         </form>
-      )}
-
-      {state.message && (
-        <div
-          className={cn(
-            'text-center font-medium text-sm',
-            state.success ? 'text-success-500' : 'text-danger-500',
-          )}
-        >
-          {state.message}
-        </div>
       )}
 
       {state.success && (

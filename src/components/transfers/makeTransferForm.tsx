@@ -1,6 +1,7 @@
 'use client'
 
-import { useActionState, useState } from 'react'
+import { useActionState, useEffect, useRef, useState } from 'react'
+import { toast } from 'sonner'
 import { handleTransfer } from '@/actions/makeTransferAction'
 import { cn } from '@/src/lib/utils'
 import type { TUserBankAccount } from '@/src/types/homebanking'
@@ -18,14 +19,31 @@ export default function MakeTransferForm({
   bankAccountsAlias: TUserBankAccount[]
   savedAliases: TUserSavedAlias[]
 }) {
+  const formRef = useRef<HTMLFormElement>(null)
   const [inputType, setInputType] = useState<'text' | 'select'>('text')
   const [state, formAction, pending] = useActionState(
     handleTransfer,
     initialState,
   )
 
+  useEffect(() => {
+    if (!state.message) return
+
+    if (state.success) {
+      toast.success('Transferencia realizada', {
+        description: state.message,
+      })
+      formRef.current?.reset()
+    } else {
+      toast.error('Error al transferir', {
+        description: state.message,
+      })
+    }
+  }, [state])
+
   return (
     <form
+      ref={formRef}
       className='bg-surface p-6 rounded-xl border border-surface-border flex flex-col gap-4 shadow-md'
       action={formAction}
     >
@@ -148,16 +166,6 @@ export default function MakeTransferForm({
         className='mt-2 p-3 font-semibold text-sm uppercase rounded-md bg-primary-600 hover:bg-primary-700 text-white cursor-pointer transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         value={pending ? 'Transfiriendo...' : 'Realizar Transferencia'}
       />
-      {state.message && (
-        <p
-          className={cn(
-            'text-center font-medium text-sm mt-2',
-            state.success ? 'text-success-500' : 'text-danger-500',
-          )}
-        >
-          {state.message}
-        </p>
-      )}
     </form>
   )
 }

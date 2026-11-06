@@ -1,8 +1,8 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useActionState, useEffect, useRef } from 'react'
+import { toast } from 'sonner'
 import { depositToAccount } from '@/actions/depositToAccountAction'
-import { cn } from '@/src/lib/utils'
 import type { TAccountAlias } from '@/src/types/alias'
 
 const initialFormState = {
@@ -15,13 +15,30 @@ export default function DepositForm({
 }: {
   aliasList: TAccountAlias[]
 }) {
+  const formRef = useRef<HTMLFormElement>(null)
   const [state, formAction, pending] = useActionState(
     depositToAccount,
     initialFormState,
   )
 
+  useEffect(() => {
+    if (!state.message) return
+
+    if (state.success) {
+      toast.success('Depósito realizado', {
+        description: state.message,
+      })
+      formRef.current?.reset()
+    } else {
+      toast.error('Error al depositar', {
+        description: state.message,
+      })
+    }
+  }, [state])
+
   return (
     <form
+      ref={formRef}
       action={formAction}
       className='flex flex-col gap-4 w-full max-w-lg p-6 sm:p-8 bg-surface rounded-xl border border-surface-border my-4 shadow-md'
     >
@@ -69,17 +86,6 @@ export default function DepositForm({
       >
         {pending ? 'Depositando...' : 'Depositar'}
       </button>
-
-      {state.message && (
-        <p
-          className={cn(
-            'text-center font-medium text-sm mt-2',
-            state.success ? 'text-success-500' : 'text-danger-500',
-          )}
-        >
-          {state.message}
-        </p>
-      )}
     </form>
   )
 }

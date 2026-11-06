@@ -1,9 +1,9 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useActionState, useRef } from 'react'
+import { useActionState, useEffect, useRef } from 'react'
+import { toast } from 'sonner'
 import { requestLoan } from '@/actions/requestLoanAction'
-import { cn } from '@/src/lib/utils'
 import type { TBranchOffice } from '@/src/types/branchOffice'
 import type { TUserBankAccount } from '@/src/types/homebanking'
 
@@ -25,6 +25,21 @@ export default function LoanRequestForm({
     initialFormState,
   )
   const router = useRouter()
+
+  useEffect(() => {
+    if (!state.message) return
+
+    if (state.success) {
+      toast.success('Solicitud de préstamo enviada', {
+        description: state.message,
+      })
+      formRef.current?.reset()
+    } else {
+      toast.error('Error en la solicitud de préstamo', {
+        description: state.message,
+      })
+    }
+  }, [state])
 
   const handleFormReset = () => {
     formRef.current?.reset()
@@ -170,16 +185,7 @@ export default function LoanRequestForm({
         </div>
       </fieldset>
 
-      <div
-        className={cn(
-          'min-h-[2rem] flex flex-wrap items-center justify-center text-center text-sm font-medium break-all',
-          state.success ? 'text-success-500' : 'text-danger-500',
-        )}
-      >
-        {state.message}
-      </div>
-
-      <div className='flex flex-wrap gap-4 justify-center self-center'>
+      <div className='flex flex-wrap gap-4 justify-center self-center mt-2'>
         <input
           type='button'
           onClick={handleFormReset}
