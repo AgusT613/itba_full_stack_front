@@ -5,8 +5,8 @@ export default async function Page() {
   const aliasList = await getAccountAliases()
 
   return (
-    <div>
-      <h1>Depósito</h1>
+    <div className='flex flex-col gap-4'>
+      <h1 className='text-2xl font-bold'>Depósito</h1>
       <DepositForm aliasList={aliasList} />
     </div>
   )

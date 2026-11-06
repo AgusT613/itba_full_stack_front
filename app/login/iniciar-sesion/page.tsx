@@ -1,8 +1,6 @@
 import SignInForm from '@/src/components/login/SignInForm'
 import ToggleForm from '@/src/components/login/toggleForm/ToggleForm'
 
-import styles from '../layout.module.css'
-
 export const metadata = {
   title: 'Inicio de sesión - ITBANK',
   description:
@@ -12,10 +10,10 @@ export const metadata = {
 export default function Page() {
   return (
     <>
-      <h2 className={styles.formTitle}>Iniciar Sesión</h2>
+      <h2 className='text-2xl font-bold text-center'>Iniciar Sesión</h2>
       <SignInForm />
       <ToggleForm to='/login/registrarse'>
-        Deseas crearte una cuenta? Registrate aquí
+        ¿Deseas crearte una cuenta? Regístrate aquí
       </ToggleForm>
     </>
   )

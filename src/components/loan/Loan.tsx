@@ -3,8 +3,8 @@
 import { useRouter } from 'next/navigation'
 import { useActionState } from 'react'
 import { deleteLoan } from '@/actions/deleteLoanAction'
+import { cn } from '@/src/lib/utils'
 import type { TLoan } from '@/src/types/loan'
-import styles from './loan.module.css'
 
 const initialFormState = {
   message: '',
@@ -19,10 +19,12 @@ export default function Loan({ loan }: { loan: TLoan }) {
   const router = useRouter()
 
   return (
-    <article className={styles.card}>
-      <h3 className={styles.h3}>Prestamo {loan.loan_type}</h3>
+    <article className='bg-surface p-6 rounded-xl flex flex-col gap-3 shadow-md border border-surface-border'>
+      <h3 className='text-xl font-bold text-center'>
+        Prestamo {loan.loan_type}
+      </h3>
 
-      <ul>
+      <ul className='flex flex-col gap-1.5 text-sm'>
         <li>
           <span>ID del prestamo: {loan.id}</span>
         </li>
@@ -64,20 +66,33 @@ export default function Loan({ loan }: { loan: TLoan }) {
       {!state.success && (
         <form action={formAction}>
           <input type='text' name='loan_id' value={loan.id} readOnly hidden />
-          <button className={styles.deleteBtn} type='submit' disabled={pending}>
+          <button
+            className='bg-danger-500 hover:bg-danger-600 active:bg-danger-700 text-white font-medium cursor-pointer rounded-md p-2 transition-colors w-full disabled:opacity-50'
+            type='submit'
+            disabled={pending}
+          >
             {pending ? 'Cancelando...' : 'Cancelar Prestamo'}
           </button>
         </form>
       )}
 
-      <div
-        className={state.success ? styles.successMessage : styles.errorMessage}
-      >
-        {state.message}
-      </div>
+      {state.message && (
+        <div
+          className={cn(
+            'text-center font-medium text-sm',
+            state.success ? 'text-success-500' : 'text-danger-500',
+          )}
+        >
+          {state.message}
+        </div>
+      )}
 
       {state.success && (
-        <button className={styles.refreshPage} onClick={() => router.refresh()}>
+        <button
+          type='button'
+          className='bg-success-500 hover:bg-success-600 text-white font-medium p-2 rounded-md cursor-pointer transition-colors w-full text-center text-sm'
+          onClick={() => router.refresh()}
+        >
           Actualizar página
         </button>
       )}

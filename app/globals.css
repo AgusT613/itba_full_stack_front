@@ -1,29 +1,36 @@
 @import 'tailwindcss';
 
-/* *,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-  outline: none;
-  border: none;
-} */
+@theme {
+  /* Brand Bank Colors */
+  --color-bank-primary: #8213df;
+  --color-bank-primary-hover: #710ec2;
+  --color-bank-secondary: #7568ff;
+  --color-bank-accent: #a855f7;
+
+  /* Semantic Status Colors */
+  --color-bank-success: #10b981;
+  --color-bank-danger: #ef4444;
+  --color-bank-warning: #f59e0b;
+
+  /* Surface & Card Backgrounds */
+  --color-surface-card: rgba(0, 0, 0, 0.25);
+  --color-surface-hover: rgba(255, 255, 255, 0.08);
+  --color-border-subtle: rgba(255, 255, 255, 0.15);
+}
 
 body {
   color: #eee;
-  background: rgb(117, 104, 255);
+  min-height: 100vh;
   background: linear-gradient(
     30deg,
-    rgba(117, 104, 255, 1) 0%,
-    rgba(130, 19, 223, 1) 0%,
+    #7568ff 0%,
+    #8213df 0%,
     rgba(128, 54, 236, 1) 10%,
-    rgba(117, 104, 255, 1) 28%,
+    #7568ff 28%,
     rgba(135, 104, 255, 1) 49%,
-    rgba(117, 104, 255, 1) 71%,
+    #7568ff 71%,
     rgba(121, 44, 232, 1) 90%,
-    rgba(130, 19, 223, 1) 100%
+    #8213df 100%
   );
 }
 
@@ -31,10 +38,6 @@ a {
   text-decoration: none;
   display: block;
 }
-
-/* :is(a, select, input, button) {
-  color: #eee;
-} */
 
 button {
   cursor: pointer;
@@ -44,8 +47,8 @@ button {
   width: 7px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(130, 19, 223, 1);
+  background: #8213df;
 }
 ::-webkit-scrollbar-track {
-  background: rgb(117, 104, 255);
+  background: #7568ff;
 }

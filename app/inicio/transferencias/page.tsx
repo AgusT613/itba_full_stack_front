@@ -6,7 +6,6 @@ import {
   getUserSavedAliases,
 } from '@/src/lib/dataFetch'
 import { transferHistoryTableHeader } from '@/utils/tableHeaders'
-import styles from './page.module.css'
 
 export const metadata = {
   title: 'Transferencias - ITBANK',
@@ -20,9 +19,9 @@ export default async function Page() {
   const savedAliases = await getUserSavedAliases()
 
   return (
-    <div className={styles.container}>
-      <section className={`${styles.wrapper} ${styles.transferForm}`}>
-        <h2 className={styles.title}>Realizar Transferencia</h2>
+    <div className='flex flex-col lg:flex-row gap-8 items-start'>
+      <section className='w-full lg:max-w-md flex flex-col gap-4'>
+        <h2 className='text-2xl font-bold'>Realizar Transferencia</h2>
         <MakeTransferForm
           bankAccountsAlias={bankAccountsAlias}
           savedAliases={savedAliases}
@@ -30,51 +29,11 @@ export default async function Page() {
       </section>
 
       {transfersData.length > 0 && (
-        <section className={`${styles.wrapper} ${styles.transferHistory}`}>
-          <h2 className={styles.title}>Historial de Transferencias</h2>
+        <section className='w-full flex-1 flex flex-col gap-4'>
+          <h2 className='text-2xl font-bold'>Historial de Transferencias</h2>
           <Table data={transfersData} header={transferHistoryTableHeader} />
         </section>
       )}
-
-      {/* <section className={styles.wrapper}>
-        <h2 className={styles.title}>Historial de Transferencias</h2>
-        <form className={styles.form}>
-          <div className={styles.inputDateWrapper}>
-            <div className={styles.inputWrapper}>
-              <label htmlFor='dateFrom' className={styles.label}>
-                Desde
-              </label>
-              <input
-                id='dateFrom'
-                type='date'
-                name='dateFrom'
-                className={styles.input}
-              />
-            </div>
-            <div className={styles.inputWrapper}>
-              <label htmlFor='dateTo' className={styles.label}>
-                Hasta
-              </label>
-              <input
-                id='dateTo'
-                type='date'
-                name='dateTo'
-                className={styles.input}
-              />
-            </div>
-          </div>
-          <div className={styles.inputWrapper}>
-            <label htmlFor='type' className={styles.label}>
-              Tipo
-            </label>
-            <select id='type' name='type' className={styles.input}>
-              <option value='text'>Realizadas</option>
-              <option value='text'>Recibidas</option>
-            </select>
-          </div>
-          <input type='submit' className={styles.inputSubmit} value='Filtrar' />
-        </form>
-      </section> */}
     </div>
   )
 }

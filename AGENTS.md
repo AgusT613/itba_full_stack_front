@@ -166,10 +166,10 @@ When modifying this repository, be aware of the following:
    - Multiple components have untyped event handlers or implicit `any` parameters (e.g. `(e) => ...`, `RootLayout({ children })`).
    - Any new code written by agents must use explicit TypeScript typing.
 
-2. **Styling Inconsistency (Migration in Progress)**:
-   - Older components use CSS Modules (`*.module.css`).
-   - Newer components (e.g., `src/components/addAliasForm/AddAliasForm.tsx`) and layout tweaks use Tailwind CSS v4.
-   - Prefer Tailwind CSS utility classes and modern component patterns for newly developed features.
+2. **Styling Architecture (Tailwind CSS v4 Complete Migration)**:
+   - All legacy CSS Modules have been completely refactored to **Tailwind CSS v4** utility classes with centralized design tokens in `app/globals.css` (`@theme`).
+   - Reusable class composition is standardized via `cn()` in `src/lib/utils.ts` (`clsx` + `tailwind-merge`).
+   - Keep styles consistent with the `@theme` semantic tokens (`bg-surface`, `border-surface-border`, `text-primary-500`, etc.).
 
 3. **Cookie Access Null Safety**:
    - In `src/lib/getSessionToken.ts`, accessing `(await cookies()).get('session_token').value` directly causes a `TypeError` if the cookie is undefined.

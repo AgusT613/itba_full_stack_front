@@ -5,16 +5,14 @@ import BankResourceWrapper from '@/src/components/home/bankResources/BankResourc
 import Hero from '@/src/components/home/hero/Hero'
 import { homeLinks } from '@/utils/headerLinks'
 
-import styles from './page.module.css'
-
 export default function Page() {
   return (
-    <div className={styles.wrapper}>
+    <div className='min-h-screen grid grid-cols-1 md:grid-cols-[10rem_1fr]'>
       <AsideNav
         links={homeLinks}
         bankLogoProps={{ href: '#init', title: 'Home' }}
       />
-      <div>
+      <div className='flex flex-col min-w-0'>
         <main>
           <Hero />
           <BankResourceWrapper />

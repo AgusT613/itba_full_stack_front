@@ -1,10 +1,19 @@
-import styles from './formMessage.module.css'
+import type { ReactNode } from 'react'
 
-export default function FormMessage({ message, success }) {
+export default function FormMessage({
+  message,
+  success,
+}: {
+  message?: ReactNode
+  success?: boolean
+}) {
+  if (!message) return null
+
   return (
     <div
-      className={styles.messageContainer}
-      style={{ color: `${success ? '#62cb62' : '#ff748b'}` }}
+      className={`max-w-md w-full text-center text-balance mx-auto my-3 bg-black/20 p-3 rounded-xl text-sm font-medium ${
+        success ? 'text-success-500' : 'text-danger-500'
+      }`}
     >
       {message}
     </div>

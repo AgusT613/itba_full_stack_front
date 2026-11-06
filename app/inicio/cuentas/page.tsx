@@ -1,6 +1,5 @@
 import AccountCard from '@/src/components/accountCard/AccountCard'
 import { getAccounts } from '@/src/lib/dataFetch'
-import styles from './page.module.css'
 
 export const metadata = {
   title: 'Cuentas - ITBANK',
@@ -12,12 +11,14 @@ export default async function Page() {
   const bankAccounts = await getAccounts()
 
   return bankAccounts ? (
-    <section className={styles.cardsWrapper}>
+    <section className='flex flex-wrap justify-center gap-8 py-4'>
       {bankAccounts.map((account) => (
         <AccountCard key={account.account_number} account={account} />
       ))}
     </section>
   ) : (
-    <p>No tienes cuentas registradas.</p>
+    <p className='text-sm text-foreground/70 py-6 text-center'>
+      No tienes cuentas registradas.
+    </p>
   )
 }

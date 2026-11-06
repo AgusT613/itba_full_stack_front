@@ -3,9 +3,9 @@
 import { useRouter } from 'next/navigation'
 import { useActionState, useRef } from 'react'
 import { requestLoan } from '@/actions/requestLoanAction'
+import { cn } from '@/src/lib/utils'
 import type { TBranchOffice } from '@/src/types/branchOffice'
 import type { TUserBankAccount } from '@/src/types/homebanking'
-import styles from './loanRequestForm.module.css'
 
 const initialFormState = {
   success: false,
@@ -35,25 +35,33 @@ export default function LoanRequestForm({
   }
 
   return (
-    <form ref={formRef} action={formAction} className={styles.form}>
-      <fieldset className={styles.fieldset}>
-        <legend className={styles.legend}>Préstamo</legend>
+    <form
+      ref={formRef}
+      action={formAction}
+      className='flex flex-col items-center justify-center gap-4 py-8 px-4 rounded-lg w-full max-w-2xl mx-auto'
+    >
+      <fieldset className='w-full border-2 border-surface-border p-4 sm:p-6 rounded-lg flex flex-col gap-4'>
+        <legend className='mx-4 sm:mx-8 px-2 text-lg font-medium'>
+          Préstamo
+        </legend>
 
-        <div className={styles.formRow}>
-          <label htmlFor='branch_office_id' className={styles.label}>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
+          <label htmlFor='branch_office_id' className='text-sm font-medium'>
             Sucursal
           </label>
           <select
             id='branch_office_id'
             name='branch_office_id'
-            className={styles.select}
+            className='w-full p-2 rounded-md bg-transparent border-2 border-black/40 focus:outline-none focus:border-primary-500'
           >
-            <option value=''>Elegir sucursal</option>
+            <option value='' className='text-black bg-white'>
+              Elegir sucursal
+            </option>
             {branchOfficesList.map((sucursal) => (
               <option
                 value={sucursal.id}
                 key={sucursal.id}
-                className={styles.option}
+                className='text-black bg-white'
               >
                 {sucursal.name} - {sucursal.address}
               </option>
@@ -61,21 +69,23 @@ export default function LoanRequestForm({
           </select>
         </div>
 
-        <div className={styles.formRow}>
-          <label htmlFor='user_account_id' className={styles.label}>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
+          <label htmlFor='user_account_id' className='text-sm font-medium'>
             Cuenta de usuario
           </label>
           <select
             id='user_account_id'
             name='user_account_id'
-            className={styles.select}
+            className='w-full p-2 rounded-md bg-transparent border-2 border-black/40 focus:outline-none focus:border-primary-500'
           >
-            <option value=''>Elegir cuenta de usuario</option>
+            <option value='' className='text-black bg-white'>
+              Elegir cuenta de usuario
+            </option>
             {bankAccounts.map((account) => (
               <option
                 value={account.id}
                 key={account.id}
-                className={styles.option}
+                className='text-black bg-white'
               >
                 {account.alias} - {account.account_number}
               </option>
@@ -83,32 +93,44 @@ export default function LoanRequestForm({
           </select>
         </div>
 
-        <div className={styles.formRow}>
-          <label htmlFor='loan_type' className={styles.label}>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
+          <label htmlFor='loan_type' className='text-sm font-medium'>
             Tipo de préstamo
           </label>
-          <select id='loan_type' name='loan_type' className={styles.select}>
-            <option value=''>Elegir tipo de prestamo</option>
-            <option value='hipotecario'>Préstamo hipotecario</option>
-            <option value='personal'>Préstamo personal</option>
-            <option value='prendario'>Préstamo prendario</option>
+          <select
+            id='loan_type'
+            name='loan_type'
+            className='w-full p-2 rounded-md bg-transparent border-2 border-black/40 focus:outline-none focus:border-primary-500'
+          >
+            <option value='' className='text-black bg-white'>
+              Elegir tipo de prestamo
+            </option>
+            <option value='hipotecario' className='text-black bg-white'>
+              Préstamo hipotecario
+            </option>
+            <option value='personal' className='text-black bg-white'>
+              Préstamo personal
+            </option>
+            <option value='prendario' className='text-black bg-white'>
+              Préstamo prendario
+            </option>
           </select>
         </div>
 
-        <div className={styles.formRow}>
-          <label htmlFor='due_date' className={styles.label}>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
+          <label htmlFor='due_date' className='text-sm font-medium'>
             Fecha de finalización del préstamo
           </label>
           <input
             id='due_date'
             type='date'
             name='due_date'
-            className={styles.input}
+            className='w-full p-2 rounded-md bg-transparent border-2 border-black/40 focus:outline-none focus:border-primary-500'
           />
         </div>
 
-        <div className={styles.formRow}>
-          <label htmlFor='amount' className={styles.label}>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
+          <label htmlFor='amount' className='text-sm font-medium'>
             Monto
           </label>
           <input
@@ -116,12 +138,12 @@ export default function LoanRequestForm({
             type='number'
             name='amount'
             placeholder='500000'
-            className={styles.input}
+            className='w-full p-2 rounded-md bg-transparent border-2 border-black/40 focus:outline-none focus:border-primary-500'
           />
         </div>
 
-        <div className={styles.formRow}>
-          <label htmlFor='interest_rate' className={styles.label}>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
+          <label htmlFor='interest_rate' className='text-sm font-medium'>
             Tasa de interés
           </label>
           <input
@@ -130,12 +152,12 @@ export default function LoanRequestForm({
             name='interest_rate'
             placeholder='0.15'
             step='0.01'
-            className={styles.input}
+            className='w-full p-2 rounded-md bg-transparent border-2 border-black/40 focus:outline-none focus:border-primary-500'
           />
         </div>
 
-        <div className={styles.formRow}>
-          <label htmlFor='total_installments' className={styles.label}>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
+          <label htmlFor='total_installments' className='text-sm font-medium'>
             Cantidad de cuotas
           </label>
           <input
@@ -143,36 +165,39 @@ export default function LoanRequestForm({
             type='number'
             name='total_installments'
             placeholder='24'
-            className={styles.input}
+            className='w-full p-2 rounded-md bg-transparent border-2 border-black/40 focus:outline-none focus:border-primary-500'
           />
         </div>
       </fieldset>
 
       <div
-        className={`${styles.messageContainer} ${state.success ? styles.successMessage : styles.errorMessage}`}
+        className={cn(
+          'min-h-[2rem] flex flex-wrap items-center justify-center text-center text-sm font-medium break-all',
+          state.success ? 'text-success-500' : 'text-danger-500',
+        )}
       >
         {state.message}
       </div>
 
-      <div className={styles.buttonRow}>
+      <div className='flex flex-wrap gap-4 justify-center self-center'>
         <input
           type='button'
           onClick={handleFormReset}
           value='Reiniciar formulario'
-          className={styles.button}
+          className='w-40 rounded-md p-2 cursor-pointer bg-black/20 hover:bg-black/60 transition-colors font-medium text-sm'
         />
         <input
           type='submit'
           disabled={pending}
           value={pending ? 'Enviando...' : 'Pedir préstamo'}
-          className={styles.button}
+          className='w-40 rounded-md p-2 cursor-pointer bg-black/20 hover:bg-black/60 transition-colors font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed'
         />
         {state.success && (
           <input
             type='button'
             onClick={handleResetPage}
             value='Recargar página'
-            className={styles.button}
+            className='w-40 rounded-md p-2 cursor-pointer bg-black/20 hover:bg-black/60 transition-colors font-medium text-sm'
           />
         )}
       </div>
