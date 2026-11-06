@@ -1,9 +1,8 @@
 'use client'
 
+import { LogOut, Menu, X } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { GiHamburgerMenu } from 'react-icons/gi'
-import { GrClose } from 'react-icons/gr'
 
 import signOutAction from '@/actions/signOutAction'
 import { cn } from '@/src/lib/utils'
@@ -60,7 +59,11 @@ export default function AsideNav({
           asideNavVisible ? 'left-36' : 'right-3',
         )}
       >
-        {asideNavVisible ? <GrClose /> : <GiHamburgerMenu />}
+        {asideNavVisible ? (
+          <X className='w-5 h-5' />
+        ) : (
+          <Menu className='w-5 h-5' />
+        )}
       </button>
 
       <aside
@@ -83,8 +86,9 @@ export default function AsideNav({
           <button
             type='button'
             onClick={handleLogOut}
-            className='w-max mx-auto cursor-pointer bg-black/60 hover:bg-black/90 text-white text-xs font-semibold py-2 px-4 rounded-xl transition-colors mt-4'
+            className='w-max mx-auto flex items-center gap-1.5 cursor-pointer bg-black/60 hover:bg-black/90 text-white text-xs font-semibold py-2 px-4 rounded-xl transition-colors mt-4'
           >
+            <LogOut className='w-3.5 h-3.5' />
             Cerrar Sesión
           </button>
         )}

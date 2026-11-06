@@ -1,3 +1,4 @@
+import { ArrowDownToLine, ArrowRightLeft, QrCode, UserPlus } from 'lucide-react'
 import SectionDivider from '@/src/components/sectionDivider/SectionDivider'
 import type { TUserBankAccount } from '@/src/types/homebanking'
 import CurrentMoney from '../currentMoney/CurrentMoney'
@@ -17,22 +18,22 @@ export default function AccountMoney({
       <article className='flex flex-wrap gap-4 justify-around pt-2'>
         <UserAction
           actionName='Ingresar'
-          className="bg-[url('/icons8-iniciar-la-transferencia-de-dinero-32.png')]"
+          icon={<ArrowDownToLine className='w-6 h-6' />}
           href='/inicio/depositar'
         />
         <UserAction
           actionName='Transferir'
-          className="bg-[url('/icons8-flujo-de-fondos-32.png')]"
+          icon={<ArrowRightLeft className='w-6 h-6' />}
           href='/inicio/transferencias'
         />
         <UserAction
           actionName='Mi alias'
-          className="bg-[url('/icons8-chequera-32.png')]"
+          icon={<QrCode className='w-6 h-6' />}
           href='/inicio/alias'
         />
         <UserAction
           actionName='Agregar alias'
-          className="bg-[url('/icons8-tarjeta-de-crédito-mastercard-96.png')]"
+          icon={<UserPlus className='w-6 h-6' />}
           href='/inicio/agregar-alias'
         />
       </article>

@@ -37,7 +37,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 | **UI Library**           | React 19.3.1                           | React 19 hooks (`useActionState`, `useFormStatus`, `cache`)                      |
 | **Language**             | TypeScript 6.0.3                       | Target `ES2017`, paths mapped to `@/*`                                           |
 | **Styling**              | Tailwind CSS v4 & CSS Modules          | `@tailwindcss/postcss` 4.3.4 alongside scoped `*.module.css`                     |
-| **Icons**                | React Icons 5.7.0                      | FontAwesome, Feather, Material Design icons                                      |
+| **Icons**                | Lucide React 1.70.0                    | Modern, unified vector icons (`lucide-react`)                                    |
 | **Images**               | Sharp 0.35.5 & `next/image`            | Optimized remote images from `randomuser.me`                                     |
 | **Routing Guard**        | Next.js `proxy.ts`                     | Modern Next.js file convention for proxying and routing control                  |
 | **Linting & Formatting** | Biome 2.6 (`biome.json`)               | High-performance Rust-based linter, formatter and import organizer               |
@@ -228,8 +228,8 @@ The testing strategy is structured into unit, integration/mocking, and end-to-en
 - [ ] **Tremor / Recharts Financial Visualizations**:
   - Add expense categorization and cash flow charts to the dashboard.
   - Interactive loan amortization breakdown charts.
-- [ ] **Lucide Icons**: Standardize iconography across all navigation and card components with `lucide-react` for a cleaner, modern aesthetic.
-- [ ] **Toast Notifications**: Replace inline status messages with [Sonner](https://sonner.emilkowal.ski/) or shadcn toasts for instant transfer and deposit feedback.
+- [x] **Toast Notifications**: Replaced inline status messages with Sonner toasts for instant transfer and deposit feedback.
+- [x] **Lucide Icons**: Standardized iconography across all navigation and card components with `lucide-react` for a cleaner, modern aesthetic.
 - [ ] **Framer Motion**: Add tactile micro-interactions (e.g., 3D flipping credit cards, smooth accordion menus, animated balance increments).
 - [ ] **Design Tokens & Dark Mode**: Unify purple/indigo gradient accents into CSS variables / Tailwind theme configuration, supporting seamless dark/light mode switching.
 

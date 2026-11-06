@@ -66,7 +66,7 @@ La plataforma cuenta con un portal público y un panel privado de homebanking pr
 - **Librería UI**: [React 19.3.1](https://react.dev/) aprovechando `useActionState` y `cache()`.
 - **Lenguaje**: [TypeScript 6.0.3](https://www.typescriptlang.org/).
 - **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) combinado con CSS Modules (`*.module.css`) y CSS personalizado.
-- **Iconos**: [React Icons 5.7.0](https://react-icons.github.io/react-icons/).
+- **Iconos**: [Lucide React 1.70.0](https://lucide.dev/).
 - **Optimización de Imágenes**: [Sharp 0.35.5](https://sharp.pixelplumbing.com/) junto a `next/image`.
 - **Linter & Formatter**: [Biome 2.6](https://biomejs.dev/) (linter, formateador y organizador de imports unificado en Rust).
 - **Backend API**: [FastAPI](https://github.com/AgusT613/itba-full-stack-back-fastapi).
