@@ -17,4 +17,12 @@ test.describe('Route Protection & Proxy Guard', () => {
 
     await expect(page).toHaveURL(/.*login\/iniciar-sesion/)
   })
+
+  test('redirects unauthenticated user accessing /inicio/prestamos to login page', async ({
+    page,
+  }) => {
+    await page.goto('/inicio/prestamos')
+
+    await expect(page).toHaveURL(/.*login\/iniciar-sesion/)
+  })
 })

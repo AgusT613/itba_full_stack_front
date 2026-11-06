@@ -28,6 +28,15 @@ describe('LoanCalculator component', () => {
 
     // Formula: (100000 * 0.01) / (1 - (1.01)^-12) ≈ 8884.88
     expect(screen.getByText('$8884.88')).toBeInTheDocument()
+
+    // Financial breakdown cards
+    expect(screen.getByText('Capital Solicitado')).toBeInTheDocument()
+    expect(screen.getByText('Intereses Totales')).toBeInTheDocument()
+    expect(screen.getByText('Total a Reintegrar')).toBeInTheDocument()
+
+    // Chart headings
+    expect(screen.getByText('Composición del Préstamo')).toBeInTheDocument()
+    expect(screen.getByText('Evolución de Saldo Remanente')).toBeInTheDocument()
   })
 
   it('shows error message if fields are zero or negative', () => {

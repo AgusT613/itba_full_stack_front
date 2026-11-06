@@ -1,12 +1,21 @@
 'use client'
 
 import { type ChangeEvent, type FormEvent, useState } from 'react'
+import {
+  calculateAmortization,
+  type LoanCalculationSummary,
+} from '@/src/lib/amortization'
+import LoanAmortizationChart from './LoanAmortizationChart'
+import LoanBreakdownDonut from './LoanBreakdownDonut'
 
 export default function LoanCalculator() {
   const [amount, setAmount] = useState(0)
   const [amortization, setAmortization] = useState(0)
   const [interest, setInterest] = useState(0)
   const [result, setResult] = useState<string>('$0')
+  const [calculation, setCalculation] = useState<LoanCalculationSummary | null>(
+    null,
+  )
 
   const handleChangeAmount = (e: ChangeEvent<HTMLInputElement>) =>
     setAmount(Number.parseInt(e.target.value, 10) || 0)
@@ -17,36 +26,30 @@ export default function LoanCalculator() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    /*
-      Formula para calculo de prestamos
-        Cuota Mensual = (Capital * i) / (1 - (1+i) ** (-n))
-
-      Capital = dinero prestado (amount)
-      i = interes en decimales
-      n = numero total de plazos
-    */
     if (amount > 0 && amortization > 0 && interest > 0) {
-      const i = interest / 100 / 12
-      const n = amortization * 12
-      const monthFee = (amount * i) / (1 - (1 + i) ** -n)
-      setResult(`$${monthFee.toFixed(2)}`)
+      const summary = calculateAmortization(amount, amortization, interest)
+      if (summary) {
+        setCalculation(summary)
+        setResult(`$${summary.monthlyFee.toFixed(2)}`)
+      }
     } else {
+      setCalculation(null)
       setResult('Todos los campos deben ser mayor a cero')
     }
   }
 
   return (
-    <>
+    <div className='flex flex-col gap-6'>
       <form
         onSubmit={handleSubmit}
-        className='my-4 grid grid-cols-1 md:grid-cols-3 gap-4 bg-black/20 p-5 rounded-xl'
+        className='grid grid-cols-1 md:grid-cols-3 gap-4 bg-surface p-6 rounded-2xl border border-surface-border shadow-md'
       >
         <div className='flex flex-col gap-2'>
-          <label htmlFor='amount' className='font-bold text-sm'>
+          <label htmlFor='amount' className='font-bold text-sm text-foreground'>
             Importe a financiar
           </label>
           <input
-            className='w-full text-black bg-white rounded-md p-2 border-none focus:outline-none focus:ring-2 focus:ring-primary-400'
+            className='w-full text-foreground bg-black/30 border border-surface-border rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500'
             id='amount'
             type='number'
             placeholder='En $. Ej.: 80000'
@@ -54,11 +57,11 @@ export default function LoanCalculator() {
           />
         </div>
         <div className='flex flex-col gap-2'>
-          <label htmlFor='period' className='font-bold text-sm'>
+          <label htmlFor='period' className='font-bold text-sm text-foreground'>
             Plazo de amortizacion
           </label>
           <input
-            className='w-full text-black bg-white rounded-md p-2 border-none focus:outline-none focus:ring-2 focus:ring-primary-400'
+            className='w-full text-foreground bg-black/30 border border-surface-border rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500'
             id='period'
             type='number'
             placeholder='En años. Ej.: 2'
@@ -66,30 +69,77 @@ export default function LoanCalculator() {
           />
         </div>
         <div className='flex flex-col gap-2'>
-          <label htmlFor='interest' className='font-bold text-sm'>
+          <label
+            htmlFor='interest'
+            className='font-bold text-sm text-foreground'
+          >
             Interes del prestador
           </label>
           <input
-            className='w-full text-black bg-white rounded-md p-2 border-none focus:outline-none focus:ring-2 focus:ring-primary-400'
+            className='w-full text-foreground bg-black/30 border border-surface-border rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500'
             id='interest'
             type='number'
             placeholder='En %. Ej.: 5'
             onChange={handleChangeInterest}
           />
         </div>
-        <input
+        <button
           type='submit'
-          value='Calcular'
-          className='col-span-full cursor-pointer uppercase font-semibold text-base p-2 bg-white text-black hover:bg-black/50 hover:text-white active:bg-black/30 rounded-md transition-all'
-        />
+          className='col-span-full cursor-pointer uppercase font-semibold text-sm p-3 bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white rounded-lg transition-colors shadow-sm'
+        >
+          Calcular
+        </button>
       </form>
 
-      <section className='p-4 flex gap-4 flex-wrap items-center justify-around bg-black/20 rounded-xl'>
-        <h3 className='text-center text-balance text-base'>
+      <section className='p-6 flex flex-col sm:flex-row gap-4 items-center justify-between bg-surface rounded-2xl border border-surface-border shadow-md'>
+        <h3 className='text-base font-semibold text-foreground/80'>
           Resultado de Cuota Mensual
         </h3>
-        <span className='text-base font-bold'>{result}</span>
+        <span className='text-2xl font-bold text-white tracking-wide'>
+          {result}
+        </span>
       </section>
-    </>
+
+      {calculation && (
+        <div className='flex flex-col gap-6 animate-in fade-in-50 duration-300'>
+          <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
+            <div className='bg-surface border border-surface-border rounded-xl p-4 flex flex-col gap-1 shadow-sm'>
+              <span className='text-xs text-foreground/70 font-medium'>
+                Capital Solicitado
+              </span>
+              <span className='text-lg font-bold text-white'>
+                ${calculation.principal.toLocaleString('es-AR')}
+              </span>
+            </div>
+
+            <div className='bg-surface border border-surface-border rounded-xl p-4 flex flex-col gap-1 shadow-sm'>
+              <span className='text-xs text-foreground/70 font-medium'>
+                Intereses Totales
+              </span>
+              <span className='text-lg font-bold text-pink-400'>
+                ${calculation.totalInterest.toLocaleString('es-AR')}
+              </span>
+            </div>
+
+            <div className='bg-surface border border-surface-border rounded-xl p-4 flex flex-col gap-1 shadow-sm'>
+              <span className='text-xs text-foreground/70 font-medium'>
+                Total a Reintegrar
+              </span>
+              <span className='text-lg font-bold text-primary-300'>
+                ${calculation.totalRepayment.toLocaleString('es-AR')}
+              </span>
+            </div>
+          </div>
+
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 bg-surface p-6 rounded-2xl border border-surface-border shadow-md'>
+            <LoanBreakdownDonut
+              principal={calculation.principal}
+              totalInterest={calculation.totalInterest}
+            />
+            <LoanAmortizationChart schedule={calculation.schedule} />
+          </div>
+        </div>
+      )}
+    </div>
   )
 }

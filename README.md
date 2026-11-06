@@ -67,6 +67,7 @@ La plataforma cuenta con un portal público y un panel privado de homebanking pr
 - **Lenguaje**: [TypeScript 6.0.3](https://www.typescriptlang.org/).
 - **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) con tokens de diseño `@theme` centralizados.
 - **Componentes UI Accesibles**: [Radix UI](https://www.radix-ui.com/) (primitivas headless para modales, selects y acordeones).
+- **Visualización de Datos**: [Recharts 3.x](https://recharts.org/) (gráficos de flujo de fondos y cronograma de amortización de préstamos).
 - **Notificaciones**: [Sonner](https://sonner.emilkowal.ski/) (toasts modernos y accesibles con soporte React 19).
 - **Iconos**: [Lucide React 1.70.0](https://lucide.dev/).
 - **Optimización de Imágenes**: [Sharp 0.35.5](https://sharp.pixelplumbing.com/) junto a `next/image`.

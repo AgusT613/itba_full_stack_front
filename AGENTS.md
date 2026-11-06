@@ -226,9 +226,9 @@ The testing strategy is structured into unit, integration/mocking, and end-to-en
 ### 2. UI/UX & Design Modernization
 
 - [x] **shadcn/ui & Radix UI Primitives**: Replaced custom dropdowns, dialogs, and alerts with accessible, headless primitives styled with Tailwind CSS v4.
-- [ ] **Tremor / Recharts Financial Visualizations**:
-  - Add expense categorization and cash flow charts to the dashboard.
-  - Interactive loan amortization breakdown charts.
+- [x] **Recharts Financial Visualizations**:
+  - Cash flow (ingresos vs egresos) chart on the main dashboard (`/inicio`).
+  - Interactive loan amortization breakdown and schedule charts (`LoanCalculator.tsx`).
 - [x] **Toast Notifications**: Replaced inline status messages with Sonner toasts for instant transfer and deposit feedback.
 - [x] **Lucide Icons**: Standardized iconography across all navigation and card components with `lucide-react` for a cleaner, modern aesthetic.
 - [ ] **Framer Motion**: Add tactile micro-interactions (e.g., 3D flipping credit cards, smooth accordion menus, animated balance increments).
