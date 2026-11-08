@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 import signOutAction from '@/actions/signOutAction'
+import { ThemeToggle } from '@/src/components/theme/ThemeToggle'
 import { cn } from '@/src/lib/utils'
 import type { INavItem } from '@/src/types/navItem'
 import BankLogo from '../bankLogo/BankLogo'
@@ -55,7 +56,7 @@ export default function AsideNav({
         }}
         aria-label={asideNavVisible ? 'Cerrar navegación' : 'Abrir navegación'}
         className={cn(
-          'hidden max-[600px]:flex fixed top-3 z-[60] w-9 h-9 rounded-full bg-white text-black items-center justify-center cursor-pointer shadow-lg transition-transform hover:scale-105 pointer-events-auto',
+          'hidden max-[600px]:flex fixed top-3 z-[60] w-9 h-9 rounded-full bg-surface text-foreground border border-surface-border items-center justify-center cursor-pointer shadow-lg transition-transform hover:scale-105 pointer-events-auto',
           asideNavVisible ? 'left-36' : 'right-3',
         )}
       >
@@ -68,8 +69,8 @@ export default function AsideNav({
 
       <aside
         className={cn(
-          'sticky top-0 z-50 h-screen bg-[#5a28ab]/60 backdrop-blur-md flex flex-col items-center justify-between py-6 px-2 transition-all duration-300 w-full',
-          responsive && 'fixed top-0 left-0 w-44 bg-black/85 shadow-2xl',
+          'sticky top-0 z-50 h-screen bg-surface-card/85 border-r border-surface-border backdrop-blur-md flex flex-col items-center justify-between py-6 px-2 transition-all duration-300 w-full',
+          responsive && 'fixed top-0 left-0 w-44 bg-surface shadow-2xl',
           responsive &&
             !asideNavVisible &&
             'w-0 p-0 overflow-hidden bg-transparent backdrop-blur-none pointer-events-none',
@@ -82,16 +83,19 @@ export default function AsideNav({
           </nav>
         </div>
 
-        {isHomebanking && (
-          <button
-            type='button'
-            onClick={handleLogOut}
-            className='w-max mx-auto flex items-center gap-1.5 cursor-pointer bg-black/60 hover:bg-black/90 text-white text-xs font-semibold py-2 px-4 rounded-xl transition-colors mt-4'
-          >
-            <LogOut className='w-3.5 h-3.5' />
-            Cerrar Sesión
-          </button>
-        )}
+        <div className='w-full flex flex-col items-center gap-3'>
+          <ThemeToggle />
+          {isHomebanking && (
+            <button
+              type='button'
+              onClick={handleLogOut}
+              className='w-max mx-auto flex items-center gap-1.5 cursor-pointer bg-black/60 hover:bg-black/90 text-white text-xs font-semibold py-2 px-4 rounded-xl transition-colors'
+            >
+              <LogOut className='w-3.5 h-3.5' />
+              Cerrar Sesión
+            </button>
+          )}
+        </div>
       </aside>
     </>
   )

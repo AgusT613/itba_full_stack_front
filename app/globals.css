@@ -1,5 +1,41 @@
 @import 'tailwindcss';
 
+:root {
+  /* Scoped CSS variables - Light Theme */
+  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #ede9fe 40%, #f1f5f9 100%);
+  --color-fg: #0f172a;
+  --color-surf: rgba(255, 255, 255, 0.88);
+  --color-surf-card: rgba(255, 255, 255, 0.95);
+  --color-surf-hover: rgba(0, 0, 0, 0.05);
+  --color-surf-border: rgba(0, 0, 0, 0.12);
+  --color-bdr-subtle: rgba(0, 0, 0, 0.08);
+  --scrollbar-thumb: #a855f7;
+  --scrollbar-track: #e2e8f0;
+}
+
+.dark {
+  /* Scoped CSS variables - Dark Theme (Signature ITBANK) */
+  --bg-gradient: linear-gradient(
+    30deg,
+    #7568ff 0%,
+    #8213df 0%,
+    rgba(128, 54, 236, 1) 10%,
+    #7568ff 28%,
+    rgba(135, 104, 255, 1) 49%,
+    #7568ff 71%,
+    rgba(121, 44, 232, 1) 90%,
+    #8213df 100%
+  );
+  --color-fg: #ffffff;
+  --color-surf: rgba(18, 10, 36, 0.75);
+  --color-surf-card: rgba(0, 0, 0, 0.25);
+  --color-surf-hover: rgba(255, 255, 255, 0.08);
+  --color-surf-border: rgba(255, 255, 255, 0.15);
+  --color-bdr-subtle: rgba(255, 255, 255, 0.15);
+  --scrollbar-thumb: #8213df;
+  --scrollbar-track: #7568ff;
+}
+
 @theme {
   /* Brand Bank Colors */
   --color-bank-primary: #8213df;
@@ -12,29 +48,22 @@
   --color-bank-danger: #ef4444;
   --color-bank-warning: #f59e0b;
 
-  /* Surface & Card Backgrounds */
-  --color-surface: rgba(18, 10, 36, 0.75);
-  --color-surface-card: rgba(0, 0, 0, 0.25);
-  --color-surface-hover: rgba(255, 255, 255, 0.08);
-  --color-surface-border: rgba(255, 255, 255, 0.15);
-  --color-border-subtle: rgba(255, 255, 255, 0.15);
-  --color-foreground: #ffffff;
+  /* Surface & Card Backgrounds mapped to dynamic scoped variables */
+  --color-surface: var(--color-surf);
+  --color-surface-card: var(--color-surf-card);
+  --color-surface-hover: var(--color-surf-hover);
+  --color-surface-border: var(--color-surf-border);
+  --color-border-subtle: var(--color-bdr-subtle);
+  --color-foreground: var(--color-fg);
 }
 
 body {
-  color: #eee;
+  color: var(--color-fg);
   min-height: 100vh;
-  background: linear-gradient(
-    30deg,
-    #7568ff 0%,
-    #8213df 0%,
-    rgba(128, 54, 236, 1) 10%,
-    #7568ff 28%,
-    rgba(135, 104, 255, 1) 49%,
-    #7568ff 71%,
-    rgba(121, 44, 232, 1) 90%,
-    #8213df 100%
-  );
+  background: var(--bg-gradient);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 a {
@@ -50,10 +79,10 @@ button {
   width: 7px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #8213df;
+  background: var(--scrollbar-thumb);
 }
 ::-webkit-scrollbar-track {
-  background: #7568ff;
+  background: var(--scrollbar-track);
 }
 
 @keyframes accordion-down {

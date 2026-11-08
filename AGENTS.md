@@ -234,7 +234,7 @@ The testing strategy is structured into unit, integration/mocking, and end-to-en
 - [x] **Motion & Tactile Micro-Interactions**:
   - Interactive 3D flip card visualizer with EMV chip, contactless icon, magnetic stripe, and CVV on `/inicio/tarjetas` and dashboard.
   - Animated spring balance roll-up counter in header/dashboard (`CurrentMoney.tsx`).
-- [ ] **Design Tokens & Dark Mode**: Unify purple/indigo gradient accents into CSS variables / Tailwind theme configuration, supporting seamless dark/light mode switching.
+- [x] **Design Tokens & Dark Mode**: Unify purple/indigo gradient accents into CSS variables / Tailwind theme configuration with `next-themes`, supporting seamless dark/light/system mode switching.
 
 ---
 
