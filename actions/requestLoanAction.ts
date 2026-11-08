@@ -6,7 +6,7 @@ export const requestLoan = async (initialState, formData: FormData) => {
   const rawFormData = Object.fromEntries(formData)
   const dueDate = new Date(formData.get('due_date') as string)
 
-  if (isNaN(dueDate.getTime())) {
+  if (Number.isNaN(dueDate.getTime())) {
     return {
       success: false,
       message: 'Fecha de vencimiento no válida',

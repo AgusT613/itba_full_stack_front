@@ -21,7 +21,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - **Landing & Public Portal**: Marketing landing page, customer resources, branch office locator, newsletter subscription, and legal information.
 - **Authentication & Route Guard**: User registration and login with cookie-based JWT sessions (`session_token`), with backend health checks and route protection via Next.js `proxy.ts`.
 - **Accounts Dashboard**: Consolidated balance overview, recent transaction feeds, profile summary, and multi-account breakdown.
-- **Card Management**: Credit and debit card visualizer with card details, expiration, CVV preview, and individual card routing (`/inicio/tarjetas/[tarjetaId]`).
+- **Card Management**: Interactive 3D credit and debit card visualizer with card details, expiration, CVV preview, and interactive card flip on `/inicio/tarjetas` and dashboard carousel.
 - **Transfers & Contact Aliases**: Alias-based internal/external transfers, alias directory (`/inicio/alias` and `/inicio/agregar-alias`), and historical transfer ledger.
 - **Loans & Financial Tools**: Loan application requests, list of active loans with cancellation/deletion, and an interactive loan amortization calculator.
 - **Currency Converter**: Dynamic multi-currency converter (ARS, USD, EUR, etc.) with real-time exchange rates.
@@ -70,7 +70,7 @@ itba_full_stack_front/
 │   │   ├── layout.tsx            # Dashboard shell (AsideNav sidebar + main container)
 │   │   ├── page.tsx              # Main dashboard overview
 │   │   ├── cuentas/              # User bank accounts list
-│   │   ├── tarjetas/             # Cards viewer and [tarjetaId] detail page
+│   │   ├── tarjetas/             # Interactive 3D cards viewer
 │   │   ├── transferencias/       # Money transfer form & transfer history table
 │   │   ├── alias/                # Current user alias & account identifiers
 │   │   ├── agregar-alias/        # Add recipient alias form
@@ -231,7 +231,9 @@ The testing strategy is structured into unit, integration/mocking, and end-to-en
   - Interactive loan amortization breakdown and schedule charts (`LoanCalculator.tsx`).
 - [x] **Toast Notifications**: Replaced inline status messages with Sonner toasts for instant transfer and deposit feedback.
 - [x] **Lucide Icons**: Standardized iconography across all navigation and card components with `lucide-react` for a cleaner, modern aesthetic.
-- [ ] **Framer Motion**: Add tactile micro-interactions (e.g., 3D flipping credit cards, smooth accordion menus, animated balance increments).
+- [x] **Motion & Tactile Micro-Interactions**:
+  - Interactive 3D flip card visualizer with EMV chip, contactless icon, magnetic stripe, and CVV on `/inicio/tarjetas` and dashboard.
+  - Animated spring balance roll-up counter in header/dashboard (`CurrentMoney.tsx`).
 - [ ] **Design Tokens & Dark Mode**: Unify purple/indigo gradient accents into CSS variables / Tailwind theme configuration, supporting seamless dark/light mode switching.
 
 ---

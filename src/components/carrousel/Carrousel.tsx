@@ -1,5 +1,4 @@
 import { ChevronLeft, ChevronRight, Circle, CircleDot } from 'lucide-react'
-import Link from 'next/link'
 import type { ReactNode } from 'react'
 
 interface ICarrouselItem {
@@ -14,7 +13,7 @@ export default function Carrousel({
   handlePrevious,
   itemIndex,
   setItemIndex,
-  href,
+  href: _href,
 }: {
   children: ReactNode
   itemList: ICarrouselItem[]
@@ -22,7 +21,7 @@ export default function Carrousel({
   handlePrevious: () => void
   itemIndex: number
   setItemIndex: (index: number) => void
-  href: string
+  href?: string
 }) {
   return (
     <>
@@ -35,9 +34,9 @@ export default function Carrousel({
         >
           <ChevronLeft className='w-5 h-5' />
         </button>
-        <Link href={href} className='w-full max-w-sm flex justify-center'>
-          {children}
-        </Link>
+        {/* ----------- Card -----------*/}
+        {children}
+        {/* ----------------------------*/}
         <button
           type='button'
           onClick={handleNext}

@@ -2,6 +2,7 @@
 
 import { Eye, EyeOff } from 'lucide-react'
 import { useState } from 'react'
+import AnimatedBalance from './AnimatedBalance'
 
 export default function CurrentMoney({ balance }: { balance: number }) {
   const [isVisibled, setVisibled] = useState<boolean>(false)
@@ -9,14 +10,12 @@ export default function CurrentMoney({ balance }: { balance: number }) {
 
   return (
     <article className='flex items-center gap-3'>
-      <span className='text-2xl font-bold tracking-tight'>
-        $ {isVisibled ? balance.toLocaleString() : '••••••'}
-      </span>
+      <AnimatedBalance balance={balance} isVisible={isVisibled} />
       <button
         type='button'
         onClick={reveal}
         aria-label={isVisibled ? 'Ocultar saldo' : 'Mostrar saldo'}
-        className='p-1.5 rounded-full text-foreground/70 hover:text-foreground hover:bg-white/10 transition-colors cursor-pointer text-xl'
+        className='p-1.5 rounded-full text-foreground/70 hover:text-foreground hover:bg-white/10 active:scale-90 transition-all cursor-pointer text-xl'
       >
         {isVisibled ? (
           <Eye className='w-5 h-5' />

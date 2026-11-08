@@ -38,8 +38,8 @@ La plataforma cuenta con un portal público y un panel privado de homebanking pr
    - Registro en tiempo real de actividad y últimos movimientos.
 
 4. **💳 Visualizador y Gestión de Tarjetas**:
-   - Visualización gráfica de tarjetas de crédito y débito (número enmascarado, fecha de vencimiento y CVV).
-   - Navegación a vista detallada por tarjeta (`/inicio/tarjetas/[tarjetaId]`).
+   - Visualización interactiva 3D con giro (front/back) de tarjetas de crédito y débito (número enmascarado, fecha de vencimiento y CVV).
+   - Visor integrado de tarjetas en `/inicio/tarjetas` y en el carrusel del panel principal.
 
 5. **💸 Transferencias y Libreta de Alias**:
    - Envío de transferencias entre cuentas propias o a destinatarios externos por Alias/CBU.
@@ -68,6 +68,7 @@ La plataforma cuenta con un portal público y un panel privado de homebanking pr
 - **Estilos**: [Tailwind CSS v4](https://tailwindcss.com/) con tokens de diseño `@theme` centralizados.
 - **Componentes UI Accesibles**: [Radix UI](https://www.radix-ui.com/) (primitivas headless para modales, selects y acordeones).
 - **Visualización de Datos**: [Recharts 3.x](https://recharts.org/) (gráficos de flujo de fondos y cronograma de amortización de préstamos).
+- **Animaciones & Micro-interacciones**: [Motion 12.x](https://motion.dev/) (tarjeta bancaria interactiva 3D con giro y contador de saldo fluido).
 - **Notificaciones**: [Sonner](https://sonner.emilkowal.ski/) (toasts modernos y accesibles con soporte React 19).
 - **Iconos**: [Lucide React 1.70.0](https://lucide.dev/).
 - **Optimización de Imágenes**: [Sharp 0.35.5](https://sharp.pixelplumbing.com/) junto a `next/image`.
@@ -175,7 +176,7 @@ itba_full_stack_front/
 │   │   ├── layout.tsx            # Layout con barra de navegación lateral (AsideNav)
 │   │   ├── page.tsx              # Resumen general del cliente y cuentas
 │   │   ├── cuentas/              # Listado y detalle de cuentas bancarias
-│   │   ├── tarjetas/             # Visor de tarjetas y ruta dinámica [tarjetaId]
+│   │   ├── tarjetas/             # Visor interactivo 3D de tarjetas bancarias
 │   │   ├── transferencias/       # Formulario de transferencias e historial
 │   │   ├── alias/                # Consulta de alias y CBU de la cuenta propia
 │   │   ├── agregar-alias/        # Formulario para registrar alias de terceros

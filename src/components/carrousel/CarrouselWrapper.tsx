@@ -1,6 +1,6 @@
 import useCardCarrousel from '@/src/hooks/useCardCarrousel'
 import type { TCard } from '@/src/types/homebanking'
-import Card from '../card/Card'
+import InteractiveBankCard from '../card/InteractiveBankCard'
 import Carrousel from './Carrousel'
 
 export default function CardCarrouselWrapper({
@@ -26,7 +26,7 @@ export default function CardCarrouselWrapper({
       setItemIndex={setCardListIndex}
       href={href}
     >
-      <Card card={currentCard} />
+      <InteractiveBankCard key={currentCard.id} card={currentCard} />
     </Carrousel>
   )
 }

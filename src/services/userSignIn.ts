@@ -14,7 +14,7 @@ export default async function userSignIn(formData: FormData) {
 
   const formBody = Object.keys(details)
     .map(
-      (key) => encodeURIComponent(key) + '=' + encodeURIComponent(details[key]),
+      (key) => `${encodeURIComponent(key)}=${encodeURIComponent(details[key])}`,
     )
     .join('&')
 
