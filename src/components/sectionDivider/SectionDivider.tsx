@@ -1,6 +1,5 @@
-import { ReactNode } from 'react'
-
-import styles from './sectionDivider.module.css'
+import type { ReactNode } from 'react'
+import { cn } from '@/src/lib/utils'
 
 export default function SectionDivider({
   children,
@@ -9,7 +8,14 @@ export default function SectionDivider({
   children: ReactNode
   className?: string
 }) {
-  const classList = `${styles.outline} ${className}`
-
-  return <section className={classList}>{children}</section>
+  return (
+    <section
+      className={cn(
+        'bg-surface rounded-2xl border border-surface-border p-6 shadow-md flex flex-col gap-4 max-[400px]:p-3 max-[400px]:rounded-xl',
+        className,
+      )}
+    >
+      {children}
+    </section>
+  )
 }

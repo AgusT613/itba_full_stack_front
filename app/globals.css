@@ -1,37 +1,105 @@
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-  outline: none;
-  border: none;
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Scoped CSS variables - Light Theme: Cool Slate Mist Canvas & Royal Sapphire Blue */
+  --bg-gradient: #f8fafc;
+  --color-fg: #0f172a;
+  --color-surf: rgba(248, 250, 252, 0.95);
+  --color-surf-card: #ffffff;
+  --color-surf-hover: #f1f5f9;
+  --color-surf-border: #e2e8f0;
+  --color-bdr-subtle: #cbd5e1;
+
+  /* Primary brand colors in Light Mode: Royal Sapphire Blue */
+  --color-brand-primary: #1d4ed8;
+  --color-brand-primary-hover: #1e40af;
+  --color-brand-secondary: #2563eb;
+  --color-brand-accent: #0284c7;
+  --color-brand-light: #eff6ff;
+
+  --scrollbar-thumb: #94a3b8;
+  --scrollbar-track: #f1f5f9;
+}
+
+.dark {
+  /* Scoped CSS variables - Dark Theme: Signature ITBANK Neon Violet & Deep Purple */
+  --bg-gradient: linear-gradient(
+    30deg,
+    #7568ff 0%,
+    #8213df 0%,
+    rgba(128, 54, 236, 1) 10%,
+    #7568ff 28%,
+    rgba(135, 104, 255, 1) 49%,
+    #7568ff 71%,
+    rgba(121, 44, 232, 1) 90%,
+    #8213df 100%
+  );
+  --color-fg: #ffffff;
+  --color-surf: rgba(24, 15, 46, 0.85);
+  --color-surf-card: rgba(24, 15, 46, 0.95);
+  --color-surf-hover: rgba(255, 255, 255, 0.08);
+  --color-surf-border: rgba(255, 255, 255, 0.18);
+  --color-bdr-subtle: rgba(255, 255, 255, 0.12);
+
+  /* Primary brand colors in Dark Mode: Signature Purple/Violet */
+  --color-brand-primary: #8213df;
+  --color-brand-primary-hover: #710ec2;
+  --color-brand-secondary: #7568ff;
+  --color-brand-accent: #a855f7;
+  --color-brand-light: rgba(130, 19, 223, 0.15);
+
+  --scrollbar-thumb: #8213df;
+  --scrollbar-track: #7568ff;
+}
+
+@theme {
+  /* Dynamic Primary Colors mapped to Scoped Variables */
+  --color-primary-50: var(--color-brand-light);
+  --color-primary-300: var(--color-brand-accent);
+  --color-primary-400: var(--color-brand-accent);
+  --color-primary-500: var(--color-brand-secondary);
+  --color-primary-600: var(--color-brand-primary);
+  --color-primary-700: var(--color-brand-primary-hover);
+
+  /* Brand Bank Colors */
+  --color-bank-primary: var(--color-brand-primary);
+  --color-bank-primary-hover: var(--color-brand-primary-hover);
+  --color-bank-secondary: var(--color-brand-secondary);
+  --color-bank-accent: var(--color-brand-accent);
+
+  /* Semantic Status Colors */
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+  --color-danger-700: #b91c1c;
+  --color-success-500: #10b981;
+  --color-success-600: #059669;
+  --color-bank-success: #10b981;
+  --color-bank-danger: #ef4444;
+  --color-bank-warning: #f59e0b;
+
+  /* Surface & Card Backgrounds mapped to dynamic scoped variables */
+  --color-surface: var(--color-surf);
+  --color-surface-card: var(--color-surf-card);
+  --color-surface-hover: var(--color-surf-hover);
+  --color-surface-border: var(--color-surf-border);
+  --color-border-subtle: var(--color-bdr-subtle);
+  --color-foreground: var(--color-fg);
 }
 
 body {
-  color: #eee;
-  background: rgb(117, 104, 255);
-  background: linear-gradient(
-    30deg,
-    rgba(117, 104, 255, 1) 0%,
-    rgba(130, 19, 223, 1) 0%,
-    rgba(128, 54, 236, 1) 10%,
-    rgba(117, 104, 255, 1) 28%,
-    rgba(135, 104, 255, 1) 49%,
-    rgba(117, 104, 255, 1) 71%,
-    rgba(121, 44, 232, 1) 90%,
-    rgba(130, 19, 223, 1) 100%
-  );
+  color: var(--color-fg);
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 a {
   text-decoration: none;
   display: block;
-}
-
-:is(a, select, input, button) {
-  color: #eee;
 }
 
 button {
@@ -42,8 +110,52 @@ button {
   width: 7px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(130, 19, 223, 1);
+  background: var(--scrollbar-thumb);
 }
 ::-webkit-scrollbar-track {
-  background: rgb(117, 104, 255);
+  background: var(--scrollbar-track);
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
+/* 3D Card Flip Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
 }

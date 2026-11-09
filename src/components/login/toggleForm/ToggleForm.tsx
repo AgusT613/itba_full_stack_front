@@ -1,10 +1,15 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
+import type { ReactNode } from 'react'
 
-import styles from './toggleForm.module.css'
-
-export default function ToggleForm({ children, to }) {
+export default function ToggleForm({
+  children,
+  to,
+}: {
+  children: ReactNode
+  to: string
+}) {
   const router = useRouter()
 
   const toggleFormulario = () => {
@@ -15,7 +20,7 @@ export default function ToggleForm({ children, to }) {
     <button
       type='button'
       onClick={toggleFormulario}
-      className={styles.toggleForm}
+      className='bg-transparent text-foreground/80 hover:text-foreground cursor-pointer py-3 px-6 rounded-full hover:bg-surface-hover transition-all text-sm font-medium text-center'
     >
       {children}
     </button>

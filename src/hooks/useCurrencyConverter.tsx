@@ -27,7 +27,9 @@ export default function useCurrencyConverter() {
     mainAmount,
     setMainAmount,
     secondAmount,
+    mainCurrency,
     setMainCurrency,
+    secondCurrency,
     setSecondCurrency,
   }
 }

@@ -1,7 +1,5 @@
 import CurrencyConverter from '@/src/components/currencyConverter/currencyConverter'
 
-import styles from './page.module.css'
-
 export const metadata = {
   title: 'Conversor - ITBANK',
   description:
@@ -10,8 +8,8 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <section className={styles.container}>
-      <h2>Conversor</h2>
+    <section className='flex flex-col gap-6'>
+      <h2 className='text-2xl font-bold'>Conversor de Moneda</h2>
       <CurrencyConverter />
     </section>
   )

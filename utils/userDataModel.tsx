@@ -1,8 +1,11 @@
-import { BsCash } from 'react-icons/bs'
-import { CiShop } from 'react-icons/ci'
-import { FaRegBuilding } from 'react-icons/fa'
-import { HiOutlineUsers } from 'react-icons/hi2'
-import { MdOutlineSavings, MdWorkOutline } from 'react-icons/md'
+import {
+  Banknote,
+  Briefcase,
+  Building2,
+  CreditCard,
+  Store,
+  Users,
+} from 'lucide-react'
 
 import BANNER_1 from '@/public/banner_1.jpeg'
 import BANNER_2 from '@/public/banner_2.jpeg'
@@ -168,41 +171,41 @@ export const BANK_RESOURCES = [
     description:
       'Solicitá tu tarjeta de crédito con renovación bonificada 100% digital.',
     href: '#',
-    icon: <MdOutlineSavings />,
+    icon: <CreditCard className='w-5 h-5' />,
   },
   {
     title: 'Prestamo Personal',
     description:
       'Solicitá tu préstamo personal a tasa preferencial y usalo para lo que más quieras.',
     href: '#',
-    icon: <BsCash />,
+    icon: <Banknote className='w-5 h-5' />,
   },
   {
     title: 'Cuenta Sueldo',
     description: 'Pasá tu sueldo al Ciudad y disfrutá de todos los beneficios.',
     href: '#',
-    icon: <MdWorkOutline />,
+    icon: <Briefcase className='w-5 h-5' />,
   },
   {
     title: 'Cuenta Jubilación',
     description:
       'Cobrá tu jubilación en el Ciudad y disfrutá de los ahorros que tenemos para vos.',
     href: '#',
-    icon: <HiOutlineUsers />,
+    icon: <Users className='w-5 h-5' />,
   },
   {
     title: 'Cuenta Consorcio',
     description:
       '¡Con la cuenta consorcio del Ciudad reducí el gasto bancario de las expensas!',
     href: '#',
-    icon: <FaRegBuilding />,
+    icon: <Building2 className='w-5 h-5' />,
   },
   {
     title: 'Cuenta Comercio',
     description:
       'La oferta integral que tu comercio necesita, está en el Ciudad.',
     href: '#',
-    icon: <CiShop />,
+    icon: <Store className='w-5 h-5' />,
   },
 ]
 

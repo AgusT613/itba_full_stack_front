@@ -1,5 +1,4 @@
-import styles from '@/src/components/footer/branchOffices/branchOffices.module.css'
-import { TBranchOffice } from '@/src/types/branchOffice'
+import type { TBranchOffice } from '@/src/types/branchOffice'
 
 export default async function BranchOffices({
   branchOfficesList,
@@ -7,13 +6,18 @@ export default async function BranchOffices({
   branchOfficesList: TBranchOffice[]
 }) {
   return (
-    <ul className={styles.wrapperBranchOffice}>
+    <ul className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
       {branchOfficesList.map((contact) => (
-        <article key={contact.name} className={styles.container}>
-          <h5 className={styles.title}>{contact.name}</h5>
-          <span>{contact.address}</span>
-          <span>{contact.contact}</span>
-        </article>
+        <li
+          key={contact.id ?? contact.name}
+          className='border border-surface-border rounded-lg bg-surface-card p-4 text-sm flex flex-col gap-1 shadow-sm'
+        >
+          <h6 className='font-semibold uppercase text-xs tracking-wider text-primary-600 dark:text-primary-300'>
+            {contact.name}
+          </h6>
+          <span className='text-foreground/90'>{contact.address}</span>
+          <span className='text-xs text-foreground/60'>{contact.contact}</span>
+        </li>
       ))}
     </ul>
   )

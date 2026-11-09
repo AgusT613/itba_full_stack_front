@@ -1,10 +1,9 @@
-import styles from './loginForm.module.css'
 import FormMessage from '../formMessage/FormMessage'
 
 interface ILoginForm {
   formAction: (formData: FormData) => Promise<void>
   success: boolean
-  message: string
+  message: string | null
   formTitle: string
 }
 
@@ -15,42 +14,46 @@ export default function LoginForm({
   formTitle,
 }: ILoginForm) {
   return (
-    <>
-      <form action={formAction} className={styles.form}>
-        <div className={styles.inputWrapper}>
-          <label className={styles.labelDescription} htmlFor='username'>
+    <div className='w-full max-w-sm mx-auto flex flex-col gap-4'>
+      <form action={formAction} className='flex flex-col gap-5'>
+        <div className='flex flex-col gap-1.5'>
+          <label
+            className='text-sm font-medium text-foreground/90'
+            htmlFor='username'
+          >
             Nombre de usuario
           </label>
           <input
-            className={styles.inputData}
+            className='w-full h-11 px-3 rounded-md bg-surface-card border border-surface-border focus:ring-2 focus:ring-primary-500 focus:outline-none text-foreground text-base placeholder:text-foreground/40 transition-colors shadow-sm'
             name='username'
             type='text'
             placeholder='agus123'
           />
         </div>
 
-        <div className={styles.inputWrapper}>
-          <label className={styles.labelDescription} htmlFor='password'>
+        <div className='flex flex-col gap-1.5'>
+          <label
+            className='text-sm font-medium text-foreground/90'
+            htmlFor='password'
+          >
             Contraseña
           </label>
           <input
-            className={styles.inputData}
+            className='w-full h-11 px-3 rounded-md bg-surface-card border border-surface-border focus:ring-2 focus:ring-primary-500 focus:outline-none text-foreground text-base placeholder:text-foreground/40 transition-colors shadow-sm'
             name='password'
             type='password'
             placeholder='123'
           />
         </div>
 
-        <div className={styles.inputWrapper}>
-          <input
-            className={styles.submitBtn}
-            type='submit'
-            value={formTitle}
-            disabled={success}
-          />
-        </div>
+        <input
+          className='w-full cursor-pointer uppercase font-semibold text-sm py-3 px-4 rounded-md bg-primary-600 hover:bg-primary-700 text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md mt-2'
+          type='submit'
+          value={formTitle}
+          disabled={success}
+        />
       </form>
       <FormMessage message={message} success={success} />
-    </>
+    </div>
   )
 }

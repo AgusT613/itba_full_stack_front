@@ -1,104 +1,138 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useRef, useState } from 'react'
+import { useActionState, useEffect, useRef } from 'react'
+import { toast } from 'sonner'
+import { requestLoan } from '@/actions/requestLoanAction'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/src/components/ui/select'
+import type { TBranchOffice } from '@/src/types/branchOffice'
+import type { TUserBankAccount } from '@/src/types/homebanking'
 
-import { BRANCH_OFFICE, USER } from '@/utils/userDataModel'
+const initialFormState = {
+  success: false,
+  message: '',
+}
 
-import styles from './loanRequestForm.module.css'
-
-export default function LoanRequestForm() {
-  const formRef = useRef(null)
-  const [resetPage, setResetPage] = useState(false)
-  const [message, setMessage] = useState('')
+export default function LoanRequestForm({
+  branchOfficesList,
+  bankAccounts,
+}: {
+  branchOfficesList: TBranchOffice[]
+  bankAccounts: TUserBankAccount[]
+}) {
+  const formRef = useRef<HTMLFormElement>(null)
+  const [state, formAction, pending] = useActionState(
+    requestLoan,
+    initialFormState,
+  )
   const router = useRouter()
 
+  useEffect(() => {
+    if (!state.message) return
+
+    if (state.success) {
+      toast.success('Solicitud de préstamo enviada', {
+        description: state.message,
+      })
+      formRef.current?.reset()
+    } else {
+      toast.error('Error en la solicitud de préstamo', {
+        description: state.message,
+      })
+    }
+  }, [state])
+
   const handleFormReset = () => {
-    setMessage('')
-    formRef.current.reset()
+    formRef.current?.reset()
   }
 
   const handleResetPage = () => {
     router.refresh()
-    setResetPage(!resetPage)
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const formData = Object.fromEntries(new FormData(e.target))
-
-    const body = {
-      user: USER.customer.id,
-      ...formData,
-    }
-
-    setMessage(JSON.stringify(body))
-    setResetPage(!resetPage)
   }
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
-      <fieldset className={styles.fieldset}>
-        <legend className={styles.legend}>Préstamo</legend>
+    <form
+      ref={formRef}
+      action={formAction}
+      className='flex flex-col items-center justify-center gap-4 py-8 px-4 rounded-lg w-full max-w-2xl mx-auto'
+    >
+      <fieldset className='w-full border-2 border-surface-border p-4 sm:p-6 rounded-lg flex flex-col gap-4'>
+        <legend className='mx-4 sm:mx-8 px-2 text-lg font-medium'>
+          Préstamo
+        </legend>
 
-        <div className={styles.formRow}>
-          <label htmlFor='branchOffice' className={styles.label}>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
+          <label htmlFor='branch_office_id' className='text-sm font-medium'>
             Sucursal
           </label>
-          <select
-            id='branchOffice'
-            name='branchOffice'
-            className={styles.select}
-          >
-            {BRANCH_OFFICE.map((sucursal) => (
-              <option
-                value={sucursal.id}
-                key={sucursal.id}
-                className={styles.option}
-              >
-                {sucursal.name}
-              </option>
-            ))}
-          </select>
+          <Select name='branch_office_id'>
+            <SelectTrigger id='branch_office_id'>
+              <SelectValue placeholder='Elegir sucursal' />
+            </SelectTrigger>
+            <SelectContent>
+              {branchOfficesList.map((sucursal) => (
+                <SelectItem value={String(sucursal.id)} key={sucursal.id}>
+                  {sucursal.name} - {sucursal.address}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
 
-        <div className={styles.formRow}>
-          <label htmlFor='loanType' className={styles.label}>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
+          <label htmlFor='user_account_id' className='text-sm font-medium'>
+            Cuenta de usuario
+          </label>
+          <Select name='user_account_id'>
+            <SelectTrigger id='user_account_id'>
+              <SelectValue placeholder='Elegir cuenta de usuario' />
+            </SelectTrigger>
+            <SelectContent>
+              {bankAccounts.map((account) => (
+                <SelectItem value={String(account.id)} key={account.id}>
+                  {account.alias} - {account.account_number}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
+          <label htmlFor='loan_type' className='text-sm font-medium'>
             Tipo de préstamo
           </label>
-          <select id='loanType' name='loanType' className={styles.select}>
-            <option value='hipotecario'>Préstamo hipotecario</option>
-            <option value='personal'>Préstamo personal</option>
-            <option value='prendario'>Préstamo prendario</option>
-          </select>
+          <Select name='loan_type'>
+            <SelectTrigger id='loan_type'>
+              <SelectValue placeholder='Elegir tipo de prestamo' />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value='hipotecario'>Préstamo hipotecario</SelectItem>
+              <SelectItem value='personal'>Préstamo personal</SelectItem>
+              <SelectItem value='prendario'>Préstamo prendario</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
-        <div className={styles.formRow}>
-          <label htmlFor='grandDate' className={styles.label}>
-            Fecha de inicio del préstamo
-          </label>
-          <input
-            id='grandDate'
-            type='date'
-            name='grandDate'
-            className={styles.input}
-          />
-        </div>
-
-        <div className={styles.formRow}>
-          <label htmlFor='expirationDate' className={styles.label}>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
+          <label htmlFor='due_date' className='text-sm font-medium'>
             Fecha de finalización del préstamo
           </label>
           <input
-            id='expirationDate'
+            id='due_date'
             type='date'
-            name='expirationDate'
-            className={styles.input}
+            name='due_date'
+            className='w-full p-2.5 rounded-md bg-surface-card text-foreground border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm'
           />
         </div>
 
-        <div className={styles.formRow}>
-          <label htmlFor='amount' className={styles.label}>
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
+          <label htmlFor='amount' className='text-sm font-medium'>
             Monto
           </label>
           <input
@@ -106,27 +140,57 @@ export default function LoanRequestForm() {
             type='number'
             name='amount'
             placeholder='500000'
-            className={styles.input}
+            className='w-full p-2.5 rounded-md bg-surface-card text-foreground border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm'
+          />
+        </div>
+
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
+          <label htmlFor='interest_rate' className='text-sm font-medium'>
+            Tasa de interés
+          </label>
+          <input
+            id='interest_rate'
+            type='number'
+            name='interest_rate'
+            placeholder='0.15'
+            step='0.01'
+            className='w-full p-2.5 rounded-md bg-surface-card text-foreground border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm'
+          />
+        </div>
+
+        <div className='grid grid-cols-1 md:grid-cols-[1fr_minmax(18rem,2fr)] items-center gap-2 md:gap-4'>
+          <label htmlFor='total_installments' className='text-sm font-medium'>
+            Cantidad de cuotas
+          </label>
+          <input
+            id='total_installments'
+            type='number'
+            name='total_installments'
+            placeholder='24'
+            className='w-full p-2.5 rounded-md bg-surface-card text-foreground border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm'
           />
         </div>
       </fieldset>
 
-      <div className={styles.messageContainer}>{message}</div>
-
-      <div className={styles.buttonRow}>
+      <div className='flex flex-wrap gap-4 justify-center self-center mt-2'>
         <input
           type='button'
           onClick={handleFormReset}
           value='Reiniciar formulario'
-          className={styles.button}
+          className='w-40 rounded-md p-2 cursor-pointer bg-surface hover:bg-surface-hover text-foreground border border-surface-border transition-colors font-medium text-sm shadow-sm'
         />
-        <input type='submit' value='Pedir Préstamo' className={styles.button} />
-        {resetPage && (
+        <input
+          type='submit'
+          disabled={pending}
+          value={pending ? 'Enviando...' : 'Pedir préstamo'}
+          className='w-40 rounded-md p-2 cursor-pointer bg-primary-600 hover:bg-primary-700 text-white transition-colors font-semibold text-sm shadow-sm disabled:opacity-50 disabled:cursor-not-allowed'
+        />
+        {state.success && (
           <input
             type='button'
             onClick={handleResetPage}
             value='Recargar página'
-            className={styles.button}
+            className='w-40 rounded-md p-2 cursor-pointer bg-surface hover:bg-surface-hover text-foreground border border-surface-border transition-colors font-medium text-sm shadow-sm'
           />
         )}
       </div>

@@ -1,6 +1,4 @@
-import { ReactNode } from 'react'
-
-import styles from './sectionDivider2.module.css'
+import type { ReactNode } from 'react'
 
 interface ISectionDivider2Props {
   children: ReactNode
@@ -14,9 +12,13 @@ export default function SectionDivider2({
   subtitle,
 }: ISectionDivider2Props) {
   return (
-    <section className={styles.section}>
-      <h2 className={styles.h2}>{title}</h2>
-      <span className={styles.span}>{subtitle}</span>
+    <section className='bg-surface border border-surface-border my-2 p-6 rounded-2xl shadow-sm'>
+      <h2 className='text-2xl sm:text-3xl font-semibold text-center sm:text-left text-balance'>
+        {title}
+      </h2>
+      {subtitle && (
+        <span className='text-xs opacity-80 block mt-1'>{subtitle}</span>
+      )}
       {children}
     </section>
   )

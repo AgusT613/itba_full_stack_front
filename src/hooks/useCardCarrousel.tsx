@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { TCard } from '../types/homebanking'
+import type { TCard } from '../types/homebanking'
 
 export default function useCardCarrousel(cardList: TCard[]) {
   const [cardListIndex, setCardListIndex] = useState(0)

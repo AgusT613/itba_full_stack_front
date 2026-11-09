@@ -1,8 +1,6 @@
 import SignUpForm from '@/src/components/login/SignUpForm'
 import ToggleForm from '@/src/components/login/toggleForm/ToggleForm'
 
-import styles from '../layout.module.css'
-
 export const metadata = {
   title: 'Registro de Usuario- ITBANK',
   description:
@@ -12,10 +10,10 @@ export const metadata = {
 export default function Page() {
   return (
     <>
-      <h2 className={styles.formTitle}>Registro de Usuario</h2>
+      <h2 className='text-2xl font-bold text-center'>Registro de Usuario</h2>
       <SignUpForm />
       <ToggleForm to='/login/iniciar-sesion'>
-        Ya tienes cuenta? Inicia sesión aquí
+        ¿Ya tienes cuenta? Inicia sesión aquí
       </ToggleForm>
     </>
   )
