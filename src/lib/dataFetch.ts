@@ -98,10 +98,6 @@ export const getAccountById = cache(
       },
     )
 
-    if (!res.ok) {
-      throw new Error('Failed to fetch account data')
-    }
-
     return res.json()
   },
 )

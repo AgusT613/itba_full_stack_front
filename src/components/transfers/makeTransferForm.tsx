@@ -132,11 +132,16 @@ export default function MakeTransferForm({
               />
             </SelectTrigger>
             <SelectContent>
-              {savedAliases.map((alias) => (
+              {savedAliases.length > 0 ? 
+              (savedAliases.map((alias) => (
                 <SelectItem key={alias.id} value={alias.alias}>
                   {alias.alias}
                 </SelectItem>
-              ))}
+              ))) : (
+                <SelectItem key={"no-alias"} value=''>
+                  No hay aliases disponibles
+                </SelectItem>
+              )}
             </SelectContent>
           </Select>
         )}

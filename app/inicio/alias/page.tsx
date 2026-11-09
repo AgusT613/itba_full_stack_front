@@ -1,7 +1,8 @@
-import { getAccountById } from '@/src/lib/dataFetch'
+import { getAccountById, getAccounts } from '@/src/lib/dataFetch'
 
 export default async function Page() {
-  const itbankAccount = await getAccountById('1')
+  const userAccount = await getAccounts()
+  const itbankAccount = await getAccountById(userAccount.at(0).id.toString())
 
   return (
     <div className='max-w-md mx-auto my-6 p-6 rounded-2xl bg-surface-card border border-surface-border shadow-md flex flex-col gap-3 text-foreground'>
