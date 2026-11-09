@@ -20,7 +20,7 @@ export default function ToggleForm({
     <button
       type='button'
       onClick={toggleFormulario}
-      className='bg-transparent text-white/90 hover:text-white cursor-pointer py-3 px-6 rounded-full hover:bg-black/30 transition-all text-sm font-medium text-center'
+      className='bg-transparent text-foreground/80 hover:text-foreground cursor-pointer py-3 px-6 rounded-full hover:bg-surface-hover transition-all text-sm font-medium text-center'
     >
       {children}
     </button>

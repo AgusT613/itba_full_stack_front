@@ -36,7 +36,7 @@ export default function CurrencyConverter() {
         </span>
         <input
           aria-label='Monto a convertir'
-          className='w-full h-16 text-3xl font-bold bg-transparent text-foreground border-b-2 border-primary-400 focus:outline-none focus:border-primary-300 p-2'
+          className='w-full h-16 text-3xl font-bold bg-transparent text-foreground border-b-2 border-primary-500 focus:outline-none focus:border-primary-600 p-2'
           onChange={handleAmount}
           defaultValue={mainAmount}
           type='number'

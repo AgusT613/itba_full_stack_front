@@ -30,7 +30,7 @@ export default function Carrousel({
           type='button'
           onClick={handlePrevious}
           aria-label='Anterior'
-          className='p-2 rounded-full bg-black/20 hover:bg-black/40 text-white cursor-pointer transition-colors shrink-0'
+          className='p-2 rounded-full bg-surface hover:bg-surface-hover text-foreground border border-surface-border shadow-sm cursor-pointer transition-colors shrink-0'
         >
           <ChevronLeft className='w-5 h-5' />
         </button>
@@ -41,19 +41,19 @@ export default function Carrousel({
           type='button'
           onClick={handleNext}
           aria-label='Siguiente'
-          className='p-2 rounded-full bg-black/20 hover:bg-black/40 text-white cursor-pointer transition-colors shrink-0'
+          className='p-2 rounded-full bg-surface hover:bg-surface-hover text-foreground border border-surface-border shadow-sm cursor-pointer transition-colors shrink-0'
         >
           <ChevronRight className='w-5 h-5' />
         </button>
       </div>
 
-      <div className='flex items-center justify-center gap-1.5 bg-black/20 px-3 py-1.5 rounded-full self-center my-2'>
+      <div className='flex items-center justify-center gap-1.5 bg-surface border border-surface-border px-3 py-1.5 rounded-full self-center my-2 shadow-sm'>
         {Boolean(itemList.length) &&
           itemList.map((item, index) =>
             index === itemIndex ? (
               <CircleDot
                 key={item.id}
-                className='w-4 h-4 text-primary-400 cursor-pointer'
+                className='w-4 h-4 text-primary-600 dark:text-primary-400 cursor-pointer'
               />
             ) : (
               <button
@@ -61,7 +61,7 @@ export default function Carrousel({
                 key={item.id}
                 onClick={() => setItemIndex(index)}
                 aria-label={`Ir a tarjeta ${index + 1}`}
-                className='text-white/60 hover:text-white cursor-pointer flex items-center justify-center p-0.5'
+                className='text-foreground/40 hover:text-foreground cursor-pointer flex items-center justify-center p-0.5 transition-colors'
               >
                 <Circle className='w-3.5 h-3.5' />
               </button>

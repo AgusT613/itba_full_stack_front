@@ -1,20 +1,30 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  /* Scoped CSS variables - Light Theme */
-  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #ede9fe 40%, #f1f5f9 100%);
+  /* Scoped CSS variables - Light Theme: Cool Slate Mist Canvas & Royal Sapphire Blue */
+  --bg-gradient: #f8fafc;
   --color-fg: #0f172a;
-  --color-surf: rgba(255, 255, 255, 0.88);
-  --color-surf-card: rgba(255, 255, 255, 0.95);
-  --color-surf-hover: rgba(0, 0, 0, 0.05);
-  --color-surf-border: rgba(0, 0, 0, 0.12);
-  --color-bdr-subtle: rgba(0, 0, 0, 0.08);
-  --scrollbar-thumb: #a855f7;
-  --scrollbar-track: #e2e8f0;
+  --color-surf: rgba(248, 250, 252, 0.95);
+  --color-surf-card: #ffffff;
+  --color-surf-hover: #f1f5f9;
+  --color-surf-border: #e2e8f0;
+  --color-bdr-subtle: #cbd5e1;
+
+  /* Primary brand colors in Light Mode: Royal Sapphire Blue */
+  --color-brand-primary: #1d4ed8;
+  --color-brand-primary-hover: #1e40af;
+  --color-brand-secondary: #2563eb;
+  --color-brand-accent: #0284c7;
+  --color-brand-light: #eff6ff;
+
+  --scrollbar-thumb: #94a3b8;
+  --scrollbar-track: #f1f5f9;
 }
 
 .dark {
-  /* Scoped CSS variables - Dark Theme (Signature ITBANK) */
+  /* Scoped CSS variables - Dark Theme: Signature ITBANK Neon Violet & Deep Purple */
   --bg-gradient: linear-gradient(
     30deg,
     #7568ff 0%,
@@ -27,23 +37,44 @@
     #8213df 100%
   );
   --color-fg: #ffffff;
-  --color-surf: rgba(18, 10, 36, 0.75);
-  --color-surf-card: rgba(0, 0, 0, 0.25);
+  --color-surf: rgba(24, 15, 46, 0.85);
+  --color-surf-card: rgba(24, 15, 46, 0.95);
   --color-surf-hover: rgba(255, 255, 255, 0.08);
-  --color-surf-border: rgba(255, 255, 255, 0.15);
-  --color-bdr-subtle: rgba(255, 255, 255, 0.15);
+  --color-surf-border: rgba(255, 255, 255, 0.18);
+  --color-bdr-subtle: rgba(255, 255, 255, 0.12);
+
+  /* Primary brand colors in Dark Mode: Signature Purple/Violet */
+  --color-brand-primary: #8213df;
+  --color-brand-primary-hover: #710ec2;
+  --color-brand-secondary: #7568ff;
+  --color-brand-accent: #a855f7;
+  --color-brand-light: rgba(130, 19, 223, 0.15);
+
   --scrollbar-thumb: #8213df;
   --scrollbar-track: #7568ff;
 }
 
 @theme {
+  /* Dynamic Primary Colors mapped to Scoped Variables */
+  --color-primary-50: var(--color-brand-light);
+  --color-primary-300: var(--color-brand-accent);
+  --color-primary-400: var(--color-brand-accent);
+  --color-primary-500: var(--color-brand-secondary);
+  --color-primary-600: var(--color-brand-primary);
+  --color-primary-700: var(--color-brand-primary-hover);
+
   /* Brand Bank Colors */
-  --color-bank-primary: #8213df;
-  --color-bank-primary-hover: #710ec2;
-  --color-bank-secondary: #7568ff;
-  --color-bank-accent: #a855f7;
+  --color-bank-primary: var(--color-brand-primary);
+  --color-bank-primary-hover: var(--color-brand-primary-hover);
+  --color-bank-secondary: var(--color-brand-secondary);
+  --color-bank-accent: var(--color-brand-accent);
 
   /* Semantic Status Colors */
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+  --color-danger-700: #b91c1c;
+  --color-success-500: #10b981;
+  --color-success-600: #059669;
   --color-bank-success: #10b981;
   --color-bank-danger: #ef4444;
   --color-bank-warning: #f59e0b;

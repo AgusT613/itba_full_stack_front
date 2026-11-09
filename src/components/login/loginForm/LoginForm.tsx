@@ -24,7 +24,7 @@ export default function LoginForm({
             Nombre de usuario
           </label>
           <input
-            className='w-full h-11 px-3 rounded-md bg-black/20 border border-white/20 focus:border-white focus:outline-none text-white text-base placeholder:text-white/40 transition-colors'
+            className='w-full h-11 px-3 rounded-md bg-surface-card border border-surface-border focus:ring-2 focus:ring-primary-500 focus:outline-none text-foreground text-base placeholder:text-foreground/40 transition-colors shadow-sm'
             name='username'
             type='text'
             placeholder='agus123'
@@ -39,7 +39,7 @@ export default function LoginForm({
             Contraseña
           </label>
           <input
-            className='w-full h-11 px-3 rounded-md bg-black/20 border border-white/20 focus:border-white focus:outline-none text-white text-base placeholder:text-white/40 transition-colors'
+            className='w-full h-11 px-3 rounded-md bg-surface-card border border-surface-border focus:ring-2 focus:ring-primary-500 focus:outline-none text-foreground text-base placeholder:text-foreground/40 transition-colors shadow-sm'
             name='password'
             type='password'
             placeholder='123'

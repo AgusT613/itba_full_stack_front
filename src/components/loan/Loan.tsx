@@ -92,11 +92,11 @@ export default function Loan({ loan }: { loan: TLoan }) {
         <AlertDialog>
           <AlertDialogTrigger asChild>
             <button
-              className='bg-danger-500 hover:bg-danger-600 active:bg-danger-700 text-white font-medium cursor-pointer rounded-md p-2 transition-colors w-full disabled:opacity-50'
+              className='bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-semibold cursor-pointer rounded-lg p-2.5 transition-colors w-full shadow-sm disabled:opacity-50'
               type='button'
               disabled={pending}
             >
-              {pending ? 'Cancelando...' : 'Cancelar Prestamo'}
+              {pending ? 'Cancelando...' : 'Cancelar Préstamo'}
             </button>
           </AlertDialogTrigger>
           <AlertDialogContent>

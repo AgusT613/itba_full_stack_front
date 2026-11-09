@@ -90,7 +90,7 @@ export default function MakeTransferForm({
                 'text-xs px-2.5 py-1 rounded transition-colors cursor-pointer',
                 inputType === 'text'
                   ? 'bg-primary-600 text-white font-medium'
-                  : 'bg-black/30 hover:bg-black/50 text-foreground/80',
+                  : 'bg-surface hover:bg-surface-hover text-foreground/80 border border-surface-border',
               )}
               onClick={() => setInputType('text')}
             >
@@ -102,7 +102,7 @@ export default function MakeTransferForm({
                 'text-xs px-2.5 py-1 rounded transition-colors cursor-pointer',
                 inputType === 'select'
                   ? 'bg-primary-600 text-white font-medium'
-                  : 'bg-black/30 hover:bg-black/50 text-foreground/80',
+                  : 'bg-surface hover:bg-surface-hover text-foreground/80 border border-surface-border',
               )}
               onClick={() => setInputType('select')}
             >
@@ -116,7 +116,7 @@ export default function MakeTransferForm({
             id='receiver_alias'
             type='text'
             name='receiver_alias'
-            className='w-full p-2.5 rounded-md bg-black/20 border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm'
+            className='w-full p-2.5 rounded-md bg-surface-card text-foreground border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm shadow-sm'
             placeholder='Alias'
           />
         )}
@@ -153,7 +153,7 @@ export default function MakeTransferForm({
           id='balance'
           type='text'
           name='balance'
-          className='w-full p-2.5 rounded-md bg-black/20 border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm'
+          className='w-full p-2.5 rounded-md bg-surface-card text-foreground border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm shadow-sm'
           placeholder='$1000'
         />
       </div>

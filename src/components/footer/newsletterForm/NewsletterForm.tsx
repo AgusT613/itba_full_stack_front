@@ -14,7 +14,7 @@ export default function NewsletterForm() {
       <input
         type='email'
         placeholder='Correo electrónico'
-        className='flex-1 min-w-[12rem] h-10 px-3 py-2 text-sm rounded-lg bg-surface border border-surface-border text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary-500'
+        className='flex-1 min-w-[12rem] h-10 px-3 py-2 text-sm rounded-lg bg-surface-card border border-surface-border text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm'
       />
       <div className='min-w-[14rem]'>
         <Select name='nw-interests'>

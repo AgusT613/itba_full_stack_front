@@ -33,7 +33,7 @@ export function ThemeToggle({ className }: { className?: string }) {
 
   return (
     <fieldset
-      className={`inline-flex items-center gap-1 p-1 rounded-full bg-surface border border-surface-border shadow-sm m-0 ${className || ''}`}
+      className={`inline-flex items-center gap-1 p-1 rounded-full bg-surface-card border border-surface-border shadow-sm m-0 ${className || ''}`}
     >
       <legend className='sr-only'>Seleccionar tema visual</legend>
       <button
@@ -44,7 +44,7 @@ export function ThemeToggle({ className }: { className?: string }) {
         className={`w-7 h-7 rounded-full flex items-center justify-center transition-all cursor-pointer ${
           theme === 'light'
             ? 'bg-primary-600 text-white shadow-sm scale-105'
-            : 'text-foreground/70 hover:text-foreground hover:bg-black/10 dark:hover:bg-white/10'
+            : 'text-foreground/70 hover:text-foreground hover:bg-surface-hover'
         }`}
       >
         <Sun className='w-3.5 h-3.5' />
@@ -58,7 +58,7 @@ export function ThemeToggle({ className }: { className?: string }) {
         className={`w-7 h-7 rounded-full flex items-center justify-center transition-all cursor-pointer ${
           theme === 'dark'
             ? 'bg-primary-600 text-white shadow-sm scale-105'
-            : 'text-foreground/70 hover:text-foreground hover:bg-black/10 dark:hover:bg-white/10'
+            : 'text-foreground/70 hover:text-foreground hover:bg-surface-hover'
         }`}
       >
         <Moon className='w-3.5 h-3.5' />
@@ -72,7 +72,7 @@ export function ThemeToggle({ className }: { className?: string }) {
         className={`w-7 h-7 rounded-full flex items-center justify-center transition-all cursor-pointer ${
           theme === 'system'
             ? 'bg-primary-600 text-white shadow-sm scale-105'
-            : 'text-foreground/70 hover:text-foreground hover:bg-black/10 dark:hover:bg-white/10'
+            : 'text-foreground/70 hover:text-foreground hover:bg-surface-hover'
         }`}
       >
         <Monitor className='w-3.5 h-3.5' />

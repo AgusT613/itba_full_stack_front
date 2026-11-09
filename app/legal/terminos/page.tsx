@@ -6,7 +6,7 @@ export default function Page() {
       </h1>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Introducción
         </h2>
         <p className='text-sm text-foreground/80 leading-relaxed'>
@@ -17,7 +17,7 @@ export default function Page() {
       </section>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Elegibilidad
         </h2>
         <p className='text-sm text-foreground/80 leading-relaxed'>
@@ -28,7 +28,7 @@ export default function Page() {
       </section>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Cuenta de Usuario
         </h2>
         <p className='text-sm text-foreground/80 leading-relaxed'>
@@ -39,7 +39,7 @@ export default function Page() {
       </section>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Responsabilidades
         </h2>
         <ul className='list-disc list-inside space-y-1 text-sm text-foreground/80'>
@@ -56,7 +56,7 @@ export default function Page() {
       </section>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Privacidad y Protección de Datos
         </h2>
         <p className='text-sm text-foreground/80 leading-relaxed'>
@@ -68,7 +68,7 @@ export default function Page() {
       </section>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Limitación de Responsabilidad
         </h2>
         <p className='text-sm text-foreground/80 leading-relaxed'>
@@ -79,7 +79,7 @@ export default function Page() {
       </section>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Cambios en los Términos
         </h2>
         <p className='text-sm text-foreground/80 leading-relaxed'>

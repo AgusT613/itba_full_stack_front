@@ -10,9 +10,9 @@ export default async function BranchOffices({
       {branchOfficesList.map((contact) => (
         <li
           key={contact.id ?? contact.name}
-          className='border border-surface-border rounded-lg bg-black/20 p-4 text-sm flex flex-col gap-1'
+          className='border border-surface-border rounded-lg bg-surface-card p-4 text-sm flex flex-col gap-1 shadow-sm'
         >
-          <h6 className='font-semibold uppercase text-xs tracking-wider text-primary-300'>
+          <h6 className='font-semibold uppercase text-xs tracking-wider text-primary-600 dark:text-primary-300'>
             {contact.name}
           </h6>
           <span className='text-foreground/90'>{contact.address}</span>

@@ -1,5 +1,9 @@
 export const homeLinks = [
   {
+    href: '#init',
+    title: 'Inicio',
+  },
+  {
     href: '#resources',
     title: 'Servicios',
   },

@@ -6,7 +6,7 @@ export default function Page() {
       </h1>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Introducción
         </h2>
         <p className='text-sm text-foreground/80 leading-relaxed'>
@@ -18,7 +18,7 @@ export default function Page() {
       </section>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Información que Recopilamos
         </h2>
         <p className='text-sm text-foreground/80 leading-relaxed'>
@@ -43,7 +43,7 @@ export default function Page() {
       </section>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Uso de la Información
         </h2>
         <p className='text-sm text-foreground/80 leading-relaxed'>
@@ -66,7 +66,7 @@ export default function Page() {
       </section>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Protección de la Información
         </h2>
         <p className='text-sm text-foreground/80 leading-relaxed'>
@@ -79,7 +79,7 @@ export default function Page() {
       </section>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Cookies
         </h2>
         <p className='text-sm text-foreground/80 leading-relaxed'>
@@ -92,7 +92,7 @@ export default function Page() {
       </section>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Compartición de Información
         </h2>
         <p className='text-sm text-foreground/80 leading-relaxed'>
@@ -105,7 +105,7 @@ export default function Page() {
       </section>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Sus Derechos
         </h2>
         <p className='text-sm text-foreground/80 leading-relaxed'>
@@ -117,7 +117,7 @@ export default function Page() {
       </section>
 
       <section className='flex flex-col gap-3'>
-        <h2 className='text-xl sm:text-2xl font-semibold border-b border-white/20 pb-2'>
+        <h2 className='text-xl sm:text-2xl font-semibold border-b border-surface-border pb-2'>
           Cambios en esta Política
         </h2>
         <p className='text-sm text-foreground/80 leading-relaxed'>

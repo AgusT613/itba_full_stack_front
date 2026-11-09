@@ -174,9 +174,9 @@ export default function InteractiveBankCard({
       <button
         type='button'
         onClick={handleToggleFlip}
-        className='flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full bg-surface border border-white/15 text-white hover:bg-white/10 active:scale-95 transition-all cursor-pointer shadow-sm'
+        className='flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full bg-surface border border-surface-border text-foreground hover:bg-surface-hover active:scale-95 transition-all cursor-pointer shadow-sm'
       >
-        <RotateCw className='w-3.5 h-3.5 text-primary-300' />
+        <RotateCw className='w-3.5 h-3.5 text-primary-600 dark:text-primary-300' />
         <span>{isFlipped ? 'Ver Frente' : 'Girar Tarjeta (Ver CVV)'}</span>
       </button>
     </div>

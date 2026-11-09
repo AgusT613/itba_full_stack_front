@@ -11,7 +11,7 @@ export default function SectionDivider({
   return (
     <section
       className={cn(
-        'rounded-xl p-2 text-lg outline-2 outline-[#9b92ff] max-[400px]:rounded-none max-[400px]:p-2 max-[400px]:text-base max-[400px]:outline-none',
+        'bg-surface rounded-2xl border border-surface-border p-6 shadow-md flex flex-col gap-4 max-[400px]:p-3 max-[400px]:rounded-xl',
         className,
       )}
     >

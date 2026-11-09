@@ -58,7 +58,7 @@ export default function LoanBreakdownDonut({
                 <Cell
                   key={`cell-${entry.name}`}
                   fill={COLORS[index % COLORS.length]}
-                  stroke='#180f2e'
+                  stroke='transparent'
                   strokeWidth={2}
                 />
               ))}
@@ -68,9 +68,9 @@ export default function LoanBreakdownDonut({
                 if (active && payload?.length) {
                   const item = payload[0]
                   return (
-                    <div className='rounded-lg border border-white/20 bg-[#180f2e] p-2.5 text-xs text-white shadow-xl'>
+                    <div className='rounded-lg border border-surface-border bg-surface-card p-2.5 text-xs text-foreground shadow-xl'>
                       <p className='font-semibold'>{item.name}</p>
-                      <p className='text-primary-300 font-bold'>
+                      <p className='text-primary-600 dark:text-primary-300 font-bold'>
                         ${Number(item.value).toLocaleString('es-AR')}
                       </p>
                     </div>
@@ -83,7 +83,7 @@ export default function LoanBreakdownDonut({
         </ResponsiveContainer>
         <div className='absolute inset-0 flex flex-col items-center justify-center pointer-events-none'>
           <span className='text-xs text-foreground/60'>Costo Interés</span>
-          <span className='text-base font-bold text-white'>
+          <span className='text-base font-bold text-foreground'>
             {interestPercentage}%
           </span>
         </div>

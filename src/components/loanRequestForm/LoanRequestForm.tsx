@@ -127,7 +127,7 @@ export default function LoanRequestForm({
             id='due_date'
             type='date'
             name='due_date'
-            className='w-full p-2 rounded-md bg-transparent border-2 border-black/40 focus:outline-none focus:border-primary-500'
+            className='w-full p-2.5 rounded-md bg-surface-card text-foreground border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm'
           />
         </div>
 
@@ -140,7 +140,7 @@ export default function LoanRequestForm({
             type='number'
             name='amount'
             placeholder='500000'
-            className='w-full p-2 rounded-md bg-transparent border-2 border-black/40 focus:outline-none focus:border-primary-500'
+            className='w-full p-2.5 rounded-md bg-surface-card text-foreground border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm'
           />
         </div>
 
@@ -154,7 +154,7 @@ export default function LoanRequestForm({
             name='interest_rate'
             placeholder='0.15'
             step='0.01'
-            className='w-full p-2 rounded-md bg-transparent border-2 border-black/40 focus:outline-none focus:border-primary-500'
+            className='w-full p-2.5 rounded-md bg-surface-card text-foreground border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm'
           />
         </div>
 
@@ -167,7 +167,7 @@ export default function LoanRequestForm({
             type='number'
             name='total_installments'
             placeholder='24'
-            className='w-full p-2 rounded-md bg-transparent border-2 border-black/40 focus:outline-none focus:border-primary-500'
+            className='w-full p-2.5 rounded-md bg-surface-card text-foreground border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm'
           />
         </div>
       </fieldset>
@@ -177,20 +177,20 @@ export default function LoanRequestForm({
           type='button'
           onClick={handleFormReset}
           value='Reiniciar formulario'
-          className='w-40 rounded-md p-2 cursor-pointer bg-black/20 hover:bg-black/60 transition-colors font-medium text-sm'
+          className='w-40 rounded-md p-2 cursor-pointer bg-surface hover:bg-surface-hover text-foreground border border-surface-border transition-colors font-medium text-sm shadow-sm'
         />
         <input
           type='submit'
           disabled={pending}
           value={pending ? 'Enviando...' : 'Pedir préstamo'}
-          className='w-40 rounded-md p-2 cursor-pointer bg-black/20 hover:bg-black/60 transition-colors font-medium text-sm disabled:opacity-50 disabled:cursor-not-allowed'
+          className='w-40 rounded-md p-2 cursor-pointer bg-primary-600 hover:bg-primary-700 text-white transition-colors font-semibold text-sm shadow-sm disabled:opacity-50 disabled:cursor-not-allowed'
         />
         {state.success && (
           <input
             type='button'
             onClick={handleResetPage}
             value='Recargar página'
-            className='w-40 rounded-md p-2 cursor-pointer bg-black/20 hover:bg-black/60 transition-colors font-medium text-sm'
+            className='w-40 rounded-md p-2 cursor-pointer bg-surface hover:bg-surface-hover text-foreground border border-surface-border transition-colors font-medium text-sm shadow-sm'
           />
         )}
       </div>

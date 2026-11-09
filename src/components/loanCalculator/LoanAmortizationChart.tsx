@@ -58,16 +58,16 @@ export default function LoanAmortizationChart({
             </defs>
             <CartesianGrid
               strokeDasharray='3 3'
-              stroke='rgba(255,255,255,0.1)'
+              stroke='rgba(128,128,128,0.2)'
             />
             <XAxis
               dataKey='month'
               tickFormatter={(m) => `M${m}`}
-              stroke='rgba(255,255,255,0.5)'
+              stroke='rgba(128,128,128,0.6)'
               fontSize={11}
             />
             <YAxis
-              stroke='rgba(255,255,255,0.5)'
+              stroke='rgba(128,128,128,0.6)'
               fontSize={11}
               tickFormatter={(val) =>
                 val >= 1000 ? `${(val / 1000).toFixed(0)}k` : val
@@ -78,15 +78,15 @@ export default function LoanAmortizationChart({
                 if (active && payload?.length) {
                   const data = payload[0].payload as AmortizationPoint
                   return (
-                    <div className='rounded-lg border border-white/20 bg-[#180f2e] p-2.5 text-xs text-white shadow-xl flex flex-col gap-1'>
+                    <div className='rounded-lg border border-surface-border bg-surface-card p-2.5 text-xs text-foreground shadow-xl flex flex-col gap-1'>
                       <p className='font-semibold'>
                         Mes {data.month} (Año {data.year})
                       </p>
-                      <p className='text-primary-300'>
+                      <p className='text-primary-600 dark:text-primary-300 font-semibold'>
                         Saldo remanente: $
                         {data.remainingBalance.toLocaleString('es-AR')}
                       </p>
-                      <p className='text-white/70'>
+                      <p className='text-foreground/70'>
                         Cuota: ${data.totalPayment.toLocaleString('es-AR')}
                       </p>
                     </div>

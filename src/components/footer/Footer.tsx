@@ -50,21 +50,21 @@ export default async function Footer() {
             <Link
               href='/legal/faq'
               target='_blank'
-              className='px-3.5 py-2 rounded-md bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20 text-xs sm:text-sm font-medium transition-colors border border-surface-border'
+              className='px-3.5 py-2 rounded-md bg-surface-card hover:bg-surface-hover text-xs sm:text-sm font-medium transition-colors border border-surface-border text-foreground shadow-xs'
             >
               Preguntas frecuentes
             </Link>
             <Link
               href='/legal/privacidad'
               target='_blank'
-              className='px-3.5 py-2 rounded-md bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20 text-xs sm:text-sm font-medium transition-colors border border-surface-border'
+              className='px-3.5 py-2 rounded-md bg-surface-card hover:bg-surface-hover text-xs sm:text-sm font-medium transition-colors border border-surface-border text-foreground shadow-xs'
             >
               Privacidad
             </Link>
             <Link
               href='/legal/terminos'
               target='_blank'
-              className='px-3.5 py-2 rounded-md bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20 text-xs sm:text-sm font-medium transition-colors border border-surface-border'
+              className='px-3.5 py-2 rounded-md bg-surface-card hover:bg-surface-hover text-xs sm:text-sm font-medium transition-colors border border-surface-border text-foreground shadow-xs'
             >
               Términos y Condiciones
             </Link>

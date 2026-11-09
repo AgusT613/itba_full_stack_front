@@ -16,20 +16,20 @@ export default async function Page(props: {
       </NavigationTitle>
       <div className='max-w-md mx-auto my-6 overflow-hidden rounded-xl bg-surface border border-surface-border shadow-md'>
         <table className='w-full border-collapse text-sm'>
-          <tbody className='divide-y divide-white/10'>
-            <tr className='hover:bg-white/5 transition-colors'>
+          <tbody className='divide-y divide-surface-border'>
+            <tr className='hover:bg-surface-hover transition-colors'>
               <td className='py-3 px-4 font-semibold text-foreground/70'>
                 Empresa
               </td>
               <td className='py-3 px-4 text-right'>{factura?.recipient}</td>
             </tr>
-            <tr className='hover:bg-white/5 transition-colors'>
+            <tr className='hover:bg-surface-hover transition-colors'>
               <td className='py-3 px-4 font-semibold text-foreground/70'>
                 Descripción
               </td>
               <td className='py-3 px-4 text-right'>{factura?.description}</td>
             </tr>
-            <tr className='hover:bg-white/5 transition-colors'>
+            <tr className='hover:bg-surface-hover transition-colors'>
               <td className='py-3 px-4 font-semibold text-foreground/70'>
                 Fecha de vencimiento
               </td>
@@ -37,11 +37,11 @@ export default async function Page(props: {
                 {factura?.expirationDate}
               </td>
             </tr>
-            <tr className='hover:bg-white/5 transition-colors'>
+            <tr className='hover:bg-surface-hover transition-colors'>
               <td className='py-3 px-4 font-semibold text-foreground/70'>
                 Cantidad a pagar
               </td>
-              <td className='py-3 px-4 text-right font-bold text-primary-300'>
+              <td className='py-3 px-4 text-right font-bold text-primary-600 dark:text-primary-300'>
                 ${factura?.amount}
               </td>
             </tr>

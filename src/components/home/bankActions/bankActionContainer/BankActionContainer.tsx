@@ -21,7 +21,7 @@ export default function BankActionContainer({
 
   return (
     <div
-      className={`grid grid-cols-1 md:grid-cols-2 items-center bg-black/20 overflow-hidden ${
+      className={`grid grid-cols-1 md:grid-cols-2 items-center bg-surface-card/60 backdrop-blur-sm border-b border-surface-border overflow-hidden ${
         isReversed ? 'md:[&>*:first-child]:order-2' : ''
       }`}
     >
@@ -35,7 +35,9 @@ export default function BankActionContainer({
         />
       </div>
       <div className='p-8 md:p-12 flex flex-col items-start gap-4'>
-        <h4 className='text-2xl font-bold tracking-tight'>{title}</h4>
+        <h4 className='text-2xl font-bold tracking-tight text-foreground'>
+          {title}
+        </h4>
         <span className='text-sm text-foreground/80 leading-relaxed text-balance'>
           {description}
         </span>

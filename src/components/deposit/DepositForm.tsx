@@ -76,7 +76,7 @@ export default function DepositForm({
           id='amount'
           name='amount'
           placeholder='1000'
-          className='w-full p-2.5 rounded-md bg-black/20 border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm'
+          className='w-full p-2.5 rounded-md bg-surface-card text-foreground border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm shadow-sm'
         />
       </div>
 

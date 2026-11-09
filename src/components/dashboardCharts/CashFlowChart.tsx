@@ -39,12 +39,12 @@ export default function CashFlowChart({
     {
       type: 'Ingresos',
       amount: totalInflow,
-      fill: '#10b981',
+      fill: '#059669',
     },
     {
       type: 'Egresos',
       amount: totalOutflow,
-      fill: '#ef4444',
+      fill: '#dc2626',
     },
   ]
 
@@ -62,11 +62,11 @@ export default function CashFlowChart({
     <article className='bg-surface rounded-2xl border border-surface-border p-6 shadow-md flex flex-col gap-4'>
       <div className='flex items-center justify-between'>
         <div className='flex items-center gap-2'>
-          <div className='p-2 rounded-lg bg-primary-500/20 text-primary-300'>
+          <div className='p-2 rounded-lg bg-primary-500/15 text-primary-600 dark:text-primary-300'>
             <TrendingUp className='h-5 w-5' />
           </div>
           <div>
-            <h3 className='text-base font-semibold text-white'>
+            <h3 className='text-base font-semibold text-foreground'>
               Flujo de Fondos
             </h3>
             <p className='text-xs text-foreground/70'>
@@ -76,16 +76,16 @@ export default function CashFlowChart({
         </div>
 
         <div
-          className={`flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-full ${
+          className={`flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full border ${
             isPositive
-              ? 'bg-emerald-500/20 text-emerald-300'
-              : 'bg-rose-500/20 text-rose-300'
+              ? 'bg-emerald-100 text-emerald-800 border-emerald-300 dark:bg-emerald-500/20 dark:text-emerald-300 dark:border-emerald-500/30'
+              : 'bg-rose-100 text-rose-800 border-rose-300 dark:bg-rose-500/20 dark:text-rose-300 dark:border-rose-500/30'
           }`}
         >
           {isPositive ? (
-            <ArrowDownLeft className='h-3.5 w-3.5' />
+            <ArrowDownLeft className='h-4 w-4' />
           ) : (
-            <ArrowUpRight className='h-3.5 w-3.5' />
+            <ArrowUpRight className='h-4 w-4' />
           )}
           <span>
             {isPositive ? '+' : ''}${netCashFlow.toLocaleString('es-AR')}
@@ -94,20 +94,22 @@ export default function CashFlowChart({
       </div>
 
       <div className='grid grid-cols-2 gap-3 my-1'>
-        <div className='bg-black/30 border border-white/10 rounded-xl p-3 flex flex-col gap-1'>
-          <span className='text-xs text-emerald-400 font-medium flex items-center gap-1'>
-            <ArrowDownLeft className='h-3 w-3' /> Ingresos
+        <div className='bg-surface-card border border-emerald-200 dark:border-surface-border rounded-xl p-3 flex flex-col gap-1 shadow-sm'>
+          <span className='text-xs text-emerald-700 dark:text-emerald-400 font-bold flex items-center gap-1'>
+            <ArrowDownLeft className='h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400' />{' '}
+            Ingresos
           </span>
-          <span className='text-lg font-bold text-white'>
+          <span className='text-lg font-bold text-foreground'>
             ${totalInflow.toLocaleString('es-AR')}
           </span>
         </div>
 
-        <div className='bg-black/30 border border-white/10 rounded-xl p-3 flex flex-col gap-1'>
-          <span className='text-xs text-rose-400 font-medium flex items-center gap-1'>
-            <ArrowUpRight className='h-3 w-3' /> Egresos
+        <div className='bg-surface-card border border-rose-200 dark:border-surface-border rounded-xl p-3 flex flex-col gap-1 shadow-sm'>
+          <span className='text-xs text-rose-700 dark:text-rose-400 font-bold flex items-center gap-1'>
+            <ArrowUpRight className='h-3.5 w-3.5 text-rose-600 dark:text-rose-400' />{' '}
+            Egresos
           </span>
-          <span className='text-lg font-bold text-white'>
+          <span className='text-lg font-bold text-foreground'>
             ${totalOutflow.toLocaleString('es-AR')}
           </span>
         </div>
@@ -121,16 +123,16 @@ export default function CashFlowChart({
           >
             <CartesianGrid
               strokeDasharray='3 3'
-              stroke='rgba(255,255,255,0.1)'
+              stroke='rgba(128,128,128,0.2)'
               vertical={false}
             />
             <XAxis
               dataKey='type'
-              stroke='rgba(255,255,255,0.6)'
+              stroke='rgba(128,128,128,0.6)'
               fontSize={12}
             />
             <YAxis
-              stroke='rgba(255,255,255,0.6)'
+              stroke='rgba(128,128,128,0.6)'
               fontSize={11}
               tickFormatter={(val) =>
                 val >= 1000 ? `${(val / 1000).toFixed(0)}k` : val
@@ -141,9 +143,9 @@ export default function CashFlowChart({
                 if (active && payload?.length) {
                   const item = payload[0]
                   return (
-                    <div className='rounded-lg border border-white/20 bg-[#180f2e] p-2.5 text-xs text-white shadow-xl'>
+                    <div className='rounded-lg border border-surface-border bg-surface-card p-2.5 text-xs text-foreground shadow-xl'>
                       <p className='font-semibold'>{item.payload.type}</p>
-                      <p className='text-primary-300 font-bold'>
+                      <p className='text-primary-600 dark:text-primary-300 font-bold'>
                         ${Number(item.value).toLocaleString('es-AR')}
                       </p>
                     </div>

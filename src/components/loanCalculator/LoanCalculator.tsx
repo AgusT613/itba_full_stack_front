@@ -49,7 +49,7 @@ export default function LoanCalculator() {
             Importe a financiar
           </label>
           <input
-            className='w-full text-foreground bg-black/30 border border-surface-border rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500'
+            className='w-full text-foreground bg-surface-card border border-surface-border rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm'
             id='amount'
             type='number'
             placeholder='En $. Ej.: 80000'
@@ -61,7 +61,7 @@ export default function LoanCalculator() {
             Plazo de amortizacion
           </label>
           <input
-            className='w-full text-foreground bg-black/30 border border-surface-border rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500'
+            className='w-full text-foreground bg-surface-card border border-surface-border rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm'
             id='period'
             type='number'
             placeholder='En años. Ej.: 2'
@@ -76,7 +76,7 @@ export default function LoanCalculator() {
             Interes del prestador
           </label>
           <input
-            className='w-full text-foreground bg-black/30 border border-surface-border rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500'
+            className='w-full text-foreground bg-surface-card border border-surface-border rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 shadow-sm'
             id='interest'
             type='number'
             placeholder='En %. Ej.: 5'
@@ -95,7 +95,7 @@ export default function LoanCalculator() {
         <h3 className='text-base font-semibold text-foreground/80'>
           Resultado de Cuota Mensual
         </h3>
-        <span className='text-2xl font-bold text-white tracking-wide'>
+        <span className='text-2xl font-bold text-foreground tracking-wide'>
           {result}
         </span>
       </section>
@@ -107,7 +107,7 @@ export default function LoanCalculator() {
               <span className='text-xs text-foreground/70 font-medium'>
                 Capital Solicitado
               </span>
-              <span className='text-lg font-bold text-white'>
+              <span className='text-lg font-bold text-foreground'>
                 ${calculation.principal.toLocaleString('es-AR')}
               </span>
             </div>
@@ -116,7 +116,7 @@ export default function LoanCalculator() {
               <span className='text-xs text-foreground/70 font-medium'>
                 Intereses Totales
               </span>
-              <span className='text-lg font-bold text-pink-400'>
+              <span className='text-lg font-bold text-pink-600 dark:text-pink-400'>
                 ${calculation.totalInterest.toLocaleString('es-AR')}
               </span>
             </div>
@@ -125,7 +125,7 @@ export default function LoanCalculator() {
               <span className='text-xs text-foreground/70 font-medium'>
                 Total a Reintegrar
               </span>
-              <span className='text-lg font-bold text-primary-300'>
+              <span className='text-lg font-bold text-primary-600 dark:text-primary-300'>
                 ${calculation.totalRepayment.toLocaleString('es-AR')}
               </span>
             </div>

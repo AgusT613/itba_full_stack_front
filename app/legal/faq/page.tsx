@@ -24,7 +24,7 @@ export default function Page() {
         </h2>
         <Accordion type='multiple' className='w-full'>
           <AccordionItem value='item-1'>
-            <AccordionTrigger className='text-base text-primary-300'>
+            <AccordionTrigger className='text-base text-primary-600 dark:text-primary-300 font-semibold'>
               ¿Qué es la plataforma de Homebanking?
             </AccordionTrigger>
             <AccordionContent>
@@ -36,7 +36,7 @@ export default function Page() {
           </AccordionItem>
 
           <AccordionItem value='item-2'>
-            <AccordionTrigger className='text-base text-primary-300'>
+            <AccordionTrigger className='text-base text-primary-600 dark:text-primary-300 font-semibold'>
               ¿Cómo puedo acceder a mi cuenta?
             </AccordionTrigger>
             <AccordionContent>
@@ -47,7 +47,7 @@ export default function Page() {
           </AccordionItem>
 
           <AccordionItem value='item-3'>
-            <AccordionTrigger className='text-base text-primary-300'>
+            <AccordionTrigger className='text-base text-primary-600 dark:text-primary-300 font-semibold'>
               ¿Es seguro utilizar la plataforma?
             </AccordionTrigger>
             <AccordionContent>
@@ -58,7 +58,7 @@ export default function Page() {
           </AccordionItem>
 
           <AccordionItem value='item-4'>
-            <AccordionTrigger className='text-base text-primary-300'>
+            <AccordionTrigger className='text-base text-primary-600 dark:text-primary-300 font-semibold'>
               He olvidado mi contraseña. ¿Qué debo hacer?
             </AccordionTrigger>
             <AccordionContent>
@@ -77,7 +77,7 @@ export default function Page() {
         </h2>
         <Accordion type='multiple' className='w-full'>
           <AccordionItem value='item-ops-1'>
-            <AccordionTrigger className='text-base text-primary-300'>
+            <AccordionTrigger className='text-base text-primary-600 dark:text-primary-300 font-semibold'>
               ¿Cómo puedo hacer una transferencia bancaria?
             </AccordionTrigger>
             <AccordionContent>
@@ -90,7 +90,7 @@ export default function Page() {
           </AccordionItem>
 
           <AccordionItem value='item-ops-2'>
-            <AccordionTrigger className='text-base text-primary-300'>
+            <AccordionTrigger className='text-base text-primary-600 dark:text-primary-300 font-semibold'>
               ¿Puedo pagar servicios a través de la plataforma?
             </AccordionTrigger>
             <AccordionContent>
@@ -101,7 +101,7 @@ export default function Page() {
           </AccordionItem>
 
           <AccordionItem value='item-ops-3'>
-            <AccordionTrigger className='text-base text-primary-300'>
+            <AccordionTrigger className='text-base text-primary-600 dark:text-primary-300 font-semibold'>
               ¿Cómo puedo ver el historial de mis transacciones?
             </AccordionTrigger>
             <AccordionContent>
@@ -120,7 +120,7 @@ export default function Page() {
         </h2>
         <Accordion type='multiple' className='w-full'>
           <AccordionItem value='item-sup-1'>
-            <AccordionTrigger className='text-base text-primary-300'>
+            <AccordionTrigger className='text-base text-primary-600 dark:text-primary-300 font-semibold'>
               ¿Cómo puedo contactar con el soporte al cliente?
             </AccordionTrigger>
             <AccordionContent>
@@ -131,7 +131,7 @@ export default function Page() {
           </AccordionItem>
 
           <AccordionItem value='item-sup-2'>
-            <AccordionTrigger className='text-base text-primary-300'>
+            <AccordionTrigger className='text-base text-primary-600 dark:text-primary-300 font-semibold'>
               ¿Hay algún teléfono de contacto?
             </AccordionTrigger>
             <AccordionContent>
@@ -141,7 +141,7 @@ export default function Page() {
           </AccordionItem>
 
           <AccordionItem value='item-sup-3'>
-            <AccordionTrigger className='text-base text-primary-300'>
+            <AccordionTrigger className='text-base text-primary-600 dark:text-primary-300 font-semibold'>
               ¿Cómo puedo actualizar mis datos personales?
             </AccordionTrigger>
             <AccordionContent>
@@ -153,7 +153,7 @@ export default function Page() {
           </AccordionItem>
 
           <AccordionItem value='item-sup-4'>
-            <AccordionTrigger className='text-base text-primary-300'>
+            <AccordionTrigger className='text-base text-primary-600 dark:text-primary-300 font-semibold'>
               ¿Qué sucede si detecto una transacción no autorizada?
             </AccordionTrigger>
             <AccordionContent>

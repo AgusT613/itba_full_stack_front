@@ -11,7 +11,7 @@ export default function FormMessage({
 
   return (
     <div
-      className={`max-w-md w-full text-center text-balance mx-auto my-3 bg-black/20 p-3 rounded-xl text-sm font-medium ${
+      className={`max-w-md w-full text-center text-balance mx-auto my-3 bg-surface-card border border-surface-border shadow-sm p-3 rounded-xl text-sm font-medium ${
         success ? 'text-success-500' : 'text-danger-500'
       }`}
     >

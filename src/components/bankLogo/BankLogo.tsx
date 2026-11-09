@@ -11,16 +11,16 @@ export default function BankLogo({
   href: string
 }) {
   return (
-    <Link href={href} className='my-4 block group'>
-      <figure className='flex flex-col items-center justify-center gap-1'>
+    <Link href={href} className='my-3 block w-full px-1 group'>
+      <figure className='w-full flex flex-col items-center justify-center gap-1.5 p-3 rounded-2xl bg-slate-900/95 dark:bg-white/10 border border-slate-800 dark:border-white/15 shadow-md transition-all group-hover:scale-[1.02] group-hover:shadow-lg'>
         <Image
           src={LOGO_ITBANK}
           alt='Logo del banco ITBANK'
-          className='w-full h-auto max-w-[200px] object-contain transition-transform group-hover:scale-105'
+          className='w-full h-auto max-w-[170px] object-contain'
           priority
         />
         {children && (
-          <span className='opacity-80 text-xs hover:opacity-100 transition-opacity'>
+          <span className='text-xs text-slate-300 dark:text-white/80 group-hover:text-white transition-colors font-medium'>
             {children}
           </span>
         )}

@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         isHomebanking
         bankLogoProps={{ href: '/', title: 'Volver al Home' }}
       />
-      <main className='min-h-screen bg-black/5 dark:bg-black/20 p-4 sm:p-6 md:p-8 flex flex-col gap-6 overflow-y-auto'>
+      <main className='min-h-screen bg-slate-50/50 dark:bg-black/20 p-4 sm:p-6 md:p-8 flex flex-col gap-6 overflow-y-auto'>
         {children}
       </main>
     </div>

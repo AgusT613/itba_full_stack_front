@@ -45,7 +45,7 @@ export default function AddAliasForm() {
           type='text'
           id='alias'
           name='alias'
-          className='flex-1 p-2.5 rounded-md bg-black/20 border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm'
+          className='flex-1 p-2.5 rounded-md bg-surface-card text-foreground border border-surface-border focus:outline-none focus:ring-2 focus:ring-primary-500 text-sm shadow-sm'
           placeholder='Ej: mi.cuenta.alias'
         />
         <input
