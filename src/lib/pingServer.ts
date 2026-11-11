@@ -1,10 +1,10 @@
-import { PUBLIC_ENDPOINT } from '@/utils/apiEndpoints'
+'use server'
 
-export async function isServerAlive(
-  url: string = `${PUBLIC_ENDPOINT}server-alive`,
-): Promise<boolean> {
+import { api } from '@/src/lib/api/client'
+
+export async function isServerAlive(): Promise<boolean> {
   try {
-    const response = await fetch(url, { method: 'HEAD', cache: 'no-store' })
+    const { response } = await api.HEAD('/api/itbank/server-alive')
     return response.ok
   } catch {
     return false

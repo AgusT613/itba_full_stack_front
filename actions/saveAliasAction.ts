@@ -1,16 +1,13 @@
 'use server'
 
-import { getSessionToken } from '@/src/lib/getSessionToken'
-import { ALIAS_ENDPOINT } from '@/utils/apiEndpoints'
+import { api } from '@/src/lib/api/client'
 
 export const saveAlias = async (initialState, formData: FormData) => {
-  const alias = formData.get('alias')
+  const alias = formData.get('alias') as string
 
-  const response = await fetch(`${ALIAS_ENDPOINT.toString()}/save/${alias}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${await getSessionToken()}`,
+  const { response } = await api.POST('/api/homebanking/alias/save/{alias}', {
+    params: {
+      path: { alias },
     },
   })
 

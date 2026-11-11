@@ -97,10 +97,17 @@ La plataforma cuenta con un portal público y un panel privado de homebanking pr
 
 ### Variables de Entorno
 
-Crear un archivo `.env` o `.env.local` en la raíz del proyecto:
+Crear un archivo `.env` o `.env.local` en la raíz del proyecto (basado en `.env.example`):
 
 ```env
-NEXT_API_URL="http://0.0.0.0:8000"
+# URL del backend FastAPI para peticiones server-side (Server Components, Server Actions)
+API_URL="http://localhost:8000"
+
+# URL pública para llamadas en cliente si fueran requeridas
+NEXT_PUBLIC_API_URL="http://localhost:8000"
+
+# Timeout en milisegundos para solicitudes al backend
+API_TIMEOUT_MS=10000
 ```
 
 ### Comandos Disponibles
@@ -150,6 +157,11 @@ NEXT_API_URL="http://0.0.0.0:8000"
    npm run lint        # Verificación de lint y formato
    npm run lint:fix    # Corrección automática de lint e imports
    npm run format      # Formateo de código
+   ```
+
+8. **Regenerar tipos TypeScript desde la API de FastAPI**:
+   ```bash
+   npm run api:generate # Extrae el contrato OpenAPI y actualiza src/types/api.ts
    ```
 
 ### 🐳 Despliegue con Docker

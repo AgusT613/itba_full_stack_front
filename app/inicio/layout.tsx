@@ -2,6 +2,8 @@ import type { ReactNode } from 'react'
 import AsideNav from '@/src/components/asideNav/AsideNav'
 import { homebankingLinks } from '@/utils/headerLinks'
 
+export const dynamic = 'force-dynamic'
+
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className='min-h-screen grid grid-cols-1 md:grid-cols-[10rem_1fr]'>

@@ -100,13 +100,14 @@ itba_full_stack_front/
 │   │   └── userProfile/          # User greeting & profile header
 │   ├── hooks/                    # Custom React hooks (useCardCarrousel, useCurrencyConverter)
 │   ├── lib/                      # Core data fetching & utilities
+│   │   ├── api/                  # Type-safe OpenAPI client (openapi-fetch)
+│   │   │   └── client.ts         # Centralized API client with auth middleware
 │   │   ├── dataFetch.ts          # Server-side data fetching with react `cache()`
 │   │   ├── getSessionToken.ts    # Reads 'session_token' cookie from request headers
 │   │   └── pingServer.ts         # Backend healthcheck utility
 │   ├── services/                 # API service handlers (userSignIn, userSignUp, currency)
-│   └── types/                    # Domain TypeScript definitions (cards, loans, alias, etc.)
+│   └── types/                    # Domain & generated OpenAPI TypeScript definitions
 ├── utils/                        # Shared utility functions and static definitions
-│   ├── apiEndpoints.ts           # REST endpoint URLs derived from process.env
 │   ├── headerLinks.ts            # Sidebar navigation item configurations
 │   ├── tableHeaders.ts           # Column headers for history tables
 │   └── toDate.ts, toCapitalize.ts# Formatting helpers
@@ -271,6 +272,9 @@ npm run format:check
 
 # Production build check
 npm run build
+
+# Regenerate TypeScript types from FastAPI OpenAPI schema
+npm run api:generate
 
 # Docker build and run
 docker build -t itbank-frontend .

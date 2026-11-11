@@ -1,37 +1,36 @@
 'use server'
 import { cookies } from 'next/headers'
-
-import { LOGIN_USER_ENDPOINT } from '@/utils/apiEndpoints'
+import { api } from '@/src/lib/api/client'
 
 export default async function userSignIn(formData: FormData) {
-  const username = formData.get('username')
-  const password = formData.get('password')
-  const details = {
-    username: username as string,
-    password: password as string,
-    grant_type: 'password',
-  }
+  const username = formData.get('username') as string
+  const password = formData.get('password') as string
 
-  const formBody = Object.keys(details)
-    .map(
-      (key) => `${encodeURIComponent(key)}=${encodeURIComponent(details[key])}`,
-    )
-    .join('&')
-
-  const response = await fetch(LOGIN_USER_ENDPOINT, {
-    method: 'POST',
+  const { data, response } = await api.POST('/api/auth/token', {
+    body: {
+      username,
+      password,
+      grant_type: 'password',
+      scope: '',
+    },
+    bodySerializer(body) {
+      const params = new URLSearchParams()
+      for (const [key, val] of Object.entries(body)) {
+        if (val !== undefined && val !== null) {
+          params.append(key, String(val))
+        }
+      }
+      return params.toString()
+    },
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: formBody,
   })
 
-  if (!response.ok) {
-    console.log(response)
+  if (!response.ok || !data?.access_token) {
     return { success: false, message: 'Credenciales inválidas' }
   }
 
-  const data = await response.json()
   const cookieStore = await cookies()
 
   cookieStore.set('session_token', data.access_token, {
