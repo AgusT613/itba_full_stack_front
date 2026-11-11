@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { depositToAccount } from '@/actions/depositToAccountAction'
+import { depositToAccount } from '@/src/actions/depositToAccountAction'
 
 vi.mock('@/src/lib/getSessionToken', () => ({
   getSessionToken: vi.fn().mockResolvedValue('mocked-jwt-token'),

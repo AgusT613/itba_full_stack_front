@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import LoanCalculator from '@/src/components/loanCalculator/LoanCalculator'
+import LoanCalculator from '@/src/components/features/loans/loanCalculator/LoanCalculator'
 
 describe('LoanCalculator component', () => {
   it('renders all form inputs and initial result', () => {

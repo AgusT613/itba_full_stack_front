@@ -1,4 +1,4 @@
-import Footer from '@/src/components/footer/Footer'
+import Footer from '@/src/components/shared/footer/Footer'
 
 export const metadata = {
   title: 'Contacto - ITBANK',

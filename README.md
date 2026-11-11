@@ -197,13 +197,6 @@ El proyecto incluye un `Dockerfile` multi-etapa optimizado con la salida `standa
 
 ```text
 itba_full_stack_front/
-├── actions/                     # Server Actions de React ('use server')
-│   ├── deleteLoanAction.ts       # Cancelación y baja de préstamos
-│   ├── depositToAccountAction.ts # Depósito y acreditación de saldo
-│   ├── makeTransferAction.ts     # Procesamiento de transferencias
-│   ├── requestLoanAction.ts      # Envío de solicitud de préstamo
-│   ├── saveAliasAction.ts        # Guardado de alias en agenda de contactos
-│   └── signOutAction.ts          # Cierre de sesión y eliminación de cookie
 ├── app/                          # App Router (Páginas, Rutas y Layouts)
 │   ├── globals.css               # Estilos globales y directivas de Tailwind CSS
 │   ├── layout.tsx                # Root layout HTML
@@ -228,27 +221,30 @@ itba_full_stack_front/
 │   └── legal/                    # Secciones legales (términos, privacidad, FAQ)
 ├── public/                       # Assets estáticos (logos, imágenes, favicon)
 ├── src/
+│   ├── actions/                  # Server Actions de React ('use server')
+│   │   ├── deleteLoanAction.ts       # Cancelación y baja de préstamos
+│   │   ├── depositToAccountAction.ts # Depósito y acreditación de saldo
+│   │   ├── makeTransferAction.ts     # Procesamiento de transferencias
+│   │   ├── requestLoanAction.ts      # Envío de solicitud de préstamo
+│   │   ├── saveAliasAction.ts        # Guardado de alias en agenda de contactos
+│   │   └── signOutAction.ts          # Cierre de sesión y eliminación de cookie
 │   ├── components/               # Componentes de UI modulares
-│   │   ├── accountCard/          # Tarjetas de cuentas bancarias
-│   │   ├── accountMoney/         # Widget de saldo principal
-│   │   ├── activityRecord/       # Registro histórico de actividad
-│   │   ├── addAliasForm/         # Formulario de alias con Tailwind CSS
-│   │   ├── asideNav/             # Menú de navegación lateral
-│   │   ├── bankCards/ & card/    # Componentes de tarjetas de crédito/débito
-│   │   ├── currencyConverter/    # Widget interactivo de conversión de divisas
-│   │   ├── deposit/              # Formulario de depósito
-│   │   ├── footer/               # Pie de página con newsletter y sucursales
-│   │   ├── home/                 # Secciones del landing (Hero, BankActions, etc.)
-│   │   ├── loan/ & loanCalculator/# Componentes de préstamos y calculadora
-│   │   ├── login/                # Formularios de login y registro
-│   │   ├── table/                # Componente de tabla reutilizable
-│   │   ├── transfers/            # Formulario para emitir transferencias
-│   │   └── userProfile/          # Encabezado con información del perfil
+│   │   ├── ui/                   # Primitivas accesibles headless (AlertDialog, Select, Accordion)
+│   │   ├── shared/               # Widgets compartidos (AsideNav, Footer, Table, Theme, UserAction)
+│   │   └── features/             # Componentes específicos por dominio
+│   │       ├── accounts/         # AccountCard, AccountMoney, CurrentMoney, DepositForm
+│   │       ├── cards/            # InteractiveBankCard, BankCards, CarrouselWrapper
+│   │       ├── transfers/        # MakeTransferForm, AddAliasForm, ActivityRecord
+│   │       ├── loans/            # Loan, LoanCalculator, LoanRequestForm, OtherLoans
+│   │       ├── dashboard/        # CashFlowChart, UserProfile
+│   │       ├── currency/         # Conversor de divisas
+│   │       ├── home/             # Hero, BankActions, BankResources, AutoImagesCarrousel
+│   │       └── auth/             # LoginForm, SignInForm, SignUpForm
 │   ├── hooks/                    # Hooks personalizados (useCurrencyConverter, useCardCarrousel)
-│   ├── lib/                      # Lógica de datos (dataFetch, pingServer, getSessionToken)
+│   ├── lib/                      # Lógica de datos (dataFetch, pingServer, getSessionToken, api)
 │   ├── services/                 # Llamadas de autenticación y servicios auxiliares
-│   └── types/                    # Definiciones TypeScript de entidades y dominio
-├── utils/                        # URLs de endpoints, formato de fechas y cabeceras
+│   ├── types/                    # Definiciones TypeScript de entidades y OpenAPI
+│   └── utils/                    # Formato de fechas, cabeceras y modelos de datos
 ├── tests/                        # Suite de pruebas automatizadas
 │   ├── e2e/                      # Pruebas End-to-End con Playwright
 │   ├── unit/                     # Pruebas unitarias y de componentes con Vitest

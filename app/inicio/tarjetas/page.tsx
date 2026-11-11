@@ -1,4 +1,4 @@
-import InteractiveBankCard from '@/src/components/card/InteractiveBankCard'
+import InteractiveBankCard from '@/src/components/features/cards/card/InteractiveBankCard'
 import { getCards } from '@/src/lib/dataFetch'
 
 export default async function Page() {

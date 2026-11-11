@@ -1,4 +1,4 @@
-import CurrencyConverter from '@/src/components/currencyConverter/currencyConverter'
+import CurrencyConverter from '@/src/components/features/currency/currencyConverter/currencyConverter'
 
 export const metadata = {
   title: 'Conversor - ITBANK',

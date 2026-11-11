@@ -1,5 +1,5 @@
-import SignInForm from '@/src/components/login/SignInForm'
-import ToggleForm from '@/src/components/login/toggleForm/ToggleForm'
+import SignInForm from '@/src/components/features/auth/login/SignInForm'
+import ToggleForm from '@/src/components/features/auth/login/toggleForm/ToggleForm'
 
 export const metadata = {
   title: 'Inicio de sesión - ITBANK',

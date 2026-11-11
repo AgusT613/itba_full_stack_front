@@ -1,4 +1,4 @@
-import AddAliasForm from '@/src/components/addAliasForm/AddAliasForm'
+import AddAliasForm from '@/src/components/features/transfers/addAliasForm/AddAliasForm'
 
 export default function Page() {
   return (

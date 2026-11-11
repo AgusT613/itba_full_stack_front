@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import BankLogo from '@/src/components/bankLogo/BankLogo'
+import BankLogo from '@/src/components/shared/bankLogo/BankLogo'
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (

@@ -1,8 +1,8 @@
-import AccountMoney from '@/src/components/accountMoney/AccountMoney'
-import ActivityRecord from '@/src/components/activityRecord/ActivityRecord'
-import BankCards from '@/src/components/bankCards/BankCards'
-import CashFlowChart from '@/src/components/dashboardCharts/CashFlowChart'
-import { UserProfile } from '@/src/components/userProfile/UserProfile'
+import AccountMoney from '@/src/components/features/accounts/accountMoney/AccountMoney'
+import BankCards from '@/src/components/features/cards/bankCards/BankCards'
+import CashFlowChart from '@/src/components/features/dashboard/dashboardCharts/CashFlowChart'
+import { UserProfile } from '@/src/components/features/dashboard/userProfile/UserProfile'
+import ActivityRecord from '@/src/components/features/transfers/activityRecord/ActivityRecord'
 import { getHomebankingData } from '@/src/lib/dataFetch'
 
 export default async function Page() {
