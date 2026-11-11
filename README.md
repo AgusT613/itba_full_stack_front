@@ -15,6 +15,7 @@ Plataforma moderna de **Homebanking** desarrollada con **Next.js 16 (App Router)
   - [Prerrequisitos](#prerrequisitos)
   - [Variables de Entorno](#variables-de-entorno)
   - [Comandos Disponibles](#comandos-disponibles)
+  - [🐳 Despliegue con Docker](#-despliegue-con-docker)
 - [📂 Estructura del Proyecto](#-estructura-del-proyecto)
 
 ---
@@ -99,7 +100,7 @@ La plataforma cuenta con un portal público y un panel privado de homebanking pr
 Crear un archivo `.env` o `.env.local` en la raíz del proyecto:
 
 ```env
-NEXT_PUBLIC_API_URL="http://0.0.0.0:8000"
+NEXT_API_URL="http://0.0.0.0:8000"
 ```
 
 ### Comandos Disponibles
@@ -149,6 +150,33 @@ NEXT_PUBLIC_API_URL="http://0.0.0.0:8000"
    npm run lint        # Verificación de lint y formato
    npm run lint:fix    # Corrección automática de lint e imports
    npm run format      # Formateo de código
+   ```
+
+### 🐳 Despliegue con Docker
+
+El proyecto incluye un `Dockerfile` multi-etapa optimizado con la salida `standalone` de Next.js para generar imágenes ligeras y seguras.
+
+1. **Construir la imagen de producción**:
+
+   ```bash
+   # Construcción estándar
+   docker build -t itbank-frontend .
+
+   # O especificando la URL del backend FastAPI
+   docker build --build-arg NEXT_API_URL="http://localhost:8000" -t itbank-frontend .
+   ```
+
+2. **Ejecutar el contenedor de producción**:
+
+   ```bash
+   docker run -d -p 3000:3000 --name itbank_frontend -e NEXT_API_URL="http://localhost:8000" itbank-frontend
+   ```
+
+3. **Ejecutar en modo desarrollo con Docker (hot-reloading)**:
+
+   ```bash
+   docker build --target dev -t itbank-frontend:dev .
+   docker run -p 3000:3000 -v $(pwd):/app -v /app/node_modules -v /app/.next itbank-frontend:dev
    ```
 
 ---
@@ -221,5 +249,7 @@ itba_full_stack_front/
 ├── next.config.js                # Configuración de Next.js y dominios de imágenes
 ├── tsconfig.json                 # Configuración de compilación de TypeScript
 ├── package.json                  # Definición de dependencias y scripts
-└── biome.json                    # Configuración de Biome (linter y formatter)
+├── biome.json                    # Configuración de Biome (linter y formatter)
+├── Dockerfile                    # Construcción multi-etapa optimizada (standalone)
+└── .dockerignore                 # Archivos excluidos del contexto Docker
 ```
