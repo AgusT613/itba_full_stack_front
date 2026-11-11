@@ -206,7 +206,6 @@ itba_full_stack_front/
 │   └── signOutAction.ts          # Cierre de sesión y eliminación de cookie
 ├── app/                          # App Router (Páginas, Rutas y Layouts)
 │   ├── globals.css               # Estilos globales y directivas de Tailwind CSS
-│   ├── normalize.css             # Reseteo CSS consistente
 │   ├── layout.tsx                # Root layout HTML
 │   ├── page.tsx                  # Landing page pública
 │   ├── login/                    # Grupo de rutas de autenticación

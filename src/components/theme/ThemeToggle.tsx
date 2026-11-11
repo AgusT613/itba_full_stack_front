@@ -80,5 +80,3 @@ export function ThemeToggle({ className }: { className?: string }) {
     </fieldset>
   )
 }
-
-export default ThemeToggle

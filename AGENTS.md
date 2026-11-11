@@ -58,10 +58,8 @@ itba_full_stack_front/
 │   └── signOutAction.ts          # Session cookie invalidation
 ├── app/                          # Next.js App Router (Routes & Layouts)
 │   ├── globals.css               # Global stylesheet & Tailwind CSS import
-│   ├── normalize.css             # CSS reset
 │   ├── layout.tsx                # Root layout (HTML wrapper, lang='es')
 │   ├── page.tsx                  # Public homepage (Hero, BankActions, BankResources)
-│   ├── page.module.css           # Homepage styling
 │   ├── login/                    # Authentication route group
 │   │   ├── layout.tsx            # Login layout
 │   │   ├── iniciar-sesion/       # Sign In page

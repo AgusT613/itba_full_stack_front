@@ -108,63 +108,6 @@ export const USER = {
   ],
 }
 
-export const BRANCH_OFFICE = [
-  {
-    id: 0,
-    name: 'Sucursal ITBANK',
-    address: 'Av. Cochabamba 1078',
-    contactNumber: '+54 11 7820-5514',
-  },
-  {
-    id: 1,
-    name: 'Sucursal Andes',
-    address: 'Av. Maril 1078',
-    contactNumber: '+54 11 7720-7714',
-  },
-  {
-    id: 2,
-    name: 'Sucursal Central Plaza',
-    contactNumber: '+54 11 1234-5678',
-    address: 'Av. Central 123, Ciudad Central',
-  },
-  {
-    id: 3,
-    name: 'Sucursal Norte Vista',
-    contactNumber: '+54 11 2345-6789',
-    address: 'Calle Norte 456, Ciudad Norte',
-  },
-  {
-    id: 4,
-    name: 'Sucursal Sur Maravilla',
-    contactNumber: '+54 11 3456-7890',
-    address: 'Av. Sur 789, Ciudad Sur',
-  },
-  {
-    id: 5,
-    name: 'Sucursal Este Horizonte',
-    contactNumber: '+54 11 4567-8901',
-    address: 'Calle Este 101, Ciudad Este',
-  },
-  {
-    id: 6,
-    name: 'Sucursal Oeste Jardines',
-    contactNumber: '+54 11 5678-9012',
-    address: 'Av. Oeste 202, Ciudad Oeste',
-  },
-  {
-    id: 7,
-    name: 'Sucursal Villa Verde',
-    contactNumber: '+54 11 6789-0123',
-    address: 'Calle Verde 303, Villa Verde',
-  },
-  {
-    id: 8,
-    name: 'Sucursal Las Colinas',
-    contactNumber: '+54 11 7890-1234',
-    address: 'Calle Colinas 404, Ciudad Colinas',
-  },
-]
-
 export const BANK_RESOURCES = [
   {
     title: 'Tarjeta de Crédito',

@@ -4,7 +4,7 @@ import { Cpu, CreditCard, RotateCw, ShieldCheck, Wifi } from 'lucide-react'
 import { motion } from 'motion/react'
 import { useState } from 'react'
 
-export interface CardData {
+interface CardData {
   brand?: string
   type?: string
   card_type?: string
