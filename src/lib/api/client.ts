@@ -2,15 +2,7 @@ import createClient, { type Middleware } from 'openapi-fetch'
 import { getSessionToken } from '@/src/lib/getSessionToken'
 import type { paths } from '@/src/types/api'
 
-const BASE_URL =
-  process.env.API_URL ||
-  process.env.NEXT_PUBLIC_API_URL ||
-  'http://localhost:8000'
-
-export const api = createClient<paths>({
-  baseUrl: BASE_URL,
-  fetch: (...args) => fetch(...args),
-})
+export const api = createClient<paths>({ baseUrl: process.env.API_URL })
 
 const authMiddleware: Middleware = {
   async onRequest({ request }) {

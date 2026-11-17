@@ -102,12 +102,6 @@ Crear un archivo `.env` o `.env.local` en la raíz del proyecto (basado en `.env
 ```env
 # URL del backend FastAPI para peticiones server-side (Server Components, Server Actions)
 API_URL="http://localhost:8000"
-
-# URL pública para llamadas en cliente si fueran requeridas
-NEXT_PUBLIC_API_URL="http://localhost:8000"
-
-# Timeout en milisegundos para solicitudes al backend
-API_TIMEOUT_MS=10000
 ```
 
 ### Comandos Disponibles

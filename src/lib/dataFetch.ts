@@ -10,7 +10,6 @@ import type {
 import type { TLoan } from '../types/loan'
 import type { TTransferHistory } from '../types/transferHistory'
 import type { TUserSavedAlias } from '../types/userSavedAlias'
-import { isServerAlive } from './pingServer'
 
 export const getHomebankingData = cache(async (): Promise<HomeBankingData> => {
   const { data, error } = await api.GET('/api/homebanking/')
@@ -24,17 +23,17 @@ export const getHomebankingData = cache(async (): Promise<HomeBankingData> => {
 
 export const getBranchOffices = cache(
   async (): Promise<TBranchOffice[] | null> => {
-    if (await isServerAlive()) {
+    try {
       const { data, error } = await api.GET('/api/itbank/branch-offices')
 
       if (error || !data) {
-        throw new Error('Failed to fetch branch offices data')
+        return null
       }
 
       return data as unknown as TBranchOffice[]
+    } catch {
+      return null
     }
-
-    return null
   },
 )
 

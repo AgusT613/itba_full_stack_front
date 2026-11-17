@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom/vitest'
-import { afterAll, afterEach, beforeAll, vi } from 'vitest'
+import { afterAll, afterEach, vi } from 'vitest'
 import { server } from './mocks/server'
 
 vi.mock('sonner', () => ({
@@ -12,6 +12,6 @@ vi.mock('sonner', () => ({
   Toaster: () => null,
 }))
 
-beforeAll(() => server.listen())
+server.listen()
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
