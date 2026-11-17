@@ -4,23 +4,6 @@
  */
 
 export interface paths {
-  '/api/itbank/server-alive': {
-    parameters: {
-      query?: never
-      header?: never
-      path?: never
-      cookie?: never
-    }
-    get?: never
-    put?: never
-    post?: never
-    delete?: never
-    options?: never
-    /** Is Server Alive */
-    head: operations['is_server_alive_api_itbank_server_alive_head']
-    patch?: never
-    trace?: never
-  }
   '/api/itbank/branch-offices': {
     parameters: {
       query?: never
@@ -633,26 +616,6 @@ export interface components {
 }
 export type $defs = Record<string, never>
 export interface operations {
-  is_server_alive_api_itbank_server_alive_head: {
-    parameters: {
-      query?: never
-      header?: never
-      path?: never
-      cookie?: never
-    }
-    requestBody?: never
-    responses: {
-      /** @description Successful Response */
-      200: {
-        headers: {
-          [name: string]: unknown
-        }
-        content: {
-          'application/json': unknown
-        }
-      }
-    }
-  }
   read_item_api_itbank_branch_offices_get: {
     parameters: {
       query?: never

@@ -97,7 +97,6 @@ itba_full_stack_front/
 │   │   │   └── client.ts         # Centralized API client with auth middleware
 │   │   ├── dataFetch.ts          # Server-side data fetching with react `cache()`
 │   │   ├── getSessionToken.ts    # Reads 'session_token' cookie from request headers
-│   │   └── pingServer.ts         # Backend healthcheck utility
 │   ├── services/                 # API service handlers (userSignIn, userSignUp, currency)
 │   ├── types/                    # Domain & generated OpenAPI TypeScript definitions
 │   └── utils/                    # Shared utility functions and static definitions

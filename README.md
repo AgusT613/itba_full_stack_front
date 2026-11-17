@@ -235,7 +235,7 @@ itba_full_stack_front/
 │   │       ├── home/             # Hero, BankActions, BankResources, AutoImagesCarrousel
 │   │       └── auth/             # LoginForm, SignInForm, SignUpForm
 │   ├── hooks/                    # Hooks personalizados (useCurrencyConverter, useCardCarrousel)
-│   ├── lib/                      # Lógica de datos (dataFetch, pingServer, getSessionToken, api)
+│   ├── lib/                      # Lógica de datos (dataFetch, getSessionToken, api)
 │   ├── services/                 # Llamadas de autenticación y servicios auxiliares
 │   ├── types/                    # Definiciones TypeScript de entidades y OpenAPI
 │   └── utils/                    # Formato de fechas, cabeceras y modelos de datos
