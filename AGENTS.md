@@ -41,7 +41,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 | **Images**               | Sharp 0.35.5 & `next/image`            | Optimized remote images from `randomuser.me`                                     |
 | **Routing Guard**        | Next.js `proxy.ts`                     | Modern Next.js file convention for proxying and routing control                  |
 | **Linting & Formatting** | Biome 2.6 (`biome.json`)               | High-performance Rust-based linter, formatter and import organizer               |
-| **Backend Integration**  | FastAPI Backend                        | Communicates via REST over `NEXT_PUBLIC_API_URL` (default `http://0.0.0.0:8000`) |
+| **Backend Integration**  | FastAPI Backend                        | Communicates via REST over `API_URL` (default `http://localhost:8000`) |
 
 ---
 
@@ -49,19 +49,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ```text
 itba_full_stack_front/
-├── actions/                     # Next.js Server Actions ('use server')
-│   ├── deleteLoanAction.ts       # Loan deletion mutation
-│   ├── depositToAccountAction.ts # Account deposit mutation
-│   ├── makeTransferAction.ts     # Balance transfer mutation
-│   ├── requestLoanAction.ts      # Loan application mutation
-│   ├── saveAliasAction.ts        # Save recipient alias mutation
-│   └── signOutAction.ts          # Session cookie invalidation
 ├── app/                          # Next.js App Router (Routes & Layouts)
 │   ├── globals.css               # Global stylesheet & Tailwind CSS import
-│   ├── normalize.css             # CSS reset
 │   ├── layout.tsx                # Root layout (HTML wrapper, lang='es')
 │   ├── page.tsx                  # Public homepage (Hero, BankActions, BankResources)
-│   ├── page.module.css           # Homepage styling
 │   ├── login/                    # Authentication route group
 │   │   ├── layout.tsx            # Login layout
 │   │   ├── iniciar-sesion/       # Sign In page
@@ -81,35 +72,38 @@ itba_full_stack_front/
 │   │   └── contacto/             # Support & contact information
 │   └── legal/                    # Public legal routes (terminos, privacidad, faq)
 ├── src/
+│   ├── actions/                  # Next.js Server Actions ('use server')
+│   │   ├── deleteLoanAction.ts       # Loan deletion mutation
+│   │   ├── depositToAccountAction.ts # Account deposit mutation
+│   │   ├── makeTransferAction.ts     # Balance transfer mutation
+│   │   ├── requestLoanAction.ts      # Loan application mutation
+│   │   ├── saveAliasAction.ts        # Save recipient alias mutation
+│   │   └── signOutAction.ts          # Session cookie invalidation
 │   ├── components/               # Modular UI Components (Tailwind CSS v4)
 │   │   ├── ui/                   # Accessible headless primitives (AlertDialog, Select, Accordion)
-│   │   ├── accountCard/          # Individual bank account card
-│   │   ├── accountMoney/         # Primary balance display widget
-│   │   ├── activityRecord/       # Transaction history activity record
-│   │   ├── addAliasForm/         # Add recipient alias (React 19 useActionState + Tailwind)
-│   │   ├── asideNav/             # Collapsible / fixed navigation sidebar
-│   │   ├── bankCards/ & card/    # Credit/debit card rendering & flip card logic
-│   │   ├── currencyConverter/    # Currency converter UI & form
-│   │   ├── deposit/              # Cash deposit component
-│   │   ├── footer/               # Footer with newsletter and branch office cards
-│   │   ├── home/                 # Landing page sections (hero, bankActions, bankResources)
-│   │   ├── loan/ & loanCalculator/# Loan request & calculator components
-│   │   ├── login/                # LoginForm, SignInForm, SignUpForm
-│   │   ├── table/                # Reusable table component
-│   │   ├── transfers/            # Transfer submission form
-│   │   └── userProfile/          # User greeting & profile header
+│   │   ├── shared/               # Shared widgets (AsideNav, Footer, Table, Theme, UserAction)
+│   │   └── features/             # Domain-specific components
+│   │       ├── accounts/         # AccountCard, AccountMoney, CurrentMoney, DepositForm
+│   │       ├── cards/            # InteractiveBankCard, BankCards, CarrouselWrapper
+│   │       ├── transfers/        # MakeTransferForm, AddAliasForm, ActivityRecord
+│   │       ├── loans/            # Loan, LoanCalculator, LoanRequestForm, OtherLoans
+│   │       ├── dashboard/        # CashFlowChart, UserProfile
+│   │       ├── currency/         # CurrencyConverter components
+│   │       ├── home/             # Hero, BankActions, BankResources, AutoImagesCarrousel
+│   │       └── auth/             # LoginForm, SignInForm, SignUpForm
 │   ├── hooks/                    # Custom React hooks (useCardCarrousel, useCurrencyConverter)
 │   ├── lib/                      # Core data fetching & utilities
+│   │   ├── api/                  # Type-safe OpenAPI client (openapi-fetch)
+│   │   │   └── client.ts         # Centralized API client with auth middleware
 │   │   ├── dataFetch.ts          # Server-side data fetching with react `cache()`
 │   │   ├── getSessionToken.ts    # Reads 'session_token' cookie from request headers
-│   │   └── pingServer.ts         # Backend healthcheck utility
 │   ├── services/                 # API service handlers (userSignIn, userSignUp, currency)
-│   └── types/                    # Domain TypeScript definitions (cards, loans, alias, etc.)
-├── utils/                        # Shared utility functions and static definitions
-│   ├── apiEndpoints.ts           # REST endpoint URLs derived from process.env
-│   ├── headerLinks.ts            # Sidebar navigation item configurations
-│   ├── tableHeaders.ts           # Column headers for history tables
-│   └── toDate.ts, toCapitalize.ts# Formatting helpers
+│   ├── types/                    # Domain & generated OpenAPI TypeScript definitions
+│   └── utils/                    # Shared utility functions and static definitions
+│       ├── headerLinks.ts        # Sidebar navigation item configurations
+│       ├── imagesList.ts         # Image list for home carousel
+│       ├── tableHeaders.ts       # Column headers for history tables
+│       └── toDate.ts, toCapitalize.ts # Formatting helpers
 ├── proxy.ts                      # Route guard & redirection logic (Next.js proxy convention)
 ├── tests/                        # Automated testing suite
 │   ├── e2e/                      # Playwright End-to-End tests
@@ -121,7 +115,9 @@ itba_full_stack_front/
 ├── next.config.js                # Next.js config (remote image patterns)
 ├── tsconfig.json                 # TypeScript compiler options
 ├── package.json                  # Scripts and dependencies
-└── biome.json                    # Biome linter and formatter configuration
+├── biome.json                    # Biome linter and formatter configuration
+├── Dockerfile                    # Multi-stage production & dev Dockerfile (standalone)
+└── .dockerignore                 # Docker build context exclusions
 ```
 
 ---
@@ -269,10 +265,17 @@ npm run format:check
 
 # Production build check
 npm run build
+
+# Regenerate TypeScript types from FastAPI OpenAPI schema
+npm run api:generate
+
+# Docker build and run
+docker build -t itbank-frontend .
+docker run -p 3000:3000 -e API_URL="http://localhost:8000" itbank-frontend
 ```
 
 ### Coding Rules:
 
 - **Never commit broken builds**: Always run `npm run lint` and verify type validity before completing your task.
 - **Server vs Client**: Clearly mark files with `'use client'` or `'use server'` at the very top line. Server Actions must remain strictly separated from client bundle code.
-- **Paths**: Use the `@/*` alias for imports (e.g. `@/src/components/...`, `@/actions/...`, `@/utils/...`).
+- **Paths**: Use the `@/*` alias for imports (e.g. `@/src/components/...`, `@/src/actions/...`, `@/src/utils/...`).

@@ -1,13 +1,5 @@
 import { cache } from 'react'
-import {
-  ACCOUNTS_ENDPOINT,
-  ALIAS_ENDPOINT,
-  BRANCH_OFFICES_ENDPOINT,
-  CARDS_ENDPOINT,
-  HOMEBANKING_ENDPOINT,
-  LOANS_ENDPOINT,
-  TRANSFERS_ENDPOINT,
-} from '@/utils/apiEndpoints'
+import { api } from '@/src/lib/api/client'
 import type { TAccountAlias } from '../types/alias'
 import type { TBranchOffice } from '../types/branchOffice'
 import type {
@@ -18,150 +10,111 @@ import type {
 import type { TLoan } from '../types/loan'
 import type { TTransferHistory } from '../types/transferHistory'
 import type { TUserSavedAlias } from '../types/userSavedAlias'
-import { getSessionToken } from './getSessionToken'
-import { isServerAlive } from './pingServer'
 
 export const getHomebankingData = cache(async (): Promise<HomeBankingData> => {
-  const token = await getSessionToken()
-  const res = await fetch(HOMEBANKING_ENDPOINT.toString(), {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-  })
+  const { data, error } = await api.GET('/api/homebanking/')
 
-  if (!res.ok) {
+  if (error || !data) {
     throw new Error('Failed to fetch homebanking data')
   }
 
-  return res.json()
+  return data as unknown as HomeBankingData
 })
 
 export const getBranchOffices = cache(
   async (): Promise<TBranchOffice[] | null> => {
-    if (await isServerAlive()) {
-      const res = await fetch(BRANCH_OFFICES_ENDPOINT.toString())
+    try {
+      const { data, error } = await api.GET('/api/itbank/branch-offices')
 
-      if (!res.ok) {
-        throw new Error('Failed to fetch branch offices data')
+      if (error || !data) {
+        return null
       }
 
-      return res.json()
+      return data as unknown as TBranchOffice[]
+    } catch {
+      return null
     }
-
-    return new Promise((resolve) => resolve(null))
   },
 )
 
 export const getCards = cache(async (): Promise<TCard[]> => {
-  const token = await getSessionToken()
-  const res = await fetch(CARDS_ENDPOINT.toString(), {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-  })
+  const { data, error } = await api.GET('/api/homebanking/cards/')
 
-  if (!res.ok) {
+  if (error || !data) {
     throw new Error('Failed to fetch cards data')
   }
 
-  return res.json()
+  return data as unknown as TCard[]
 })
 
 export const getAccounts = cache(async (): Promise<TUserBankAccount[]> => {
-  const token = await getSessionToken()
-  const res = await fetch(ACCOUNTS_ENDPOINT.toString(), {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-  })
+  const { data, error } = await api.GET('/api/homebanking/accounts/')
 
-  if (!res.ok) {
+  if (error || !data) {
     throw new Error('Failed to fetch accounts data')
   }
 
-  return res.json()
+  return data as unknown as TUserBankAccount[]
 })
 
 export const getAccountById = cache(
   async (accountId: string): Promise<TUserBankAccount> => {
-    const token = await getSessionToken()
-    const res = await fetch(
-      `${ACCOUNTS_ENDPOINT.toString()}/by/?acc_id=${accountId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
+    const { data, error } = await api.GET('/api/homebanking/accounts/by/', {
+      params: {
+        query: { acc_id: Number(accountId) },
       },
-    )
+    })
 
-    return res.json()
+    if (error || !data) {
+      throw new Error(`Failed to fetch account with id ${accountId}`)
+    }
+
+    return data as unknown as TUserBankAccount
   },
 )
 
 export const getAccountAliases = cache(async (): Promise<TAccountAlias[]> => {
-  const token = await getSessionToken()
-  const res = await fetch(`${ALIAS_ENDPOINT.toString()}/all`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-  })
+  const { data, error } = await api.GET('/api/homebanking/alias/all')
 
-  if (!res.ok) {
+  if (error || !data) {
     throw new Error('Failed to fetch account aliases')
   }
 
-  return res.json()
+  return data as unknown as TAccountAlias[]
 })
 
 export const getUserSavedAliases = cache(
   async (): Promise<TUserSavedAlias[]> => {
-    const token = await getSessionToken()
-    const res = await fetch(`${ALIAS_ENDPOINT.toString()}/save`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-    })
+    try {
+      const { data, error } = await api.GET('/api/homebanking/alias/save')
 
-    // TODO: Add "if (!res.ok)" check server error
+      if (error || !data) {
+        return []
+      }
 
-    return res.json()
+      return data as unknown as TUserSavedAlias[]
+    } catch {
+      return []
+    }
   },
 )
 
 export const getTransfers = cache(async (): Promise<TTransferHistory[]> => {
-  const token = await getSessionToken()
-  const res = await fetch(TRANSFERS_ENDPOINT.toString(), {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-  })
+  const { data, error } = await api.GET('/api/homebanking/transfers/')
 
-  if (!res.ok) {
+  if (error || !data) {
     throw new Error('Failed to fetch transfers data')
   }
 
-  return res.json()
+  return data as unknown as TTransferHistory[]
 })
 
 export const getLoans = cache(async (): Promise<TLoan[]> => {
-  const token = await getSessionToken()
-  const res = await fetch(LOANS_ENDPOINT.toString(), {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
-  })
+  const { data, error } = await api.GET('/api/homebanking/loans/')
 
-  if (!res.ok) {
+  if (error || !data) {
     throw new Error('Failed to fetch loans data')
   }
 
-  return res.json()
+  return data as unknown as TLoan[]
 })

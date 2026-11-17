@@ -1,11 +1,11 @@
-import { Table } from '@/src/components/table/Table'
-import MakeTransferForm from '@/src/components/transfers/makeTransferForm'
+import MakeTransferForm from '@/src/components/features/transfers/transfers/makeTransferForm'
+import { Table } from '@/src/components/shared/table/Table'
 import {
   getAccounts,
   getTransfers,
   getUserSavedAliases,
 } from '@/src/lib/dataFetch'
-import { transferHistoryTableHeader } from '@/utils/tableHeaders'
+import { transferHistoryTableHeader } from '@/src/utils/tableHeaders'
 
 export const metadata = {
   title: 'Transferencias - ITBANK',

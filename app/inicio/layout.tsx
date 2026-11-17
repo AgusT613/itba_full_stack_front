@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react'
-import AsideNav from '@/src/components/asideNav/AsideNav'
-import { homebankingLinks } from '@/utils/headerLinks'
+import AsideNav from '@/src/components/shared/asideNav/AsideNav'
+import { homebankingLinks } from '@/src/utils/headerLinks'
+
+export const dynamic = 'force-dynamic'
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (

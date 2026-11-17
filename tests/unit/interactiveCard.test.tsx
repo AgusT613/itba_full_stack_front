@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import InteractiveBankCard from '@/src/components/card/InteractiveBankCard'
-import AnimatedBalance from '@/src/components/currentMoney/AnimatedBalance'
+import AnimatedBalance from '@/src/components/features/accounts/currentMoney/AnimatedBalance'
+import InteractiveBankCard from '@/src/components/features/cards/card/InteractiveBankCard'
 
 describe('InteractiveBankCard component', () => {
   it('renders output notification when user has no cards', () => {

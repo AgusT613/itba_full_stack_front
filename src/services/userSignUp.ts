@@ -1,30 +1,41 @@
 'use server'
-import { REGISTER_USER_ENDPOINT } from '@/utils/apiEndpoints'
+import { api } from '@/src/lib/api/client'
 
 export default async function userSignUp(formData: FormData) {
-  const rawFormData = Object.fromEntries(formData)
-  const response = await fetch(REGISTER_USER_ENDPOINT, {
-    method: 'POST',
-    body: JSON.stringify({
-      username: rawFormData.username,
-      password: rawFormData.password,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
+  const username = formData.get('username') as string
+  const password = formData.get('password') as string
+  const email = (formData.get('email') as string) || null
+  const full_name = (formData.get('full_name') as string) || null
 
-  if (response.status !== 201) {
+  try {
+    const { data, response } = await api.POST('/api/auth/register', {
+      body: {
+        username,
+        password,
+        email,
+        full_name,
+      },
+    })
+
+    if (response.status !== 201 || !data) {
+      return {
+        message: `No se pudo crear el usuario. ${response.statusText}`,
+        success: false,
+        urlRedirection: null,
+      }
+    }
+
     return {
-      message: `No se pudo crear el usuario. ${response.statusText}`,
-      success: false,
+      message: 'Usuario creado, redirigiendo al homebanking',
+      success: true,
       urlRedirection: '/inicio',
     }
-  }
-
-  return {
-    message: 'Usuario creado, redirigiendo al homebanking',
-    success: true,
-    urlRedirection: '/inicio',
+  } catch {
+    return {
+      message:
+        'El servidor no está disponible. Por favor, inténtalo de nuevo más tarde.',
+      success: false,
+      urlRedirection: null,
+    }
   }
 }

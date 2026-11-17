@@ -1,4 +1,4 @@
-import DepositForm from '@/src/components/deposit/DepositForm'
+import DepositForm from '@/src/components/features/accounts/deposit/DepositForm'
 import { getAccountAliases } from '@/src/lib/dataFetch'
 
 export default async function Page() {

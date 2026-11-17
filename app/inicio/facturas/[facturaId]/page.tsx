@@ -1,5 +1,5 @@
-import NavigationTitle from '@/src/components/navigationTitle/NavigationTitle'
-import { USER } from '@/utils/userDataModel'
+import NavigationTitle from '@/src/components/shared/navigationTitle/NavigationTitle'
+import { USER } from '@/src/utils/userDataModel'
 
 export default async function Page(props: {
   params: Promise<{ facturaId: string }>

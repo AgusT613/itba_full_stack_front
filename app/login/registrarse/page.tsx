@@ -1,5 +1,5 @@
-import SignUpForm from '@/src/components/login/SignUpForm'
-import ToggleForm from '@/src/components/login/toggleForm/ToggleForm'
+import SignUpForm from '@/src/components/features/auth/login/SignUpForm'
+import ToggleForm from '@/src/components/features/auth/login/toggleForm/ToggleForm'
 
 export const metadata = {
   title: 'Registro de Usuario- ITBANK',

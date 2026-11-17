@@ -1,6 +1,6 @@
-import { Table } from '@/src/components/table/Table'
-import { transferHistoryTableHeader } from '@/utils/tableHeaders'
-import { USER } from '@/utils/userDataModel'
+import { Table } from '@/src/components/shared/table/Table'
+import { transferHistoryTableHeader } from '@/src/utils/tableHeaders'
+import { USER } from '@/src/utils/userDataModel'
 
 export const metadata = {
   title: 'Pagos - ITBANK',

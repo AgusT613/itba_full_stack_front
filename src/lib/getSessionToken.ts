@@ -1,11 +1,11 @@
 import { cookies } from 'next/headers'
 
 export async function getSessionToken(): Promise<string> {
-  const token = (await cookies()).get('session_token').value
+  const cookie = (await cookies()).get('session_token')
 
-  if (!token) {
+  if (!cookie?.value) {
     throw new Error('Session token not found')
   }
 
-  return token
+  return cookie.value
 }

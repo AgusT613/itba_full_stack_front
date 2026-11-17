@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { toFormatDateString } from '@/utils/toDate'
+import { toFormatDateString } from '@/src/utils/toDate'
 
 describe('toFormatDateString utility', () => {
   it('formats an ISO date string to es-AR locale format', () => {

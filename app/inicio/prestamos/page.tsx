@@ -1,7 +1,7 @@
-import LoanCalculator from '@/src/components/loanCalculator/LoanCalculator'
-import LoanRequestForm from '@/src/components/loanRequestForm/LoanRequestForm'
-import OtherLoans from '@/src/components/otherLoans/OtherLoans'
-import SectionDivider2 from '@/src/components/sectionDivider2/SectionDivider2'
+import LoanCalculator from '@/src/components/features/loans/loanCalculator/LoanCalculator'
+import LoanRequestForm from '@/src/components/features/loans/loanRequestForm/LoanRequestForm'
+import OtherLoans from '@/src/components/features/loans/otherLoans/OtherLoans'
+import SectionDivider2 from '@/src/components/shared/sectionDivider2/SectionDivider2'
 import { getAccounts, getBranchOffices, getLoans } from '@/src/lib/dataFetch'
 
 export default async function Page() {

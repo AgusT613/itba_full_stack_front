@@ -49,4 +49,18 @@ export const handlers = [
       new_balance: 150000 + body.amount,
     })
   }),
+
+  http.post('*/api/homebanking/deposit/', async ({ request }) => {
+    const body = (await request.json()) as { alias?: string; amount?: number }
+    if (!body.alias || !body.amount) {
+      return HttpResponse.json(
+        { detail: 'Campos requeridos faltantes' },
+        { status: 400 },
+      )
+    }
+    return HttpResponse.json({
+      message: 'Depósito procesado con éxito',
+      new_balance: 150000 + body.amount,
+    })
+  }),
 ]

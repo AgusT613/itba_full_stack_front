@@ -1,0 +1,24 @@
+'use client'
+
+import SectionDivider from '@/src/components/shared/sectionDivider/SectionDivider'
+import type { TCard } from '@/src/types/homebanking'
+import CarrouselWrapper from '../carrousel/CarrouselWrapper'
+
+export default function BankCards({ cards }: { cards: TCard[] }) {
+  if (cards.length === 0) {
+    return (
+      <p className='text-sm text-foreground/70 py-4'>
+        No tenés tarjetas asociadas a tu cuenta.
+      </p>
+    )
+  }
+
+  return (
+    <SectionDivider className='flex flex-col gap-4'>
+      <h3 className='text-lg font-semibold text-surface-foreground'>
+        Mis Tarjetas
+      </h3>
+      <CarrouselWrapper cardList={cards} />
+    </SectionDivider>
+  )
+}

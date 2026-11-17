@@ -1,4 +1,4 @@
-import AccountCard from '@/src/components/accountCard/AccountCard'
+import AccountCard from '@/src/components/features/accounts/accountCard/AccountCard'
 import { getAccounts } from '@/src/lib/dataFetch'
 
 export const metadata = {

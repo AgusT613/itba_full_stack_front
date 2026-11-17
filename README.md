@@ -15,6 +15,7 @@ Plataforma moderna de **Homebanking** desarrollada con **Next.js 16 (App Router)
   - [Prerrequisitos](#prerrequisitos)
   - [Variables de Entorno](#variables-de-entorno)
   - [Comandos Disponibles](#comandos-disponibles)
+  - [🐳 Despliegue con Docker](#-despliegue-con-docker)
 - [📂 Estructura del Proyecto](#-estructura-del-proyecto)
 
 ---
@@ -96,10 +97,11 @@ La plataforma cuenta con un portal público y un panel privado de homebanking pr
 
 ### Variables de Entorno
 
-Crear un archivo `.env` o `.env.local` en la raíz del proyecto:
+Crear un archivo `.env` o `.env.local` en la raíz del proyecto (basado en `.env.example`):
 
 ```env
-NEXT_PUBLIC_API_URL="http://0.0.0.0:8000"
+# URL del backend FastAPI para peticiones server-side (Server Components, Server Actions)
+API_URL="http://localhost:8000"
 ```
 
 ### Comandos Disponibles
@@ -151,22 +153,46 @@ NEXT_PUBLIC_API_URL="http://0.0.0.0:8000"
    npm run format      # Formateo de código
    ```
 
+8. **Regenerar tipos TypeScript desde la API de FastAPI**:
+   ```bash
+   npm run api:generate # Extrae el contrato OpenAPI y actualiza src/types/api.ts
+   ```
+
+### 🐳 Despliegue con Docker
+
+El proyecto incluye un `Dockerfile` multi-etapa optimizado con la salida `standalone` de Next.js para generar imágenes ligeras y seguras.
+
+1. **Construir la imagen de producción**:
+
+   ```bash
+   # Construcción estándar
+   docker build -t itbank-frontend .
+
+   # O especificando la URL del backend FastAPI
+   docker build --build-arg API_URL="http://localhost:8000" -t itbank-frontend .
+   ```
+
+2. **Ejecutar el contenedor de producción**:
+
+   ```bash
+   docker run -d -p 3000:3000 --name itbank_frontend -e API_URL="http://localhost:8000" itbank-frontend
+   ```
+
+3. **Ejecutar en modo desarrollo con Docker (hot-reloading)**:
+
+   ```bash
+   docker build --target dev -t itbank-frontend:dev .
+   docker run -p 3000:3000 -v $(pwd):/app -v /app/node_modules -v /app/.next itbank-frontend:dev
+   ```
+
 ---
 
 ## 📂 Estructura del Proyecto
 
 ```text
 itba_full_stack_front/
-├── actions/                     # Server Actions de React ('use server')
-│   ├── deleteLoanAction.ts       # Cancelación y baja de préstamos
-│   ├── depositToAccountAction.ts # Depósito y acreditación de saldo
-│   ├── makeTransferAction.ts     # Procesamiento de transferencias
-│   ├── requestLoanAction.ts      # Envío de solicitud de préstamo
-│   ├── saveAliasAction.ts        # Guardado de alias en agenda de contactos
-│   └── signOutAction.ts          # Cierre de sesión y eliminación de cookie
 ├── app/                          # App Router (Páginas, Rutas y Layouts)
 │   ├── globals.css               # Estilos globales y directivas de Tailwind CSS
-│   ├── normalize.css             # Reseteo CSS consistente
 │   ├── layout.tsx                # Root layout HTML
 │   ├── page.tsx                  # Landing page pública
 │   ├── login/                    # Grupo de rutas de autenticación
@@ -189,27 +215,30 @@ itba_full_stack_front/
 │   └── legal/                    # Secciones legales (términos, privacidad, FAQ)
 ├── public/                       # Assets estáticos (logos, imágenes, favicon)
 ├── src/
+│   ├── actions/                  # Server Actions de React ('use server')
+│   │   ├── deleteLoanAction.ts       # Cancelación y baja de préstamos
+│   │   ├── depositToAccountAction.ts # Depósito y acreditación de saldo
+│   │   ├── makeTransferAction.ts     # Procesamiento de transferencias
+│   │   ├── requestLoanAction.ts      # Envío de solicitud de préstamo
+│   │   ├── saveAliasAction.ts        # Guardado de alias en agenda de contactos
+│   │   └── signOutAction.ts          # Cierre de sesión y eliminación de cookie
 │   ├── components/               # Componentes de UI modulares
-│   │   ├── accountCard/          # Tarjetas de cuentas bancarias
-│   │   ├── accountMoney/         # Widget de saldo principal
-│   │   ├── activityRecord/       # Registro histórico de actividad
-│   │   ├── addAliasForm/         # Formulario de alias con Tailwind CSS
-│   │   ├── asideNav/             # Menú de navegación lateral
-│   │   ├── bankCards/ & card/    # Componentes de tarjetas de crédito/débito
-│   │   ├── currencyConverter/    # Widget interactivo de conversión de divisas
-│   │   ├── deposit/              # Formulario de depósito
-│   │   ├── footer/               # Pie de página con newsletter y sucursales
-│   │   ├── home/                 # Secciones del landing (Hero, BankActions, etc.)
-│   │   ├── loan/ & loanCalculator/# Componentes de préstamos y calculadora
-│   │   ├── login/                # Formularios de login y registro
-│   │   ├── table/                # Componente de tabla reutilizable
-│   │   ├── transfers/            # Formulario para emitir transferencias
-│   │   └── userProfile/          # Encabezado con información del perfil
+│   │   ├── ui/                   # Primitivas accesibles headless (AlertDialog, Select, Accordion)
+│   │   ├── shared/               # Widgets compartidos (AsideNav, Footer, Table, Theme, UserAction)
+│   │   └── features/             # Componentes específicos por dominio
+│   │       ├── accounts/         # AccountCard, AccountMoney, CurrentMoney, DepositForm
+│   │       ├── cards/            # InteractiveBankCard, BankCards, CarrouselWrapper
+│   │       ├── transfers/        # MakeTransferForm, AddAliasForm, ActivityRecord
+│   │       ├── loans/            # Loan, LoanCalculator, LoanRequestForm, OtherLoans
+│   │       ├── dashboard/        # CashFlowChart, UserProfile
+│   │       ├── currency/         # Conversor de divisas
+│   │       ├── home/             # Hero, BankActions, BankResources, AutoImagesCarrousel
+│   │       └── auth/             # LoginForm, SignInForm, SignUpForm
 │   ├── hooks/                    # Hooks personalizados (useCurrencyConverter, useCardCarrousel)
-│   ├── lib/                      # Lógica de datos (dataFetch, pingServer, getSessionToken)
+│   ├── lib/                      # Lógica de datos (dataFetch, getSessionToken, api)
 │   ├── services/                 # Llamadas de autenticación y servicios auxiliares
-│   └── types/                    # Definiciones TypeScript de entidades y dominio
-├── utils/                        # URLs de endpoints, formato de fechas y cabeceras
+│   ├── types/                    # Definiciones TypeScript de entidades y OpenAPI
+│   └── utils/                    # Formato de fechas, cabeceras y modelos de datos
 ├── tests/                        # Suite de pruebas automatizadas
 │   ├── e2e/                      # Pruebas End-to-End con Playwright
 │   ├── unit/                     # Pruebas unitarias y de componentes con Vitest
@@ -221,5 +250,7 @@ itba_full_stack_front/
 ├── next.config.js                # Configuración de Next.js y dominios de imágenes
 ├── tsconfig.json                 # Configuración de compilación de TypeScript
 ├── package.json                  # Definición de dependencias y scripts
-└── biome.json                    # Configuración de Biome (linter y formatter)
+├── biome.json                    # Configuración de Biome (linter y formatter)
+├── Dockerfile                    # Construcción multi-etapa optimizada (standalone)
+└── .dockerignore                 # Archivos excluidos del contexto Docker
 ```
