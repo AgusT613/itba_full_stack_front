@@ -85,13 +85,17 @@ export const getAccountAliases = cache(async (): Promise<TAccountAlias[]> => {
 
 export const getUserSavedAliases = cache(
   async (): Promise<TUserSavedAlias[]> => {
-    const { data, error } = await api.GET('/api/homebanking/alias/save')
+    try {
+      const { data, error } = await api.GET('/api/homebanking/alias/save')
 
-    if (error || !data) {
-      throw new Error('Failed to fetch user saved aliases')
+      if (error || !data) {
+        return []
+      }
+
+      return data as unknown as TUserSavedAlias[]
+    } catch {
+      return []
     }
-
-    return data as unknown as TUserSavedAlias[]
   },
 )
 
