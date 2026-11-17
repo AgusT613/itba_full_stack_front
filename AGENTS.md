@@ -41,7 +41,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 | **Images**               | Sharp 0.35.5 & `next/image`            | Optimized remote images from `randomuser.me`                                     |
 | **Routing Guard**        | Next.js `proxy.ts`                     | Modern Next.js file convention for proxying and routing control                  |
 | **Linting & Formatting** | Biome 2.6 (`biome.json`)               | High-performance Rust-based linter, formatter and import organizer               |
-| **Backend Integration**  | FastAPI Backend                        | Communicates via REST over `NEXT_API_URL` (default `http://0.0.0.0:8000`) |
+| **Backend Integration**  | FastAPI Backend                        | Communicates via REST over `API_URL` (default `http://localhost:8000`) |
 
 ---
 
@@ -271,7 +271,7 @@ npm run api:generate
 
 # Docker build and run
 docker build -t itbank-frontend .
-docker run -p 3000:3000 -e NEXT_API_URL="http://localhost:8000" itbank-frontend
+docker run -p 3000:3000 -e API_URL="http://localhost:8000" itbank-frontend
 ```
 
 ### Coding Rules:

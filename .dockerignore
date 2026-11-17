@@ -10,7 +10,10 @@ blob-report
 .idea
 .vscode
 *.md
+docs
 .env*.local
+*.tsbuildinfo
+.cache
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

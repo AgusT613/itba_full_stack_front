@@ -169,13 +169,13 @@ El proyecto incluye un `Dockerfile` multi-etapa optimizado con la salida `standa
    docker build -t itbank-frontend .
 
    # O especificando la URL del backend FastAPI
-   docker build --build-arg NEXT_API_URL="http://localhost:8000" -t itbank-frontend .
+   docker build --build-arg API_URL="http://localhost:8000" -t itbank-frontend .
    ```
 
 2. **Ejecutar el contenedor de producción**:
 
    ```bash
-   docker run -d -p 3000:3000 --name itbank_frontend -e NEXT_API_URL="http://localhost:8000" itbank-frontend
+   docker run -d -p 3000:3000 --name itbank_frontend -e API_URL="http://localhost:8000" itbank-frontend
    ```
 
 3. **Ejecutar en modo desarrollo con Docker (hot-reloading)**:
