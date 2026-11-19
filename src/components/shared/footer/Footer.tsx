@@ -24,14 +24,9 @@ export default function Footer() {
         </p>
       </article>
 
-      <FooterInfoContainer
-        title='Contactanos'
-        description='De Lunes a Viernes de 8 a 20hs'
-      >
-        <Suspense fallback={<BranchOfficesSkeleton />}>
-          <BranchOffices />
-        </Suspense>
-      </FooterInfoContainer>
+      <Suspense fallback={<BranchOfficesSkeleton />}>
+        <BranchOffices />
+      </Suspense>
 
       <div className='grid grid-cols-1 md:grid-cols-2 gap-8 pt-4'>
         <FooterInfoContainer
