@@ -1,10 +1,12 @@
-import type { TBranchOffice } from '@/src/types/branchOffice'
+import { getBranchOffices } from '@/src/lib/dataFetch'
 
-export default async function BranchOffices({
-  branchOfficesList,
-}: {
-  branchOfficesList: TBranchOffice[]
-}) {
+export default async function BranchOffices() {
+  const branchOfficesList = await getBranchOffices()
+
+  if (!branchOfficesList || branchOfficesList.length === 0) {
+    return null
+  }
+
   return (
     <ul className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
       {branchOfficesList.map((contact) => (

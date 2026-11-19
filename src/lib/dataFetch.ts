@@ -24,7 +24,10 @@ export const getHomebankingData = cache(async (): Promise<HomeBankingData> => {
 export const getBranchOffices = cache(
   async (): Promise<TBranchOffice[] | null> => {
     try {
-      const { data, error } = await api.GET('/api/itbank/branch-offices')
+      const { data, error } = await api.GET('/api/itbank/branch-offices', {
+        signal: AbortSignal.timeout(3500),
+        next: { revalidate: 3600 },
+      })
 
       if (error || !data) {
         return null

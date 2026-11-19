@@ -1,13 +1,12 @@
 import Link from 'next/link'
+import { Suspense } from 'react'
 import { ThemeToggle } from '@/src/components/shared/theme/ThemeToggle'
-import { getBranchOffices } from '@/src/lib/dataFetch'
 import BranchOffices from './branchOffices/BranchOffices'
+import BranchOfficesSkeleton from './branchOffices/BranchOfficesSkeleton'
 import FooterInfoContainer from './footerInfoContainer/FooterInfoContainer'
 import NewsletterForm from './newsletterForm/NewsletterForm'
 
-export default async function Footer() {
-  const branchOffices = await getBranchOffices()
-
+export default function Footer() {
   return (
     <footer
       id='footer'
@@ -25,14 +24,14 @@ export default async function Footer() {
         </p>
       </article>
 
-      {branchOffices?.length > 0 && (
-        <FooterInfoContainer
-          title='Contactanos'
-          description='De Lunes a Viernes de 8 a 20hs'
-        >
-          <BranchOffices branchOfficesList={branchOffices} />
-        </FooterInfoContainer>
-      )}
+      <FooterInfoContainer
+        title='Contactanos'
+        description='De Lunes a Viernes de 8 a 20hs'
+      >
+        <Suspense fallback={<BranchOfficesSkeleton />}>
+          <BranchOffices />
+        </Suspense>
+      </FooterInfoContainer>
 
       <div className='grid grid-cols-1 md:grid-cols-2 gap-8 pt-4'>
         <FooterInfoContainer
